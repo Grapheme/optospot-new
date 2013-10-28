@@ -1,0 +1,11 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title><?=$title;?></title>
+<meta name="description" content="<?=$description;?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="<?=baseURL('favicon.png');?>">
+<link rel="stylesheet" href="<?=baseURL('css/normalize.css');?>">
+<link rel="stylesheet" href="<?=baseURL('css/main.css');?>">
+<link rel="stylesheet" href="<?=baseURL('css/selectify.css');?>">
+<link rel="stylesheet" href="<?=baseURL('css/tooltip.css');?>" />
+<script src="<?=baseURL('js/vendor/modernizr-2.6.2.min.js');?>"></script>
