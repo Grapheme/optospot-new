@@ -35,7 +35,7 @@
 						<p class="circle-number">3</p>
 						<p class="circle-line"></p>
 						<h2 class="circle-title"><?=$this->localization->getLocalMessage('index','circle_step3_1')?></h2>
-						<p class="circle-description normal-text"><?=$this->localization->getLocalMessage('index','circle_step3_1')?></p>
+						<p class="circle-description normal-text"><?=$this->localization->getLocalMessage('index','circle_step3_2')?></p>
 					</div>
 				</div>
 			</div>
@@ -45,42 +45,42 @@
 		<div class="container_12">
 			<div class="grid_8" id="screen-1">
 				<div class="begin-list">
-					<img src="<?=baseURL('img/red-1.png');?>"><p><?=$this->localization->getLocalMessage('index','screen1_1')?></p>
+					<img src="<?=baseURL('img/red-1.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen1_1'));?></p>
 				</div>
 				<div class="begin-list">
-					<img src="<?=baseURL('img/red-2.png');?>"><p><?=$this->localization->getLocalMessage('index','screen1_2')?></p>
+					<img src="<?=baseURL('img/red-2.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen1_2'));?></p>
 				</div>
 				<div class="begin-list">
-					<img src="<?=baseURL('img/red-3.png');?>"><p><?=$this->localization->getLocalMessage('index','screen1_3')?></p>
+					<img src="<?=baseURL('img/red-3.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen1_3'));?></p>
 				</div>
 			</div>
 			<div class="grid_8" id="screen-2">
 				<div class="begin-list">
-					<img src="<?=baseURL('img/red-1.png');?>"><p><?=$this->localization->getLocalMessage('index','screen2_1')?></p>
+					<img src="<?=baseURL('img/red-1.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen2_1'));?></p>
 				</div>
 				<div class="begin-list">
-					<img src="<?=baseURL('img/red-2.png');?>"><p><?=$this->localization->getLocalMessage('index','screen2_2')?></p>
+					<img src="<?=baseURL('img/red-2.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen2_2'));?></p>
 				</div>
 				<div class="begin-list">
-					<img src="<?=baseURL('img/red-3.png');?>"><p><?=$this->localization->getLocalMessage('index','screen2_3')?></p>
+					<img src="<?=baseURL('img/red-3.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen2_3'));?></p>
 				</div>
 			</div>
 			<div class="grid_8" id="screen-3">
-				<div class="begin-list">
-					<img src="<?=baseURL('img/red-1.png');?>"><p><?=$this->localization->getLocalMessage('index','screen3_1')?></p>
+				<!--<div class="begin-list">
+					<img src="<?=baseURL('img/red-1.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen3_1'));?></p>
 				</div>
 				<div class="begin-list">
-					<img src="<?=baseURL('img/red-2.png');?>"><p><?=$this->localization->getLocalMessage('index','screen3_2')?></p>
+					<img src="<?=baseURL('img/red-2.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen3_2'));?></p>
 				</div>
 				<div class="begin-list">
-					<img src="<?=baseURL('img/red-3.png');?>"><p><?=$this->localization->getLocalMessage('index','screen3_3')?></p>
-				</div>
+					<img src="<?=baseURL('img/red-3.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen3_3'));?></p>
+				</div>-->
 			</div>
 			<?php $this->load->view("users_interface/modal/begin-trade");?>
 			<div class="control">
 				<a class="control-line active" id="control-1"></a>
 				<a class="control-line" id="control-2"></a>
-				<a class="control-line" id="control-3"></a>
+				<!--<a class="control-line" id="control-3"></a>-->
 			</div>
 		</div>
 	</div>
