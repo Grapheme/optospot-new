@@ -504,6 +504,10 @@ select.begin-input {
 	margin: 0 20px;
 }
 
+.selectify div {
+	margin: 0;
+}
+
 .money-in-container {
 	overflow: hidden;
 	margin-top: 30px;
@@ -534,6 +538,10 @@ select.begin-input {
 	background: #eac51b;
 	font-size: 0.8em;
 	font-weight: 700;
+}
+
+.blue-color {
+	background: #72acee;
 }
 
 .money-color span {
