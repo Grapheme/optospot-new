@@ -5,6 +5,7 @@
 			'title_form' => 'Start trading',
 			'fname' => 'First name',
 			'lname' => 'Last name',
+			'phone' => 'Phone',
 			'email' => 'E-mail',
 			'country' => 'Country',
 			'open_account' => 'Open account'

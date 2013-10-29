@@ -44,7 +44,7 @@ class Ajax_interface extends MY_Controller{
 		if($this->postDataValidation('signup') == TRUE):
 			if($this->accounts->search('email',$this->input->post('email')) === FALSE):
 				if($resultData = $this->sendResisterData($this->input->post())):
-					$mailtext = $this->load->view('mails/signup',array('account'=>$registerData,'reg_data'=>$resultData),TRUE);
+					$mailtext = $this->load->view('mails/signup',array('account'=>$resultData['accountID'],'reg_data'=>$resultData),TRUE);
 					$this->sendMail($registerData['email'],'robot@sysfx.com','Optospot trading platform','Welcome to Optospot.net',$mailtext);
 					$this->setLoginSession($resultData['accountID']);
 					$this->config->set_item('base_url',$this->baseURL.$this->uri->segment(1).'/');
@@ -159,9 +159,12 @@ class Ajax_interface extends MY_Controller{
 	
 	private function ExecuteCreatingAccount($registerData = NULL){
 		
-		$demo = 1;
-		if($registerData['mode'] == 2):
-			$demo = 0;
+		$demo = 0;
+		if($registerData['mode'] == 'demo'):
+			$demo = 1;
+		endif;
+		if(!isset($registerData['coach'])):
+			$registerData['coach'] = 1;
 		endif;
 		$this->load->library('encrypt');
 		$account = array("remote_id"=>$registerData['remote_id'],'demo'=>$demo,'first_name'=>$registerData['fname'],'last_name'=>$registerData['lname'],

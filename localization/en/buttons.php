@@ -18,6 +18,7 @@
 			'by_register' => 'Sign up',
 			'by_register_text' => 'In your demo account credited with $ 1,000. You can start trading right now or open a pro-account and your earnings become real.',
 			'begin_trading' => 'Start trading',
+			'active_submit_real' => 'Регистрация REAL ACCOUNT'
 		),
 		'signin' => array(
 			'login' => 'Log in',

@@ -6,6 +6,7 @@
 			'fname' => 'Имя',
 			'lname' => 'Фамилия',
 			'email' => 'E-mail',
+			'phone' => 'Телефон',
 			'country' => 'Страна',
 			'open_account' => 'Открыть счет'
 		),

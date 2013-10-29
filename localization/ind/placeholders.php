@@ -5,6 +5,7 @@
 		'signup' => array(
 			'title_form' => 'Start trading',
 			'fname' => 'Nama depan',
+			'phone' => 'Phone',
 			'lname' => 'Nama keluarga',
 			'email' => 'E-mail',
 			'country' => 'Country',
