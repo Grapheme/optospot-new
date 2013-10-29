@@ -504,6 +504,10 @@ select.begin-input {
 	margin: 0 20px;
 }
 
+.selectify div {
+	margin: 0;
+}
+
 .money-in-container {
 	overflow: hidden;
 	margin-top: 30px;
