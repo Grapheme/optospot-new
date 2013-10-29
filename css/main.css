@@ -299,7 +299,9 @@ ul {
 .begin-container {
 	z-index: 2;
 	margin-top: -60px;
-	background: url('../img/back.png') center center;
+	background-image: url('../img/back.png');
+	background-repeat: no-repeat;
+	background-position: center center;
 	background-size: cover;
 	overflow: hidden;
 	width: 100%;
