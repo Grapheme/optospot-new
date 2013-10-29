@@ -20,7 +20,7 @@ $(function() {
 	$('#screen-3').css('display', 'none');
 	
 	$("select").selectify({maxItems:3});
-	$(".option").click(function(){
+	$(".lang-div .option").click(function(){
 		$("#ChangeLang").change();
 	});
 	
