@@ -157,9 +157,10 @@ h2 {
 	text-transform: uppercase;
 }
 
-button {
+button, a.green-button {
 	font-family: 'Conv_HelveticaNeueCyr-Roman', sans-serif;
 	font-size: 13px;
+	text-decoration: none;
 }
 
 .normal-text {
@@ -247,6 +248,14 @@ ul {
 
 .top-div li {
 	float: left;
+}
+
+.popup .begin-title {
+	margin-top: 30px;
+}
+
+.menu-left {
+	width: 515px;
 }
 
 .menu-right {

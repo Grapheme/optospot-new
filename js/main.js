@@ -19,7 +19,11 @@ $(function() {
 	$('#screen-2').css('display', 'none');
 	$('#screen-3').css('display', 'none');
 	
-	$("select.selectify").selectify({maxItems:3});
+	$("select").selectify({maxItems:3});
+	$(".lang-div .option").click(function(){
+		$("#ChangeLang").change();
+	});
+	
 });
 
 function login() {
