@@ -126,14 +126,14 @@
 						</div>
 					</div>
 					<div class="money-right-list">
-						<img src="<?=baseURL('img/red-1.png');?>">
+						<img src="<?=baseURL('img/red-2.png');?>">
 						<div>
 							<h2><?=$this->localization->getLocalMessage('index','money_right2_1');?></h2>
 							<p class="normal-text"><?=$this->localization->getLocalMessage('index','money_right2_1');?></p>
 						</div>
 					</div>
 					<div class="money-right-list">
-						<img src="<?=baseURL('img/red-1.png');?>">
+						<img src="<?=baseURL('img/red-3.png');?>">
 						<div>
 							<h2><?=$this->localization->getLocalMessage('index','money_right3_1');?></h2>
 							<p class="normal-text"><?=$this->localization->getLocalMessage('index','money_right3_1');?></p>
