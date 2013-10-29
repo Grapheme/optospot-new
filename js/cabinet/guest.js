@@ -32,9 +32,11 @@ $(function(){
 		$(".div-forgot").removeClass('hidden');
 	})
 	
-	
-	
-	$(".btn-forgot-submit").click(function(){
-		
-	})
+	$$(".btn-forgot-submit").click(function(event){
+		event.preventDefault();
+		var _form = $(this).parents('form');
+		if(validationForgot(_form) == true){
+			$(_form).formSubmitInServer();
+		}
+	});
 });
