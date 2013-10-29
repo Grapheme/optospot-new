@@ -540,6 +540,20 @@ select.begin-input {
 	font-weight: 700;
 }
 
+#trade-wrapper {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #EEEEEE;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 0 7px #E0E0E0;
+    display: block;
+    height: 600px;
+    margin: 0 2%;
+    overflow: hidden;
+    padding: 5px;
+    width: 96%;
+    margin-top: 30px;
+}
+
 .blue-color {
 	background: #72acee;
 }
