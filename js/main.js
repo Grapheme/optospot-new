@@ -256,7 +256,7 @@ $('button.signup-submit').click(function(event){
 	event.preventDefault();
 	var _form = $(this).parents('form');
 	if(validationTop(_form) == true){
-		$(_form).formSubmitInServer();
+		$(_form).formSubmitNoValid();
 	}
 });
 
@@ -303,6 +303,9 @@ $('#button-1').click(function(event) {
 
 $('#enter').click(function(event){
 	event.preventDefault();
+	$(".msg-alert").remove();
+	$(".div-signin").removeClass('hidden');
+	$(".div-forgot").addClass('hidden');
 	login();
 });
 

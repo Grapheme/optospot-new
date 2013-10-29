@@ -32,7 +32,7 @@
 					<?=$content;?>
 				</div>
 			</div>
-			<?php $this->load->view("users_interface/includes/rss");?>
+			<?php $this->load->view("users_interface/includes/rss",array('inline'=>FALSE));?>
 		</div>
 	</div>
 	<div class="clear"></div>

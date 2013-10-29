@@ -111,7 +111,7 @@
 		<div class="container_12">
 			<div class="money-in-container">
 				<div class="grid_12">
-					<?php $this->load->view("users_interface/includes/rss");?>
+					<?php $this->load->view("users_interface/includes/rss",array('inline'=>TRUE));?>
 				</div>
 				<div class="grid_9">
 					<?php $this->load->view("users_interface/includes/ticker");?>

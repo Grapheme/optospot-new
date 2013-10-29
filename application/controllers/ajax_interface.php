@@ -93,7 +93,7 @@ class Ajax_interface extends MY_Controller{
 		if(!$this->input->is_ajax_request()):
 			show_error('В доступе отказано');
 		endif;
-		$json_request = array('status'=>FALSE,'responseText'=>'');
+		$json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>FALSE);
 		if($this->postDataValidation('forgot') == TRUE):
 			if($account = $this->accounts->getWhere(NULL,array('email'=>$_POST['email']))):
 				$mailtext = $this->load->view('mails/forgot',$account,TRUE);
