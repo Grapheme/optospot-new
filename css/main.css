@@ -299,6 +299,7 @@ ul {
 .begin-container {
 	z-index: 2;
 	margin-top: -60px;
+	background-color: #000;
 	background-image: url('../img/back.png');
 	background-repeat: no-repeat;
 	background-position: center center;
