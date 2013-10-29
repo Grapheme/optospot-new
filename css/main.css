@@ -296,6 +296,15 @@ ul {
 	position: relative;
 }
 
+.screen-text {
+	font-weight: 700;
+	width: 350px;
+	font-size: 48px;
+	line-height: 50px;
+	color: #fff;
+	text-transform: uppercase;
+}
+
 .begin-container {
 	z-index: 2;
 	margin-top: -60px;
@@ -507,7 +516,11 @@ select.begin-input {
 	margin: 0 20px;
 }
 
-.selectify div {
+.money-div .selectify div {
+	margin: 0;
+}
+
+.money-div .selectify {
 	margin: 0;
 }
 
@@ -518,6 +531,7 @@ select.begin-input {
 }
 
 .money-select-div {
+	width: 125px;
 	margin-top: 87px !important;
 }
 

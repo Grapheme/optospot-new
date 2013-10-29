@@ -55,15 +55,7 @@
 				</div>
 			</div>
 			<div class="grid_8" id="screen-2">
-				<div class="begin-list">
-					<img src="<?=baseURL('img/red-1.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen2_1'));?></p>
-				</div>
-				<div class="begin-list">
-					<img src="<?=baseURL('img/red-2.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen2_2'));?></p>
-				</div>
-				<div class="begin-list">
-					<img src="<?=baseURL('img/red-3.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen2_3'));?></p>
-				</div>
+				<p class="screen-text">Открой счет сегодня</p>
 			</div>
 			<div class="grid_8" id="screen-3">
 				<!--<div class="begin-list">
