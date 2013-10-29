@@ -540,6 +540,10 @@ select.begin-input {
 	font-weight: 700;
 }
 
+.blue-color {
+	background: #72acee;
+}
+
 .money-color span {
 	font-size: 2em;
 	font-weight: 700;
