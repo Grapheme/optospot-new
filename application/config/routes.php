@@ -3,6 +3,8 @@
 $route['default_controller'] = "users_interface";
 $route['404_override'] = '';
 
+$route['redactor/upload'] = "users_interface/redactorUploadImage";
+$route['redactor/get-uploaded-images'] = "users_interface/redactorUploadedImages";
 $route['get-signup-accounts(\/:num)*?'] = "users_interface/getSignupAccount";
 /************************************************** CLIENT INTRERFACE ***********************************************/
 $route[':any/cabinet/balance'] = "clients_interface/balance";

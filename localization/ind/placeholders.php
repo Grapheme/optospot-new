@@ -19,6 +19,7 @@
 			'login_reg' => 'Sign up'
 		),
 		'forgot' => array(
+			'title_form' => 'Forgot password',
 			'email' => 'Anda email',
 		),
 		

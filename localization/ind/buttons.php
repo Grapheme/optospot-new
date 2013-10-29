@@ -22,6 +22,7 @@
 		'signin' => array(
 			'login' => 'Masuk',
 			'forgot' => 'Lupa kata sandi?',
+			'forgot_submit' => 'Continue',
 		),
 		'user_block' => array(
 			'hello' => 'Halo',

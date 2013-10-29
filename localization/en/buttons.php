@@ -22,6 +22,7 @@
 		'signin' => array(
 			'login' => 'Log in',
 			'forgot' => 'Forgot password?',
+			'forgot_submit' => 'Continue'
 		),
 		'user_block' => array(
 			'hello' => 'Hello',

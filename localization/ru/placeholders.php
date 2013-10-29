@@ -18,6 +18,7 @@
 			'login_reg' => 'Регистрация'
 		),
 		'forgot' => array(
+			'title_form' => 'Восстановление пароля',
 			'email' => 'Ваш email',
 		),
 		

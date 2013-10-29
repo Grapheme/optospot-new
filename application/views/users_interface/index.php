@@ -111,14 +111,7 @@
 		<div class="container_12">
 			<div class="money-in-container">
 				<div class="grid_12">
-					<div class="rbk-line">
-						<img src="<?=baseURL('img/rbk.png" class="rbk-img');?>">
-						<div class="rbk-move normal-text">
-							<a href="#" class="move-news-item normal-text">Дмитрий Панкин предподнес прощальный подарок финансистам</a>	
-							<img src="<?=baseURL('img/news-dot.png');?>">
-							<a href="#" class="move-news-item normal-text">Дмитрий Панкин предподнес прощальный подарок финансистам</a>
-						</div>
-					</div>
+					<?php $this->load->view("users_interface/includes/rss");?>
 				</div>
 				<div class="grid_9">
 					<?php $this->load->view("users_interface/includes/ticker");?>
