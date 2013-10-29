@@ -234,6 +234,7 @@ $('.control-line#control-2').click(function(event){
 	$('#control-3').removeClass('active');
 	$('#control-1').removeClass('active');
 	$('#control-2').addClass('active');
+	$('.begin-container').css('background', 'url(../img/slide2.jpg)');
 });
 
 $('.control-line#control-1').click(function(event){
@@ -244,6 +245,7 @@ $('.control-line#control-1').click(function(event){
 	$('#control-3').removeClass('active');
 	$('#control-2').removeClass('active');
 	$('#control-1').addClass('active');
+	$('.begin-container').css('background', 'url(../img/back.png)');
 });
 
 $('.control-line#control-3').click(function(event){
