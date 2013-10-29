@@ -6,8 +6,18 @@
 			'coach' => "I'd like to speak with a trading coach",
 			'active_submit' => 'Open account',
 			'inactive_submit' => 'Not active',
+			'type_account' => 'Type account',
 			'real_account' => 'REAL ACCOUNT',
-			'demo_account' => 'DEMO ACCOUNT'
+			'demo_account' => 'DEMO ACCOUNT',
+			'form_title' => 'Registering',
+			'next' => 'Next',
+			'fill' => 'Fill',
+			'choice_type_account' => 'Select type of account',
+			'demo_account_text' => 'Start trading without risks',
+			'real_account_text' => 'The minimum deposit is only $ 5',
+			'by_register' => 'Sign up',
+			'by_register_text' => 'In your demo account credited with $ 1,000. You can start trading right now or open a pro-account and your earnings become real.',
+			'begin_trading' => 'Start trading',
 		),
 		'signin' => array(
 			'login' => 'Log in',
@@ -21,6 +31,7 @@
 		),
 		'copyright' => array(
 			'copy' => '2012-2013 OptoSpot. All Rights Reserved',
+			'development' => 'Developed agency "Grapheme"'
 		),
 		'client_cabinet' => array(
 			'page_name' => 'Account information',

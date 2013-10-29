@@ -40,43 +40,43 @@ function cssErrorRm(item) {
 	$(item).css({'background' : '#ffffff'});
 }
 
-function validationTop() {
+function validationTop(_form) {
 	var error = 0;
-	if($('#top-form #name').val().length < 3) {
-		cssError('#top-form #name');
+	if($(_form).find('.input-fname').val().length < 3) {
+		cssError($(_form).find('.input-fname'));
 		error++;
-	} else {
-		cssErrorRm('#top-form #name');
+	}else{
+		cssErrorRm($(_form).find('.input-fname'));
 	}
-	if($('#top-form #lastname').val().length < 3) {
-		cssError('#top-form #lastname');
+	if($(_form).find('.input-lname').val().length < 3) {
+		cssError($(_form).find('.input-lname'));
 		error++;
 	} else {
-		cssErrorRm('#top-form #lastname');
+		cssErrorRm($(_form).find('.input-lname'));
 	}
-	if($('#top-form #email').val() != '') {
-        var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
-        if(pattern.test($('#top-form #email').val())){
-            cssErrorRm('#top-form #email');
-        } else {
-        	error++;
-            cssError('#top-form #email');
-        }
-    } else {
-    	error++;
-        cssError('#top-form #email');
-    }
-    if($('#top-form #country').val() == '0') {
-		cssError('#top-form #country-div .selectify .header');
-		error++;
+	if($(_form).find('.input-email').val() != '') {
+		var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+		if(pattern.test($(_form).find('.input-email').val())){
+			cssErrorRm($(_form).find('.input-email'));
+		}else{
+			error++;
+			cssError($(_form).find('.input-email'));
+		}
 	} else {
-		cssErrorRm('#top-form #country-div .selectify .header');
+		error++;
+		cssError($(_form).find('.input-email'));
 	}
-	if($('#top-form #account').val() == '0') {
-		cssError('#top-form #account-div .selectify .header');
+	if($(_form).find('.input-country').val() == '0') {
+		cssError($(_form).find('.country-div .selectify .header'));
 		error++;
 	} else {
-		cssErrorRm('#top-form #account-div .selectify .header');
+		cssErrorRm($(_form).find('.country-div .selectify .header'));
+	}
+	if($(_form).find('.input-account').val() == '0'){
+		cssError($(_form).find('.account-div .selectify .header'));
+		error++;
+	} else {
+		cssErrorRm($(_form).find('.account-div .selectify .header'));
 	}
 	if(error == 0){
 		return true;
@@ -128,7 +128,7 @@ function validationReg() {
 	}
 }
 
-function validationOne() {
+function validationOne(next) {
 	var error = 0;
 	if($('#name').val().length < 3) {
 		cssError('#name');
@@ -161,20 +161,30 @@ function validationOne() {
 		cssErrorRm('#country-div .selectify .header');
 	}
 	if(error == 0) {
-		$('#reg-1').addClass('reg-hidden');
-		$('#reg-2').removeClass('reg-hidden');
-		$('#reg-1 .reg-block-hidden').removeClass('hidden');
-		$('#reg-2 .reg-block-hidden').addClass('hidden');
-		$('.acc-radio').prop('checked', false);
+		if(next == true){
+			$('#reg-1').addClass('reg-hidden');
+			$('#reg-2').removeClass('reg-hidden');
+			$('#reg-1 .reg-block-hidden').removeClass('hidden');
+			$('#reg-2 .reg-block-hidden').addClass('hidden');
+			$('.acc-radio').prop('checked', false);	
+		}
+		return true;
+	}else{
+		return false;
 	}
 }
 
-function validationTwo() {
+function validationTwo(next) {
 	if($('.acc-radio').is(':checked')) {
-		$('#reg-2').addClass('reg-hidden');
-		$('#reg-3').removeClass('reg-hidden');
-		$('#reg-2 .reg-block-hidden').removeClass('hidden');
-		$('#reg-3 .reg-block-hidden').addClass('hidden');
+		if(next == true){
+			$('#reg-2').addClass('reg-hidden');
+			$('#reg-3').removeClass('reg-hidden');
+			$('#reg-2 .reg-block-hidden').removeClass('hidden');
+			$('#reg-3 .reg-block-hidden').addClass('hidden');
+		}
+		return true;
+	}else{
+		return false;
 	}
 }
 
@@ -244,9 +254,17 @@ $('.control-line#control-3').click(function(event){
 
 $('button.signup-submit').click(function(event){
 	event.preventDefault();
-	if(validationTop() == true){
-		var _form = $(this).parents('form');
+	var _form = $(this).parents('form');
+	if(validationTop(_form) == true){
 		$(_form).formSubmitInServer();
+	}
+});
+
+$('button.steps-signup-submit').click(function(event){
+	event.preventDefault();
+	if(validationOne(false) && validationTwo(false)){
+		var _form = $(this).parents('form');
+		$(_form).formSubmitNoValid();
 	}
 });
 
@@ -265,7 +283,7 @@ $('#auth-enter').click(function(event){
 
 $('#button-2').click(function(event){
 	event.preventDefault();
-	validationTwo();
+	validationTwo(true);
 });
 
 $('.score.green').click(function(event){
@@ -280,7 +298,7 @@ $('.score.blue').click(function(event){
 
 $('#button-1').click(function(event) {
 	event.preventDefault();
-	validationOne();
+	validationOne(true);
 });
 
 $('#enter').click(function(event){

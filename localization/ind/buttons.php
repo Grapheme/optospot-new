@@ -6,8 +6,18 @@
 			'coach' => "Berbicara dengan pelatih perdagangan",
 			'active_submit' => 'Buka akun',
 			'inactive_submit' => 'Tidak aktif',
+			'type_account' => 'Type account',
 			'real_account' => 'NYATA ACCOUNT',
-			'demo_account' => 'ACCOUNT DEMO'
+			'demo_account' => 'ACCOUNT DEMO',
+			'form_title' => 'Registering',
+			'next' => 'Next',
+			'fill' => 'Fill',
+			'choice_type_account' => 'Select type of account',
+			'demo_account_text' => 'Start trading without risks',
+			'real_account_text' => 'The minimum deposit is only $ 5',
+			'by_register' => 'Sign up',
+			'by_register_text' => 'In your demo account credited with $ 1,000. You can start trading right now or open a pro-account and your earnings become real.',
+			'begin_trading' => 'Start trading',
 		),
 		'signin' => array(
 			'login' => 'Masuk',
@@ -21,6 +31,7 @@
 		),
 		'copyright' => array(
 			'copy' => '2012-2013 OptoSpot. All Rights Reserved',
+			'development' => 'Developed agency "Grapheme"'
 		),
 		'client_cabinet' => array(
 			'page_name' => 'Informasi akun',

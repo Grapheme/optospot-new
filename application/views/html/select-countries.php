@@ -1,4 +1,4 @@
-<select class="begin-input" name="country" id="country">
+<select class="begin-input input-country" name="country" id="country">
 	<option value="0"><?=$this->localization->getLocalPlaceholder('signup','country')?></option>
 	<option title="+93" value="Afghanistan">Afghanistan</option>
 	<option title="+355" value="Albania">Albania</option>

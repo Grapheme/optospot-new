@@ -170,6 +170,26 @@ $.fn.formSubmitInServer = function(){
 	}
 	setTimeout(function(){$(_form).ajaxSubmit(options);},500);
 }
+$.fn.formSubmitNoValid = function(){
+	var _form = this;
+	var options = {
+		target: null,dataType:'json',type:'post',
+		beforeSubmit: function(formData,jqForm,options){return true},
+		success: function(response,status,xhr,jqForm){
+			if(response.status == true){
+				if(response.responseText != ''){
+					$(_form).find("div.div-form-operation").after('<div class="msg-alert">'+response.responseText+'</div>');
+				}
+				if(response.redirect !== false){
+					mt.redirect(response.redirect);
+				}
+			}else{
+				$(_form).find("div.div-form-operation").after('<div class="msg-alert error">'+response.responseText+'</div>');
+			}
+		}
+	}
+	$(_form).ajaxSubmit(options);
+}
 
 $.fn.exists = function(){
 	if($(this).length > 0){

@@ -51,7 +51,7 @@ class Ajax_interface extends MY_Controller{
 					$json_request['redirect'] = site_url(USER_START_PAGE);
 					$json_request['status'] = TRUE;
 				else:
-					$json_request['responseText'] = $this->localization->getLocalMessage('signup','failure');
+					$json_request['responseText'] = $this->localization->getLocalMessage('signup','server_failure');
 				endif;
 			else:
 				$json_request['responseText'] = $this->localization->getLocalMessage('signup','email_exit');

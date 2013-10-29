@@ -15,8 +15,8 @@
 	<?php endfor;?>
 		<div class="clear"></div>
 		<div class="footer-end">
-			<p class="footer-end-left">&copy; 2012-2013 Optospot. Все права защищены</p>
-			<p class="footer-end-right">Разработанно агенством &laquo;Графема&raquo;</p>
+			<p class="footer-end-left">&copy; <?=$this->localization->getLocalButton('copyright','copy');?></p>
+			<p class="footer-end-right"><?=$this->localization->getLocalButton('copyright','development');?></p>
 		</div>
 	</div>
 </footer>
