@@ -172,10 +172,13 @@ $.fn.formSubmitInServer = function(){
 }
 $.fn.formSubmitNoValid = function(){
 	var _form = this;
-	$(_form).find(".btn-locked").attr('disabled','disabled');
+	$(_form).find(".btn-locked").addClass('loading').attr('disabled','disabled');
 	var options = {
 		target: null,dataType:'json',type:'post',
-		beforeSubmit: function(formData,jqForm,options){return true},
+		beforeSubmit: function(formData,jqForm,options){
+			if($("div.msg-alert").exists() == true){$("div.msg-alert").remove();}
+			return true
+		},
 		success: function(response,status,xhr,jqForm){
 			if(response.status == true){
 				if(response.responseText != ''){
@@ -185,7 +188,7 @@ $.fn.formSubmitNoValid = function(){
 					setTimeout(function(){mt.redirect(response.redirect)},3000);
 				}
 			}else{
-				$(_form).find(".btn-locked").removeAttr('disabled');
+				$(_form).find(".btn-locked").removeAttr('disabled').removeClass('loading');
 				$(_form).find("div.div-form-operation").after('<div class="msg-alert error">'+response.responseText+'</div>');
 			}
 		}
