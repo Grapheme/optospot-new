@@ -55,15 +55,7 @@
 				</div>
 			</div>
 			<div class="grid_8" id="screen-2">
-				<div class="begin-list">
-					<img src="<?=baseURL('img/red-1.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen2_1'));?></p>
-				</div>
-				<div class="begin-list">
-					<img src="<?=baseURL('img/red-2.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen2_2'));?></p>
-				</div>
-				<div class="begin-list">
-					<img src="<?=baseURL('img/red-3.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen2_3'));?></p>
-				</div>
+				<p class="screen2-text">Открой счет сегодня</p>
 			</div>
 			<div class="grid_8" id="screen-3">
 				<!--<div class="begin-list">
@@ -121,22 +113,22 @@
 					<div class="money-right-list">
 						<img src="<?=baseURL('img/red-1.png');?>">
 						<div>
-							<h2><?=$this->localization->getLocalMessage('index','money_right1_1');?></h2>
-							<p class="normal-text"><?=$this->localization->getLocalMessage('index','money_right1_2');?></p>
+							<h2><?=$this->localization->getLocalMessage('index','circle_step1_1')?></h2>
+							<p class="normal-text"><?=$this->localization->getLocalMessage('index','circle_step1_2')?></p>
 						</div>
 					</div>
 					<div class="money-right-list">
 						<img src="<?=baseURL('img/red-2.png');?>">
 						<div>
-							<h2><?=$this->localization->getLocalMessage('index','money_right2_1');?></h2>
-							<p class="normal-text"><?=$this->localization->getLocalMessage('index','money_right2_1');?></p>
+							<h2><?=$this->localization->getLocalMessage('index','circle_step2_1')?></h2>
+							<p class="normal-text"><?=$this->localization->getLocalMessage('index','circle_step2_2')?></p>
 						</div>
 					</div>
 					<div class="money-right-list">
 						<img src="<?=baseURL('img/red-3.png');?>">
 						<div>
-							<h2><?=$this->localization->getLocalMessage('index','money_right3_1');?></h2>
-							<p class="normal-text"><?=$this->localization->getLocalMessage('index','money_right3_1');?></p>
+							<h2><?=$this->localization->getLocalMessage('index','circle_step3_1')?></h2>
+							<p class="normal-text"><?=$this->localization->getLocalMessage('index','circle_step3_2')?></p>
 						</div>
 					</div>
 				</div>

@@ -155,6 +155,7 @@ h2 {
 	font-family:'Conv_FuturaNewMedium_0',Sans-Serif;
 	font-size: 15px;
 	text-transform: uppercase;
+	font-weight: normal;
 }
 
 button, a.green-button {
@@ -232,7 +233,7 @@ button, a.green-button {
 	text-transform: uppercase;
 	text-decoration: none;
 	color: #000;
-	font-size: 0.9em;
+	font-size: 15px;
 	margin-right: 20px;
 }
 
@@ -267,7 +268,8 @@ ul {
 	margin: 0 20px 0 0;
 	color: #000;
 	text-decoration: none;
-	font-size: 0.8em;
+	font-size: 15px;
+	line-height: 35px;
 }
 
 .menu-right a:hover {
@@ -296,10 +298,26 @@ ul {
 	position: relative;
 }
 
+.screen2-text {
+	font-weight: 700;
+	width: 350px;
+	font-size: 48px;
+	line-height: 50px;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.begin-title h2 {
+	font-weight: 700;
+}
+
 .begin-container {
 	z-index: 2;
 	margin-top: -60px;
-	background: url('../img/back.png') center center;
+	background-color: #000;
+	background-image: url('../img/back.png');
+	background-repeat: no-repeat;
+	background-position: center center;
 	background-size: cover;
 	overflow: hidden;
 	width: 100%;
@@ -307,6 +325,14 @@ ul {
 	padding-top: 30px;
 	padding-bottom: 30px;
 	position: relative;
+	 /* Firefox */
+    -moz-transition: all 2s ease-in;
+    /* WebKit */
+    -webkit-transition: all 2s ease-in;
+    /* Opera */
+    -o-transition: all 2s ease-in;
+    /* Standard */
+    transition: all 2s ease-in;
 }
 
 .begin-form-div {
@@ -502,6 +528,7 @@ select.begin-input {
 .money-div div {
 	float: left;
 	margin: 0 20px;
+	width: 100px;
 }
 
 .selectify div {
