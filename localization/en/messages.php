@@ -68,6 +68,10 @@
 			'money_right2_2' => '70% profit in just a few minutes.',
 			'money_right3_1' => 'Get a profit',
 			'money_right3_2' => '70% profit in just a few minutes.',
+		),
+		'trade' => array(
+			'title' => 'Платформа для интернет-трейдинга',
+			'loading-text' => 'Загрузка платформы может занять некоторое время. Вы как раз успеете сделать себе кофе перед началом работы.',
 		)
 	);
 	
