@@ -1,7 +1,7 @@
 <?php if($inline == TRUE):?>
 	<div class="rbk-line">
 		<img src="<?=baseURL('img/rbk.png" class="rbk-img');?>">
-		<div class="rbk-move normal-text">
+		<marquee onmouseover="this.stop();" onmouseout="this.start();" class="rbk-move normal-text">
 		<?php
 			$className = 'move-news-item normal-text';
 			$this->load->helper('rss');
@@ -11,7 +11,7 @@
 				default: getRSS("http://feeds.feedburner.com/yahoo-news-updates",2,$className);break;
 			endswitch;
 		?>
-		</div>
+		</marquee>
 	</div>
 <?php else:?>
 	<div class="grid_3 typical-news">

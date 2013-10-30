@@ -307,8 +307,9 @@ ul {
 	text-transform: uppercase;
 }
 
-.begin-title h2 {
+h2.begin-title {
 	font-weight: 700;
+	letter-spacing: 1px;
 }
 
 .begin-container {
@@ -333,6 +334,7 @@ ul {
     -o-transition: all 2s ease-in;
     /* Standard */
     transition: all 2s ease-in;
+    min-height: 415px;
 }
 
 .begin-form-div {
@@ -711,8 +713,8 @@ h1 {
 }
 
 .rbk-move {
-	margin-left: 40px;
-	width: 900px !important;
+	margin-left: 15px;
+	width: 895px !important;
 }
 
 .rbk-img {
@@ -871,6 +873,18 @@ h1 {
 
 .typical-menu nav ul li {
 	margin-bottom: 15px;
+}
+
+.typical-menu,.typical-news {
+	margin-top: 50px;
+}
+
+.typical-menu {
+	margin-right: 45px !important;
+}
+
+.typical-news {
+	margin-left: 55px !important;
 }
 
 .typical-news {

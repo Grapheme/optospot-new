@@ -11,8 +11,7 @@
 	<?php $this->load->view("users_interface/includes/header");?>
 	<div class="main-container">
 		<div class="container_12 reg-blocks">
-			<div class="grid_12"><h1>- Торговля бинарными опционами -</h1></div>
-			<div class="grid_3 typical-menu">
+			<div class="grid_2 typical-menu">
 			<?php if($active_category):?>
 				<nav>
 					<ul>
