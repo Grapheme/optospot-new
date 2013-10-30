@@ -15,7 +15,7 @@ Optospot Team<br/>
 Phone: +44 203 00 25979<br/>
 Phone: + 7 800 333 01 27<br/>
 Skype: optospot.trading<br/>
-Web-site: www.optospot.net<
+Web-site: www.optospot.net
 </p>
 
 <p>

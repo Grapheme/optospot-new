@@ -168,10 +168,11 @@ $.fn.formSubmitInServer = function(){
 			}
 		}
 	}
-	setTimeout(function(){$(_form).ajaxSubmit(options);},500);
+	setTimeout(function(){$(_form).ajaxSubmit(options);},2000);
 }
 $.fn.formSubmitNoValid = function(){
 	var _form = this;
+	$(_form).find(".btn-locked").attr('disabled','disabled');
 	var options = {
 		target: null,dataType:'json',type:'post',
 		beforeSubmit: function(formData,jqForm,options){return true},
@@ -181,9 +182,10 @@ $.fn.formSubmitNoValid = function(){
 					$(_form).find("div.div-form-operation").after('<div class="msg-alert">'+response.responseText+'</div>');
 				}
 				if(response.redirect !== false){
-					mt.redirect(response.redirect);
+					setTimeout(function(){mt.redirect(response.redirect)},3000);
 				}
 			}else{
+				$(_form).find(".btn-locked").removeAttr('disabled');
 				$(_form).find("div.div-form-operation").after('<div class="msg-alert error">'+response.responseText+'</div>');
 			}
 		}

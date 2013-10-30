@@ -20,6 +20,7 @@ class Ajax_interface extends MY_Controller{
 				$json_request['status'] = TRUE;
 				$json_request['message'] = '';
 				$this->setLoginSession($user['id']);
+				$json_request['responseText'] = $this->localization->getLocalMessage('signin','login_success');
 				if($user['id'] == 0):
 					$json_request['redirect'] = site_url(ADMIN_START_PAGE);
 				else:
@@ -45,9 +46,10 @@ class Ajax_interface extends MY_Controller{
 			if($this->accounts->search('email',$this->input->post('email')) === FALSE):
 				if($resultData = $this->sendResisterData($this->input->post())):
 					$mailtext = $this->load->view('mails/signup',array('account'=>$resultData['accountID'],'reg_data'=>$resultData),TRUE);
-					$this->sendMail($registerData['email'],'robot@sysfx.com','Optospot trading platform','Welcome to Optospot.net',$mailtext);
+					$this->sendMail($this->input->post('email'),'robot@sysfx.com','Optospot trading platform','Welcome to Optospot.net',$mailtext);
 					$this->setLoginSession($resultData['accountID']);
 					$this->config->set_item('base_url',$this->baseURL.$this->uri->segment(1).'/');
+					$json_request['responseText'] = $this->localization->getLocalMessage('signup','register_success');
 					$json_request['redirect'] = site_url(USER_START_PAGE);
 					$json_request['status'] = TRUE;
 				else:

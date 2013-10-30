@@ -10,12 +10,14 @@
 			'server_failure' => 'Registration error! Server refused registration attempt.',
 			'header' => 'Almost finished',
 			'welcome_msg' => 'Only one step needed to start trading. <br/><strong>Please choose the type of your account</strong> to complete registration proccess.',
-			'finish_msg' => 'After completing registration you will be able to change your profile and make deposit.'
+			'finish_msg' => 'After completing registration you will be able to change your profile and make deposit.',
+			'register_success' => 'Registration was successful! On the specified e-mail we have sent your username and password.'
 		),
 		'signin' => array(
 			'forgot' => 'Enter your email address',
 			'forgot_content' => 'Error! Sorry...',
-			'failure' => 'Logon failure'
+			'failure' => 'Logon failure',
+			'login_success' => 'Login executed. Expect ...'
 		),
 		'forgot' => array(
 			'success' => 'Password is sent to your via email',

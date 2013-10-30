@@ -22,6 +22,6 @@
 		</select>
 	</div>
 	<div class="div-form-operation">
-		<button class="red-button begin-button signup-submit"><?=$this->localization->getLocalPlaceholder('signup','open_account')?></button>
+		<button class="red-button begin-button signup-submit btn-locked"><?=$this->localization->getLocalPlaceholder('signup','open_account')?></button>
 	</div>
 </form>

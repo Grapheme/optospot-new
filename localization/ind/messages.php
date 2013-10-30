@@ -10,12 +10,14 @@
 			'server_failure' => 'Pendaftaran kesalahan! Server menolak upaya pendaftaran.',
 			'header' => 'Hampir selesai',
 			'welcome_msg' => 'Hanya satu langkah yang diperlukan untuk memulai trading. <br/> <strong> Silakan pilih jenis account Anda </strong> untuk menyelesaikan proccess pendaftaran.',
-			'finish_msg' => 'Setelah menyelesaikan pendaftaran anda akan dapat mengubah profil dan melakukan deposit.'
+			'finish_msg' => 'Setelah menyelesaikan pendaftaran anda akan dapat mengubah profil dan melakukan deposit.',
+			'register_success' => 'Registration was successful! On the specified e-mail we have sent your username and password.'
 		),
 		'signin' => array(
 			'forgot' => 'Masukkan alamat email Anda',
 			'forgot_content' => 'Kesalahan! Maaf ...',
-			'failure' => 'Logon kegagalan'
+			'failure' => 'Logon kegagalan',
+			'login_success' => 'Login executed. Expect ...'
 		),
 		'forgot' => array(
 			'success' => 'Sandi akan dikirim ke email Anda melalui',

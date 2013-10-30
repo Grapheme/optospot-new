@@ -49,8 +49,6 @@ class Users_interface extends MY_Controller{
 		endif;
 	}
 	
-	
-	
 	function __construct(){
 		
 		parent::__construct();
