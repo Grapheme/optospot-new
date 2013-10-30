@@ -9,3 +9,5 @@
 <link rel="stylesheet" href="<?=baseURL('css/selectify.css');?>">
 <link rel="stylesheet" href="<?=baseURL('css/tooltip.css');?>" />
 <script src="<?=baseURL('js/vendor/modernizr-2.6.2.min.js');?>"></script>
+<script type="text/javascript" src="//use.typekit.net/nqa5orl.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>

@@ -253,8 +253,7 @@ $('button.signup-submit').click(function(event){
 $('button.steps-signup-submit').click(function(event){
 	event.preventDefault();
 	if(validationOne(false) && validationTwo(false)){
-		var _form = $(this).parents('form');
-		$(_form).formSubmitNoValid();
+		$(this).parents('form').formSubmitNoValid();
 	}
 });
 
@@ -266,8 +265,7 @@ $('#reg-enter').click(function(event){
 $('#auth-enter').click(function(event){
 	event.preventDefault();
 	if(validationAuth() == true){
-		var _form = $(this).parents('form');
-		$(_form).formSubmitInServer();
+		$(this).parents('form').formSubmitNoValid();
 	}
 });
 

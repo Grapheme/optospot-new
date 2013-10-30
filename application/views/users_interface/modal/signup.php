@@ -1,3 +1,4 @@
+<?php if($this->loginstatus === FALSE):?>
 <div class="main-container">
 	<div class="container_12 reg-container">
 		<div class="reg-form">
@@ -6,3 +7,4 @@
 		</div>
 	</div>
 </div>
+<?php endif;?>
