@@ -307,6 +307,10 @@ ul {
 	text-transform: uppercase;
 }
 
+.begin-title h2 {
+	font-weight: 700;
+}
+
 .begin-container {
 	z-index: 2;
 	margin-top: -60px;
