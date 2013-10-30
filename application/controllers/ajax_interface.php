@@ -165,6 +165,7 @@ class Ajax_interface extends MY_Controller{
 		endif;
 		if(!isset($registerData['coach'])):
 			$registerData['coach'] = 1;
+
 		endif;
 		$this->load->library('encrypt');
 		$account = array("remote_id"=>$registerData['remote_id'],'demo'=>$demo,'first_name'=>$registerData['fname'],'last_name'=>$registerData['lname'],

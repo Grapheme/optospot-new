@@ -23,12 +23,12 @@
 		<?php else:?>
 			<?php $this->load->view('html/user-block');?>
 		<?php endif;?>
-		<!--<div class="lang-div">
+		<div class="lang-div">
 			<select id="ChangeLang" class="lang">
 			<?php for($i=0;$i<count($languages);$i++):?>
 				<option value="<?=mb_strtolower($languages[$i]['uri']);?>"<?=($languages[$i]['id'] == $this->language)?' selected="selected"':''?>><?=mb_strtoupper($languages[$i]['uri']);?></option>
 			<?php endfor;?>
 			</select>
-		</div>-->
+		</div>
 	</div>
 </div>
