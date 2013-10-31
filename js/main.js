@@ -8,7 +8,7 @@ $(function() {
 		$("#ChangeLang").change();
 	});
 	
-	$('.acc-radio').prop('checked', false);	
+	$('.acc-radio').prop('checked', false);
 	
 });
 
