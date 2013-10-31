@@ -8,6 +8,8 @@ $(function() {
 		$("#ChangeLang").change();
 	});
 	
+	$('.acc-radio').prop('checked', false);	
+	
 });
 
 function login() {
@@ -154,7 +156,6 @@ function validationOne(next) {
 			$('#reg-2').removeClass('reg-hidden');
 			$('#reg-1 .reg-block-hidden').removeClass('hidden');
 			$('#reg-2 .reg-block-hidden').addClass('hidden');
-			$('.acc-radio').prop('checked', false);	
 		}
 		return true;
 	}else{
@@ -257,8 +258,7 @@ $('#reg-2 .reg-block-hidden').click(function(event){
 
 $('#reg-3 .reg-block-hidden').click(function(event){
         event.preventDefault();
-        var success = validationOne(true);
-        if(success == true) {
+        if(validationOne(true)) {
                 validationTwo(true);
         }
 });
