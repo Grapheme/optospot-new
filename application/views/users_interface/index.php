@@ -135,7 +135,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="fish-container">
+	<div class="fish-container good-points">
 		<div class="container_12">
 			<?=(isset($page[1]['content']))?$page[1]['content']:'';?>
 		</div>

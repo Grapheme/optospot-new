@@ -536,6 +536,19 @@ select.begin-input {
 	margin-top: 30px;
 }
 
+.fish-container.good-points .container_12 ol{
+	margin: 0;
+}
+
+.fish-container.good-points {
+	background-color: #000;
+	background-image: url('../img/back-good.jpg');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	color: #fff;
+}
+
 .money-container {
 	overflow: hidden;
 	width: 100%;
