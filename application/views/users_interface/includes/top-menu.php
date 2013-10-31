@@ -25,7 +25,7 @@
 		<?php endif;?>
 		<div class="lang-div">
 			<select id="ChangeLang" class="lang">
-			<?php for($i=0;$i<count($languages);$i++):?>
+			<?php for($i=0;$i<count($languages)-1;$i++):?>
 				<option value="<?=mb_strtolower($languages[$i]['uri']);?>"<?=($languages[$i]['id'] == $this->language)?' selected="selected"':''?>><?=mb_strtoupper($languages[$i]['uri']);?></option>
 			<?php endfor;?>
 			</select>
