@@ -96,7 +96,11 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-  
+ 
+.msg-alert {
+	padding-bottom: 15px;
+	color: #000;
+}
 
 /* FONTS-BEGIN */
 
@@ -307,6 +311,19 @@ ul {
 	text-transform: uppercase;
 }
 
+.popup .begin-title {
+	margin-top: 30px;
+}
+
+input {
+	font-size: 16px;
+	font-family: 'Conv_FuturaNewBook_0',sans-serif;
+}
+
+.money-div .selectify div {
+	margin: 0;
+}
+
 h2.begin-title {
 	font-weight: 700;
 	letter-spacing: 1px;
@@ -326,15 +343,7 @@ h2.begin-title {
 	padding-top: 30px;
 	padding-bottom: 30px;
 	position: relative;
-	 /* Firefox */
-    -moz-transition: all 2s ease-in;
-    /* WebKit */
-    -webkit-transition: all 2s ease-in;
-    /* Opera */
-    -o-transition: all 2s ease-in;
-    /* Standard */
-    transition: all 2s ease-in;
-    min-height: 415px;
+    min-height: 490px;
 }
 
 .begin-form-div {
@@ -397,6 +406,7 @@ h2.begin-title {
 
 .reg-desc {
 	text-align: left;
+	display: none;
 }
 
 .begin-title {
@@ -701,10 +711,22 @@ select.begin-input {
 
 .red-button {
 	background: #b53a3a;
+	/* Firefox */
+    -moz-transition: all .2s ease-in;
+    /* WebKit */
+    -webkit-transition: all .2s ease-in;
+    /* Opera */
+    -o-transition: all .2s ease-in;
+    /* Standard */
+    transition: all .2s ease-in;
 }
 
 .red-button:hover {
 	background: #a12222;
+}
+
+.loading {
+	background: #cacaca !important;
 }
 
 h1 {
@@ -810,14 +832,29 @@ h1 {
 }
 
 .reg-block-hidden {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: #fff;
-	z-index: 2;
-	opacity: 0.5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 2;
+        opacity: 0.5;
+        cursor: pointer;
+}
+
+.money-arrow-top {
+        display: inline-block;
+        height: 7px;
+        width: 13px;
+        background: url('../img/money-arrow-top.png');
+}
+
+.money-arrow-down {
+        display: inline-block;
+        height: 7px;
+        width: 13px;
+        background: url('../img/money-arrow-down.png');
 }
 
 .score {

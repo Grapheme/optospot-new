@@ -13,9 +13,9 @@
 		<p class="money-earn-bottom"><?=$this->localization->getLocalButton('ticker','minimum_payout')?><br><span>$0.15</span></p>
 	</div>
 	<div class="money-cont">
-		<img src="<?=baseURL('img/money-arrow-top.png');?>">
+		<a href="#" class="money-arrow-top"></a>
 		<p>82.<span>38</span></p>
-		<img src="<?=baseURL('img/money-arrow-down.png');?>">
+		<a href="#" class="money-arrow-down"></a>
 	</div>
 	<div class="money-submit">
 		<p>00:08</p>
@@ -37,9 +37,9 @@
 		<p class="money-earn-bottom"><?=$this->localization->getLocalButton('ticker','minimum_payout')?><br><span>$0.15</span></p>
 	</div>
 	<div class="money-cont">
-		<img src="<?=baseURL('img/money-arrow-top.png');?>">
+		<a href="#" class="money-arrow-top"></a>
 		<p>106.<span>88</span></p>
-		<img src="<?=baseURL('img/money-arrow-down.png');?>">
+		<a href="#" class="money-arrow-down"></a>
 	</div>
 	<div class="money-submit">
 		<p>00:03:48</p>
@@ -61,9 +61,9 @@
 		<p class="money-earn-bottom"><?=$this->localization->getLocalButton('ticker','minimum_payout')?><br><span>$1.75</span></p>
 	</div>
 	<div class="money-cont">
-		<img src="<?=baseURL('img/money-arrow-top.png');?>">
+		<a href="#" class="money-arrow-top"></a>
 		<p>77.<span>54</span></p>
-		<img src="<?=baseURL('img/money-arrow-down.png');?>">
+		<a href="#" class="money-arrow-down"></a>
 	</div>
 	<div class="money-submit">
 		<p>00:03:48</p>
@@ -85,9 +85,9 @@
 		<p class="money-earn-bottom"><?=$this->localization->getLocalButton('ticker','minimum_payout')?><br><span>$0.15</span></p>
 	</div>
 	<div class="money-cont">
-		<img src="<?=baseURL('img/money-arrow-top.png');?>">
+		<a href="#" class="money-arrow-top"></a>
 		<p>132.<span>11</span></p>
-		<img src="<?=baseURL('img/money-arrow-down.png');?>">
+		<a href="#" class="money-arrow-down"></a>
 	</div>
 	<div class="money-submit">
 		<p>00:02:27</p>
