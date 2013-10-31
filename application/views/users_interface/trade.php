@@ -12,6 +12,8 @@
 	<div class="main-container">
 		<div class="container_12">
 			<div class="grid_12">
+			<h1><?=$this->localization->getLocalMessage('trade','title')?></h1>
+			<p style="text-align: center;"><?=$this->localization->getLocalMessage('trade','loading-text')?></p>
 			<?php 
 				$language = 'en_EN';
 				if($this->language == 3):

@@ -8,6 +8,8 @@ $(function() {
 		$("#ChangeLang").change();
 	});
 	
+	$('.acc-radio').prop('checked', false);
+	
 });
 
 function login() {
@@ -154,7 +156,6 @@ function validationOne(next) {
 			$('#reg-2').removeClass('reg-hidden');
 			$('#reg-1 .reg-block-hidden').removeClass('hidden');
 			$('#reg-2 .reg-block-hidden').addClass('hidden');
-			$('.acc-radio').prop('checked', false);	
 		}
 		return true;
 	}else{
@@ -169,6 +170,12 @@ function validationTwo(next) {
 			$('#reg-3').removeClass('reg-hidden');
 			$('#reg-2 .reg-block-hidden').removeClass('hidden');
 			$('#reg-3 .reg-block-hidden').addClass('hidden');
+			if($('.acc-radio[value=1]').is(':checked'))
+	        {
+	        	$('.reg-desc').slideDown();
+	        } else {
+	        	$('.reg-desc').slideUp();
+	        }
 		}
 		return true;
 	}else{
@@ -230,6 +237,30 @@ $('.control-line#control-1').click(function(event){
 	$('#control-2').removeClass('active');
 	$('#control-1').addClass('active');
 	$('.begin-container').css('background-image', 'url(../img/back.png)');
+});
+
+$('#reg-1 .reg-block-hidden').click(function(event){
+        event.preventDefault();
+        $('#reg-3').addClass('reg-hidden');
+        $('#reg-3 .reg-block-hidden').removeClass('hidden');
+        $('#reg-2').addClass('reg-hidden');
+        $('#reg-1').removeClass('reg-hidden');
+        $('#reg-2 .reg-block-hidden').removeClass('hidden');
+        $('#reg-1 .reg-block-hidden').addClass('hidden');
+});
+
+$('#reg-2 .reg-block-hidden').click(function(event){
+        event.preventDefault();
+        validationOne(true);
+        $('#reg-3').addClass('reg-hidden');
+        $('#reg-3 .reg-block-hidden').removeClass('hidden');
+});
+
+$('#reg-3 .reg-block-hidden').click(function(event){
+        event.preventDefault();
+        if(validationOne(true)) {
+                validationTwo(true);
+        }
 });
 
 $('.control-line#control-3').click(function(event){
