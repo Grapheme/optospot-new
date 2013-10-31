@@ -343,14 +343,6 @@ h2.begin-title {
 	padding-top: 30px;
 	padding-bottom: 30px;
 	position: relative;
-	/* Firefox */
-    -moz-transition: all 2s ease-in;
-    /* WebKit */
-    -webkit-transition: all 2s ease-in;
-    /* Opera */
-    -o-transition: all 2s ease-in;
-    /* Standard */
-    transition: all 2s ease-in;
     min-height: 490px;
 }
 
