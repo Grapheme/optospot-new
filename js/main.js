@@ -152,10 +152,10 @@ function validationOne(next) {
 	}
 	if(error == 0) {
 		if(next == true){
-			$('#reg-1').addClass('reg-hidden');
-			$('#reg-2').removeClass('reg-hidden');
-			$('#reg-1 .reg-block-hidden').removeClass('hidden');
-			$('#reg-2 .reg-block-hidden').addClass('hidden');
+			$('#circle-2').fadeOut(function(){
+				$('#reg-2').fadeIn();
+			});
+			$('#button-1').fadeOut();
 		}
 		return true;
 	}else{
@@ -166,10 +166,10 @@ function validationOne(next) {
 function validationTwo(next) {
 	if($('.acc-radio').is(':checked')) {
 		if(next == true){
-			$('#reg-2').addClass('reg-hidden');
-			$('#reg-3').removeClass('reg-hidden');
-			$('#reg-2 .reg-block-hidden').removeClass('hidden');
-			$('#reg-3 .reg-block-hidden').addClass('hidden');
+			$('#circle-3').fadeOut(function(){
+				$('#reg-3').fadeIn();
+			});
+			$('#button-2').fadeOut();
 			if($('.acc-radio[value=1]').is(':checked'))
 	        {
 	        	$('.reg-desc').slideDown();
@@ -239,30 +239,6 @@ $('.control-line#control-1').click(function(event){
 	$('.begin-container').css('background-image', 'url(../img/back.png)');
 });
 
-$('#reg-1 .reg-block-hidden').click(function(event){
-        event.preventDefault();
-        $('#reg-3').addClass('reg-hidden');
-        $('#reg-3 .reg-block-hidden').removeClass('hidden');
-        $('#reg-2').addClass('reg-hidden');
-        $('#reg-1').removeClass('reg-hidden');
-        $('#reg-2 .reg-block-hidden').removeClass('hidden');
-        $('#reg-1 .reg-block-hidden').addClass('hidden');
-});
-
-$('#reg-2 .reg-block-hidden').click(function(event){
-        event.preventDefault();
-        validationOne(true);
-        $('#reg-3').addClass('reg-hidden');
-        $('#reg-3 .reg-block-hidden').removeClass('hidden');
-});
-
-$('#reg-3 .reg-block-hidden').click(function(event){
-        event.preventDefault();
-        if(validationOne(true)) {
-                validationTwo(true);
-        }
-});
-
 $('.control-line#control-3').click(function(event){
 	$('#screen-1').hide();
 	$('#screen-2').hide(function(){
@@ -300,19 +276,25 @@ $('#auth-enter').click(function(event){
 	}
 });
 
-$('#button-2').click(function(event){
+$('#button-3').click(function(event){
 	event.preventDefault();
-	validationTwo(true);
+	if(validationOne()){
+		validationTwo(true);
+	}
 });
 
 $('.score.green').click(function(event){
 	event.preventDefault();
 	scoreClick('green');
+	$('.reg-desc').slideUp();
+	validationTwo(true);
 });
 
 $('.score.blue').click(function(event){
 	event.preventDefault();
 	scoreClick('blue');
+	$('.reg-desc').slideDown();
+	validationTwo(true);
 });
 
 $('#button-1').click(function(event) {
