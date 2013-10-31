@@ -87,5 +87,6 @@
 	<?php $this->load->view("users_interface/includes/footer");?>
 	<?php $this->load->view("users_interface/includes/scripts");?>
 	<?php $this->load->view("users_interface/includes/analytics");?>
+	<?php $this->load->view("users_interface/includes/metrika");?>
 </body>
 </html>
