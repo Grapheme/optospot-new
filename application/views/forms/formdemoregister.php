@@ -2,6 +2,7 @@
 	<input type="hidden" class="FieldSend" name="answerType" value="xml" />	
 	<input type="hidden" class="FieldSend" name="act" value="send" />
 	<input type="hidden" class="FieldSend" name="office" value="main" />
+	<input type="hidden" class="FieldSend" name="account_type" value="1" />
 	<input type="text" class="valid-required FieldSend" data-placement="right" role="tooltip" data-original-title="Field cannot be empty" name="fname" id="fname" placeholder="Demo First name" />
 	<input type="text" class="valid-required FieldSend" data-placement="right" role="tooltip" data-original-title="Field cannot be empty" name="lname" id="lname" placeholder="Demo Last name" />
 	<input type="text" class="valid-required FieldSend" id="signup-email-demo" data-placement="right" role="tooltip" data-original-title="Field cannot be empty" name="email" placeholder="Demo Email" />

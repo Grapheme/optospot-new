@@ -2,6 +2,7 @@
 	<input type="hidden" class="FieldSend" name="answerType" value="xml" />
 	<input type="hidden" class="FieldSend" name="act" value="send" />
 	<input type="hidden" class="FieldSend" name="office" value="main" />
+	<input type="hidden" class="FieldSend" name="account_type" value="2" />
 	<input type="text" class="valid-required FieldSend" name="fname" id="fname" data-placement="right" role="tooltip" data-original-title="Field cannot be empty" placeholder="First name" value="<?=($this->loginstatus && $this->user['demo'] == 1)?$user['first_name']:'';?>" />
 	<input type="text" class="valid-required FieldSend" name="lname" id="lname" data-placement="right" role="tooltip" data-original-title="Field cannot be empty" placeholder="Last name" value="<?=($this->loginstatus && $this->user['demo'] == 1)?$user['last_name']:'';?>" />
 	<input type="text" class="valid-required FieldSend" id="signup-email-real" name="email" data-placement="right" role="tooltip" data-original-title="Field cannot be empty" placeholder="Email" value="<?=($this->loginstatus && $this->user['demo'] == 1)?$user['email']:'';?>" />
