@@ -14,7 +14,6 @@
 			<form action="<?=site_url('signup-account');?>" method="POST">
 				<div class="grid_12"><h1 class="reg-title"><?=$this->localization->getLocalButton('signup','form_title');?></h1></div>
 				<div class="grid_4 reg-block" id="reg-1">
-					<div class="reg-block-hidden hidden"></div>
 					<div class="reg-block-in">
 						<div class="reg-blocks-title">
 							<img src="<?=baseURL('img/red-1.png');?>">
@@ -33,8 +32,14 @@
 						<button class="red-button reg-block-button" id="button-1"><?=$this->localization->getLocalButton('signup','next')?></button>
 					</div>
 				</div>
-				<div class="grid_4 reg-block reg-hidden" id="reg-2">
-					<div class="reg-block-hidden"></div>
+				<div class="reg-circle" id="circle-2">
+					<p class="circle-number">
+						2
+					</p>
+					<div class="circle-line"></div>
+					<h2>Выберите тип счета</h2>
+				</div>
+				<div class="grid_4 reg-block" id="reg-2" style="display:none;">
 					<div class="reg-block-in">
 						<div class="reg-blocks-title">
 							<img src="<?=baseURL('img/red-2.png');?>">
@@ -55,15 +60,20 @@
 								<p class="normal-text"><?=$this->localization->getLocalButton('signup','real_account_text');?></p>
 							</div>
 						</a>
-						<button class="red-button reg-block-button" id="button-2"><?=$this->localization->getLocalButton('signup','next')?></button>
 						<div class="hidden">
 							<input type="radio" name="account_type" value="1" class="acc-radio">
 							<input type="radio" name="account_type" value="2" class="acc-radio">
 						</div>
 					</div>
 				</div>
-				<div class="grid_4 reg-block reg-hidden" id="reg-3">
-					<div class="reg-block-hidden"></div>
+				<div class="reg-circle" id="circle-3">
+					<p class="circle-number">
+						3
+					</p>
+					<div class="circle-line"></div>
+					<h2>Начните торговать</h2>
+				</div>
+				<div class="grid_4 reg-block" id="reg-3" style="display: none;">
 					<div class="reg-block-in">
 						<div class="reg-blocks-title">
 							<img src="<?=baseURL('img/red-3.png');?>">
@@ -74,7 +84,7 @@
 							<?=$this->localization->getLocalButton('signup','by_register_text');?>
 						</p>
 						<div class="div-form-operation">
-							<button class="red-button reg-block-button steps-signup-submit"><?=$this->localization->getLocalButton('signup','begin_trading');?></button>
+							<button class="red-button reg-block-button steps-signup-submit" id="button-3"><?=$this->localization->getLocalButton('signup','begin_trading');?></button>
 						</div>
 					</div>
 				</div>

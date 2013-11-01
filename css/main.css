@@ -456,6 +456,29 @@ select.begin-input {
 	margin-top: 14px;
 }
 
+.reg-circle {
+	float: left;
+	position: relative;
+	display: block;
+	border-radius: 260px;
+	width: 260px;
+	height: 260px;
+	background: #b53a3a;
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-top: 80px;
+}
+
+.reg-circle .circle-number {
+	margin-top: 60px;
+	text-align: center;
+}
+
+.reg-circle h2 {
+	text-align: center;
+	color: #fff;
+}
+
 .top-circle div {
 	width: 200px;
 	margin-left: auto;
@@ -511,6 +534,19 @@ select.begin-input {
 
 .fish-container .grid_12 {
 	margin-top: 30px;
+}
+
+.fish-container.good-points .container_12 ol{
+	margin: 0;
+}
+
+.fish-container.good-points {
+	background-color: #000;
+	background-image: url('../img/back-good.jpg');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	color: #fff;
 }
 
 .money-container {
