@@ -68,7 +68,8 @@
 			'money_right2_2' => '70% profit in just a few minutes.',
 			'money_right3_1' => 'Get a profit',
 			'money_right3_2' => '70% profit in just a few minutes.',
-		
+			'email-exist' => 'This email already exists',
+			'success-reg' => 'Done!<br>We sent login and password on your e-mail. You can start working right now.',
 		),
 		'trade' => array(
 			'title' => 'Платформа для интернет-трейдинга',

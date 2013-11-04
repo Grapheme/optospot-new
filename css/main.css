@@ -251,6 +251,10 @@ ul {
 	margin: 0;
 }
 
+.none-display {
+	display: none;
+}
+
 .top-div li {
 	float: left;
 }
@@ -343,7 +347,7 @@ h2.begin-title {
 	padding-top: 30px;
 	padding-bottom: 30px;
 	position: relative;
-    min-height: 490px;
+    min-height: 425px;
 }
 
 .begin-form-div {
@@ -726,11 +730,10 @@ select.begin-input {
 
 .money-right-list h2 {
 	margin-bottom: 0;
-	white-space: nowrap;
 	text-transform: uppercase;
-	line-height: 30px;
+	line-height: 20px;
 	font-weight: 300;
-    margin-top: 15px;
+    margin-top: 22px;
 }
 
 .money-grid {
@@ -815,6 +818,14 @@ h1 {
 
 .reg-container {
 	background: url('../img/kit.png') no-repeat center center;
+}
+
+.kit .container_12 {
+	height: 500px;
+}
+
+.reg-error,.reg-loading,.reg-success,.reg-email {
+	padding: 0 0 30px 0;
 }
 
 .reg-form {
