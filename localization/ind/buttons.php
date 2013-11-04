@@ -33,7 +33,7 @@
 		),
 		'copyright' => array(
 			'copy' => '2012-2013 OptoSpot. All Rights Reserved',
-			'development' => 'Developed by &laquo;Grapheme&raquo;'
+			'development' => 'Developed by <a href="http://grapheme.ru/" target="_blank">&laquo;Grapheme&raquo;</a>'
 		),
 		'client_cabinet' => array(
 			'page_name' => 'Informasi akun',

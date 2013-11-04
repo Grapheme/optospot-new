@@ -1098,12 +1098,12 @@ footer {
 
 .footer-link {
 	font-size: 13px;
-	color: #2753ae;
+	color: #444;
 	text-decoration: none;
 }
 
 .footer-link:hover {
-	text-decoration: underline;
+	color: #000;
 }
 
 .footer-container {
@@ -1129,6 +1129,14 @@ footer {
 	float: right;
 }
 
+.footer-end-right a {
+	color: #000;
+	text-decoration: none;
+}
+
+.footer-end-right a:hover {
+	text-decoration: underline;
+}
 
 /* ==========================================================================
    Helper classes

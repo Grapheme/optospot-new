@@ -27,7 +27,7 @@
 				</nav>
 			<?php endif;?>
 			</div>
-			<div class="grid_9">
+			<div class="grid_8">
 				<div class="normal-text">
 					<?=$content;?>
 				</div>
