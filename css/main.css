@@ -547,6 +547,7 @@ select.begin-input {
 	background-position: center center;
 	background-size: cover;
 	color: #fff;
+	overflow: hidden;
 }
 
 .money-container {
