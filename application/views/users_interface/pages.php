@@ -27,12 +27,11 @@
 				</nav>
 			<?php endif;?>
 			</div>
-			<div class="grid_6">
+			<div class="grid_9">
 				<div class="normal-text">
 					<?=$content;?>
 				</div>
 			</div>
-			<?php $this->load->view("users_interface/includes/rss",array('inline'=>FALSE));?>
 		</div>
 	</div>
 	<div class="clear"></div>
