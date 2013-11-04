@@ -30,6 +30,7 @@ $route['admin-panel/actions/settings'] = "admin_interface/settings";
 $route['admin-panel/actions/profile'] = "admin_interface/actions_profile";
 $route['redactor/upload'] = "admin_interface/redactorUploadImage";
 $route['admin-panel/withdraw'] = "admin_interface/withdraw";
+$route['admin-panel/registered(\/:any)*?'] = "admin_interface/registered";
 $route['admin-panel/log(\/:any)*?'] = "admin_interface/logList";
 /*************************************************** USERS INTRERFACE ***********************************************/
 $route[':any/login'] = "ajax_interface/loginIn";

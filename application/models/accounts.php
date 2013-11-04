@@ -4,8 +4,7 @@ class Accounts extends MY_Model{
 
 	protected $table = "users";
 	protected $primary_key = "id";
-	protected $fields = array("id","remote_id","demo","first_name","last_name","email","address1","address2","city","state","zip_code","country",
-								"day_phone","home_phone","coach","password","trade_login","trade_password","signdate","active","language");
+	protected $fields = array("*");
 
 	function __construct(){
 		
@@ -61,5 +60,39 @@ class Accounts extends MY_Model{
 		endif;
 		return NULL;
 		
+	}
+	
+	function getRegisteredList($limit,$offset){
+		
+		$this->db->select('COUNT(*) AS count,signdate');
+		$this->db->where('active',1);
+		$this->db->limit($limit,$offset);
+		$this->db->group_by('signdate');
+		$this->db->order_by('signdate DESC');
+		$query = $this->db->get($this->table);
+		if($data = $query->result_array()):
+			return $data;
+		endif;
+		return NULL;
+	}
+	
+	function getCountRegistered($total = FALSE){
+		
+		$this->db->select('COUNT(*) AS count');
+		$this->db->where('active',1);
+		$this->db->group_by('signdate');
+		$query = $this->db->get($this->table);
+		if($data = $query->result_array()):
+			if($total === FALSE):
+				return count($data);
+			else:
+				$summa_counts = 0;
+				for($i=0;$i<count($data);$i++):
+					$summa_counts+=$data[$i]['count'];
+				endfor;
+				return $summa_counts;
+			endif;
+		endif;
+		return 0;
 	}
 }

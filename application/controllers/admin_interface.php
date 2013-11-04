@@ -62,6 +62,22 @@ class Admin_interface extends MY_Controller{
 		$this->load->view("admin_interface/withdraw",$pagevar);
 	}
 	
+	public function registered(){
+		
+		$pagevar = array(
+			'registered' => $this->accounts->getRegisteredList(PER_PAGE_DEFAULT,(int)$this->uri->segment(4)),
+			'pagination' => $this->pagination('admin-panel/registered',4,$this->accounts->getCountRegistered(FALSE),PER_PAGE_DEFAULT),
+			'total_registerd' => $this->accounts->getCountRegistered(TRUE),
+			'msgs' => $this->session->userdata('msgs'),
+			'msgr' => $this->session->userdata('msgr')
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		$this->load->helper('date');
+		$this->session->set_userdata('backpath',base_url(uri_string()));
+		$this->load->view("admin_interface/registered",$pagevar);
+	}
+	
 	private function ExecuteUpdatingSettings($post){
 		
 		$this->load->model('settings');

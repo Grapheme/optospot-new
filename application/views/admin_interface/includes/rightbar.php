@@ -9,6 +9,7 @@
 			<li num="settings"><?=anchor('admin-panel/actions/settings','Settings');?></li>
 			<li num="log"><?=anchor('admin-panel/log','Logs List');?></li>
 			<li class="nav-header">Actions</li>
+			<li><?=anchor('admin-panel/registered','Registered');?></li>
 			<li><?=anchor('logoff','Logout');?></li>
 		</ul>
 	</div>
