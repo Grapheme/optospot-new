@@ -33,7 +33,7 @@
 		),
 		'copyright' => array(
 			'copy' => '2012-2013 OptoSpot. Все права защищены',
-			'development' => 'Разработанно агенством &laquo;Графема&raquo;',
+			'development' => 'Разработанно агентством &laquo;Графема&raquo;',
 		),
 		'client_cabinet' => array(
 			'page_name' => 'Личный кабинет',
