@@ -1,15 +1,20 @@
 <div class="auth-data">
 <?php if($this->account['id'] == 0):?>
 	<a href="<?=baseURL(ADMIN_START_PAGE);?>" class="action-cabinet"><?=$this->localization->getLocalButton('user_block','admin_link')?></a>
-<?php else:?>
-	<?php if($this->uri->segment(2) == 'trade'):?>
-	<?=anchor(USER_START_PAGE,$this->localization->getLocalButton('user_block','user_link'),array('class'=>'action-cabinet','target'=>'_blank'));?>
-	<?php else:?>
-	<?=anchor(USER_START_PAGE,$this->localization->getLocalButton('user_block','user_link'),array('class'=>'action-cabinet'));?>
-	<?php endif;?>
-<?php endif;?>
+<?php else:
+	if($this->profile['demo'] == 1 && $this->account['id'] > 0):
+		if($this->uri->uri_string() == $this->language_url.'/binarnaya-platforma/online-treiding'):
+			echo anchor(USER_START_PAGE,'Demo account',array('class'=>'action-cabinet','target'=>'_blank'));
+		else:
+			echo anchor(USER_START_PAGE,'Demo account',array('class'=>'action-cabinet'));
+		endif;
+	else:
+		if($this->uri->segment(2) == 'trade'):
+			echo anchor(USER_START_PAGE,$this->localization->getLocalButton('user_block','user_link'),array('class'=>'action-cabinet','target'=>'_blank'));
+		else:
+			echo anchor(USER_START_PAGE,$this->localization->getLocalButton('user_block','user_link'),array('class'=>'action-cabinet'));
+		endif;
+	endif;
+endif;?>
 	<a class="action-cabinet" href="<?=site_url('logoff');?>"><?=$this->localization->getLocalButton('user_block','logoff')?></a>
-<?php if($this->profile['demo'] == 1 && $this->account['id'] > 0):?>
-	<br />(Demo account)
-<?php endif;?>
 </div>
