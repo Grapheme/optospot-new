@@ -72,8 +72,8 @@
 			'success-reg' => 'Done!<br>We sent login and password on your e-mail. You can start working right now.',
 		),
 		'trade' => array(
-			'title' => 'Платформа для интернет-трейдинга',
-			'loading-text' => 'Загрузка платформы может занять некоторое время. Вы как раз успеете сделать себе кофе перед началом работы.',
+			'title' => 'PLATFORM TRADING ONLINE',
+			'loading-text' => 'Loading platform dapat mengambil beberapa waktu. Anda dapat membuat secangkir kopi sebelum mulai perdagangan.',
 		)
 	);
 	

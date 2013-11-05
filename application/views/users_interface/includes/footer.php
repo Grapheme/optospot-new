@@ -16,7 +16,6 @@
 		<div class="clear"></div>
 		<div class="footer-end">
 			<p class="footer-end-left">&copy; <?=$this->localization->getLocalButton('copyright','copy');?></p>
-			<p class="footer-end-right"><?=$this->localization->getLocalButton('copyright','development');?></p>
 		</div>
 	</div>
 </footer>
