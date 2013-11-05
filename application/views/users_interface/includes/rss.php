@@ -7,7 +7,7 @@
 			$this->load->helper('rss');
 			switch ($this->language):
 				case '1': getRSS("http://feeds.feedburner.com/yahoo-news-updates",2,$className);break;
-				case '3': getRSS("http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbcdaily.ru/finance_news.rss",2,$className);break;
+				case '3': getRSS("http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/economics.rss",5,$className);break;
 				default: getRSS("http://feeds.feedburner.com/yahoo-news-updates",2,$className);break;
 			endswitch;
 		?>
@@ -25,7 +25,7 @@
 				$this->load->helper('rss');
 				switch ($this->language):
 					case '1': getRSS("http://feeds.feedburner.com/yahoo-news-updates",2,$className);break;
-					case '3': getRSS("http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbcdaily.ru/finance_news.rss",2,$className);break;
+					case '3': getRSS("http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/economics.rss",5,$className);break;
 					default: getRSS("http://feeds.feedburner.com/yahoo-news-updates",2,$className);break;
 				endswitch;
 			?>
