@@ -10,6 +10,7 @@ $(function() {
 	
 	$('.acc-radio').prop('checked', false);
 	
+	$('.option[data-id=0]').addClass('hidden');
 });
 
 function login() {
