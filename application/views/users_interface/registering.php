@@ -37,7 +37,7 @@
 						2
 					</p>
 					<div class="circle-line"></div>
-					<h2>Выберите тип счета</h2>
+					<h2><?=$this->localization->getLocalButton('signup','choice_type_account')?></h2>
 				</div>
 				<div class="grid_4 reg-block" id="reg-2" style="display:none;">
 					<div class="reg-block-in">
@@ -71,7 +71,7 @@
 						3
 					</p>
 					<div class="circle-line"></div>
-					<h2>Начните торговать</h2>
+					<h2><?=$this->localization->getLocalButton('signup','by_register');?></h2>
 				</div>
 				<div class="grid_4 reg-block" id="reg-3" style="display: none;">
 					<div class="reg-block-in">
