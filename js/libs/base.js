@@ -172,7 +172,8 @@ $.fn.formSubmitInServer = function(){
 }
 $.fn.formSubmitNoValid = function(){
 	var _form = this;
-	$(_form).find(".btn-locked").addClass('loading').attr('disabled','disabled');
+	var buttontext = $(_form).find(".btn-locked").html();
+	$(_form).find(".btn-locked").html(Localize[mt.currentLenguage]['wait']).attr('disabled','disabled');
 	var options = {
 		target: null,dataType:'json',type:'post',
 		beforeSubmit: function(formData,jqForm,options){
@@ -191,7 +192,7 @@ $.fn.formSubmitNoValid = function(){
 					setTimeout(function(){mt.redirect(response.redirect)},3000);
 				}
 			}else{
-				$(_form).find(".btn-locked").removeAttr('disabled').removeClass('loading');
+				$(_form).find(".btn-locked").removeAttr('disabled').html(buttontext);
 				$(_form).find(".reg-block-in .div-form-operation").after('<div class="msg-alert error">'+response.responseText+'</div>');
 				$(_form).find(".reg-normal").fadeOut('fast', function(){
 					$(_form).find(".reg-email").fadeIn('fast');
