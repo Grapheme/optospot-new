@@ -174,8 +174,10 @@ function validationTwo(next) {
 			if($('.acc-radio[value=1]').is(':checked'))
 	        {
 	        	$('.reg-desc').slideDown();
+	        	$('.reg-desc-2').slideUp();
 	        } else {
 	        	$('.reg-desc').slideUp();
+	        	$('.reg-desc-2').slideDown();
 	        }
 		}
 		return true;

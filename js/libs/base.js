@@ -182,7 +182,7 @@ $.fn.formSubmitNoValid = function(){
 		success: function(response,status,xhr,jqForm){
 			if(response.status == true){
 				if(response.responseText != ''){
-					//$(_form).find("div.div-form-operation").after('<div class="msg-alert">'+response.responseText+'</div>');
+					$(_form).find(".reg-block-in .div-form-operation").after('<div class="msg-alert">'+response.responseText+'</div>');
 					$(_form).find(".reg-normal").fadeOut('fast', function(){
 						$(_form).find(".reg-success").fadeIn('fast');
 					});
@@ -192,7 +192,7 @@ $.fn.formSubmitNoValid = function(){
 				}
 			}else{
 				$(_form).find(".btn-locked").removeAttr('disabled').removeClass('loading');
-				//$(_form).find("div.div-form-operation").after('<div class="msg-alert error">'+response.responseText+'</div>');
+				$(_form).find(".reg-block-in .div-form-operation").after('<div class="msg-alert error">'+response.responseText+'</div>');
 				$(_form).find(".reg-normal").fadeOut('fast', function(){
 					$(_form).find(".reg-email").fadeIn('fast');
 				});
@@ -200,7 +200,13 @@ $.fn.formSubmitNoValid = function(){
 					$(_form).find(".reg-email").fadeOut('fast', function(){
 						$(_form).find(".reg-normal").fadeIn('fast');
 					});
+					$(_form).find(".login-error").fadeOut('fast', function(){
+						$(_form).find(".login-normal").fadeIn('fast');
+					});
 					return false;
+				});
+				$(_form).find(".login-normal").fadeOut('fast', function(){
+					$(_form).find(".login-error").fadeIn('fast');
 				});
 			}
 		}

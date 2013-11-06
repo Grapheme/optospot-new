@@ -83,8 +83,11 @@
 						<p class="reg-desc normal-text">
 							<?=$this->localization->getLocalButton('signup','by_register_text');?>
 						</p>
+						<p class="reg-desc-2 normal-text">
+							<?=$this->localization->getLocalButton('signup','by_register_text_pro');?>
+						</p>
 						<div class="div-form-operation">
-							<button class="red-button reg-block-button steps-signup-submit" id="button-3"><?=$this->localization->getLocalButton('signup','begin_trading');?></button>
+							<button class="red-button reg-block-button steps-signup-submit btn-locked" id="button-3"><?=$this->localization->getLocalButton('signup','begin_trading');?></button>
 						</div>
 					</div>
 				</div>
