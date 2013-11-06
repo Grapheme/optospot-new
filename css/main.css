@@ -545,13 +545,18 @@ select.begin-input {
 }
 
 .fish-container.good-points {
-	background-color: #000;
-	background-image: url('../img/back-good.jpg');
+	background-color: #fff;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
-	color: #fff;
+	color: #000;
 	overflow: hidden;
+}
+
+.fish-container.good-points.authed {
+	background-color: #000;
+	background-image: url('../img/back-good.jpg');
+	color: #fff;
 }
 
 .money-container {
