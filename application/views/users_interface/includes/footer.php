@@ -2,6 +2,7 @@
 	<div class="container_12 footer-container">
 	<?php for($i=0;$i<count($footer['category']);$i++):?>
 		<div class="footer-block">
+		<h4><?=$footer['category'][$i]['title'];?></h4>
 			<nav>
 				<ul>
 			<?php for($j=0;$j<count($footer['pages']);$j++):?>
@@ -16,7 +17,6 @@
 		<div class="clear"></div>
 		<div class="footer-end">
 			<p class="footer-end-left">&copy; <?=$this->localization->getLocalButton('copyright','copy');?></p>
-			<p class="footer-end-right"><?=$this->localization->getLocalButton('copyright','development');?></p>
 		</div>
 	</div>
 </footer>

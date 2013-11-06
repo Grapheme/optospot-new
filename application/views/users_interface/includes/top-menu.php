@@ -19,13 +19,13 @@
 	<div class="menu-right">
 		<?php if(!$this->loginstatus):?>
 			<a href="<?=site_url('registering')?>"><?=$this->localization->getLocalMessage('index','user_block_reg')?></a>
-			<button class="red-button" id="enter"><?=$this->localization->getLocalMessage('index','user_block_login')?></button>
+			<button onclick="yaCounter21615634.reachGoal('register'); return true;" class="red-button" id="enter"><?=$this->localization->getLocalMessage('index','user_block_login')?></button>
 		<?php else:?>
 			<?php $this->load->view('html/user-block');?>
 		<?php endif;?>
 		<div class="lang-div">
 			<select id="ChangeLang" class="lang">
-			<?php for($i=0;$i<count($languages)-1;$i++):?>
+			<?php for($i=0;$i<count($languages);$i++):?>
 				<option value="<?=mb_strtolower($languages[$i]['uri']);?>"<?=($languages[$i]['id'] == $this->language)?' selected="selected"':''?>><?=mb_strtoupper($languages[$i]['uri']);?></option>
 			<?php endfor;?>
 			</select>

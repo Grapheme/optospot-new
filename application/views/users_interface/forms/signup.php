@@ -23,7 +23,7 @@
 		</select>
 	</div>
 	<div class="div-form-operation">
-		<button class="red-button begin-button signup-submit btn-locked"><?=$this->localization->getLocalPlaceholder('signup','open_account')?></button>
+		<button onclick="yaCounter21615634.reachGoal('frmregister'); return true;" class="red-button begin-button signup-submit btn-locked"><?=$this->localization->getLocalPlaceholder('signup','open_account')?></button>
 	</div>
 	</div>
 	<div class="reg-error none-display">

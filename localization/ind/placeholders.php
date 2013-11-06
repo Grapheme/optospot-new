@@ -1,12 +1,11 @@
 <?php
 	
 	$localize = array(
-		
 		'signup' => array(
-			'title_form' => 'Start trading',
-			'fname' => 'Nama depan',
+			'title_form' => 'Mulai trading',
+			'fname' => 'First name',
+			'lname' => 'Last name',
 			'phone' => 'Phone',
-			'lname' => 'Nama keluarga',
 			'email' => 'E-mail',
 			'country' => 'Country',
 			'open_account' => 'Open account'
@@ -17,11 +16,11 @@
 			'pass' => 'Kata sandi',
 			'login_account' => 'Login',
 			'login_forgot' => 'Forgot your password?',
-			'login_reg' => 'Sign up'
+			'login_reg' => 'Daftar'
 		),
 		'forgot' => array(
 			'title_form' => 'Forgot password',
-			'email' => 'Anda email',
+			'email' => 'You email',
 		),
 		
 	);

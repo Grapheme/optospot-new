@@ -237,7 +237,11 @@ class Admin_interface extends MY_Controller{
 	public function menuPage(){
 		
 		$this->load->model('pages');
-		$page = $this->pages->readFieldsUrl($this->uri->segment(7),$this->uri->segment(5));
+		$pageURL = $this->uri->segment(7);
+		if($pageURL == 'trade'):
+			$pageURL = 'binarnaya-platforma/online-treiding';
+		endif;
+		$page = $this->pages->readFieldsUrl($pageURL,$this->uri->segment(5));
 		if($page['id']):
 			redirect('admin-panel/actions/pages/lang/'.$this->uri->segment(5).'/page/'.$page['id']);
 		else:

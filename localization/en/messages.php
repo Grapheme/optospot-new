@@ -57,10 +57,10 @@
 			'screen3_3' => 'Probably the most advanced trading platform with the One Touch',
 			'fish1_1' => 'A novice trader',
 			'fish1_2' => 'This is a good opportunity to try their hand at trading: the minimum rate of $ 1, and the minimum deposit is only 10.',
-			'fish2_1' => 'A novice trader',
-			'fish2_2' => 'This is a good opportunity to try their hand at trading: the minimum rate of $ 1, and the minimum deposit is only 10.',
-			'fish3_1' => 'A novice trader',
-			'fish3_2' => 'This is a good opportunity to try their hand at trading: the minimum rate of $ 1, and the minimum deposit is only 10.',
+			'fish2_1' => 'Experienced trader',
+			'fish2_2' => 'You get the opportunity to reduce the risks and set a special strategy that does not depend on the sudden change of the market situation.',
+			'fish3_1' => 'Professional trader',
+			'fish3_2' => 'You can hedge your risks on open positions at the classical market. Work with minimal risk, even at a time of major economic news.',
 			'money_right' => 'How to Trade',
 			'money_right1_1' => 'Get a profit',
 			'money_right1_2' => '70% profit in just a few minutes.',
@@ -72,8 +72,8 @@
 			'success-reg' => 'Done!<br>We sent login and password on your e-mail. You can start working right now.',
 		),
 		'trade' => array(
-			'title' => 'Платформа для интернет-трейдинга',
-			'loading-text' => 'Загрузка платформы может занять некоторое время. Вы как раз успеете сделать себе кофе перед началом работы.',
+			'title' => 'ONLINE TRADING PLATFORM',
+			'loading-text' => 'Platform loading can take some time. You just can make a cup of coffee before starting to trade.',
 		)
 	);
 	

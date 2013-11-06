@@ -7,7 +7,7 @@ var mt = mt || {};
 //configuration
 mt.baseURL = window.location.protocol+'//'+window.location.hostname+'/';
 mt.currentURL = window.location.href;
-mt.languageSegment = 1;
+mt.languageSegment = 2;
 //end configuration
 mt.getBaseURL = function(url){return mt.baseURL+url;}
 mt.getLanguageURL = function(){
@@ -182,14 +182,26 @@ $.fn.formSubmitNoValid = function(){
 		success: function(response,status,xhr,jqForm){
 			if(response.status == true){
 				if(response.responseText != ''){
-					$(_form).find("div.div-form-operation").after('<div class="msg-alert">'+response.responseText+'</div>');
+					//$(_form).find("div.div-form-operation").after('<div class="msg-alert">'+response.responseText+'</div>');
+					$(_form).find(".reg-normal").fadeOut('fast', function(){
+						$(_form).find(".reg-success").fadeIn('fast');
+					});
 				}
 				if(response.redirect !== false){
 					setTimeout(function(){mt.redirect(response.redirect)},3000);
 				}
 			}else{
 				$(_form).find(".btn-locked").removeAttr('disabled').removeClass('loading');
-				$(_form).find("div.div-form-operation").after('<div class="msg-alert error">'+response.responseText+'</div>');
+				//$(_form).find("div.div-form-operation").after('<div class="msg-alert error">'+response.responseText+'</div>');
+				$(_form).find(".reg-normal").fadeOut('fast', function(){
+					$(_form).find(".reg-email").fadeIn('fast');
+				});
+				$(_form).find(".try-again").click(function(){
+					$(_form).find(".reg-email").fadeOut('fast', function(){
+						$(_form).find(".reg-normal").fadeIn('fast');
+					});
+					return false;
+				});
 			}
 		}
 	}
