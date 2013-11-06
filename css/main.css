@@ -335,7 +335,7 @@ h2.begin-title {
 
 .begin-container {
 	z-index: 2;
-	margin-top: -60px;
+	margin-top: -55px;
 	background-color: #000;
 	background-image: url('../img/back.png');
 	background-repeat: no-repeat;
@@ -545,13 +545,18 @@ select.begin-input {
 }
 
 .fish-container.good-points {
-	background-color: #000;
-	background-image: url('../img/back-good.jpg');
+	background-color: #fff;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
-	color: #fff;
+	color: #000;
 	overflow: hidden;
+}
+
+.fish-container.good-points.authed {
+	background-color: #000;
+	background-image: url('../img/back-good.jpg');
+	color: #fff;
 }
 
 .money-container {
@@ -1109,7 +1114,7 @@ footer {
 
 .footer-link {
 	font-size: 13px;
-	color: #444;
+	color: #102746;
 	text-decoration: none;
 }
 
