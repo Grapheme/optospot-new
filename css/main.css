@@ -105,6 +105,14 @@ textarea {
 	font-size: 13px;
 }
 
+.div-form-operation {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	color: #000;
+	font-family: 'Conv_FuturaNewBook_0', sans-serif;
+	font-size: 13px;
+}
+
 /* FONTS-BEGIN */
 
 @font-face {
@@ -214,10 +222,29 @@ button, a.green-button {
 }
 
 .green-button,.red-button {
+	text-decoration: none;
 	color: #fff;
 	border: 0;
 	border-radius: 3px;
 	padding: 10px 25px;
+}
+
+.reg-desc a {
+	display: inline-block;
+	margin: 20px auto;
+}
+
+.reg-desc div {
+	text-align: center;
+}
+
+.reg-desc-2 a {
+	display: inline-block;
+	margin: 20px auto;
+}
+
+.reg-desc-2 div {
+	text-align: center;
 }
 
 .header-logo {
@@ -890,6 +917,14 @@ h1 {
 
 .reg-hidden {
 	background: url('../img/back-op.png');
+}
+
+.reg-blocked {
+	background: #fff;
+	position: absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	z-index: 1;
+	opacity: .5;
 }
 
 .reg-block-hidden {

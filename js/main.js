@@ -170,6 +170,7 @@ function validationOne(next) {
 
 function validationTwo(next) {
 	if($('.acc-radio').is(':checked')) {
+	/*
 		if(next == true){
 			$('#circle-3').fadeOut(function(){
 				$('#reg-3').fadeIn();
@@ -183,7 +184,7 @@ function validationTwo(next) {
 	        	$('.reg-desc').slideUp();
 	        	$('.reg-desc-2').slideDown();
 	        }
-		}
+		}*/
 		return true;
 	}else{
 		return false;
@@ -192,15 +193,16 @@ function validationTwo(next) {
 
 function scoreClick(color) {
 	if(color == 'green') {
-		$('.score.green').css('background','#467850');
-		$('.score.blue').css('background','#3179CB');
+		/*$('.score.green').css('background','#467850');
+		$('.score.blue').css('background','#3179CB');*/
 		$('.acc-radio[value=2]').prop('checked', true);
 	}
 	if(color == 'blue') {
-		$('.score.green').css('background','#5E9C6B');
-		$('.score.blue').css('background','#1858a0');
+		/*$('.score.green').css('background','#5E9C6B');
+		$('.score.blue').css('background','#1858a0');*/
 		$('.acc-radio[value=1]').prop('checked', true);
 	}
+	return false;
 }
 
 function validationAuth() {
@@ -264,13 +266,6 @@ $('button.signup-submit').click(function(event){
 	}
 });
 
-$('button.steps-signup-submit').click(function(event){
-	event.preventDefault();
-	if(validationOne(false) && validationTwo(false)){
-		$(this).parents('form').formSubmitNoValid();
-	}
-});
-
 $('#reg-enter').click(function(event){
 	event.preventDefault();
 	validationReg();
@@ -293,15 +288,19 @@ $('#button-3').click(function(event){
 $('.score.green').click(function(event){
 	event.preventDefault();
 	scoreClick('green');
-	$('.reg-desc').slideUp();
 	validationTwo(true);
+	if(validationOne(false) && validationTwo(false)){
+		$(this).parents('form').formSubmitNoValid();
+	}
 });
 
 $('.score.blue').click(function(event){
 	event.preventDefault();
 	scoreClick('blue');
-	$('.reg-desc').slideDown();
 	validationTwo(true);
+	if(validationOne(false) && validationTwo(false)){
+		$(this).parents('form').formSubmitNoValid();
+	}
 });
 
 $('#button-1').click(function(event) {

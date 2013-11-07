@@ -11,7 +11,8 @@
 			'header' => 'Almost finished',
 			'welcome_msg' => 'Only one step needed to start trading. <br/><strong>Please choose the type of your account</strong> to complete registration proccess.',
 			'finish_msg' => 'After completing registration you will be able to change your profile and make deposit.',
-			'register_success' => 'Registration was successful! On the specified e-mail we have sent your username and password.'
+			'register_success' => 'Registration was successful! On the specified e-mail we have sent your username and password.',
+			'up_balance' => 'Replenish your account',
 		),
 		'signin' => array(
 			'forgot' => 'Enter your email address',

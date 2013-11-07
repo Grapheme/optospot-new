@@ -14,6 +14,7 @@
 			<form action="<?=site_url('signup-account');?>" method="POST">
 				<div class="grid_12"><h1 class="reg-title"><?=$this->localization->getLocalButton('signup','form_title');?></h1></div>
 				<div class="grid_4 reg-block" id="reg-1">
+					<div class="reg-blocked" style="display:none;">&nbsp;</div>
 					<div class="reg-block-in">
 						<div class="reg-blocks-title">
 							<img src="<?=baseURL('img/red-1.png');?>">
@@ -40,26 +41,28 @@
 					<h2><?=$this->localization->getLocalButton('signup','choice_type_account')?></h2>
 				</div>
 				<div class="grid_4 reg-block" id="reg-2" style="display:none;">
+					<div class="reg-blocked" style="display:none;">&nbsp;</div>
 					<div class="reg-block-in">
 						<div class="reg-blocks-title">
 							<img src="<?=baseURL('img/red-2.png');?>">
 							<h2><?=$this->localization->getLocalButton('signup','choice_type_account')?></h2>
 						</div>
 						<div class="clear"></div>
-						<a href="#" class="score blue">
+						<a href="#" class="score blue steps-signup-submit">
 							<div class="score-in">
 								<h2 class=""><?=$this->localization->getLocalButton('signup','demo_account');?></h2>
 								<div class="circle-line"></div>
 								<p class="normal-text"><?=$this->localization->getLocalButton('signup','demo_account_text');?></p>
 							</div>
 						</a>
-						<a href="#" class="score green">
-							<div class="score-in">
+						<a href="#" class="score green steps-signup-submit">
+							<div class="score-in ">
 								<h2><?=$this->localization->getLocalButton('signup','real_account');?></h2>
 								<div class="circle-line"></div>
 								<p class="normal-text"><?=$this->localization->getLocalButton('signup','real_account_text');?></p>
 							</div>
 						</a>
+						<div class="div-form-operation"></div>
 						<div class="hidden">
 							<input type="radio" name="account_type" value="1" class="acc-radio">
 							<input type="radio" name="account_type" value="2" class="acc-radio">
@@ -73,21 +76,24 @@
 					<div class="circle-line"></div>
 					<h2><?=$this->localization->getLocalButton('signup','by_register');?></h2>
 				</div>
-				<div class="grid_4 reg-block" id="reg-3" style="display: none;">
+				<div class="grid_4 reg-block" id="reg-3" style="display:none;">
 					<div class="reg-block-in">
 						<div class="reg-blocks-title">
 							<img src="<?=baseURL('img/red-3.png');?>">
 							<h2><?=$this->localization->getLocalButton('signup','by_register');?></h2>
 						</div>
 						<div class="clear"></div>
-						<p class="reg-desc normal-text">
+						<div class="reg-desc normal-text" style="display: none;">
 							<?=$this->localization->getLocalButton('signup','by_register_text');?>
-						</p>
-						<p class="reg-desc-2 normal-text">
+							<div>
+								<a href="<?=site_url('binarnaya-platforma/online-treiding');?>" class="red-button reg-block-button steps-signup-submit" id="button-3"><?=$this->localization->getLocalButton('signup','begin_trading');?></a>
+							</div>
+						</div>
+						<div class="reg-desc-2 normal-text" style="display: none;">
 							<?=$this->localization->getLocalButton('signup','by_register_text_pro');?>
-						</p>
-						<div class="div-form-operation">
-							<button class="red-button reg-block-button steps-signup-submit btn-locked" id="button-3"><?=$this->localization->getLocalButton('signup','begin_trading');?></button>
+							<div>
+								<a href="<?=site_url('cabinet/balance');?>" class="red-button reg-block-button steps-signup-submit" id="button-3"><?=$this->localization->getLocalMessage('signup','up_balance');?></a>
+							</div>
 						</div>
 					</div>
 				</div>
