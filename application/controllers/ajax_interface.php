@@ -41,7 +41,7 @@ class Ajax_interface extends MY_Controller{
 		if(!$this->input->is_ajax_request()):
 			show_error('В доступе отказано');
 		endif;
-		$json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>site_url());
+		$json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>site_url(),'responseText_step3'=>'');
 		if($this->postDataValidation('signup') == TRUE):
 			if($this->accounts->search('email',$this->input->post('email')) === FALSE):
 				if($resultData = $this->sendResisterData($this->input->post())):
@@ -50,11 +50,6 @@ class Ajax_interface extends MY_Controller{
 					$this->setLoginSession($resultData['accountID']);
 					$this->config->set_item('base_url',$this->baseURL.$this->uri->segment(1).'/');
 					$json_request['responseText'] = $this->localization->getLocalMessage('signup','register_success');
-					/*if($this->input->post('account_type') == 1):
-						$json_request['redirect'] = site_url('trade');
-					else:
-						$json_request['redirect'] = site_url(USER_START_PAGE);
-					endif;*/
 					$json_request['redirect'] = FALSE;
 					$json_request['status'] = TRUE;
 				else:
