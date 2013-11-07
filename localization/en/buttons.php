@@ -9,21 +9,24 @@
 			'type_account' => 'Type account',
 			'real_account' => 'REAL ACCOUNT',
 			'demo_account' => 'DEMO ACCOUNT',
-			'form_title' => 'Registering',
+			'form_title' => 'registration',
 			'next' => 'Next',
-			'fill' => 'Fill',
+			'fill' => 'Fill the form',
 			'choice_type_account' => 'Select type of account',
 			'demo_account_text' => 'Start trading without risks',
 			'real_account_text' => 'The minimum deposit is only $ 5',
-			'by_register' => 'Sign up',
+			'by_register' => 'Start trading',
 			'by_register_text' => 'In your demo account credited with $ 1,000. You can start trading right now or open a pro-account and your earnings become real.',
+			'by_register_text_pro' => 'Your account successfully registered. In order to start trading you need to make a deposit (ссылка). The minimum deposit on Optospot platform is only $5.<br>To make a deposit you can use VISA/Mastercard or any payment system you like. Start trading now.',
 			'begin_trading' => 'Start trading',
-			'active_submit_real' => 'Регистрация REAL ACCOUNT'
+			'active_submit_real' => 'REGISTER REAL ACCOUNT'
 		),
 		'signin' => array(
 			'login' => 'Log in',
 			'forgot' => 'Forgot password?',
-			'forgot_submit' => 'Continue'
+			'forgot_submit' => 'Continue',
+			'error' => 'Login or passwrod is incorrect',
+			'try_again' => 'Try again',
 		),
 		'user_block' => array(
 			'hello' => 'Hello',

@@ -11,19 +11,22 @@
 			'demo_account' => 'Akun demo',
 			'form_title' => 'Pendaftaran',
 			'next' => 'Lebih Lanjut',
-			'fill' => 'Fill',
+			'fill' => 'Isi',
 			'choice_type_account' => 'Pilih jenis akun',
 			'demo_account_text' => 'Memulai trading tanpa resiko',
 			'real_account_text' => 'Akun Pro. Deposit minimal hanya $5',
-			'by_register' => 'Pendaftaran',
+			'by_register' => 'Mulai trading',
 			'by_register_text' => '$1,000 telah ditambahkan kea kun demo Anda. Anda dapat mulai menggunakannya untuk trading sekarang juga, atau Anda bisa membuka akunPro riil untuk mendapatkan keuntungan yang sebenarnya.',
+			'by_register_text_pro' => 'Akun Anda berhasil terdaftar. Untuk memulai trading Anda perlu melakukan deposit (ссылка). Deposit minimum pada platform Optospot hanya $5.<br>Untuk membuat deposit Anda dapat menggunakan VISA / Mastercard atau sistem pembayaran yang Anda suka. Mulai trading sekarang.',
 			'begin_trading' => 'Mulai trading',
 			'active_submit_real' => 'Регистрация REAL ACCOUNT'
 		),
 		'signin' => array(
 			'login' => 'Log in',
 			'forgot' => 'Forgot password?',
-			'forgot_submit' => 'Lebih Lanjut'
+			'forgot_submit' => 'Lebih Lanjut',
+			'error' => 'Login or passwrod is incorrect',
+			'try_again' => 'Try again',
 		),
 		'user_block' => array(
 			'hello' => 'Hello',
