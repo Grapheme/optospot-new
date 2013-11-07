@@ -98,8 +98,11 @@ textarea {
    ========================================================================== */
  
 .msg-alert {
+	padding-top: 15px;
 	padding-bottom: 15px;
 	color: #000;
+	font-family: 'Conv_FuturaNewBook_0', sans-serif;
+	font-size: 13px;
 }
 
 /* FONTS-BEGIN */
@@ -308,7 +311,7 @@ ul {
 
 .screen2-text {
 	font-weight: 700;
-	width: 350px;
+	width: 375px;
 	font-size: 48px;
 	line-height: 50px;
 	color: #fff;
@@ -409,6 +412,11 @@ h2.begin-title {
 }
 
 .reg-desc {
+	text-align: left;
+	display: none;
+}
+
+.reg-desc-2 {
 	text-align: left;
 	display: none;
 }

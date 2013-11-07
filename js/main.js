@@ -11,6 +11,10 @@ $(function() {
 	$('.acc-radio').prop('checked', false);
 	
 	$('.option[data-id=0]').addClass('hidden');
+	
+	$('.payment').change(function(){
+		alert('123');
+	});
 });
 
 function login() {
@@ -174,8 +178,10 @@ function validationTwo(next) {
 			if($('.acc-radio[value=1]').is(':checked'))
 	        {
 	        	$('.reg-desc').slideDown();
+	        	$('.reg-desc-2').slideUp();
 	        } else {
 	        	$('.reg-desc').slideUp();
+	        	$('.reg-desc-2').slideDown();
 	        }
 		}
 		return true;

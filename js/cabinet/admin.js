@@ -3,6 +3,27 @@
  */
 
 $(function(){
+
+	$('select[name=payment]').find('option[value=2]').hide();
+	$('select[name=payment]').find('option[value=1]').hide();
+	$('select[name=payment]').find('option[value=33]').hide();
+	$('select[name=payment]').find('option[value=9]').html('MasterCard');
+	$('select[name=payment]').find('option[value=1011350]').html('Visa');
+
+	if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '9')
+	{
+		$('.expiry-div').show();
+	}
+	
+	$('select[name=payment]').change(function(){
+		if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '1011350')
+		{
+			$('.expiry-div').fadeIn();
+		} else {
+			$('.expiry-div').fadeOut();
+		}
+	});
+	
 	var mainOptions = {target: null,beforeSubmit: mt.ajaxBeforeSubmit,success: mt.ajaxSuccessSubmit,dataType:'json',type:'post'};
 	$("button.btn-edit-user").click(function(event){
 		var _form = $("form.form-edit-user");

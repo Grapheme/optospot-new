@@ -37,7 +37,7 @@
 		<p class="normal-text">
 			<?=$this->localization->getLocalMessage('index','email-exist')?>
 		</p>
-		<button class="red-button try-again">Попробуйте еще</button>
+		<button class="red-button try-again"><?=$this->localization->getLocalButton('signin','try_again')?></button>
 	</div>
 	<div class="reg-loading none-display">
 		<p class="normal-text">

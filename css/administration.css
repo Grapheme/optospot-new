@@ -3,6 +3,10 @@
    Author's custom styles
    ========================================================================== */
 
+.withdraw-div {
+	margin: 20px auto;
+}
+
 html, body { background: url('../img/bg.jpg') repeat; }   
 h1 { margin: 1em 0; font: 29px/34px "din-condensed-web", sans-serif; text-transform: uppercase; border-bottom: 1px dashed #AEAEAE; padding-bottom: 0.5em; }
 
