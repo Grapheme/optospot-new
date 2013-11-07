@@ -73,7 +73,7 @@ class Ajax_interface extends MY_Controller{
 		if($this->postDataValidation('signup') == TRUE):
 			$registerData = $this->input->post();
 			$registerData['coach'] = 0;
-			if($resultData = $this->sendResisterData('real',$registerData)):
+			if($resultData = $this->sendResisterData($registerData)):
 				$mailtext = $this->load->view('mails/signup',array('account'=>$registerData,'reg_data'=>$resultData),TRUE);
 				$this->sendMail($registerData['email'],'robot@sysfx.com','Optospot trading platform','Welcome to Optospot.net',$mailtext);
 				$json_request['status'] = TRUE;
