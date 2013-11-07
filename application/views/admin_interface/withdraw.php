@@ -222,7 +222,6 @@
 				?>
 				<?php $this->load->view("alert_messages/alert-error");?>
 				<?php $this->load->view("alert_messages/alert-success");?>
-				<div style="height:3px;"> </div>
 				<form action="?action=pay" method="POST" class="form-horizontal form-edit-settings">
 					<fieldset>
 						<label>Choose payment system:</label>
@@ -238,12 +237,18 @@
 							<option value="4">Яндекс.Деньги</option>
 							<option value="5">Webmoney</option>-->
 						</select>
-						<label>Specify the account number to withdraw money:</label>
-						<input type="text" name="account"><br>
-						<div class="expiry-div" style="display: none;"><label>Expire date:</label>
-						<input type="text" name="expiry"></div>
-						<label>Specify the amount of money, USD:</label>
-						<input type="text" name="amount"><br>
+						<div class="withdraw-div">
+							<label>Specify the account number to withdraw money:</label>
+							<input type="text" name="account">
+						</div>
+						<div class="expiry-div withdraw-div" style="display: none;">
+							<label>Expiry date:</label>
+							<input type="text" name="expiry">
+						</div>
+						<div class="withdraw-div">
+							<label>Specify the amount of money, USD:</label>
+							<input type="text" name="amount"><br>
+						</div>
 					</fieldset>
 						
 					<div class="form-actions">

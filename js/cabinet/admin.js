@@ -4,6 +4,12 @@
 
 $(function(){
 
+	$('select[name=payment]').find('option[value=2]').hide();
+	$('select[name=payment]').find('option[value=1]').hide();
+	$('select[name=payment]').find('option[value=33]').hide();
+	$('select[name=payment]').find('option[value=9]').html('MasterCard');
+	$('select[name=payment]').find('option[value=1011350]').html('Visa');
+
 	if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '9')
 	{
 		$('.expiry-div').show();
