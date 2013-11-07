@@ -3,6 +3,21 @@
  */
 
 $(function(){
+
+	if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '9')
+	{
+		$('.expiry-div').show();
+	}
+	
+	$('select[name=payment]').change(function(){
+		if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '1011350')
+		{
+			$('.expiry-div').fadeIn();
+		} else {
+			$('.expiry-div').fadeOut();
+		}
+	});
+	
 	var mainOptions = {target: null,beforeSubmit: mt.ajaxBeforeSubmit,success: mt.ajaxSuccessSubmit,dataType:'json',type:'post'};
 	$("button.btn-edit-user").click(function(event){
 		var _form = $("form.form-edit-user");

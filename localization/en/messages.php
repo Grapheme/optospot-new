@@ -49,7 +49,7 @@
 			'screen1_1' => 'A quick and easy way to get into the world of online trading',
 			'screen1_2' => 'All the tools for reliable binary options trading',
 			'screen1_3' => 'Probably the most advanced trading platform with the One Touch',
-			'screen2_1' => 'A quick and easy way to get into the world of online trading',
+			'screen2_1' => 'Open account today',
 			'screen2_2' => 'All the tools for reliable binary options trading',
 			'screen2_3' => 'Probably the most advanced trading platform with the One Touch',
 			'screen3_1' => 'A quick and easy way to get into the world of online trading',
