@@ -7,7 +7,7 @@ var mt = mt || {};
 //configuration
 mt.baseURL = window.location.protocol+'//'+window.location.hostname+'/';
 mt.currentURL = window.location.href;
-mt.languageSegment = 2;
+mt.languageSegment = 1;
 //end configuration
 mt.getBaseURL = function(url){return mt.baseURL+url;}
 mt.getLanguageURL = function(){
@@ -160,9 +160,6 @@ $.fn.formSubmitInServer = function(){
 				if(response.responseText != ''){
 					$(_form).find("div.div-form-operation").after('<div class="msg-alert">'+response.responseText+'</div>');
 				}
-				if(response.redirect !== false){
-					mt.redirect(response.redirect);
-				}
 			}else{
 				$(_form).find("div.div-form-operation").after('<div class="msg-alert error">'+response.responseText+'</div>');
 			}
@@ -173,7 +170,7 @@ $.fn.formSubmitInServer = function(){
 $.fn.formSubmitNoValid = function(){
 	var _form = this;
 	var buttontext = $(_form).find(".btn-locked").html();
-	$(_form).find(".btn-locked").html(Localize[mt.currentLenguage]['wait']).attr('disabled','disabled');
+	$(_form).find(".reg-block-in .div-form-operation").html(Localize[mt.currentLenguage]['wait']);
 	var options = {
 		target: null,dataType:'json',type:'post',
 		beforeSubmit: function(formData,jqForm,options){
@@ -183,15 +180,28 @@ $.fn.formSubmitNoValid = function(){
 		success: function(response,status,xhr,jqForm){
 			if(response.status == true){
 				if(response.responseText != ''){
+					$('#reg-1 .reg-blocked').fadeIn();
+					$('#reg-2 .reg-blocked').fadeIn();
 					$(_form).find(".reg-block-in .div-form-operation").after('<div class="msg-alert">'+response.responseText+'</div>');
 					$(_form).find(".reg-normal").fadeOut('fast', function(){
 						$(_form).find(".reg-success").fadeIn('fast');
 					});
+					$('#circle-3').fadeOut(function(){
+						$('#reg-3').fadeIn();
+					});
+					$('#button-2').fadeOut();
+					if($('.acc-radio[value=1]').is(':checked'))
+			        {
+			        	$('.reg-desc').slideDown();
+			        	$('.reg-desc-2').slideUp();
+			        } else {
+			        	$('.reg-desc').slideUp();
+			        	$('.reg-desc-2').slideDown();
+			        }
+			        
 				}
-				if(response.redirect !== false){
-					setTimeout(function(){mt.redirect(response.redirect)},3000);
-				}
-			}else{
+			} else {
+				$(_form).find(".reg-block-in .div-form-operation").html('');
 				$(_form).find(".btn-locked").removeAttr('disabled').html(buttontext);
 				$(_form).find(".reg-block-in .div-form-operation").after('<div class="msg-alert error">'+response.responseText+'</div>');
 				$(_form).find(".reg-normal").fadeOut('fast', function(){
