@@ -290,7 +290,7 @@ $('.score.green').click(function(event){
 	scoreClick('green');
 	validationTwo(true);
 	if(validationOne(false) && validationTwo(false)){
-		$(this).parents('form').formSubmitNoValidReg();
+		$(this).parents('form').formSubmitNoValid();
 	}
 });
 
