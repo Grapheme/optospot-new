@@ -303,7 +303,7 @@ $.fn.formSubmitNoValidReg = function() {
 				if (response.responseText != '') {
 					$('#reg-1 .reg-blocked').fadeIn();
 					$('#reg-2 .reg-blocked').fadeIn();
-					$(_form).find(".reg-block-in .div-form-operation").after('<div class="msg-alert">' + response.responseText + '</div>');
+					$(_form).find(".reg-block-in .div-form-operation").html('');
 					$(_form).find(".reg-normal").fadeOut('fast', function() {
 						$(_form).find(".reg-success").fadeIn('fast');
 					});

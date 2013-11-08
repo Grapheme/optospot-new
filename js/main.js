@@ -299,7 +299,7 @@ $('.score.blue').click(function(event){
 	scoreClick('blue');
 	validationTwo(true);
 	if(validationOne(false) && validationTwo(false)){
-		$(this).parents('form').formSubmitNoValid();
+		$(this).parents('form').formSubmitNoValidReg();
 	}
 });
 
