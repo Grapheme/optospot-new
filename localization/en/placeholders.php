@@ -13,7 +13,7 @@
 		'signin' => array(
 			'title_form' => 'authorization',
 			'login' => 'Login',
-			'pass' => 'Kata sandi',
+			'pass' => 'Password',
 			'login_account' => 'Login',
 			'login_forgot' => 'Forgot your password?',
 			'login_reg' => 'Sign up'

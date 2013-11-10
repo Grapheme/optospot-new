@@ -113,6 +113,11 @@ textarea {
 	font-size: 13px;
 }
 
+.popup .div-form-operation {
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
 /* FONTS-BEGIN */
 
 @font-face {
@@ -441,11 +446,13 @@ h2.begin-title {
 .reg-desc {
 	text-align: left;
 	display: none;
+	margin-top: 10px;
 }
 
 .reg-desc-2 {
 	text-align: left;
 	display: none;
+	margin-top: 10px;
 }
 
 .begin-title {

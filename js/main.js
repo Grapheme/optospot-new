@@ -226,7 +226,7 @@ function validationAuth() {
 	}
 }
 
-$('.control-line#control-2').click(function(event){
+function screenTwo() {
 	$('#screen-1').hide();
 	$('#screen-3').hide(function(){
 		$('#screen-2').fadeIn();
@@ -235,9 +235,9 @@ $('.control-line#control-2').click(function(event){
 	$('#control-1').removeClass('active');
 	$('#control-2').addClass('active');
 	$('.begin-container').css('background-image', 'url(../img/slide2.jpg)');
-});
+}
 
-$('.control-line#control-1').click(function(event){
+function screenOne() {
 	$('#screen-2').hide();
 	$('#screen-3').hide(function(){
 		$('#screen-1').fadeIn();
@@ -246,6 +246,32 @@ $('.control-line#control-1').click(function(event){
 	$('#control-2').removeClass('active');
 	$('#control-1').addClass('active');
 	$('.begin-container').css('background-image', 'url(../img/back.png)');
+}
+
+var count = 1;
+
+function screenChange() {
+	if(count == 1) {
+		screenTwo();
+		count = 2;
+	} else if(count == 2) {
+		screenOne();
+		count = 1;
+	}
+}
+
+var screenInt = setInterval(screenChange, 7000);
+
+
+
+$('.control-line#control-2').click(function(event){
+	screenTwo();
+	clearInterval(screenInt);
+});
+
+$('.control-line#control-1').click(function(event){
+	screenOne();
+	clearInterval(screenInt);
 });
 
 $('.control-line#control-3').click(function(event){
@@ -290,7 +316,7 @@ $('.score.green').click(function(event){
 	scoreClick('green');
 	validationTwo(true);
 	if(validationOne(false) && validationTwo(false)){
-		$(this).parents('form').formSubmitNoValid();
+		$(this).parents('form').formSubmitNoValidReg();
 	}
 });
 
@@ -299,7 +325,7 @@ $('.score.blue').click(function(event){
 	scoreClick('blue');
 	validationTwo(true);
 	if(validationOne(false) && validationTwo(false)){
-		$(this).parents('form').formSubmitNoValid();
+		$(this).parents('form').formSubmitNoValidReg();
 	}
 });
 

@@ -7,7 +7,7 @@
 			'active_submit' => 'Open account',
 			'inactive_submit' => 'Not active',
 			'type_account' => 'Type account',
-			'real_account' => 'Akun pro.',
+			'real_account' => 'Akun pro',
 			'demo_account' => 'Akun demo',
 			'form_title' => 'Pendaftaran',
 			'next' => 'Lebih Lanjut',
