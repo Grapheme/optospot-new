@@ -85,9 +85,7 @@ class Admin_interface extends MY_Controller{
 		$this->settings->updateField(2,'link',$post['charts']);
 		$this->settings->updateField(3,'link',$post['deposit']);
 	}
-	
 	/******************************************* pages_lang ******************************************************/
-	
 	public function pagesLang(){
 		
 		if($this->input->post('insleng') !== FALSE):
@@ -127,11 +125,11 @@ class Admin_interface extends MY_Controller{
 				if($this->ExecuteCreatingPage($this->uri->segment(5),$this->input->post(),1)):
 					$this->session->set_userdata('msgs','Page added!');
 				else:
-					$this->session->set_userdata('msgr','Error. Language is not added!');
+					$this->session->set_userdata('msgr','Error. Page is not added!');
 				endif;
 				redirect(uri_string());
 			else:
-				$this->session->set_userdata('msgr','Error. Incorrect language name!');
+				$this->session->set_userdata('msgr','Error. Incorrect filled fields!');
 			endif;
 		endif;
 		
@@ -139,9 +137,9 @@ class Admin_interface extends MY_Controller{
 		$pagevar = array(
 			'langs' => $this->languages->getAll(),
 			'langs_pages' => $this->pages->getPages(),
-			'page' => array('title'=>'','description'=>'','link'=>'','url'=>'','content'=>'','category'=>0,'manage'=>1),
+			'page' => array('title'=>'','description'=>'','link'=>'','url'=>'','content'=>'','category'=>0,'manage'=>1,'sort'=>0),
 			'redactor' => TRUE,
-			'form_legend' => 'The form of creating a new page. Language: '.strtoupper($this->languages->value($this->uri->segment(5),'name')),
+			'form_legend' => 'The form of creating a new page. Language: '.mb_strtoupper($this->languages->value($this->uri->segment(5),'name')),
 			'category' => $this->category->getWhere(NULL,array('language'=>$this->uri->segment(5)),TRUE),
 			'msgs' => $this->session->userdata('msgs'),
 			'msgr' => $this->session->userdata('msgr')
@@ -176,7 +174,7 @@ class Admin_interface extends MY_Controller{
 			'langs_pages' => $this->pages->getPages(),
 			'page' => $this->pages->getWhere($this->uri->segment(7)),
 			'redactor' => TRUE,
-			'form_legend'=> 'The form of editing page. Language: '.strtoupper($this->languages->value($this->uri->segment(5),'name')),
+			'form_legend'=> 'The form of editing page. Language: '.mb_strtoupper($this->languages->value($this->uri->segment(5),'name')),
 			'category' => $this->category->getWhere(NULL,array('language'=>$this->uri->segment(5)),TRUE),
 			'msgs' => $this->session->userdata('msgs'),
 			'msgr' => $this->session->userdata('msgr')
@@ -224,7 +222,7 @@ class Admin_interface extends MY_Controller{
 			'langs' => $this->languages->getAll(),
 			'langs_pages' => $this->pages->getPages(),
 			'page' => $this->pages->getHomePage($this->uri->segment(5)),
-			'form_legend' => 'The form of editing home page. Language: '.strtoupper($this->languages->value($this->uri->segment(5),'name')),
+			'form_legend' => 'The form of editing home page. Language: '.mb_strtoupper($this->languages->value($this->uri->segment(5),'name')),
 			'msgs' => $this->session->userdata('msgs'),
 			'msgr' => $this->session->userdata('msgr')
 		);
@@ -326,14 +324,14 @@ class Admin_interface extends MY_Controller{
 		endif;
 		
 		$page = array("language"=>$langID,'title'=>$page['title'],'description'=>$page['description'],'link'=>$page['link'],
-			'content'=>$page['content'],'url'=>$page['url'],'category'=>$page['category'],'manage'=>$page['manage']);
+			'content'=>$page['content'],'url'=>$page['url'],'category'=>$page['category'],'manage'=>$page['manage'],'sort'=>$page['sort']);
 		return $this->insertItem(array('insert'=>$page,'model'=>'pages'));
 	}
 	
 	private function ExecuteUpdatingPage($pageID,$post){
 		
 		$page = array("id"=>$pageID,'title'=>$post['title'],'description'=>$post['description'],'link'=>$post['link'],
-			'content'=>$post['content'],'url'=>$post['url']);
+			'content'=>$post['content'],'url'=>$post['url'],'sort'=>$post['sort']);
 		if(isset($post['category'])):
 			$page['category'] = $post['category'];
 		endif;
@@ -359,9 +357,7 @@ class Admin_interface extends MY_Controller{
 		endfor;
 		return TRUE;
 	}
-	
 	/******************************************* categories ******************************************************/
-	
 	public function langCategories(){
 		
 		if($this->input->post('inscategory') !== FALSE):
@@ -389,7 +385,7 @@ class Admin_interface extends MY_Controller{
 			'langs' => $this->languages->getAll(),
 			'langs_pages' => $this->pages->getPages(),
 			'category' => $this->category->getWhere(NULL,array('language'=>$this->uri->segment(5)),TRUE),
-			'form_legend' => 'Category list pages. Language: '.strtoupper($this->languages->value($this->uri->segment(5),'name')),
+			'form_legend' => 'Category list pages. Language: '.mb_strtoupper($this->languages->value($this->uri->segment(5),'name')),
 			'msgs' => $this->session->userdata('msgs'),
 			'msgr' => $this->session->userdata('msgr')
 		);
@@ -428,9 +424,7 @@ class Admin_interface extends MY_Controller{
 		$category = array("id"=>$post['category_id'],'title'=>$post['title']);
 		return $this->updateItem(array('update'=>$category,'model'=>'category'));
 	}
-	
 	/********************************************** LOG **********************************************************/
-	
 	public function logList(){
 		
 		$this->offset = intval($this->uri->segment(5));
@@ -451,9 +445,7 @@ class Admin_interface extends MY_Controller{
 		endfor;
 		$this->load->view("admin_interface/logList",$pagevar);
 	}
-	
 	/******************************************* properties ******************************************************/
-	
 	public function langProperties(){
 		
 		if($this->input->post('submit') !== FALSE):
@@ -472,7 +464,7 @@ class Admin_interface extends MY_Controller{
 			'langs' => $this->languages->getAll(),
 			'langs_pages' => $this->pages->getPages(),
 			'lang' => $this->languages->getWhere($this->uri->segment(5)),
-			'form_legend' => 'Properties language. Language: '.strtoupper($this->languages->value($this->uri->segment(5),'name')),
+			'form_legend' => 'Properties language. Language: '.mb_strtoupper($this->languages->value($this->uri->segment(5),'name')),
 			'msgs' => $this->session->userdata('msgs'),
 			'msgr' => $this->session->userdata('msgr')
 		);
@@ -513,9 +505,7 @@ class Admin_interface extends MY_Controller{
 		$this->updateItem(array('update'=>$languages,'translit'=>NULL,'model'=>'languages'));
 		return TRUE;
 	}
-	
 	/********************************************* users ********************************************************/
-	
 	public function accountsList(){
 		
 		$this->offset = intval($this->uri->segment(5));

@@ -4,7 +4,8 @@ class Pages extends MY_Model{
 	
 	protected $table = "pages";
 	protected $primary_key = "id";
-	protected $fields = array("id","language","title","description","link","content","url","category","manage");
+	protected $fields = array("*");
+	protected $order_by = 'sort';
 
 	function __construct(){
 		parent::__construct();
@@ -16,7 +17,7 @@ class Pages extends MY_Model{
 		$this->db->where('url','');
 		$this->db->where_in('category',array(0,-1));
 		$this->db->order_by('category','DESC');
-		$this->db->order_by('title');
+		$this->db->order_by($this->order_by);
 		$query = $this->db->get($this->table);
 		$data = $query->result_array();
 		if($data) return $data;
@@ -31,6 +32,8 @@ class Pages extends MY_Model{
 		$this->db->where('url !=','faq');
 		$this->db->where('url !=','deposit');
 		$this->db->where('url !=','contact-us');
+		$this->db->order_by('category');
+		$this->db->order_by($this->order_by);
 		$query = $this->db->get('pages');
 		if($data = $query->result_array()):
 			return $data;

@@ -53,6 +53,12 @@
 						<?php endif; ?>
 					</div>
 				</div>
+				<div class="control-group">
+					<label for="sort" class="control-label">Sort: </label>
+					<div class="controls">
+						<input type="text" class="span2" name="sort" value="<?=$page['sort'];?>">
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="form-actions">
