@@ -248,6 +248,17 @@ function screenOne() {
 	$('.begin-container').css('background-image', 'url(../img/back.png)');
 }
 
+function screenThree() {
+	$('#screen-1').hide();
+	$('#screen-2').hide(function(){
+		$('#screen-3').fadeIn();
+	});
+	$('#control-2').removeClass('active');
+	$('#control-1').removeClass('active');
+	$('#control-3').addClass('active');
+	$('.begin-container').css('background-image', 'url(../img/screen-3.png)');
+}
+
 var count = 1;
 
 function screenChange() {
@@ -255,6 +266,10 @@ function screenChange() {
 		screenTwo();
 		count = 2;
 	} else if(count == 2) {
+		screenThree();
+		count = 3;
+	}
+	 else if(count == 3) {
 		screenOne();
 		count = 1;
 	}
@@ -263,6 +278,10 @@ function screenChange() {
 var screenInt = setInterval(screenChange, 7000);
 
 
+$('.control-line#control-3').click(function(event){
+	screenThree();
+	clearInterval(screenInt);
+});
 
 $('.control-line#control-2').click(function(event){
 	screenTwo();

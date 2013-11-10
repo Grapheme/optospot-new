@@ -39,6 +39,11 @@
 			'no_valid_fields' => 'Ошибка. Неправильно заполнены обязательные поля!',
 		),
 		'index' => array(
+			'screen_3_title' => 'Optospot лучший брокер бинарных опционов',
+			'screen_3_text' => 'По версии Forex Expo Awards 2013',
+			'screen_3_desc' => 'Зарегистрируйтесь сегодня и убедитесь<br> в этом сами.',
+			'banner-left' => 'Чат со специалистом',
+			'banner-right' => 'Памятка трейдеру',
 			'user_block_reg' => 'Регистрация',
 			'user_block_login' => 'Войти',
 			'circle_step1_1' => 'Cделайте прогноз',

@@ -39,6 +39,11 @@
 			
 		),
 		'index' => array(
+			'screen_3_title' => 'Optospot is the best binary options broker',
+			'screen_3_text' => 'According to the Forex Expo Awards 2013',
+			'screen_3_desc' => 'Sign up today and see for yourself',
+			'banner-left' => 'Chat with a specialist',
+			'banner-right' => 'Memo trader',
 			'user_block_reg' => 'Pendaftaran',
 			'user_block_login' => 'Login',
 			'circle_step1_1' => 'Kirim FORECAST',
