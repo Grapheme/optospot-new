@@ -55,25 +55,33 @@
 				</div>
 			</div>
 			<div class="grid_8" id="screen-2">
-				<p class="screen2-text">Открой счет сегодня</p>
+				<p class="screen2-text"><?=$this->localization->getLocalMessage('index','screen2_1')?></p>
 			</div>
 			<div class="grid_8" id="screen-3">
-				<!--<div class="begin-list">
-					<img src="<?=baseURL('img/red-1.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen3_1'));?></p>
-				</div>
-				<div class="begin-list">
-					<img src="<?=baseURL('img/red-2.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen3_2'));?></p>
-				</div>
-				<div class="begin-list">
-					<img src="<?=baseURL('img/red-3.png');?>"><p><?=mb_strtoupper($this->localization->getLocalMessage('index','screen3_3'));?></p>
-				</div>-->
+				<p class="screen2-text" style="width: 670px; margin-bottom: 10px;"><?=$this->localization->getLocalMessage('index','screen_3_title')?></p>
+				<p class="screen2-text" style="font-size: 22px; width: 670px; font-weight: normal; margin: 0 0 60px 0;"><?=$this->localization->getLocalMessage('index','screen_3_text')?></p>
+				<p class="screen2-text" style="font-size: 15px; font-weight: normal; line-height: 25px;"><?=$this->localization->getLocalMessage('index','screen_3_desc')?></p>
 			</div>
 			<?php $this->load->view("users_interface/modal/begin-trade");?>
 			<div class="control">
 				<a class="control-line active" id="control-1"></a>
 				<a class="control-line" id="control-2"></a>
-				<!--<a class="control-line" id="control-3"></a>-->
+				<a class="control-line" id="control-3"></a>
 			</div>
+		</div>
+	</div>
+	<div class="container_12">
+		<div class="grid_12">
+			<a target="_blank" href="https://server.iad.liveperson.net/hc/55637638/?cmd=file&file=visitorWantsToChat&site=55637638&SV!skill=--Default%20Skill--&leInsId=5563763898628583812&skId=-1&leEngId=55637638_23984e41-338d-44c6-be65-735862271014&leEngTypeId=7&leEngName=OptoSpot%20EN_default&leRepAvState=3&referrer=(button%20dynamic-button:OptoSpot%20EN_default(optospot%20-%20Easy%20Money%20For%20Smart%20People))%20http%3A//www.optospot.com/home" class="right-banner">
+				<div class="hover-banner">
+				</div>
+				<div class="banner-text"><?=$this->localization->getLocalMessage('index','banner-left')?></div>
+			</a>
+			<a target="_blank" href="http://optospot.net/banners/trade_binery_options_RUS.pdf" class="left-banner">
+				<div class="hover-banner">
+				</div>
+				<div class="banner-text"><?=$this->localization->getLocalMessage('index','banner-right')?></div>
+			</a>
 		</div>
 	</div>
 	<div class="fish-container">

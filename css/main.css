@@ -96,7 +96,53 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
- 
+.banner-text {
+	margin: 0;
+	z-index: 2;
+	position: relative;
+}
+
+.hover-banner {
+	background: url('../img/banner-hover.png');
+	position: absolute;
+	top:0;left:0;right:0;bottom:0;
+	opacity: .5;
+	z-index: 1;
+	display: none;
+}
+
+.left-banner:hover .hover-banner {
+	display: inline;
+}
+
+.right-banner:hover .hover-banner {
+	display: inline;
+}
+
+.left-banner,.right-banner {
+	position: relative;
+	float: left;
+	width: 50%;
+	text-align: center;
+	height: 114px;
+	line-height: 114px;
+	color: #fff;
+	font-family: 'Conv_FuturaNewBook_0',sans-serif;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 20px;
+}
+
+.left-banner {
+	background: url('../img/left-banner.png') no-repeat;
+	background-size: cover;
+}
+
+.right-banner {
+	background: url('../img/right-banner.png') no-repeat;
+	background-size: cover;
+}
+
 .msg-alert {
 	padding-top: 15px;
 	padding-bottom: 15px;
