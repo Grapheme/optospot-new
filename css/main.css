@@ -217,7 +217,7 @@ h1 {
  	font-size: 25px;
 }
 
-h2 {
+h2, .award-title-span {
 	font-family:'Conv_FuturaNewMedium_0',Sans-Serif;
 	font-size: 15px;
 	text-transform: uppercase;
@@ -232,7 +232,7 @@ button, a.green-button {
 
 .normal-text {
 	font-family: 'Conv_FuturaNewBook_0', sans-serif;
-	font-size: 13px;
+	font-size: 15px;
 }
 
 .circle-number {
@@ -246,8 +246,42 @@ button, a.green-button {
 	display: none !important;
 }
   
-.lang-div select {
-	
+.award-quote {
+	line-height: 18px;
+	font-size: 18px;
+	font-style: italic;
+	border-left: 1px solid #b53a3a;
+	margin: 40px auto;
+	padding-left: 20px;
+	color: #828282;
+}
+
+.award-diploma-2 {
+	display: inline-block;
+	width: 260px;
+	height: 260px;
+	border-radius: 260px;
+	background: url('../img/award-circle-2.png');
+	background-position: center -60px;
+}
+
+.award-diploma-1 {
+	display: inline-block;
+	width: 260px;
+	height: 260px;
+	border-radius: 260px;
+	background: url('../img/award-circle-1.png');
+	background-position: center center;
+}
+
+.award-h1 {
+	margin: 40px 0;
+}
+
+.award-text {
+	text-align: justify;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .award-container {
@@ -262,6 +296,69 @@ button, a.green-button {
 	min-width: 960px;
 	position: relative;
     min-height: 485px;
+}
+
+.award-items-container {
+	overflow: hidden;
+	background-color: #e2e2e2;
+	position: relative;
+	width: 100%;
+	min-width: 960px;
+}
+
+.award-items-container {
+	text-align: center;
+}
+
+.award-circle-div {
+	position: relative;
+	display: inline-block;
+}
+
+.award-circle h2 {
+	margin-top: 30px;
+}
+
+.award-circle {
+	position: relative;
+	float: left;
+	margin: 20px 40px 20px 40px;
+}
+
+.award-block-left {
+	width: 48%;
+	margin-right: 2%;
+	float:left;
+}
+
+.award-block-right {
+	width: 48%;
+	margin-left: 2%;
+	float: left;
+}
+
+@media screen and (min-width: 1100px) {
+	.award-container {
+		min-height: 535px;
+	}
+}
+
+@media screen and (min-width: 1300px) {
+	.award-container {
+		min-height: 635px;
+	}
+}
+
+@media screen and (min-width: 1500px) {
+	.award-container {
+		min-height: 735px;
+	}
+}
+
+@media screen and (min-width: 1700px) {
+	.award-container {
+		min-height: 835px;
+	}
 }
 
 .award-title {
