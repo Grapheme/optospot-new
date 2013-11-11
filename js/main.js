@@ -256,7 +256,7 @@ function screenThree() {
 	$('#control-2').removeClass('active');
 	$('#control-1').removeClass('active');
 	$('#control-3').addClass('active');
-	$('.begin-container').css('background-image', 'url(../img/screen-3.png)');
+	$('.begin-container').css('background-image', 'url(../img/screen-3.jpg)');
 }
 
 var count = 1;
