@@ -250,6 +250,24 @@ button, a.green-button {
 	
 }
 
+.award-container {
+	z-index: 2;
+	background-color: #000;
+	background-image: url('../img/banner-award.png');
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: cover;
+	overflow: hidden;
+	width: 100%;
+	min-width: 960px;
+	position: relative;
+    min-height: 485px;
+}
+
+.award-title {
+	text-align: center;
+}
+
 .lang-div .selectify .options {
 	max-height: 200px !important;
 	width: 48px !important;
