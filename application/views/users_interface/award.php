@@ -12,6 +12,7 @@
 	<div class="award-container">
 		<h1 class="award-title">Forex Expo Awards 2013</h1>
 	</div>
+	<!--
 	<div class="container_12">
 		<div class="grid_12">
 			<h1 class="award-h1">- Forex Awards 2013 -</h1>
@@ -32,7 +33,7 @@
 				К сожалению, с таким большим количеством брокеров, которые предлагают сегодня свои услуги для торговли бинарными опционами, тяжело выбрать надежную компанию для торговли на рынке.
 			</div>
 		</div>
-	</div>
+	</div>-->
 	<div class="award-items-container">
 		<div class="container_12">
 			<div class="grid_12">
