@@ -1181,6 +1181,7 @@ h1 {
 }
 
 .typical-menu {
+	width: 155px !important;
 	margin-right: 45px !important;
 }
 
@@ -1221,6 +1222,10 @@ h1 {
 	margin: 0 20px;
 	color: #2753AE;
 	text-decoration: none;
+}
+
+#screen-3 {
+	cursor: pointer;
 }
 
 .dark-screen {

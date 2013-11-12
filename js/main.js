@@ -277,6 +277,9 @@ function screenChange() {
 
 var screenInt = setInterval(screenChange, 7000);
 
+$('#screen-3').click(function(){
+	window.location.href = mt.baseURL + "award";
+});
 
 $('.control-line#control-3').click(function(event){
 	screenThree();
