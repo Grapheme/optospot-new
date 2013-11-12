@@ -57,11 +57,11 @@
 			<div class="grid_8" id="screen-2">
 				<p class="screen2-text"><?=$this->localization->getLocalMessage('index','screen2_1')?></p>
 			</div>
-			<div class="grid_8" id="screen-3">
+			<a href="<?=site_url('award');?>" class="grid_8" id="screen-3">
 				<p class="screen2-text" style="width: 670px; margin-bottom: 10px;"><?=$this->localization->getLocalMessage('index','screen_3_title')?></p>
 				<p class="screen2-text" style="font-size: 22px; width: 670px; font-weight: normal; margin: 0 0 60px 0;"><?=$this->localization->getLocalMessage('index','screen_3_text')?></p>
 				<p class="screen2-text" style="font-size: 15px; font-weight: normal; line-height: 25px;"><?=$this->localization->getLocalMessage('index','screen_3_desc')?></p>
-			</div>
+			</a>
 			<?php $this->load->view("users_interface/modal/begin-trade");?>
 			<div class="control">
 				<a class="control-line active" id="control-1"></a>

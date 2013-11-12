@@ -1226,6 +1226,7 @@ h1 {
 
 #screen-3 {
 	cursor: pointer;
+	text-decoration: none;
 }
 
 .dark-screen {
