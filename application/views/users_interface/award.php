@@ -21,18 +21,16 @@
 			<div class="normal-text award-text" style="margin-top: 0;">
 				<?=$this->localization->getLocalMessage('award','text')?>
 			</div>
-			<!--<img src="<?=baseURL('img/award-photo-2.png');?>" style="width: 130%; margin-left: -30%;">
-			<div class="award-quote">
+			<img src="<?=baseURL('img/award-photo-2.png');?>" style="width: 130%; margin-left: -30%;">
+			<!--<div class="award-quote">
 			 	Желание выиграть крупную сумму за короткий срок людей влечет на финансовые торги. К сожалению, с таким большим количеством брокеров, которые предлагают сегодня свои услуги для торговли бинарными опционами, тяжело выбрать надежную компанию для торговли на рынке. 
 			</div>-->
 		</div>
 		<div class="award-block-right">
 			<img src="<?=baseURL('img/award-photo-1.png');?>" style="width: 130%; margin-right: -30%;">
-			<!--
 			<div class="normal-text award-text">
-				<p class="award-title-span">Сделайте прогноз</p>
-				К сожалению, с таким большим количеством брокеров, которые предлагают сегодня свои услуги для торговли бинарными опционами, тяжело выбрать надежную компанию для торговли на рынке.
-			</div>-->
+				<?=$this->localization->getLocalMessage('award','text-2')?>
+			</div>
 		</div>
 	</div>
 	<div class="award-items-container">
