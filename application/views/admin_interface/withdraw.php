@@ -67,7 +67,7 @@
 		curl_close($ch);
 		
 		if($final->status == 1) {
-			$response = "Balance: ".$final->status." $";
+			$response = "Balance: ".$final->balance." $";
 		} else {
 			$response = "Error: ".$final->status;
 		}
@@ -224,18 +224,21 @@
 				<?php $this->load->view("alert_messages/alert-success");?>
 				<form action="?action=pay" method="POST" class="form-horizontal form-edit-settings">
 					<fieldset>
-						<label>Choose payment system:</label>
 						<select name="payment">
+							<label>Choose payment system:</label>
+							<option value="9">MasterCard</option>
+							<option value="19">WebMoney WMR</option>
+							<option value="22">WebMoney WME</option>
+							<option value="23">WebMoney WMZ</option>
+							<option value="28">QIWI-кошелек</option>
+							<option value="1011350">Visa</option>
+							<option value="1013538">Яндекс.Деньги</option>
 						<?php
-							$numpay = count($payarray['paysystems']['paysystem']);
+							/*$numpay = count($payarray['paysystems']['paysystem']);
 							for ($i=0; $i<$numpay; $i++) {
 								echo '<option value="'.$payarray['paysystems']['paysystem'][$i]['id'].'">'.$payarray['paysystems']['paysystem'][$i]['title'].'</option>';
-							}
+							}*/
 						?>
-							<!--<option value="2">Mastercard</option>
-							<option value="3">Qiwi</option>
-							<option value="4">Яндекс.Деньги</option>
-							<option value="5">Webmoney</option>-->
 						</select>
 						<div class="withdraw-div">
 							<label>Specify the account number to withdraw money:</label>
