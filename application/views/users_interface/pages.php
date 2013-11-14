@@ -11,7 +11,7 @@
 	<?php $this->load->view("users_interface/includes/header");?>
 	<div class="main-container">
 		<div class="container_12 reg-blocks">
-			<div class="grid_2 typical-menu">
+			<div class="grid_3 typical-menu">
 			&nbsp;
 			<?php if($active_category):?>
 				<nav>
@@ -27,7 +27,7 @@
 				</nav>
 			<?php endif;?>
 			</div>
-			<div class="grid_8">
+			<div class="grid_9">
 				<div class="normal-text">
 					<?=$content;?>
 				</div>
