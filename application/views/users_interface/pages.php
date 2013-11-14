@@ -33,6 +33,39 @@
 				</div>
 			</div>
 		</div>
+		
+		
+		
+		<?php 
+			if(noFirstSegment(uri_string()) == 'binarnie-opcioni-demo-schet')
+			{
+				$type = "demo";
+			} 
+			elseif(noFirstSegment(uri_string()) == 'binarnie-opcioni-otkrit-schet') 
+			{
+				$type = "pro";
+			} 
+			else 
+			{
+				$type = "none";
+			}
+		?>
+		
+		<?php if($type!="none") { ?>
+
+			<?php if($this->loginstatus === FALSE):?>
+			<div class="main-container kit">
+				<div class="container_12 reg-container">
+					<div class="reg-form">
+						<h1 class="begin-title"><?=$this->localization->getLocalButton('signup','form_title');?></h1>
+						<?php $posit = "down"; ?>
+						<?=$this->load->view('users_interface/forms/signup-page',array('idForm'=>'reg-form','type'=>$type));?>
+					</div>
+				</div>
+			</div>
+			<?php endif;?>
+		
+		<?php } ?>
 	</div>
 	<div class="clear"></div>
 	<?php $this->load->view("users_interface/modal/signin");?>
