@@ -177,6 +177,29 @@ class Users_interface extends MY_Controller{
 		$this->load->view("users_interface/award",$pagevar);
 		
 	}
+
+	public function chat() {
+		
+		$this->load->model(array('pages','languages','category'));
+		$dataPage = $this->pages->readFieldsUrl('binarnaya-platforma/online-treiding',$this->language);
+		$pagevar = array(
+			'title' => (!empty($dataPage['title']))?$dataPage['title']:'Optospot trading platform',
+			'description' => $dataPage['description'],
+			'content' => $dataPage['content'],
+			'languages' => $this->languages->visibleLanguages(),
+			'main_menu' => $this->pages->readTopMenu($this->language),
+			'client' => array(),
+			'footer' => array()
+		);
+		$pagevar['footer']['category'] = $this->category->getWhere(NULL,array('language'=>$this->language),TRUE);
+		$pagevar['footer']['pages'] = $this->pages->getWhere(NULL,array('language'=>$this->language),TRUE);
+		if($this->loginstatus):
+			$pagevar['client'] = $this->accounts->getWhere($this->account['id']);
+			$pagevar['client']['password'] = $this->encrypt->decode($pagevar['client']['trade_password']);
+		endif;
+		$this->load->view("users_interface/chat",$pagevar);
+		
+	}
 	
 	public function logoff(){
 		
