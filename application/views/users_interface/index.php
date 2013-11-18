@@ -77,7 +77,7 @@
 				</div>
 				<div class="banner-text"><?=$this->localization->getLocalMessage('index','banner-left')?></div>
 			</a>
-			<a target="_blank" href="http://optospot.net/banners/trade_binery_options_RUS.pdf" class="left-banner">
+			<a target="_blank" href="http://optospot.net/banners/trade_binery_options_<?php if($this->language_url == "ru") { ?>RUS<?php } else { ?>ENG<?php } ?>.pdf" class="left-banner">
 				<div class="hover-banner">
 				</div>
 				<div class="banner-text"><?=$this->localization->getLocalMessage('index','banner-right')?></div>
