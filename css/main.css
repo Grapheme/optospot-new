@@ -241,6 +241,15 @@ button, a.green-button {
 }
 
 /* FONTS-END */
+
+.normal-text a {
+	text-decoration: none;
+	color: #176495;
+}
+
+.normal-text a:hover {
+	border-bottom: 1px solid;
+}
   
 .notdisplay {
 	display: none !important;
@@ -1170,6 +1179,11 @@ h1 {
 	color: #000;
 	text-decoration: none;
 	font-size: 13px;
+}
+
+.typical-link.active {
+	color: #176495;
+	font-weight: 700;
 }
 
 .typical-menu nav ul li {

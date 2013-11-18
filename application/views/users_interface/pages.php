@@ -19,7 +19,15 @@
 				<?php for($i=0;$i<count($footer['pages']);$i++):?>
 					<?php if($footer['pages'][$i]['category'] == $active_category):?>
 						<li data-url="<?=$footer['pages'][$i]['url'];?>">
-							<?=anchor($footer['pages'][$i]['url'],$footer['pages'][$i]['link'],'class="typical-link"');?>
+						<?php if($footer['pages'][$i]['url'] == noFirstSegment(uri_string()))
+						{
+							$isactive = " active";
+						} else {
+							$isactive = "";
+						}
+						?>
+							<?=anchor($footer['pages'][$i]['url'],$footer['pages'][$i]['link'],'class="typical-link'.$isactive.'"');?>
+						<br>
 						</li>
 					<?php endif;?>
 				<?php endfor;?>
