@@ -107,7 +107,7 @@
 			$name_str = "";
 		}
 		//////////////
-		$params = $account.$amount.'840'.$expiry.$name.$payment.'9094281234'.$unid;
+		$params = $account.$amount.'840'.$expiry.$name.$payment.'9015115115'.$unid;
 		$signString = md5($timestamp . $project . $action . $params . $secret);
 		$xml = "xml=<request>
 		  <project>$project</project>
@@ -120,7 +120,7 @@
 			<currency>840</currency>
 			".$expiry_str.$name_str."
 			<paysystem>".$payment."</paysystem>
-			<phone>9094281234</phone>
+			<phone>9015115115</phone>
 			<txn_id>".$unid."</txn_id>
 		  </params>
 		</request>";
