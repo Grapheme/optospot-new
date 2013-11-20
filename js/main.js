@@ -17,6 +17,11 @@ $(function() {
 	});
 });
 
+$('.right-banner').click(function(){
+	$('#sh_button').click();
+	return false;
+});
+
 function login() {
 	$('.login-popup').fadeIn();
 	$('.dark-screen').fadeIn();

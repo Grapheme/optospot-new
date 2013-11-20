@@ -72,7 +72,7 @@
 	</div>
 	<div class="container_12">
 		<div class="grid_12">
-			<a target="_blank" href="https://server.iad.liveperson.net/hc/55637638/?cmd=file&file=visitorWantsToChat&site=55637638&SV!skill=--Default%20Skill--&leInsId=5563763898628583812&skId=-1&leEngId=55637638_23984e41-338d-44c6-be65-735862271014&leEngTypeId=7&leEngName=OptoSpot%20EN_default&leRepAvState=3&referrer=(button%20dynamic-button:OptoSpot%20EN_default(optospot%20-%20Easy%20Money%20For%20Smart%20People))%20http%3A//www.optospot.com/home" class="right-banner">
+			<a target="_blank" href="#" class="right-banner">
 				<div class="hover-banner">
 				</div>
 				<div class="banner-text"><?=$this->localization->getLocalMessage('index','banner-left')?></div>
