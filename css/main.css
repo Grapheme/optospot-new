@@ -217,7 +217,7 @@ h1 {
  	font-size: 25px;
 }
 
-h2, .award-title-span {
+h2, .award-title-span,h3,h4,h5,h6 {
 	font-family:'Conv_FuturaNewMedium_0',Sans-Serif;
 	font-size: 15px;
 	text-transform: uppercase;
