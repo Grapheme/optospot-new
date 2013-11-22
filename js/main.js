@@ -17,6 +17,42 @@ $(function() {
 	});
 });
 
+function arrow_top() {
+	var $int = parseInt($('.trade-banner-price span').html());
+	if($int < 1000) {
+		$int++;
+		$('.trade-banner-price span').html($int);
+	}
+}
+
+function arrow_down() {
+	var $int = parseInt($('.trade-banner-price span').html());
+	if($int > 5) {
+		$int--;
+		$('.trade-banner-price span').html($int);
+	}
+}
+
+$('#price-change .money-arrow-top').mousedown(function(){
+	var interval = setInterval(function() {arrow_top(); }, 100);
+	return false;
+});
+
+$('#price-change .money-arrow-down').mousedown(function(){
+	var interval = setInterval(function() {arrow_down(); }, 100);
+	return false;
+});
+
+$('#price-change .money-arrow-down').mouseup(function(){
+	 clearInterval(interval);
+	 return false;
+});
+
+$('#price-change .money-arrow-top').mouseup(function(){
+	 clearInterval(interval);
+	 return false;
+});
+
 $('.right-banner').click(function(){
 	$('#sh_button').click();
 	return false;
