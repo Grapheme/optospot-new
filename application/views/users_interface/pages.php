@@ -54,7 +54,7 @@
 								<p class="normal-text">Определите, куда пойдет цена</p>
 								<div class="trade-banner-arrows-div">
 									<a href="#" class="money-arrow-top" style="display: block; margin: 0 auto;"></a>
-									<div class="trade-banner-between-arrows" id="call-put">
+									<div class="trade-banner-between-arrows">
 										<p class="trade-banner-pull">call</p>
 										<p class="trade-banner-put">put</p>
 									</div>
