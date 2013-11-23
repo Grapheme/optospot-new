@@ -34,24 +34,43 @@ function arrow_down() {
 }
 
 $('#price-change .money-arrow-top').mousedown(function(){
-	var interval = setInterval(function() {arrow_top(); }, 100);
+	arrow_top();
+	interval = setInterval(function() {arrow_top(); }, 150);
 	return false;
 });
 
 $('#price-change .money-arrow-down').mousedown(function(){
-	var interval = setInterval(function() {arrow_down(); }, 100);
+	arrow_down();
+	interval = setInterval(function() {arrow_down(); }, 150);
+	return false;
+});
+
+$('#price-change .money-arrow-top').mouseup(function(){
+	clearInterval(interval);
 	return false;
 });
 
 $('#price-change .money-arrow-down').mouseup(function(){
-	 clearInterval(interval);
-	 return false;
+	clearInterval(interval);
+	return false;
 });
 
-$('#price-change .money-arrow-top').mouseup(function(){
-	 clearInterval(interval);
-	 return false;
+
+
+/********/
+
+$('.trade-banner-pull').click(function(){
+	$('.trade-banner-put').fadeOut();
 });
+
+$('.trade-banner-put').click(function(){
+	$('.trade-banner-pull').fadeOut();
+});
+
+
+/*********/
+
+
 
 $('.right-banner').click(function(){
 	$('#sh_button').click();

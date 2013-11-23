@@ -54,7 +54,7 @@
 								<p class="normal-text">Определите, куда пойдет цена</p>
 								<div class="trade-banner-arrows-div">
 									<a href="#" class="money-arrow-top" style="display: block; margin: 0 auto;"></a>
-									<div class="trade-banner-between-arrows">
+									<div class="trade-banner-between-arrows" id="call-put">
 										<p class="trade-banner-pull">call</p>
 										<p class="trade-banner-put">put</p>
 									</div>
@@ -75,7 +75,7 @@
 							<div class="trade-banner-arrow">&nbsp;</div>
 							<div class="trade-block">
 								<p class="normal-text">Инвестируйте</p>
-								<a href="#" class="green-button"><?=$this->localization->getLocalButton('ticker','invest')?></a>
+								<a href="http://localhost/git/optospot-new/ru/binarnaya-platforma/online-treiding" class="green-button"><?=$this->localization->getLocalButton('ticker','invest')?></a>
 							</div>
 						</div>
 						<div class="clearfix"></div>
