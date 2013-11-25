@@ -75,7 +75,7 @@
 							<div class="trade-banner-arrow">&nbsp;</div>
 							<div class="trade-block">
 								<p class="normal-text">Инвестируйте</p>
-								<a href="#" class="green-button"><?=$this->localization->getLocalButton('ticker','invest')?></a>
+								<a href="http://localhost/git/optospot-new/ru/binarnaya-platforma/online-treiding" class="green-button"><?=$this->localization->getLocalButton('ticker','invest')?></a>
 							</div>
 						</div>
 						<div class="clearfix"></div>
