@@ -9,7 +9,7 @@ if($this->language_url == "ru") {
 <script>
 	(function(){
 	// your widget ID
-	var widget_id = 650964;
+	var widget_id = 654946;
 	_shcp =[{widget_id : widget_id}];
 	// set default language
 	var lang =("<?=$chat_lang;?>")
