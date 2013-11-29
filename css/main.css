@@ -574,7 +574,13 @@ ul {
 }
 
 .menu-right {
-	margin-left: 90px;
+	float: right !important;
+}
+
+@media (max-width: 1024px) {
+	.menu-right {
+		float: left !important;
+	}
 }
 
 .menu-right a {
@@ -597,6 +603,7 @@ ul {
 .menu {
 	position: absolute;
 	margin-left: 205px;
+	width: 805px;
 }
 
 .menu div {

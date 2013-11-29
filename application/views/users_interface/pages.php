@@ -36,8 +36,7 @@
 			<?php endif;?>
 			</div>
 			<div class="grid_9">
-				<?php //if(noFirstSegment(uri_string()) == 'binarnie-opcioni-otkrit-schet') { 
-						if(noFirstSegment(uri_string()) == 'partners/white-labels') { ?>
+				<?php if(noFirstSegment(uri_string()) == 'binarnie-opcioni-otkrit-schet') {  ?>
 					<div class="trade-banner">
 						<h2>Торговать бинарными опционами просто</h2>
 						<div>
