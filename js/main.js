@@ -420,6 +420,14 @@ $('#enter').click(function(event){
 	login();
 });
 
+$('.green-enter').click(function(event){
+	event.preventDefault();
+	$(".msg-alert").remove();
+	$(".div-signin").removeClass('hidden');
+	$(".div-forgot").addClass('hidden');
+	login();
+});
+
 $('.dark-screen').click(function(){
 	loginClose();
 });

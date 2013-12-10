@@ -99,6 +99,10 @@ textarea {
 
 /***************TRADE BANNER*************/
 
+.page-margin {
+	margin-top: 25px;
+}
+
 .trade-banner {
 	background: #fff;
 	display: inline-block;
