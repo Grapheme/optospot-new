@@ -42,7 +42,7 @@
 			'page_name' => 'Account information',
 			'demo_account' => 'Demo account',
 			'register_real_account' => 'Register real account',
-			'withdrawal' => 'Withdrawal',
+			'withdrawal' => 'Withdrawal request',
 			'profile' => 'Profile',
 			'balance' => 'Balance',
 			'account' => 'Account',
@@ -52,6 +52,7 @@
 		),
 		'withdraw' => array(
 			'submit_withdraw' => 'Send request',
+			'payment' => 'Choose payment',
 		),
 		'client_sidebar' => array(
 			'navigation' => 'Navigation',

@@ -23,7 +23,7 @@
 			'email' => 'Ваш email',
 		),
 		'withdraw' => array(
-			'summa' => 'Сумма',
+			'summa' => 'Сумма для вывода',
 			'details' => 'Реквизиты счета',
 		),
 	);

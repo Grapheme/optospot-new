@@ -23,7 +23,7 @@
 			'email' => 'You email',
 		),
 		'withdraw' => array(
-			'summa' => 'Summa',
+			'summa' => 'Amount for withdrawal',
 			'details' => 'Account details',
 		),
 	);

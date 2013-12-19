@@ -167,8 +167,7 @@ class Ajax_interface extends MY_Controller{
 		$json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>site_url());
 		if($this->postDataValidation('user_withdraw') == TRUE):
 			$mailtext = $this->load->view('mails/withdraw',array('post'=>$this->input->post()),TRUE);
-//			$this->sendMail('support@optospot.net','robot@sysfx.com','Optospot trading platform','Withdrawal Optospot.net',$mailtext);
-			$this->sendMail('vkharseev@gmail.com','robot@sysfx.com','Optospot trading platform','Withdrawal Optospot.net',$mailtext);
+			$this->sendMail('support@optospot.net','robot@sysfx.com','Optospot trading platform','Withdrawal Optospot.net',$mailtext);
 			$json_request['status'] = TRUE;
 			$json_request['redirect'] = FALSE;
 			$json_request['responseText'] = $this->localization->getLocalMessage('withdraw','success');

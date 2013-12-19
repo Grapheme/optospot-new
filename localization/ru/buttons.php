@@ -30,6 +30,7 @@
 		),
 		'withdraw' => array(
 			'submit_withdraw' => 'Отправить запрос',
+			'payment' => 'Платежная система',
 		),
 		'user_block' => array(
 			'hello' => 'Здравствуйте',
@@ -45,7 +46,7 @@
 			'page_name' => 'Личный кабинет',
 			'demo_account' => 'Demo аккаунт',
 			'register_real_account' => 'Открытие профи-счета',
-			'withdrawal' => 'Вывод средств',
+			'withdrawal' => 'Запрос на вывод средств',
 			'profile' => 'Профиль',
 			'balance' => 'Баланс',
 			'account' => 'Аккаунт',
