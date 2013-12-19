@@ -17,6 +17,66 @@ $(function() {
 	});
 });
 
+function arrow_top() {
+	var $int = parseInt($('.trade-banner-price span').html());
+	if($int < 1000) {
+		$int++;
+		$('.trade-banner-price span').html($int);
+	}
+}
+
+function arrow_down() {
+	var $int = parseInt($('.trade-banner-price span').html());
+	if($int > 5) {
+		$int--;
+		$('.trade-banner-price span').html($int);
+	}
+}
+
+$('#price-change .money-arrow-top').mousedown(function(){
+	arrow_top();
+	interval = setInterval(function() {arrow_top(); }, 150);
+	return false;
+});
+
+$('#price-change .money-arrow-down').mousedown(function(){
+	arrow_down();
+	interval = setInterval(function() {arrow_down(); }, 150);
+	return false;
+});
+
+$('#price-change .money-arrow-top').mouseup(function(){
+	clearInterval(interval);
+	return false;
+});
+
+$('#price-change .money-arrow-down').mouseup(function(){
+	clearInterval(interval);
+	return false;
+});
+
+
+
+/********/
+
+$('.trade-banner-pull').click(function(){
+	$('.trade-banner-put').fadeOut();
+});
+
+$('.trade-banner-put').click(function(){
+	$('.trade-banner-pull').fadeOut();
+});
+
+
+/*********/
+
+
+
+$('.right-banner').click(function(){
+	$('#sh_button').click();
+	return false;
+});
+
 function login() {
 	$('.login-popup').fadeIn();
 	$('.dark-screen').fadeIn();
@@ -277,7 +337,6 @@ function screenChange() {
 
 var screenInt = setInterval(screenChange, 7000);
 
-
 $('.control-line#control-3').click(function(event){
 	screenThree();
 	clearInterval(screenInt);
@@ -354,6 +413,22 @@ $('#button-1').click(function(event) {
 });
 
 $('#enter').click(function(event){
+	event.preventDefault();
+	$(".msg-alert").remove();
+	$(".div-signin").removeClass('hidden');
+	$(".div-forgot").addClass('hidden');
+	login();
+});
+
+$('.green-enter').click(function(event){
+	event.preventDefault();
+	$(".msg-alert").remove();
+	$(".div-signin").removeClass('hidden');
+	$(".div-forgot").addClass('hidden');
+	login();
+});
+
+$('.green-enter').click(function(event){
 	event.preventDefault();
 	$(".msg-alert").remove();
 	$(".div-signin").removeClass('hidden');

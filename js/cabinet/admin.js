@@ -4,23 +4,34 @@
 
 $(function(){
 
-	$('select[name=payment]').find('option[value=2]').hide();
-	$('select[name=payment]').find('option[value=1]').hide();
-	$('select[name=payment]').find('option[value=33]').hide();
-	$('select[name=payment]').find('option[value=9]').html('MasterCard');
-	$('select[name=payment]').find('option[value=1011350]').html('Visa');
+	//$('select[name=payment]').find('option[value=2]').hide();
+	//$('select[name=payment]').find('option[value=1]').hide();
+	//$('select[name=payment]').find('option[value=33]').hide();
+	//$('select[name=payment]').find('option[value=9]').html('MasterCard');
+	//$('select[name=payment]').find('option[value=1011350]').html('Visa');
 
-	if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '9')
+	if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '1011350')
 	{
 		$('.expiry-div').show();
 	}
 	
+	if($('select[name=payment]').val() == '9')
+	{
+		$('.expiry-div').show();
+		$('.name-div').show();
+	}
+	
 	$('select[name=payment]').change(function(){
-		if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '1011350')
+		if($('select[name=payment]').val() == '1011350')
 		{
+			$('.expiry-div').fadeIn();
+			$('.name-div').fadeOut();
+		} else if($('select[name=payment]').val() == '9') {
+			$('.name-div').fadeIn();
 			$('.expiry-div').fadeIn();
 		} else {
 			$('.expiry-div').fadeOut();
+			$('.name-div').fadeOut();
 		}
 	});
 	

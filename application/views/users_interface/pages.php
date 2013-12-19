@@ -11,28 +11,71 @@
 	<?php $this->load->view("users_interface/includes/header");?>
 	<div class="main-container">
 		<div class="container_12 reg-blocks">
-			<div class="grid_2 typical-menu">
-			&nbsp;
-			<?php if($active_category):?>
+			<?php if($active_category) { ?>
+			<div class="grid_3 typical-menu">
 				<nav>
 					<ul>
-				<?php for($i=0;$i<count($footer['pages']);$i++):?>
-					<?php if($footer['pages'][$i]['category'] == $active_category):?>
+				<?php for($i=0;$i<count($footer['pages']);$i++) { ?>
+					<?php if($footer['pages'][$i]['category'] == $active_category) {?>
 						<li data-url="<?=$footer['pages'][$i]['url'];?>">
-							<?=anchor($footer['pages'][$i]['url'],$footer['pages'][$i]['link'],'class="typical-link"');?>
+						<?php if($footer['pages'][$i]['url'] == noFirstSegment(uri_string()))
+						{
+							$isactive = " active";
+						} else {
+							$isactive = "";
+						}
+						?>
+							<?=anchor($footer['pages'][$i]['url'],$footer['pages'][$i]['link'],'class="typical-link'.$isactive.'"');?>
+						<br>
 						</li>
-					<?php endif;?>
-				<?php endfor;?>
+					<?php } ?>
+				<?php } ?>
 					</ul>
 				</nav>
-			<?php endif;?>
 			</div>
-			<div class="grid_8">
+			<?php } ?>
+			<div class="grid_9 page-margin">
+				<?php if(noFirstSegment(uri_string()) == 'binarnie-opcioni-otkrit-schet') {  ?>
+					<?php $ticker = $this->load->view("html/ticker",NULL,TRUE); ?>
+				<?php } else { $ticker = NULL; }?>
 				<div class="normal-text">
-					<?=$content;?>
+					<?=str_replace('$$ticker$$', $ticker, $content);?>
 				</div>
 			</div>
 		</div>
+		
+		
+		
+		<?php 
+			if(noFirstSegment(uri_string()) == 'binarnie-opcioni-demo-schet')
+			{
+				$type = "demo";
+			} 
+			elseif(noFirstSegment(uri_string()) == 'binarnie-opcioni-otkrit-schet') 
+			{
+				$type = "pro";
+			} 
+			else 
+			{
+				$type = "none";
+			}
+		?>
+		
+		<?php if($type!="none") { ?>
+
+			<?php if($this->loginstatus === FALSE):?>
+			<div class="main-container kit">
+				<div class="container_12 reg-container">
+					<div class="reg-form">
+						<h1 class="begin-title"><?=$this->localization->getLocalButton('signup','form_title');?></h1>
+						<?php $posit = "down"; ?>
+						<?=$this->load->view('users_interface/forms/signup-page',array('idForm'=>'reg-form','type'=>$type));?>
+					</div>
+				</div>
+			</div>
+			<?php endif;?>
+		
+		<?php } ?>
 	</div>
 	<div class="clear"></div>
 	<?php $this->load->view("users_interface/modal/signin");?>

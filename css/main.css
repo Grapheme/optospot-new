@@ -96,6 +96,111 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
+/***************TRADE BANNER*************/
+
+.page-margin {
+	margin-top: 25px;
+}
+
+.trade-banner {
+	background: #fff;
+	display: inline-block;
+	margin: 25px auto;
+}
+
+.trade-banner h2 {
+	text-align: center;
+	margin: 15px 0 50px 0;
+}
+
+.trade-block {
+	float: left;
+	width: 110px;
+	margin: auto 19.75px;
+	text-align: center;
+}
+
+.trade-block .green-button {
+	margin-top: 32px;
+	display: inline-block;
+}
+
+.trade-block .normal-text {
+	text-align: center;
+	line-height: 15px;
+	min-height: 30px;
+}
+
+.trade-block .selectify {
+	margin-top: 45px;
+}
+
+.trade-block-sub-text {
+	font-size: 13px;
+	color: #858585;
+}
+
+.trade-banner-bottom {
+	margin: 15px 0 30px 0;
+	overflow: hidden;
+}
+
+.trade-banner-arrow {
+	width: 34px;
+	min-height: 34px;
+	height: 130px;
+	background: url('../img/trade-banner-circle.png') no-repeat bottom center;
+	display: block;
+	float: left;
+}
+
+.trade-bottom-arrow {
+	background: none;
+	height: auto;
+}
+
+.trade-banner-between-arrows {
+	height: 75px;
+	position: relative;
+}
+
+.trade-banner-pull,.trade-banner-put {
+	font-size: 25px;
+	text-transform: uppercase;
+	position: absolute;
+	width: 100%;
+	margin: 0;
+	width: 100%;
+	text-align: center;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.trade-banner-pull {
+	color: #5e9c6b;
+	top: 0;
+}
+
+.trade-banner-put {
+	color: #b53a3a;
+	bottom: 0;
+}
+
+.trade-banner-price {
+	position: absolute;
+	top: 50%;
+	margin-top: -15px;
+	height: 30px;
+	line-height: 30px;
+	width: 100%;
+	text-align: center;
+	font-size: 25px;
+	font-weight: 700;
+}
+
+/**************/    
+  
 .banner-text {
 	margin: 0;
 	z-index: 2;
@@ -217,7 +322,7 @@ h1 {
  	font-size: 25px;
 }
 
-h2 {
+h2, .award-title-span,h3,h4,h5,h6 {
 	font-family:'Conv_FuturaNewMedium_0',Sans-Serif;
 	font-size: 15px;
 	text-transform: uppercase;
@@ -232,7 +337,7 @@ button, a.green-button {
 
 .normal-text {
 	font-family: 'Conv_FuturaNewBook_0', sans-serif;
-	font-size: 13px;
+	font-size: 15px;
 }
 
 .circle-number {
@@ -241,13 +346,137 @@ button, a.green-button {
 }
 
 /* FONTS-END */
+
+.normal-text a {
+	text-decoration: none;
+	color: #176495;
+}
+
+.normal-text a:hover {
+	border-bottom: 1px solid;
+}
   
 .notdisplay {
 	display: none !important;
 }
   
-.lang-div select {
-	
+.award-quote {
+	line-height: 18px;
+	font-size: 18px;
+	font-style: italic;
+	border-left: 1px solid #b53a3a;
+	margin: 40px auto;
+	padding-left: 20px;
+	color: #828282;
+}
+
+.award-diploma-2 {
+	display: inline-block;
+	width: 260px;
+	height: 260px;
+	border-radius: 260px;
+	background: url('../img/award-circle-2.png');
+	background-position: center -60px;
+}
+
+.award-diploma-1 {
+	display: inline-block;
+	width: 260px;
+	height: 260px;
+	border-radius: 260px;
+	background: url('../img/award-circle-1.png');
+	background-position: center center;
+}
+
+.award-h1 {
+	margin: 40px 0;
+}
+
+.award-text {
+	text-align: justify;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.award-container {
+	z-index: 2;
+	background-color: #000;
+	background-image: url('../img/banner-award.png');
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: cover;
+	overflow: hidden;
+	width: 100%;
+	min-width: 960px;
+	position: relative;
+    min-height: 485px;
+}
+
+.award-items-container {
+	overflow: hidden;
+	background-color: #e2e2e2;
+	position: relative;
+	width: 100%;
+	min-width: 960px;
+}
+
+.award-items-container {
+	text-align: center;
+}
+
+.award-circle-div {
+	position: relative;
+	display: inline-block;
+}
+
+.award-circle h2 {
+	margin-top: 30px;
+}
+
+.award-circle {
+	position: relative;
+	float: left;
+	margin: 20px 40px 20px 40px;
+}
+
+.award-block-left {
+	width: 48%;
+	margin-right: 2%;
+	float:left;
+}
+
+.award-block-right {
+	width: 48%;
+	margin-left: 2%;
+	float: left;
+}
+
+@media screen and (min-width: 1100px) {
+	.award-container {
+		min-height: 535px;
+	}
+}
+
+@media screen and (min-width: 1300px) {
+	.award-container {
+		min-height: 635px;
+	}
+}
+
+@media screen and (min-width: 1500px) {
+	.award-container {
+		min-height: 735px;
+	}
+}
+
+@media screen and (min-width: 1700px) {
+	.award-container {
+		min-height: 835px;
+	}
+}
+
+.award-title {
+	text-align: center;
 }
 
 .lang-div .selectify .options {
@@ -274,7 +503,7 @@ button, a.green-button {
 
 .green-button,.red-button {
 	text-decoration: none;
-	color: #fff;
+	color: #fff !important;
 	border: 0;
 	border-radius: 3px;
 	padding: 10px 25px;
@@ -349,7 +578,13 @@ ul {
 }
 
 .menu-right {
-	margin-left: 90px;
+	float: right !important;
+}
+
+@media (max-width: 1024px) {
+	.menu-right {
+		float: left !important;
+	}
 }
 
 .menu-right a {
@@ -372,6 +607,7 @@ ul {
 .menu {
 	position: absolute;
 	margin-left: 205px;
+	width: 805px;
 }
 
 .menu div {
@@ -1057,16 +1293,17 @@ h1 {
 	font-size: 13px;
 }
 
+.typical-link.active {
+	color: #176495;
+	font-weight: 700;
+}
+
 .typical-menu nav ul li {
 	margin-bottom: 15px;
 }
 
 .typical-menu,.typical-news {
 	margin-top: 50px;
-}
-
-.typical-menu {
-	margin-right: 45px !important;
 }
 
 .typical-news {
@@ -1105,6 +1342,11 @@ h1 {
 .move-news-item {
 	margin: 0 20px;
 	color: #2753AE;
+	text-decoration: none;
+}
+
+#screen-3 {
+	cursor: pointer;
 	text-decoration: none;
 }
 
