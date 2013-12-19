@@ -12,6 +12,6 @@
 		<option value="1013538">Яндекс.Деньги</option>
 	</select>
 	<input type="text" class="valid-required valid-numeric tooltip-place" data-tooltip-place="right" name="summa" value="" placeholder="<?=$this->localization->getLocalPlaceholder('withdraw','summa')?>" />
-	<textarea name="details" class="valid-required tooltip-place" data-tooltip-place="right" placeholder="<?=$this->localization->getLocalPlaceholder('withdraw','details')?>"></textarea>
+	<textarea name="details" rows="6" class="span10 valid-required tooltip-place" data-tooltip-place="right" placeholder="<?=$this->localization->getLocalPlaceholder('withdraw','details')?>"></textarea>
 	<button type="submit" class="btn btn-action btn-withdrawal" name="Submit"><?=$this->localization->getLocalButton('withdraw','submit_withdraw')?></button>
 </form>
