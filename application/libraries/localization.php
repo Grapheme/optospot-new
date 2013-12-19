@@ -76,5 +76,29 @@ class Localization {
 		);
 		return $localize[$this->CI->uri->segment(1)][$section][$method];
 	}
+	
+	function getWithdrawPlace($section = '',$method = ''){
+		
+		$localize[ENGLAN] = array(
+			'client_cabinet' => array(
+				'balance_title' => 'Cabinet - Withdrawal',
+				'balance_description' => '',
+			)
+		);
+		$localize[RUSLAN] = array(
+			'client_cabinet' => array(
+				'balance_title' => 'Личный кабинет - Вывод средств',
+				'balance_description' => '',
+			)
+		);
+		$localize[INDLAN] = array(
+			'client_cabinet' => array(
+				'balance_title' => 'Cabinet - withdrawal',
+				'balance_description' => '',
+			)
+			
+		);
+		return $localize[$this->CI->uri->segment(1)][$section][$method];
+	}
+
 }
-?>

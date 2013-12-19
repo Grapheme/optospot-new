@@ -42,6 +42,7 @@
 			'page_name' => 'Account information',
 			'demo_account' => 'Demo account',
 			'register_real_account' => 'Register real account',
+			'withdrawal' => 'Withdrawal',
 			'profile' => 'Profile',
 			'balance' => 'Balance',
 			'account' => 'Account',
@@ -49,12 +50,16 @@
 			'amount' => 'Amount',
 			'deposit_funds' => 'Deposit Funds'
 		),
+		'withdraw' => array(
+			'submit_withdraw' => 'Send request',
+		),
 		'client_sidebar' => array(
 			'navigation' => 'Navigation',
 			'home' => 'Home page',
 			'trade' => 'Trade',
 			'deposit' => 'Deposit Info',
 			'real_register' => 'Real registration',
+			'withdrawal' => 'Withdrawal',
 			'profile' => 'Profile',
 			'actions' => 'Actions',
 			'logout' => 'Logout',

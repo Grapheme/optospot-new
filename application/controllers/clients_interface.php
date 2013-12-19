@@ -53,6 +53,23 @@ class Clients_interface extends MY_Controller{
 		$this->load->view("clients_interface/balance",$pagevar);
 	}
 	
+	public function withdraw(){
+		
+		/*if($this->isDemoRegisterRealAccount()):
+			return TRUE;
+		endif;*/
+		
+		$this->load->model('settings');
+		$pagevar = array(
+			'title' => $this->localization->getWithdrawPlace('client_cabinet','balance_title'),
+			'description' => $this->localization->getWithdrawPlace('client_cabinet','balance_description'),
+			'action_deposit'=> $this->settings->value(3,'link'),
+			'msgs' => '',
+			'msgr' => ''
+		);
+		$this->load->view("clients_interface/withdraw",$pagevar);
+	}
+	
 	private function isDemoRegisterRealAccount(){
 		
 		if($this->profile['demo'] == 1):

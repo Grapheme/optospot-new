@@ -22,7 +22,10 @@
 			'title_form' => 'Forgot password',
 			'email' => 'You email',
 		),
-		
+		'withdraw' => array(
+			'summa' => 'Summa',
+			'details' => 'Account details',
+		),
 	);
 	
 ?>

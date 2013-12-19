@@ -20,6 +20,10 @@
 			'failure' => 'Logon failure',
 			'login_success' => 'Login executed. Expect ...'
 		),
+		'withdraw' => array(
+			'success' => 'request has been sent successfully',
+			'failure' => 'a request returned an error',
+		),
 		'forgot' => array(
 			'success' => 'Password is sent to your via email',
 			'error' => 'Specified email does not exist',

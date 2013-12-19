@@ -159,6 +159,27 @@ class Ajax_interface extends MY_Controller{
 		return FALSE;
 	}
 	
+	public function withdrawRequest($registerData = FALSE){
+		
+		if(!$this->input->is_ajax_request()):
+			show_error('В доступе отказано');
+		endif;
+		$json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>site_url());
+		if($this->postDataValidation('user_withdraw') == TRUE):
+			$mailtext = $this->load->view('mails/withdraw',array('post'=>$this->input->post()),TRUE);
+//			$this->sendMail('support@optospot.net','robot@sysfx.com','Optospot trading platform','Withdrawal Optospot.net',$mailtext);
+			$this->sendMail('vkharseev@gmail.com','robot@sysfx.com','Optospot trading platform','Withdrawal Optospot.net',$mailtext);
+			$json_request['status'] = TRUE;
+			$json_request['redirect'] = FALSE;
+			$json_request['responseText'] = $this->localization->getLocalMessage('withdraw','success');
+		else:
+			$json_request['responseText'] = $this->localization->getLocalMessage('withdraw','failure');
+		endif;
+		echo json_encode($json_request);
+	}
+	
+	
+	
 	private function ExecuteCreatingAccount($registerData = NULL){
 		
 		$demo = 0;
@@ -198,8 +219,7 @@ class Ajax_interface extends MY_Controller{
 		return $this->insertItem(array('insert'=>$insert,'model'=>'log'));
 	}
 	
-	public function tickerCurl()
-	{
+	public function tickerCurl(){
 		$postdata = $_POST['postdata'];
 		
 		$JSONdata = json_decode($postdata, true);
