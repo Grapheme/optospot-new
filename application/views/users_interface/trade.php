@@ -23,7 +23,7 @@
 			<?php if($this->loginstatus && $this->profile['demo'] == 0):?>
 				<iframe id="trade-wrapper" src="http://live.actforex.sysfx.com:8100/trade/trade.jsp?entry=deal.184&&lang=<?=$language;?>"></iframe>
 			<?php else:?>
-				<iframe id="trade-wrapper" src="http://demo.actforex.sysfx.com:8100/trade/trade.jsp?entry=demo.184&lang=<?=$language;?>"></iframe>
+				<iframe id="trade-wrapper" src="http://demo.actforex.sysfx.com:8100/trade/trade.jsp?entry=deal.184&lang=<?=$language;?>"></iframe>
 			<?php endif;?>
 			</div>
 		</div>
