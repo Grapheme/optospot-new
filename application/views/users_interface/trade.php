@@ -29,7 +29,7 @@
 		</div>
 		<div class="clear"></div>
 		<div class="container_12 reg-blocks">
-				<?=$content;?>
+			<?=$content;?>
 		</div>
 	</div>
 	<div class="clear"></div>
