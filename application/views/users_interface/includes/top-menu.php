@@ -21,11 +21,7 @@
 		<div>Ваш баланс: $309<br><a href="#">пополнить счет</a></div>
 		<?php if(!$this->loginstatus):?>
 			<a onclick="yaCounter21615634.reachGoal('register');" href="<?=site_url('registering')?>"><?=$this->localization->getLocalMessage('index','user_block_reg')?></a>
-<<<<<<< HEAD
-			<button return true;" class="red-button" id="enter"><?=$this->localization->getLocalMessage('index','user_block_login')?></button>
-=======
 			<button class="red-button" id="enter"><?=$this->localization->getLocalMessage('index','user_block_login')?></button>
->>>>>>> 34897f823786463dc1d21ffc1a060a4d6ccd8580
 		<?php else:?>
 			<?php $this->load->view('html/user-block');?>
 		<?php endif;?>
