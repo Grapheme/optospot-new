@@ -12,11 +12,11 @@
 		$CI = & get_instance();
 		$tradeAccount = $CI->getTradeAccountInfo();
 		foreach ($tradeAccount['accounts'] as $acc): ?>
-			<div class="trader-div"><?=$acc['accountId'];?></div>
+			<!--<div class="trader-div"><a href="<?=site_url('cabinet/balance');?>">trader_<?=$acc['accountId'];?></a></div>-->
 			<div class="trader-div">
 				<?=$this->localization->getLocalButton('user_block','trader-balance')?>
 				<strong><?=$acc['amount'];?></strong><br>
-				<a href="#" class="trader-div-money"><?=$this->localization->getLocalButton('user_block','fill-acc');?></a>
+				<a href="<?=site_url('cabinet/balance');?>" class="trader-div-money"><?=$this->localization->getLocalButton('user_block','fill-acc');?></a>
 			</div>
 		<?php endforeach;
 		if($this->uri->segment(2) == 'trade'):
