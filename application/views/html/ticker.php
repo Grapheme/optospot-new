@@ -4,9 +4,9 @@
 		<div class="trade-block">
 			<p class="normal-text">Выберите базовые активы</p>
 			<select class="money-select">
+				<option>USD/EUR</option>
 				<option>USD/JPY</option>
-				<option>USD/JPY1</option>
-				<option>USD/JPY2</option>
+				<option>EUR/JPY</option>
 			</select>
 		</div>
 		<div class="trade-banner-arrow">&nbsp;</div>

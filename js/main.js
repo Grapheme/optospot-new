@@ -55,6 +55,13 @@ $('#price-change .money-arrow-down').mouseup(function(){
 	return false;
 });
 
+$('.money-arrow-top').click(function(){
+	return false;
+});
+
+$('.money-arrow-down').click(function(){
+	return false;
+});
 
 
 /********/
