@@ -9,6 +9,7 @@ $route['get-signup-accounts(\/:num)*?'] = "users_interface/getSignupAccount";
 /************************************************** CLIENT INTRERFACE ***********************************************/
 $route[':any/cabinet/balance'] = "clients_interface/balance";
 $route[':any/cabinet/profile'] = "clients_interface/profile";
+$route[':any/cabinet/withdraw'] = "clients_interface/withdraw";
 /*************************************************** ADMINS INTRERFACE ***********************************************/
 $route['admin-panel/actions/users-list(\/:any)*?'] = "admin_interface/accountsList";
 $route['admin-panel/actions/users/edit/id/:num'] = "admin_interface/accountEdit";
@@ -37,6 +38,8 @@ $route[':any/login'] = "ajax_interface/loginIn";
 $route[':any/signup'] = "ajax_interface/signUp";
 $route[':any/signup-account'] = "ajax_interface/signUp";
 $route[':any/signup-real-account'] = "ajax_interface/createRealAccount";
+$route[':any/cabinet/withdraw/request'] = "ajax_interface/withdrawRequest";
+
 
 $route['get-chart-link'] = "ajax_interface/getChartLink";
 $route[':any/forgot-password'] = "ajax_interface/forgotPassword";

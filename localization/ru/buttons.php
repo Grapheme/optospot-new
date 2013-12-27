@@ -28,6 +28,10 @@
 			'error' => 'Неправильные логин или пароль',
 			'try_again' => 'Попробуйте еще',
 		),
+		'withdraw' => array(
+			'submit_withdraw' => 'Отправить запрос',
+			'payment' => 'Платежная система',
+		),
 		'user_block' => array(
 			'hello' => 'Здравствуйте',
 			'admin_link' => 'Администрирование',
@@ -42,6 +46,7 @@
 			'page_name' => 'Личный кабинет',
 			'demo_account' => 'Demo аккаунт',
 			'register_real_account' => 'Открытие профи-счета',
+			'withdrawal' => 'Запрос на вывод средств',
 			'profile' => 'Профиль',
 			'balance' => 'Баланс',
 			'account' => 'Аккаунт',
@@ -55,6 +60,7 @@
 			'trade' => 'Начать торговать',
 			'deposit' => 'Пополнить счет',
 			'real_register' => 'Профи-счет',
+			'withdrawal' => 'Вывод средств',
 			'profile' => 'Профиль',
 			'actions' => 'Действия',
 			'logout' => 'Выход',

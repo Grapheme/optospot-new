@@ -8,6 +8,8 @@ var mt = mt || {};
 mt.baseURL = window.location.protocol + '//' + window.location.hostname + '/git/opstospot-new/';
 mt.currentURL = window.location.href;
 mt.languageSegment = 1;
+mt.tooltipPlacementDefault = 'bottom'; // Возможные значения top | bottom | left | right | auto
+mt.tooltipPlacement = mt.tooltipPlacementDefault;
 //end configuration
 mt.getBaseURL = function(url) {
 	return mt.baseURL + url;
@@ -368,6 +370,12 @@ $.fn.ForceNumericOnly = function() {
 	});
 };
 $.fn.setValidationErrorStatus = function(text) {
+	if($(this).hasClass('tooltip-place')){
+		var tooltipPlace = mt.tooltipPlacement;
+		mt.tooltipPlacement = $(this).attr('data-tooltip-place');
+	}else{
+		mt.tooltipPlacement = mt.tooltipPlacementDefault;
+	}
 	$(this).attr('role', 'tooltip').showToolTip(text);
 }
 $.fn.defaultValidationErrorStatus = function() {
@@ -379,7 +387,7 @@ $.fn.showToolTip = function(ToolTipText) {
 		ToolTipText = Localize[mt.currentLenguage]['empty_field'];
 	}
 	var config = {
-		placement : 'bottom',
+		placement : mt.tooltipPlacement,
 		trigger : 'hover',
 		title : ToolTipText
 	}

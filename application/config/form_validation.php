@@ -88,5 +88,12 @@
 			array('field'=>'payment','label'=>'payment','rules'=>'required|numeric|trim|xss_clean'),
 			
 		),
+		'user_withdraw' => array(
+			array('field'=>'account','label'=>'','rules'=>'required|numeric|trim|xss_clean'),
+			array('field'=>'email','label'=>'email','rules'=>'required|email|trim|xss_clean'),
+			array('field'=>'summa','label'=>'summa','rules'=>'required|numeric|trim|xss_clean'),
+			array('field'=>'details','label'=>'details','rules'=>'required|trim|xss_clean'),
+			array('field'=>'payment','label'=>'payment','rules'=>'required|trim|xss_clean')
+		),
 	);
 ?>

@@ -25,6 +25,10 @@
 			'error' => 'Указанный email не существует',
 			'valid_email' => 'Неверный email'
 		),
+		'withdraw' => array(
+			'success' => 'Запрос отправлен успешно',
+			'failure' => 'Запрос вернулся с ошибкой',
+		),
 		'client_cabinet' => array(
 			'real_reg_title' => 'Личный кабинет - Открытие профи-счета',
 			'real_reg_description' => '',
