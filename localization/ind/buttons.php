@@ -32,7 +32,9 @@
 			'hello' => 'Hello',
 			'admin_link' => 'Administration Panel',
 			'user_link' => 'My Account',
-			'logoff' => 'Logout'
+			'logoff' => 'Logout',
+			'trader-balance' => 'Your balance',
+			'fill-acc' => 'Fill balance'
 		),
 		'copyright' => array(
 			'copy' => '2012-2013 OptoSpot. All Rights Reserved',

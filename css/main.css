@@ -648,11 +648,23 @@ ul {
 .menu {
 	position: absolute;
 	margin-left: 205px;
-	width: 950px;
+	width: 980px;
 }
 
 .menu div {
 	float: left;
+}
+
+.trader-div {
+	margin-right: 25px;
+	position: relative;
+}
+
+.trader-div-money {
+	position: absolute;
+	top: 25px;
+	color: #0060b7 !important;
+	text-decoration: underline !important;
 }
 
 .main-container {

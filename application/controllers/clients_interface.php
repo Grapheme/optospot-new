@@ -33,23 +33,10 @@ class Clients_interface extends MY_Controller{
 			'msgs' => '',
 			'msgr' => ''
 		);
-		$postdata = http_build_query(array('j_username' => $this->profile['trade_login'], 'j_password' => $this->encrypt->decode($this->profile['trade_password'])));
-		$opts = array('http' => array('method'=>'POST','header'=>'Content-type: application/x-www-form-urlencoded','content'=>$postdata));
-		$context  = stream_context_create($opts);
-		$json_string = file_get_contents('http://dengionline.sysfx.com:8080/deal.184/service/serviceLogin.jsp',false, $context);
-		$res = json_decode($json_string,true);
-		if(isset($res['errorCode'])):
-			$pagevar['msgs'] = $res['message'];
-		elseif( $res['status'] != 'LOGIN' ):
-			$pagevar['msgr'] =  'Error while requesting user balance. Please send email to support@optospot.net with problem description.';
-		endif;
-		$jsessionid = @$res['jsessionid'];
-		setcookie('jsessionid', $jsessionid, time() + (86400 * 7)); // 86400 = 1 day
-		$opts = array('http' => array('method' => 'GET', 'header'=> 'Cookie: jsessionid=' . $jsessionid."\r\n"));
-		$context = stream_context_create($opts);
-		$contents = file_get_contents('http://dengionline.sysfx.com:8080/deal.184/service/secure/serviceAccounts.jsp;jsessionid='.$jsessionid, false, $context);
-		$pagevar['accounts'] = json_decode($contents, true);
-		$pagevar['action_deposit'] = $this->settings->value(3,'link').';jsessionid='.$jsessionid;
+		$tradeAccount = $this->getTradeAccountInfo();
+		$pagevar['accounts'] = $tradeAccount['accounts'];
+		$pagevar['action_deposit'] = $tradeAccount['action_deposit'];
+		
 		$this->load->view("clients_interface/balance",$pagevar);
 	}
 	

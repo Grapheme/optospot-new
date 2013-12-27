@@ -159,7 +159,7 @@
 	<div class="dark-screen"></div>
 	<?php $this->load->view("users_interface/includes/footer");?>
 	<?php $this->load->view("users_interface/includes/scripts");?>
-	<!--<script src="<?=baseURL('js/ticker.js')?>"></script>-->
+	<script src="<?=baseURL('js/ticker.js')?>"></script>
 	<?php $this->load->view("users_interface/includes/analytics");?>
 	<?php $this->load->view("users_interface/includes/metrika");?>
 </body>

@@ -36,7 +36,9 @@
 			'hello' => 'Здравствуйте',
 			'admin_link' => 'Администрирование',
 			'user_link' => 'Мой аккаунт',
-			'logoff' => 'Выход'
+			'logoff' => 'Выход',
+			'trader-balance' => 'Ваш баланс',
+			'fill-acc' => 'Пополнить счет'
 		),
 		'copyright' => array(
 			'copy' => '2012-2013 OptoSpot. Все права защищены',
