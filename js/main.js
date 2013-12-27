@@ -383,10 +383,10 @@ $('#auth-enter').click(function(event){
 });
 
 $('#button-3').click(function(event){
-	event.preventDefault();
+	/*event.preventDefault();
 	if(validationOne()){
 		validationTwo(true);
-	}
+	}*/
 });
 
 $('.score.green').click(function(event){

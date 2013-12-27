@@ -5,7 +5,7 @@
 var mt = mt || {};
 
 //configuration
-mt.baseURL = window.location.protocol + '//' + window.location.hostname + '/';
+mt.baseURL = window.location.protocol + '//' + window.location.hostname + '/git/opstospot-new/';
 mt.currentURL = window.location.href;
 mt.languageSegment = 1;
 //end configuration

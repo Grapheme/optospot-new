@@ -97,6 +97,46 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.money-couple-select {
+	position: relative;
+	margin: 0 0 0 20px !important;
+}
+
+.money-couple-select div {
+	margin: 0 !important;
+}
+
+.money-couple-cont {
+	max-height: 20px;
+	overflow: hidden;
+}
+
+.money-couple-cont {
+	position: absolute;
+	cursor: pointer;
+}
+
+.money-triangle {
+	width: 0 !important;
+	height: 0;
+	border-left: 3px solid transparent;
+	border-right: 3px solid transparent;
+	border-bottom: 3px solid transparent;
+	border-top: 3px solid #000;
+	
+	position: absolute;
+	right: 15px;
+	top: 10px;
+	display: inline-block;
+}
+
+.money-coupe-down {
+	position: absolute;
+	top: 25px;
+	cursor: pointer;
+	display: none;
+}
+
 /***************TRADE BANNER*************/
 
 .page-margin {
@@ -536,8 +576,9 @@ button, a.green-button {
 }
 
 .top-div {
+	position: relative;
+	left: -100px;
 	line-height: 40px;
-	overflow: hidden;
 	height: 40px;
 	margin-top: 40px;
 	margin-bottom: 40px;
@@ -607,7 +648,7 @@ ul {
 .menu {
 	position: absolute;
 	margin-left: 205px;
-	width: 805px;
+	width: 950px;
 }
 
 .menu div {

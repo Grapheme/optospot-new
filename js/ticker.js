@@ -12,6 +12,15 @@ $(function(){
 		timeBack();
 	}, 1000);
 	
+	function coupleChange() {
+		$('.money-select option').click(function(){
+			var ccf = $(this).data('ccf');
+			var ccs = $(this).data('ccs');
+			$('.ticker-item').data('ccf', ccf);
+			$('.ticker-item').data('ccs', ccs);
+		});
+	}
+	
 	function timeBack() {
 		if($curlopen) {
 			$(".ticker-item").each(function(){
@@ -37,14 +46,17 @@ $(function(){
 	    var time    = hours+':'+minutes+':'+seconds;
 	    return time;
 	}
+	
+	var $ccf;
+	var $ccs;
 
 	function tickerPost() {
 		var $currentId = 0;
 		var $idJson = "";
 		$('.ticker-item').each(function(){
 			$currentId++;
-			var $ccf = $(this).data('ccf');
-			var $ccs = $(this).data('ccs');
+			$ccf = $(this).data('ccf');
+			$ccs = $(this).data('ccs');
 			$idJson += '"' + $currentId + '":{"cc1":"' + $ccf + '","cc2":"' + $ccs + '"}';
 			if($currentId != $ticker) {
 				$idJson += ',';
@@ -83,5 +95,30 @@ $(function(){
 	setInterval(function(){
 		tickerPost();
 	}, 5000);
+	
+	$('.money-couple-select').click(function(){
+		$(this).find('.money-coupe-down').slideToggle('fast');
+	});
+	
+	$('.money-couple-option').not('.option-active').click(function(){
+		var activeOpt = $(this).parent().parent().find('.option-active');
+	
+		var beforeF = $(this).data('ccf');
+		var beforeS = $(this).data('ccs');
+		var afterF = $(this).parent().parent().find('.option-active').data('ccf');
+		var afterS = $(this).parent().parent().find('.option-active').data('ccs');
+		var thisHTML = $(this).html();
+		
+		$(this).parent().parent().parent().parent().attr('data-ccf', beforeF);
+		$(this).parent().parent().parent().parent().attr('data-ccs', beforeS);
+		
+		$(this).attr('data-ccf', afterF);
+		$(this).attr('data-ccs', afterS);
+		$(this).html(activeOpt.html());
+		
+		$(this).parent().parent().find('.option-active').attr('data-ccf', beforeF);
+		$(this).parent().parent().find('.option-active').attr('data-ccs', beforeS);
+		$(this).parent().parent().find('.option-active').html(thisHTML);
+	});
 
 });

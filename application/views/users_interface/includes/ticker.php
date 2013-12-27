@@ -1,8 +1,14 @@
 <div class="grid_9 money-div ticker-item" data-ccf="EUR" data-ccs="USD">
 	<div class="money-select-div">
-		<select class="money-select">
-			<option>USD/JPY</option>
-		</select>
+		<div class="money-couple-select">
+			<div class="money-triangle"></div>
+			<div class="money-couple-cont">
+				<div class="money-couple-option option-active" data-ccf="EUR" data-ccs="USD">EUR/USD</div>
+			</div>
+			<!--<div class="money-coupe-down">
+				<div class="money-couple-option" data-ccf="EUR" data-ccs="JPY">EUR/JPY</div>
+			</div>-->
+		</div>
 	</div>
 	<div class="money-color-div">
 		<p class="money-color"><?=$this->localization->getLocalButton('ticker','payout')?><br><span class="payout">65%</span></p>
@@ -18,15 +24,21 @@
 		<a href="#" class="money-arrow-down"></a>
 	</div>
 	<div class="money-submit">
-		<p class="exp">00:08</p>
+		<p class="exp">00:00:08</p>
 		<a onclick="yaCounter21615634.reachGoal('bid'); return true;" <?php if($this->loginstatus) { echo 'href="'.base_url('trade').'" class="green-button"'; } else { echo 'href="#" class="green-enter green-button"';}?>><?=$this->localization->getLocalButton('ticker','invest')?></a>
 	</div>
 </div>
 <div class="grid_9 money-div ticker-item" data-ccf="EUR" data-ccs="JPY">
 	<div class="money-select-div">
-		<select class="money-select">
-			<option>USD/JPY</option>
-		</select>
+		<div class="money-couple-select">
+			<div class="money-triangle"></div>
+			<div class="money-couple-cont">
+				<div class="money-couple-option option-active" data-ccf="EUR" data-ccs="JPY">EUR/JPY</div>
+			</div>
+			<!--<div class="money-coupe-down">
+				<div class="money-couple-option" data-ccf="EUR" data-ccs="USD">EUR/USD</div>
+			</div>-->
+		</div>
 	</div>
 	<div class="money-color-div">
 		<p class="money-color"><?=$this->localization->getLocalButton('ticker','payout')?><br><span class="payout">65%</span></p>
@@ -42,7 +54,7 @@
 		<a href="#" class="money-arrow-down"></a>
 	</div>
 	<div class="money-submit">
-		<p class="exp">00:08</p>
+		<p class="exp">00:00:08</p>
 		<a onclick="yaCounter21615634.reachGoal('bid'); return true;" <?php if($this->loginstatus) { echo 'href="'.base_url('trade').'" class="green-button"'; } else { echo 'href="#" class="green-enter green-button"';}?>><?=$this->localization->getLocalButton('ticker','invest')?></a>
 	</div>
 </div>
