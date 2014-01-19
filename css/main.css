@@ -881,10 +881,13 @@ select.begin-input {
 
 .circle-title{
 	color: #fff;
+	margin: 0.8em 0 0.45em;
 }
 
 .circle-description {
 	color: #fff;
+	margin: 0;
+	line-height: 1.3em;
 }
 
 .top-circle-arrow {
