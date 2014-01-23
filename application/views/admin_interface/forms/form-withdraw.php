@@ -16,7 +16,7 @@
 		</select>
 		<div class="withdraw-div">
 			<label>Specify the account number to withdraw money:</label>
-			<input type="text" name="account">
+			<input type="text" class="valid-required" name="account">
 		</div>
 		<div class="name-div withdraw-div" style="display: none;">
 			<label>Name:</label>
@@ -28,7 +28,7 @@
 		</div>
 		<div class="withdraw-div">
 			<label>Specify the amount of money, RUB:</label>
-			<input type="text" name="amount"><br>
+			<input type="text" class="valid-required" name="amount"><br>
 		</div>
 	</fieldset>
 		

@@ -102,7 +102,44 @@ class MY_Controller extends CI_Controller{
 	}
 	/*************************************************************************************************************/
 	
-	public function pagination($url,$uri_segment,$total_rows,$per_page){
+	public function pagination($url,$uri_segment,$total_rows,$per_page,$get_string = FALSE){
+		
+		$this->load->library('pagination');
+		if($get_string):
+			$config['base_url'] = site_url($url); //передавать полностью строку с get параметрами
+			$config['page_query_string'] = TRUE;
+			$config['query_string_segment'] = 'offset';
+		else:
+			$config['base_url'] = site_url($url.'/offset/');
+		endif;
+		$config['uri_segment'] = $uri_segment;
+		$config['total_rows'] = $total_rows;
+		$config['per_page'] = $per_page;
+		$config['num_links'] = 4;
+		$config['first_link'] = 'Home';
+		$config['last_link'] = 'End';
+		$config['next_link'] = 'Next &raquo;';
+		$config['prev_link'] = '&laquo; Previous';
+		$config['cur_tag_open'] = '<li class="active"><a href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+		$config['full_tag_open'] = '<div class="pagination"><ul>';
+		$config['full_tag_close'] = '</ul></div>';
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$this->pagination->initialize($config);
+		return $this->pagination->create_links();
+	}
+	
+	
+	public function pagination_old($url,$uri_segment,$total_rows,$per_page){
 		
 		$this->load->library('pagination');
 		$config['base_url'] = site_url($url.'/offset/');

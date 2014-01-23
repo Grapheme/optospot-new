@@ -95,4 +95,50 @@ class Accounts extends MY_Model{
 		endif;
 		return 0;
 	}
+
+	function search_limit($where = NULL,$login = '',$email = '',$field_where_in = NULL){
+		
+		$this->db->select($this->_fields());
+		$this->db->order_by('signdate DESC,trade_login,email');
+		$this->db->limit(PER_PAGE_DEFAULT,(int)$this->input->get('offset'));
+		if(!is_null($where) && is_array($where)):
+			$this->db->where($where);
+		endif;
+		if(!is_null($field_where_in)):
+			$this->db->where_in($field_where_in['field'],$field_where_in['value']);
+		endif;
+		if(!is_null($field_where_in)):
+			$this->db->where_in($field_where_in['field'],$field_where_in['value']);
+		endif;
+		if(!empty($email)):
+			$this->db->like('email',$email);
+		endif;
+		if(!empty($login)):
+			$this->db->like('trade_login',$login);
+		endif;
+		$query = $this->db->get($this->table);
+		if($data = $query->result_array()):
+			return $data;
+		endif;
+		return NULL;
+	}
+	
+	function search_count($where = NULL,$login = '',$email = '',$field_where_in = NULL){
+		
+		$this->db->select($this->_fields());
+		if(!is_null($where) && is_array($where)):
+			$this->db->where($where);
+		endif;
+		if(!is_null($field_where_in)):
+			$this->db->where_in($field_where_in['field'],$field_where_in['value']);
+		endif;
+		if(!empty($email)):
+			$this->db->like('email',$email);
+		endif;
+		if(!empty($login)):
+			$this->db->like('trade_login',$login);
+		endif;
+		return $this->db->count_all_results($this->table);
+	}
+	
 }

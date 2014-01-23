@@ -4,6 +4,7 @@ class Admin_interface extends MY_Controller{
 	
 	var $per_page = PER_PAGE_DEFAULT;
 	var $offset = 0;
+	var $TotalCount = 0;
 	
 	function __construct(){
 		
@@ -510,15 +511,21 @@ class Admin_interface extends MY_Controller{
 		
 		$this->offset = intval($this->uri->segment(5));
 		$pagevar = array(
-			'accounts' => $this->accounts->limit($this->per_page,$this->offset,NULL,array('id >'=> 0)),
-			'pagination' => $this->pagination('admin-panel/actions/users-list',5,$this->accounts->countAllResults(array('id >'=> 0)),$this->per_page),
+			'accounts' => NULL,
+			'pagination' => NULL,
 			'msgs' => $this->session->userdata('msgs'),
 			'msgr' => $this->session->userdata('msgr')
 		);
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
-		
-		$this->load->helper('date');
+		if($this->input->get() !== FALSE):
+			$pagevar['accounts'] = $this->foundUsers($this->input->get());
+			$pagevar['pagination'] = $this->pagination('admin-panel/actions/users-list'.getUrlLink(),5,$this->TotalCount,PER_PAGE_DEFAULT,TRUE);
+		else:
+			$pagevar['accounts'] = $this->accounts->limit($this->per_page,$this->offset,NULL,array('id >'=> 0));
+			$pagevar['pagination'] = $this->pagination('admin-panel/actions/users-list',5,$this->accounts->countAllResults(array('id >'=> 0)),$this->per_page);
+		endif;
+		$this->load->helper(array('date','form'));
 		for($i=0;$i<count($pagevar['accounts']);$i++):
 			$pagevar['accounts'][$i]['password'] = $this->encrypt->decode($pagevar['accounts'][$i]['trade_password']);
 			$pagevar['accounts'][$i]['signdate'] = swap_dot_date($pagevar['accounts'][$i]['signdate']);
@@ -526,6 +533,22 @@ class Admin_interface extends MY_Controller{
 		$this->session->set_userdata('backpath',base_url(uri_string()));
 		$this->load->view("admin_interface/users/users",$pagevar);
 	}
+	
+	private function foundUsers($get_params){
+		
+		$searchParameters = array();
+		$users = array();
+		if($this->input->get('period_begin') !== ''):
+			$searchParameters['signdate >='] = preg_replace("/(\d+)\.(\w+)\.(\d+)/i","\$3-\$2-\$1",$this->input->get('period_begin'));
+		endif;
+		if($this->input->get('period_end') !== ''):
+			$searchParameters['signdate <='] = preg_replace("/(\d+)\.(\w+)\.(\d+)/i","\$3-\$2-\$1",$this->input->get('period_end'));
+		endif;
+			$users = $this->accounts->search_limit($searchParameters,$this->input->get('login'),$this->input->get('email'));
+			$this->TotalCount = $this->accounts->search_count($searchParameters,$this->input->get('login'),$this->input->get('email'));
+		return $users;
+	}
+	
 	
 	public function accountEdit(){
 		

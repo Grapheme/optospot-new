@@ -81,8 +81,10 @@ $(function(){
 		if(mt.validation(_form) === false){
 			event.preventDefault();
 		}
-	})
-
+	});
+	$(".search-form-view").click(function(){
+		$(".div-search-form").slideToggle();
+	});
 	$("#msgeclose").click(function(){$("#msgdealert").fadeOut(1000,function(){$(this).remove();});});
 	$("#msgsclose").click(function(){$("#msgdsalert").fadeOut(1000,function(){$(this).remove();});});
 });

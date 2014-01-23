@@ -1,6 +1,7 @@
 <!DOCTYPE html>	
 <html lang="en">
 <?php $this->load->view("admin_interface/includes/head");?>
+<link rel="stylesheet" href="<?=site_url('css/datapicker/jquery-ui-datapicker.css');?>" />
 <body>
 	<?php $this->load->view("admin_interface/includes/header");?>
 	
@@ -15,6 +16,13 @@
 				<?php $this->load->view("alert_messages/alert-error");?>
 				<?php $this->load->view("alert_messages/alert-success");?>
 				<div style="height:3px;"> </div>
+				<div class="grid_14">
+					<a href="" class="search-form-view no-clickable">Search</a>
+					<div class="div-search-form" <?=(!empty($accounts))?'style="display: none"':'';?>>
+						<?php $this->load->view('admin_interface/forms/users-search');?>
+					</div>
+				</div>
+				<div style="height:10px;"> </div>
 			<?php if($accounts):?>
 				<table class="table table-striped table-bordered">
 					<thead/>
@@ -56,6 +64,9 @@
 		</div>
 	</div>
 	<?php $this->load->view("admin_interface/includes/scripts");?>
+	<script type="text/javascript" src="<?=site_url('js/datepicker/jquery.ui.datepicker.js');?>"></script>
+	<script type="text/javascript" src="<?=site_url('js/datepicker/jquery.ui.datepicker-ru.js');?>"></script>
+	<script type="text/javascript" src="<?=site_url('js/libs/datepicker.js');?>"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			var uID = 0;
