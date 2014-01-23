@@ -1,6 +1,7 @@
 <form action="<?=$action;?>" method="POST" class="form-horizontal form-edit-settings form-withdraw">
 <?php if($this->account['id'] > 0):?>
 	<input type="hidden" name="account" value="<?=$this->account['id'];?>" />
+	<input type="hidden" name="trade_login" value="<?=$this->profile['trade_login'];?>" />
 	<input type="hidden" name="email" value="<?=$this->profile['email'];?>" />
 <?php endif; ?>
 	<fieldset>

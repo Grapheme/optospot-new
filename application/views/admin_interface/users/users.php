@@ -41,6 +41,7 @@
 								<?php endif;?>
 							</td>
 							<td class="span12">
+								<strong>Country:</strong> <?=$accounts[$i]['country'];?><br/>
 								<strong>Address line 1:</strong> <?=$accounts[$i]['address1'];?><br/>
 								<strong>Address line 2:</strong> <?=$accounts[$i]['address2'];?><br/>
 								<strong>Email:</strong> <em><?=$accounts[$i]['email'];?></em><br/>

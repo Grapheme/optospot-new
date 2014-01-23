@@ -90,6 +90,7 @@
 		),
 		'user_withdraw' => array(
 			array('field'=>'account','label'=>'','rules'=>'required|numeric|trim|xss_clean'),
+			array('field'=>'trade_login','label'=>'','rules'=>'required|numeric|trim|xss_clean'),
 			array('field'=>'email','label'=>'email','rules'=>'required|email|trim|xss_clean'),
 			array('field'=>'payment','label'=>'payment','rules'=>'required|numeric|trim|xss_clean'),
 			array('field'=>'account','label'=>'account','rules'=>'trim|xss_clean'),

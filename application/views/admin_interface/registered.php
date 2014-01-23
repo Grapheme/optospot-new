@@ -24,7 +24,7 @@
 					<?php for($i=0;$i<count($registered);$i++):?>
 						<tr class="align-center">
 							<td><?=month_date($registered[$i]['signdate']);?></td>
-							<td><?=$registered[$i]['count'];?></td>
+							<td><a href="<?=site_url('admin-panel/actions/users-list?login=&email=&period_begin='.swap_dot_date($registered[$i]['signdate']).'&period_end='.swap_dot_date($registered[$i]['signdate']));?>"><?=$registered[$i]['count'];?></a></td>
 						</tr>
 					<?php endfor; ?>
 					</tbody>
