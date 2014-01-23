@@ -17,7 +17,7 @@
 				<?php $this->load->view("alert_messages/alert-success");?>
 				<div class="span6">
 					<div class="signup-form" id="real-signup">
-						<?php $this->load->view("clients_interface/forms/withdrawal");?>
+						<?php $this->load->view('admin_interface/forms/form-withdraw',array('action'=>site_url('cabinet/withdraw/request')));?>
 					</div>
 				</div>
 			</div>

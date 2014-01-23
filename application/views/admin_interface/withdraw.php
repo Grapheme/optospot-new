@@ -238,50 +238,11 @@
 				?>
 				<?php $this->load->view("alert_messages/alert-error");?>
 				<?php $this->load->view("alert_messages/alert-success");?>
-				<?php if(!isset($_GET['action'])) { ?>
-				<form action="?action=pay" method="POST" class="form-horizontal form-edit-settings">
-					<fieldset>
-						<select name="payment">
-							<label>Choose payment system:</label>
-							<option value="9">MasterCard</option>
-							<option value="19">WebMoney WMR</option>
-							<option value="22">WebMoney WME</option>
-							<option value="23">WebMoney WMZ</option>
-							<option value="28">QIWI-кошелек</option>
-							<option value="1011350">Visa</option>
-							<option value="1013538">Яндекс.Деньги</option>
-						<?php/*
-							$numpay = count($payarray['paysystems']['paysystem']);
-							for ($i=0; $i<$numpay; $i++) {
-								echo '<option value="'.$payarray['paysystems']['paysystem'][$i]['id'].'">'.$payarray['paysystems']['paysystem'][$i]['title'].$payarray['paysystems']['paysystem'][$i]['id'].'</option>';
-							}*/
-						?>
-						</select>
-						<div class="withdraw-div">
-							<label>Specify the account number to withdraw money:</label>
-							<input type="text" name="account">
-						</div>
-						<div class="name-div withdraw-div" style="display: none;">
-							<label>Name:</label>
-							<input type="text" name="expiry">
-						</div>
-						<div class="expiry-div withdraw-div" style="display: none;">
-							<label>Expiry date:</label>
-							<input type="text" name="expiry">
-						</div>
-						<div class="withdraw-div">
-							<label>Specify the amount of money, RUB:</label>
-							<input type="text" name="amount"><br>
-						</div>
-					</fieldset>
-						
-					<div class="form-actions">
-						<button class="btn btn-success" type="submit" value="Send money">Send money</button>
-					</div>
-				</form>
-				<?php } else {
+				<?php if(!isset($_GET['action'])):
+					$this->load->view('admin_interface/forms/form-withdraw',array('action'=>'?action=pay'));
+				else:
 					echo "<br><a href='".site_url('admin-panel/withdraw')."'>Get back</a>";
-				}?>
+				endif; ?>
 			</div>
 			<?php $this->load->view("admin_interface/includes/rightbar");?>
 		</div>

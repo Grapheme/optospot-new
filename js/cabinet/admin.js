@@ -10,13 +10,11 @@ $(function(){
 	//$('select[name=payment]').find('option[value=9]').html('MasterCard');
 	//$('select[name=payment]').find('option[value=1011350]').html('Visa');
 
-	if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '1011350')
-	{
+	if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '1011350'){
 		$('.expiry-div').show();
 	}
 	
-	if($('select[name=payment]').val() == '9')
-	{
+	if($('select[name=payment]').val() == '9'){
 		$('.expiry-div').show();
 		$('.name-div').show();
 	}
