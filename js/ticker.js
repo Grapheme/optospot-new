@@ -55,8 +55,8 @@ $(function(){
 		var $idJson = "";
 		$('.ticker-item').each(function(){
 			$currentId++;
-			$ccf = $(this).data('ccf');
-			$ccs = $(this).data('ccs');
+			$ccf = $(this).attr('data-ccf');
+			$ccs = $(this).attr('data-ccs');
 			$idJson += '"' + $currentId + '":{"cc1":"' + $ccf + '","cc2":"' + $ccs + '"}';
 			if($currentId != $ticker) {
 				$idJson += ',';
@@ -103,10 +103,10 @@ $(function(){
 	$('.money-couple-option').not('.option-active').click(function(){
 		var activeOpt = $(this).parent().parent().find('.option-active');
 	
-		var beforeF = $(this).data('ccf');
-		var beforeS = $(this).data('ccs');
-		var afterF = $(this).parent().parent().find('.option-active').data('ccf');
-		var afterS = $(this).parent().parent().find('.option-active').data('ccs');
+		var beforeF = $(this).attr('data-ccf');
+		var beforeS = $(this).attr('data-ccs');
+		var afterF = $(this).parent().parent().find('.option-active').attr('data-ccf');
+		var afterS = $(this).parent().parent().find('.option-active').attr('data-ccs');
 		var thisHTML = $(this).html();
 		
 		$(this).parent().parent().parent().parent().attr('data-ccf', beforeF);
@@ -119,6 +119,8 @@ $(function(){
 		$(this).parent().parent().find('.option-active').attr('data-ccf', beforeF);
 		$(this).parent().parent().find('.option-active').attr('data-ccs', beforeS);
 		$(this).parent().parent().find('.option-active').html(thisHTML);
+
+		tickerPost();
 	});
 
 });

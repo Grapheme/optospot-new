@@ -5,9 +5,10 @@
 			<div class="money-couple-cont">
 				<div class="money-couple-option option-active" data-ccf="EUR" data-ccs="USD">EUR/USD</div>
 			</div>
-			<!--<div class="money-coupe-down">
+			<div class="money-coupe-down">
 				<div class="money-couple-option" data-ccf="EUR" data-ccs="JPY">EUR/JPY</div>
-			</div>-->
+				<div class="money-couple-option" data-ccf="USD" data-ccs="JPY">USD/JPY</div>
+			</div>
 		</div>
 	</div>
 	<div class="money-color-div">
@@ -35,9 +36,10 @@
 			<div class="money-couple-cont">
 				<div class="money-couple-option option-active" data-ccf="EUR" data-ccs="JPY">EUR/JPY</div>
 			</div>
-			<!--<div class="money-coupe-down">
+			<div class="money-coupe-down">
 				<div class="money-couple-option" data-ccf="EUR" data-ccs="USD">EUR/USD</div>
-			</div>-->
+				<div class="money-couple-option" data-ccf="USD" data-ccs="JPY">USD/JPY</div>
+			</div>
 		</div>
 	</div>
 	<div class="money-color-div">
@@ -65,9 +67,10 @@
 			<div class="money-couple-cont">
 				<div class="money-couple-option option-active" data-ccf="EUR" data-ccs="USD">USD/JPY</div>
 			</div>
-			<!--<div class="money-coupe-down">
+			<div class="money-coupe-down">
+				<div class="money-couple-option" data-ccf="EUR" data-ccs="USD">EUR/USD</div>
 				<div class="money-couple-option" data-ccf="EUR" data-ccs="JPY">EUR/JPY</div>
-			</div>-->
+			</div>
 		</div>
 	</div>
 	<div class="money-color-div">
