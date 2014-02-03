@@ -39,6 +39,8 @@
 								<?php if(!$accounts[$i]['active']):?>
 									<br/><br/><span class="label label-inverse"><em>User is not active</em></span>
 								<?php endif;?>
+								<br/><br/>
+								<span class="label label-inverse"><em><?=($accounts[$i]['demo'])?'Demo account':'Real account'?></em></span>
 							</td>
 							<td class="span12">
 								<strong>Country:</strong> <?=$accounts[$i]['country'];?><br/>
