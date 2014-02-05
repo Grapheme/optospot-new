@@ -49,7 +49,7 @@
 		$CI = & get_instance();
 		$langURI = $CI->language_url;
 		if(!empty($uri_string)):
-			return preg_replace('/(.*)\/(ru|en|ind|)(\/)?(.*)?/',"$1/$langURI/$4",$uri_string);
+			return preg_replace('/(.*)\/(ru|en|ind)(\/)?(.*)?/',"$1/$langURI/$4",$uri_string);
 		else:
 			return FALSE;
 		endif;
