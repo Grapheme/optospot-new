@@ -61,7 +61,7 @@ class Users_interface extends MY_Controller{
 		if($this->uri->segment(1) === FALSE):
 			if($this->language_url = $this->languages->value($this->language,'uri')):
 				$this->config->set_item('base_url',$this->baseURL.$this->language_url.'/');
-				redirect();
+				//redirect();
 			endif;
 		elseif($language = $this->languages->languageExist($this->uri->segment(1))):
 			$this->language = $language['id'];
@@ -70,26 +70,7 @@ class Users_interface extends MY_Controller{
 		endif;
 	}
 	
-	public function changeLanguage(){
-		
-		if($this->uri->segment(3) !== FALSE):
-			if($newLanguage = $this->languages->languageExist($this->uri->segment(3))):
-				$this->language = $newLanguage['id'];
-				$this->language_url = $newLanguage['uri'];
-				if($this->loginstatus):
-					$this->accounts->updateField($this->account['id'],'language',$newLanguage['id']);
-					$this->profile = $this->accounts->getWhere($this->account['id']);
-					$this->session->set_userdata('profile',json_encode($this->profile));
-				endif;
-				$this->config->set_item('base_url',$this->baseURL.$this->language_url.'/');
-			endif;
-		endif;
-		if(isset($_SERVER['HTTP_REFERER'])):
-			redirect(noLanguage($_SERVER['HTTP_REFERER']));
-		else:
-			redirect();
-		endif;
-	}
+	
 	
 	public function index(){
 		

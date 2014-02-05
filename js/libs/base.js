@@ -5,7 +5,7 @@
 var mt = mt || {};
 
 //configuration
-mt.baseURL = window.location.protocol + '//' + window.location.hostname + '/git/opstospot-new/';
+mt.baseURL = window.location.protocol + '//' + window.location.hostname + '/';
 mt.currentURL = window.location.href;
 mt.languageSegment = 1;
 mt.tooltipPlacementDefault = 'bottom'; // Возможные значения top | bottom | left | right | auto
@@ -19,7 +19,7 @@ mt.getLanguageURL = function() {
 	if (segments[mt.languageSegment]) {
 		return segments[mt.languageSegment];
 	} else {
-		return 'en';
+		return 'ru';
 	}
 };
 mt.currentLenguage = mt.getLanguageURL();
