@@ -27,26 +27,13 @@
 	</div>
 	</div>
 	<div class="reg-error none-display">
-		<p class="normal-text">
-			Ошибка регистрации.<br>
-			Что-то пошло не так. Попробуйте чуть позже, все обязательно получится.
-		</p>
-		<button class="red-button try-again">Попробуйте еще</button>
-	</div>
-	<div class="reg-email none-display">
-		<p class="normal-text">
-			<?=$this->localization->getLocalMessage('index','email-exist')?>
-		</p>
-		<button class="red-button try-again"><?=$this->localization->getLocalButton('signin','try_again')?></button>
-	</div>
-	<div class="reg-loading none-display">
-		<p class="normal-text">
-			Секундочку, мы работаем.
-		</p>
+		<p class="normal-text"></p>
+		<button class="red-button try-again"><?=$this->localization->getLocalButton('signin','try_again');?></button>
 	</div>
 	<div class="reg-success none-display">
 		<p class="normal-text">
-			<?=$this->localization->getLocalMessage('index','success-reg')?>
+			<?=$this->localization->getLocalMessage('index','success-reg');?>
+			<br/><a href="<?=site_url('cabinet/balance');?>"><?=$this->localization->getLocalButton('user_block','fill-acc');?></a>
 		</p>
 	</div>
 </form>

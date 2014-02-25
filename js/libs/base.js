@@ -238,25 +238,20 @@ $.fn.formSubmitInServer = function() {
 $.fn.formSubmitNoValid = function() {
 	var _form = this;
 	var buttontext = $(_form).find(".btn-locked").html();
-	$(_form).find(".btn-locked").html(Localize[mt.currentLenguage]['wait']).attr('disabled', 'disabled');
 	var options = {
 		target : null,
 		dataType : 'json',
 		type : 'post',
 		beforeSubmit : function(formData, jqForm, options) {
-			if ($("div.msg-alert").exists() == true) {
-				$("div.msg-alert").remove();
-			}
-			return true
+			$(_form).find(".btn-locked").html(Localize[mt.currentLenguage]['wait']).attr('disabled', 'disabled');
+			if($("div.msg-alert").exists() == true){$("div.msg-alert").remove();}
+			return true;
 		},
 		success : function(response, status, xhr, jqForm) {
 			if (response.status == true) {
-				if (response.responseText != '') {
-					$(_form).find(".reg-block-in .div-form-operation").after('<div class="msg-alert">' + response.responseText + '</div>');
-					$(_form).find(".reg-normal").fadeOut('fast', function() {
-						$(_form).find(".reg-success").fadeIn('fast');
-					});
-				}
+				$(_form).find(".reg-normal").fadeOut('fast', function() {
+					$(_form).find(".reg-success").fadeIn('fast');
+				});
 				if (response.redirect !== false) {
 					setTimeout(function() {
 						mt.redirect(response.redirect)
@@ -264,12 +259,12 @@ $.fn.formSubmitNoValid = function() {
 				}
 			} else {
 				$(_form).find(".btn-locked").removeAttr('disabled').html(buttontext);
-				$(_form).find(".reg-block-in .div-form-operation").after('<div class="msg-alert error">' + response.responseText + '</div>');
 				$(_form).find(".reg-normal").fadeOut('fast', function() {
-					$(_form).find(".reg-email").fadeIn('fast');
+					$(_form).find(".reg-error p.normal-text").html(response.responseText);
+					$(_form).find(".reg-error").fadeIn('fast');
 				});
 				$(_form).find(".try-again").click(function() {
-					$(_form).find(".reg-email").fadeOut('fast', function() {
+					$(_form).find(".reg-error").fadeOut('fast', function() {
 						$(_form).find(".reg-normal").fadeIn('fast');
 					});
 					$(_form).find(".login-error").fadeOut('fast', function() {
@@ -277,13 +272,11 @@ $.fn.formSubmitNoValid = function() {
 					});
 					return false;
 				});
-				$(_form).find(".login-normal").fadeOut('fast', function() {
-					$(_form).find(".login-error").fadeIn('fast');
-				});
 			}
 		}
 	}
 	$(_form).ajaxSubmit(options);
+	return false;
 }
 
 $.fn.formSubmitNoValidReg = function() {

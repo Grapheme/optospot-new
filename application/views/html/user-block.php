@@ -9,7 +9,6 @@
 			echo anchor(USER_START_PAGE,'Demo account',array('class'=>'action-cabinet'));
 		endif;
 	else:
-		
 		if($this->uri->segment(2) == 'trade'):
 			echo anchor(USER_START_PAGE,$this->localization->getLocalButton('user_block','user_link'),array('class'=>'action-cabinet','target'=>'_blank'));
 		else:

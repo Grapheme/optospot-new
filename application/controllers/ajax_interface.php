@@ -42,14 +42,12 @@ class Ajax_interface extends MY_Controller{
 			show_error('В доступе отказано');
 		endif;
 		$json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>site_url(),'responseText_step3'=>'');
-		if($this->postDataValidation('signup') == TRUE):
+		if($this->postDataValidation('signup') === TRUE):
 			if($this->accounts->search('email',$this->input->post('email')) === FALSE):
 				if($resultData = $this->sendResisterData($this->input->post())):
 					$mailtext = $this->load->view('mails/signup',array('account'=>$resultData['accountID'],'reg_data'=>$resultData),TRUE);
 					$this->sendMail($this->input->post('email'),'robot@sysfx.com','Optospot trading platform','Welcome to Optospot.net',$mailtext);
 					$this->setLoginSession($resultData['accountID']);
-					$this->config->set_item('base_url',$this->baseURL.$this->uri->segment(1).'/');
-					$json_request['responseText'] = $this->localization->getLocalMessage('signup','register_success');
 					$json_request['redirect'] = FALSE;
 					$json_request['status'] = TRUE;
 				else:
@@ -176,8 +174,6 @@ class Ajax_interface extends MY_Controller{
 		endif;
 		echo json_encode($json_request);
 	}
-	
-	
 	
 	private function ExecuteCreatingAccount($registerData = NULL){
 		
