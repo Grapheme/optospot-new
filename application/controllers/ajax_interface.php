@@ -230,20 +230,20 @@ class Ajax_interface extends MY_Controller{
 			$cc1 = $JSONdata[$i]['cc1'];
 			$cc2 = $JSONdata[$i]['cc2'];
 			
-			$resp = $this->ToCurl('http://vl625.sysfx.com:8383/advertisements/content/demo.184/rates/json/dispatcher?cc1='.$cc1.'&cc2='.$cc2);
+			$resp = $this->ToCurl('http://vl655.sysfx.com:8383/advertisments/content/demo.184/rates/json/dispatcher?cc1='.$cc1.'&cc2='.$cc2);
 			$bid_data = json_decode($resp, true);
 			$bid = $bid_data[count($bid_data)-2]['bid'];
 					
-			$resp = $this->ToCurl('http://vl625.sysfx.com:8383/advertisements/content/demo.184/winPayout/json/dispatcher?cc1='.$cc1.'&cc2='.$cc2);
+			$resp = $this->ToCurl('http://vl655.sysfx.com:8383/advertisments/content/demo.184/winPayout/json/dispatcher?cc1='.$cc1.'&cc2='.$cc2);
 			$win_data = json_decode($resp, true);
 			$winmin = $win_data['minWinPayout'];
 			$winmax = $win_data['maxWinPayout'];
 			
-			$resp = $this->ToCurl('http://vl625.sysfx.com:8383/advertisements/content/demo.184/payoutByDateTime/json/dispatcher?cc1='.$cc1.'&cc2='.$cc2.'&dt='.date('Y-m-d').'%20'.date('h:m:s'));
+			$resp = $this->ToCurl('http://vl655.sysfx.com:8383/advertisments/content/demo.184/payoutByDateTime/json/dispatcher?cc1='.$cc1.'&cc2='.$cc2.'&dt='.date('Y-m-d').'%20'.date('h:m:s'));
 			$payout_data = json_decode($resp, true);
 			$payout = $payout_data['payout'];
 			
-			$resp = $this->ToCurl('http://vl625.sysfx.com:8383/advertisements/content/demo.184/binaryOptionExperationDate/json/dispatcher?cc1='.$cc1.'&cc2='.$cc2.'&exptype=I');
+			$resp = $this->ToCurl('http://vl655.sysfx.com:8383/advertisments/content/demo.184/binaryOptionExperationDate/json/dispatcher?cc1='.$cc1.'&cc2='.$cc2.'&exptype=I');
 			$exp_data = json_decode($resp, true);
 			$exp_time = $exp_data['expirationDate'];
 			$exp = $exp_time/1000 - time();
