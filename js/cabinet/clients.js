@@ -5,6 +5,28 @@
 $(function(){
 	var mainOptions = {target: null,beforeSubmit: mt.ajaxBeforeSubmit,success: mt.ajaxSuccessSubmit,dataType:'json',type:'post'};
 	
+	if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '1011350'){
+		$('.expiry-div').show();
+	}
+	
+	if($('select[name=payment]').val() == '9'){
+		$('.expiry-div').show();
+		$('.name-div').show();
+	}
+	
+	$('select[name=payment]').change(function(){
+		if($('select[name=payment]').val() == '1011350'){
+			$('.expiry-div').fadeIn();
+			$('.name-div').fadeOut();
+		} else if($('select[name=payment]').val() == '9') {
+			$('.name-div').fadeIn();
+			$('.expiry-div').fadeIn();
+		} else {
+			$('.expiry-div').fadeOut();
+			$('.name-div').fadeOut();
+		}
+	});
+	
 	$("button.btn-account-create").click(function(){
 		var _this = this;
 		var options = mainOptions;
@@ -60,7 +82,7 @@ $(function(){
 				alert(response.responseText);
 			}
 		}
-		$("form.form-signup").ajaxSubmit(options);
+		$("form.form-withdraw").ajaxSubmit(options);
 		return false;
 	});
 	$("#msgeclose").click(function(){$("#msgdealert").fadeOut(1000,function(){$(this).remove();});});
