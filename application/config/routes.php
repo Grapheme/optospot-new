@@ -53,6 +53,6 @@ $route[':any/binarnaya-platforma/online-treiding'] = "users_interface/trade";
 $route[':any/ticker-curl'] = "ajax_interface/tickerCurl";
 
 $route[':any/registering'] = "users_interface/registering";
-$route[':any/change-site-language/:any'] = "users_interface/changeLanguage";
+$route[':any/change-site-language/:any'] = "global_interface/changeLanguage";
 $route[':any/:any'] = "users_interface/pages";
 $route['ru|ind|en'] = "users_interface/index";

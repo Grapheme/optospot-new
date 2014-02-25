@@ -44,7 +44,7 @@
 		return $getLink;
 	}
 	
-	function noLanguage($uri_string){
+	function noLanguage($uri_string,$only_uri = FALSE){
 		
 		$CI = & get_instance();
 		$langURI = $CI->language_url;
