@@ -50,6 +50,8 @@ $(function(){
 	var $ccf;
 	var $ccs;
 
+	var $i = 0;
+
 	function tickerPost() {
 		var $currentId = 0;
 		var $idJson = "";
@@ -65,36 +67,42 @@ $(function(){
 		
 		var $dataoff = "{"+ $idJson +"}";
 		
-		$.post("ticker-curl", { postdata: $dataoff} , function(data) {
-			var $thisTicker;
-			var $responce = jQuery.parseJSON(data);
-			$.each($responce, function(){
-				var $thisTicker = $('.ticker-item[data-id=' + this.id + ']');
-				$thisTicker.find('.bid').html(this.bid);
-				$thisTicker.find('.payout').html(this.payout+"%");
-				$thisTicker.find('.winmax').html("$"+this.winmax);
-				$thisTicker.find('.winmin').html("$"+this.winmin);
-				if($thisTicker.find('.exp').hasClass('closed')) 
-				{
-					return false;
-				} else {					
-					$thisTicker.find('.exp').addClass('closed');
-					$thisTicker.find('.exp').html(toTime(this.exp));
-					$thisTicker.find('.exp').attr('data-time', this.exp);
-				}
-				if(!$curlopen) {
-					$curlopen = true;
-				}
+		$.ajax({
+			url: "ticker-curl", 
+			data: { postdata: $dataoff },
+			type: 'post'
+			
+			}).done(function(data) {
+				var $thisTicker;
+				var $responce = jQuery.parseJSON(data);
+				$.each($responce, function(){
+					var $thisTicker = $('.ticker-item[data-id=' + this.id + ']');
+					$thisTicker.find('.bid').html(this.bid);
+					$thisTicker.find('.payout').html(this.payout+"%");
+					$thisTicker.find('.winmax').html("$"+this.winmax);
+					$thisTicker.find('.winmin').html("$"+this.winmin);
+					if($thisTicker.find('.exp').hasClass('closed')) 
+					{
+						return false;
+					} else {					
+						$thisTicker.find('.exp').addClass('closed');
+						$thisTicker.find('.exp').html(toTime(this.exp));
+						$thisTicker.find('.exp').attr('data-time', this.exp);
+					}
+					if(!$curlopen) {
+						$curlopen = true;
+					}
+				});
 			});
-		});
-		
+
+		setTimeout(function(){tickerPost();}, 5000);	
 	}
 	
 	timeBack();
 	tickerPost();
-	setInterval(function(){
+	/*setInterval(function(){
 		tickerPost();
-	}, 5000);
+	}, 5000);*/
 	
 	$('.money-couple-select').click(function(){
 		$(this).find('.money-coupe-down').slideToggle('fast');
