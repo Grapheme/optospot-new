@@ -16,20 +16,19 @@
 		endif;
 	endif;
 endif;?>
-	<?php if($this->profile['demo'] == 1 && $this->account['id'] > 0) {
+<?php if($this->profile['demo'] == 1 && $this->account['id'] > 0):?>
 
-	} else {
+<?php else:?>
+	<?php 
 		$CI = & get_instance();
-		$tradeAccount = $CI->getTradeAccountInfoDengiOnLine();
-		foreach ($tradeAccount['accounts'] as $acc): ?>
-			<!--<div class="trader-div"><a href="<?=site_url('cabinet/balance');?>">trader_<?=$acc['accountId'];?></a></div>-->
-			<div class="trader-div">
-				<?=$this->localization->getLocalButton('user_block','trader-balance')?>
-				<strong><?=$acc['amount'];?></strong><br>
-				<a href="<?=site_url('cabinet/balance');?>" class="trader-div-money"><?=$this->localization->getLocalButton('user_block','fill-acc');?></a>
-			</div>
-		<?php endforeach;
-	} ?>
-		
+		$account = $CI->getTradeAccountInfoDengiOnLine();
+	?>
+	<!--<div class="trader-div"><a href="<?=site_url('cabinet/balance');?>">trader_<?=(isset($account['accounts']['accountId']))?$account['accounts']['accountId']:'ERROR';?></a></div>-->
+	<div class="trader-div">
+		<?=$this->localization->getLocalButton('user_block','trader-balance')?>
+		<strong><?=(isset($account['accounts']['amount']))?$account['accounts']['amount']:'ERROR';?></strong><br>
+		<a href="<?=site_url('cabinet/balance');?>" class="trader-div-money"><?=$this->localization->getLocalButton('user_block','fill-acc');?></a>
+	</div>
+<?php endif; ?>
 	<a class="action-cabinet" href="<?=site_url('logoff');?>"><?=$this->localization->getLocalButton('user_block','logoff')?></a>
 </div>
