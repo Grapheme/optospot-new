@@ -11,9 +11,7 @@
 		</div>
 	</div>
 	<div class="login-error none-display">
-		<p class="normal-text">
-			<?=$this->localization->getLocalButton('signin','error')?>
-		</p>
+		<p class="normal-text"></p>
 		<button class="red-button try-again"><?=$this->localization->getLocalButton('signin','try_again')?></button>
 	</div>
 </form>

@@ -50,7 +50,9 @@
 			'account' => 'Account',
 			'deposit' => 'Deposit',
 			'amount' => 'Amount',
-			'deposit_funds' => 'Deposit Funds'
+			'deposit_funds' => 'Deposit Funds',
+			'deposit_dengionline' => 'Deposit from Dengi Online',
+			'deposit_rbkmoney' => 'Deposit from через RBK Money'
 		),
 		'withdraw' => array(
 			'submit_withdraw' => 'Send request',

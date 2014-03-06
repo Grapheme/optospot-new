@@ -4,16 +4,13 @@
 
 $(function(){
 	var mainOptions = {target: null,beforeSubmit: mt.ajaxBeforeSubmit,success: mt.ajaxSuccessSubmit,dataType:'json',type:'post'};
-	
 	if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '1011350'){
 		$('.expiry-div').show();
 	}
-	
 	if($('select[name=payment]').val() == '9'){
 		$('.expiry-div').show();
 		$('.name-div').show();
 	}
-	
 	$('select[name=payment]').change(function(){
 		if($('select[name=payment]').val() == '1011350'){
 			$('.expiry-div').fadeIn();
@@ -26,7 +23,6 @@ $(function(){
 			$('.name-div').fadeOut();
 		}
 	});
-	
 	$("button.btn-account-create").click(function(){
 		var _this = this;
 		var options = mainOptions;
@@ -57,7 +53,7 @@ $(function(){
 		if(mt.validation(_form) === false){
 			event.preventDefault();
 		}
-	})
+	});
 	$("button.btn-withdrawal").click(function(){
 		var _this = this;
 		var options = mainOptions;
@@ -87,4 +83,22 @@ $(function(){
 	});
 	$("#msgeclose").click(function(){$("#msgdealert").fadeOut(1000,function(){$(this).remove();});});
 	$("#msgsclose").click(function(){$("#msgdsalert").fadeOut(1000,function(){$(this).remove();});});
+	$("#set_deposit_value").click(function(){
+		var summa = parseFloat($("#deposit_value").val().trim());
+		if(summa > 0){
+			$("#deposit_value").val(summa).css({'background' : '#fff'});
+			$("#div_deposit_value").fadeOut('fast',function(){
+				$("form input[name='amount']").val(summa);
+				$("#deposit_system").fadeIn('fast');
+			});
+		}else{
+			$("#deposit_value").val(50).css({'background' : '#ffeeee'}).focus();
+		}
+	});
+	$(".submit_deposit_form").click(function(){
+		var _form = document.getElementById($(this).attr('data-form-id'));
+		if($(_form).find('input[name="amount"]').val().trim() > 0){
+			$(_form).submit();
+		}
+	});
 });

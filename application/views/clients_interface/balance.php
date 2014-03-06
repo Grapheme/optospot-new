@@ -25,28 +25,43 @@
 							</tr>
 						</thead>
 						<tbody>
-						<? if ( count($accounts) > 0 ) : ?>
-							<? foreach ($accounts as $acc) : ?>
-								<tr>
-									<td width="100px"><?= $acc['accountId']; ?></td>
-									<td width="150px"><?= $acc['amount']; ?></td>
-									<td>
-										<form method="post" action="<?=$action_deposit;?>">
-											<label><?=$this->localization->getLocalButton('client_cabinet','amount')?></label>
-											<input name="amount" type="text" class="span2 amount" value="50" />
-											<input type="hidden" name="account" value="<?= $acc['accountId']; ?>" />
-											<input type="hidden" name="success" value="http://<?= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]; ?>" />
-											<input type="hidden" name="cancel" value="http://<?= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]; ?>" />
-											<button type="submit" class="btn btn-mini btn-success service-order"><?=$this->localization->getLocalButton('client_cabinet','deposit_funds')?></button>
-										</form>
-									</td>
-								</tr>
-							<? endforeach; ?>
-						<? else : ?>
+					<?php if(!empty($accounts)):?>
+							<tr>
+								<td width="100px"><?=(isset($accounts['dengionline']['accountId']))?$accounts['dengionline']['accountId']:'undefined';?></td>
+								<td width="150px"><?=(isset($accounts['dengionline']['amount']))?$accounts['dengionline']['amount']:'undefined';?></td>
+								<td>
+									<div id="div_deposit_value">
+										<label><?=$this->localization->getLocalButton('client_cabinet','amount')?></label>
+										<input id="deposit_value"autocomplete="off" type="text" class="span2" value="50" />
+										<button type="submit" id="set_deposit_value" class="btn btn-mini btn-success"><?=$this->localization->getLocalButton('client_cabinet','deposit_funds')?></button>
+									</div>
+									<div id="deposit_system" class="none-display">
+									<?php foreach($accounts as $system => $account):?>
+										<button type="button" class="btn btn-mini btn-success submit_deposit_form" data-form-id="form_<?=$system;?>"><?=$this->localization->getLocalButton('client_cabinet','deposit_'.$system);?></button>
+									<?php endforeach; ?>
+									</div>
+								</td>
+							</tr>
+						<?php foreach($accounts as $system => $account):?>
+							<tr class="none-display">
+								<td width="100px">&nbsp;</td>
+								<td width="150px">&nbsp;</td>
+								<td>
+									<form id="form_<?=$system;?>" method="post" action="<?=$account['deposit'];?>">
+										<input type="hidden" name="amount" value="50" />
+										<input type="hidden" name="account" value="<?= $account['accountId']; ?>" />
+										<input type="hidden" name="success" value="http://<?= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]; ?>" />
+										<input type="hidden" name="cancel" value="http://<?= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]; ?>" />
+										<button id="submit_<?=$system;?>" type="submit">Submit</button>
+									</form>
+								</td>
+							</tr>
+						<?php endforeach; ?>
+					<? else : ?>
 							<div class="alert-error">
 								<p>Error while requesting user balance. Please send email to support@optospot.net with problem description.</p>
 							</div>
-						<? endif; ?>
+					<? endif; ?>
 						</tbody>
 					</table>	
 				</div>

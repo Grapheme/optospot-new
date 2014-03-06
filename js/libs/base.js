@@ -263,6 +263,12 @@ $.fn.formSubmitNoValid = function() {
 					$(_form).find(".reg-error p.normal-text").html(response.responseText);
 					$(_form).find(".reg-error").fadeIn('fast');
 				});
+				
+				$(_form).find(".login-normal").fadeOut('fast', function() {
+					$(_form).find(".login-error p.normal-text").html(response.responseText);
+					$(_form).find(".login-error").fadeIn('fast');
+				});
+				
 				$(_form).find(".try-again").click(function() {
 					$(_form).find(".reg-error").fadeOut('fast', function() {
 						$(_form).find(".reg-normal").fadeIn('fast');

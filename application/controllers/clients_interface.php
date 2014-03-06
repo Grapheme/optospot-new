@@ -1,6 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Clients_interface extends MY_Controller{
+class Clients_interface extends MY_Controller {
 	
 	function __construct(){
 		
@@ -29,14 +29,18 @@ class Clients_interface extends MY_Controller{
 		$pagevar = array(
 			'title' => $this->localization->getProblemPlace('client_cabinet','balance_title'),
 			'description' => $this->localization->getProblemPlace('client_cabinet','balance_description'),
-			'action_deposit'=> $this->settings->value(3,'link'),
+			'accounts'=>array(),
 			'msgs' => '',
 			'msgr' => ''
 		);
-		$tradeAccount = $this->getTradeAccountInfo();
-		$pagevar['accounts'] = $tradeAccount['accounts'];
-		$pagevar['action_deposit'] = $tradeAccount['action_deposit'];
-		
+		$dengiOnLineAccount = $this->getTradeAccountInfoDengiOnLine();
+		$rbkMoneyAccount = $this->getTradeAccountInfoRBKMoney();
+		$pagevar['accounts'] = array(
+			'dengionline'=>$dengiOnLineAccount['accounts'],
+			'rbkmoney'=>$rbkMoneyAccount['accounts']
+		);
+		$pagevar['accounts']['dengionline']['deposit'] = $this->settings->value(3,'link').';'.$dengiOnLineAccount['action_deposit'];
+		$pagevar['accounts']['rbkmoney']['deposit'] = $this->settings->value(4,'link').';'.$rbkMoneyAccount['action_deposit'];
 		$this->load->view("clients_interface/balance",$pagevar);
 	}
 	

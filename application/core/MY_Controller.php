@@ -1,6 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class MY_Controller extends CI_Controller{
+class MY_Controller extends CI_Controller {
 	
 	var $account = array('id'=>0,'demo'=>0);
 	var $profile = '';
@@ -74,34 +74,69 @@ class MY_Controller extends CI_Controller{
 	}
 	
 	/*************************************************************************************************************/
-	public function getTradeAccountInfo(){
+	public function getTradeAccountInfoDengiOnLine(){
 		
-		$postdata = http_build_query(array('j_username' => $this->profile['trade_login'], 'j_password' => $this->encrypt->decode($this->profile['trade_password'])));
-		$opts = array('http' => array('method'=>'POST','header'=>'Content-type: application/x-www-form-urlencoded','content'=>$postdata));
-		$context  = stream_context_create($opts);
-		$json_string = file_get_contents('http://dengionline.sysfx.com:8080/deal.184/service/serviceLogin.jsp',false, $context);
-		$res = json_decode($json_string,true);
-		if(isset($res['errorCode'])):
-			$pagevar['msgs'] = $res['message'];
-		elseif( $res['status'] != 'LOGIN' ):
-			$pagevar['msgr'] =  'Error while requesting user balance. Please send email to support@optospot.net with problem description.';
-		endif;
-		$jsessionid = @$res['jsessionid'];
-		setcookie('jsessionid', $jsessionid, time() + (86400 * 7)); // 86400 = 1 day
-		$opts = array('http' => array('method' => 'GET', 'header'=> 'Cookie: jsessionid=' . $jsessionid."\r\n"));
-		$context = stream_context_create($opts);
-		$contents = file_get_contents('http://dengionline.sysfx.com:8080/deal.184/service/secure/serviceAccounts.jsp;jsessionid='.$jsessionid, false, $context);
 		
+		$contents = array();
 		$result = array('accounts'=>array(),'action_deposit'=>FALSE);
-		
-		$result['accounts'] = json_decode($contents, true);
+		try{
+			$postdata = http_build_query(array('j_username' => $this->profile['trade_login'], 'j_password' => $this->encrypt->decode($this->profile['trade_password'])));
+			$opts = array('http' => array('method'=>'POST','header'=>'Content-type: application/x-www-form-urlencoded','content'=>$postdata));
+			$context  = stream_context_create($opts);
+			$json_string = file_get_contents('http://dengionline.sysfx.com:8080/deal.184/service/serviceLogin.jsp',false, $context);
+			$res = json_decode($json_string,true);
+			if(isset($res['errorCode'])):
+				$pagevar['msgs'] = $res['message'];
+			elseif( $res['status'] != 'LOGIN' ):
+				$pagevar['msgr'] =  'Error while requesting user balance. Please send email to support@optospot.net with problem description.';
+			endif;
+			$jsessionid = @$res['jsessionid'];
+			setcookie('jsessionid', $jsessionid, time() + (86400 * 7)); // 86400 = 1 day
+			$opts = array('http' => array('method' => 'GET', 'header'=> 'Cookie: jsessionid=' . $jsessionid."\r\n"));
+			$context = stream_context_create($opts);
+			$contents = file_get_contents('http://dengionline.sysfx.com:8080/deal.184/service/secure/serviceAccounts.jsp;jsessionid='.$jsessionid, false, $context);
+		} catch (Exception $e) {
+			
+		}
+		if($result['accounts'] = json_decode($contents, true)):
+			$result['accounts'] = $result['accounts'][0];
+		endif;
 		$this->load->model('settings');
-		$result['action_deposit'] = $this->settings->value(3,'link').';jsessionid='.$jsessionid;
+		$result['action_deposit'] = 'jsessionid='.$jsessionid;
+		return $result;
+	}
+	
+	public function getTradeAccountInfoRBKMoney(){
 		
+		$contents = array();
+		$result = array('accounts'=>array(),'action_deposit'=>FALSE);
+		try{
+			$postdata = http_build_query(array('j_username' => $this->profile['trade_login'], 'j_password' => $this->encrypt->decode($this->profile['trade_password'])));
+			$opts = array('http' => array('method'=>'POST','header'=>'Content-type: application/x-www-form-urlencoded','content'=>$postdata));
+			$context  = stream_context_create($opts);
+			$json_string = file_get_contents('https://optospot.sysfx.com/rbkmoney/service/serviceLogin.jsp',false, $context);
+			$res = json_decode($json_string,true);
+			if(isset($res['errorCode'])):
+				$pagevar['msgs'] = $res['message'];
+			elseif( $res['status'] != 'LOGIN' ):
+				$pagevar['msgr'] =  'Error while requesting user balance. Please send email to support@optospot.net with problem description.';
+			endif;
+			$jsessionid = @$res['jsessionid'];
+			setcookie('jsessionid', $jsessionid, time() + (86400 * 7)); // 86400 = 1 day
+			$opts = array('http' => array('method' => 'GET', 'header'=> 'Cookie: jsessionid=' . $jsessionid."\r\n"));
+			$context = stream_context_create($opts);
+			$contents = file_get_contents('https://optospot.sysfx.com/rbkmoney/service/secure/serviceAccounts.jsp;jsessionid='.$jsessionid, false, $context);
+		} catch (Exception $e) {
+			
+		}
+		if($result['accounts'] = json_decode($contents, true)):
+			$result['accounts'] = $result['accounts'][0];
+		endif;
+		$this->load->model('settings');
+		$result['action_deposit'] = 'jsessionid='.$jsessionid;
 		return $result;
 	}
 	/*************************************************************************************************************/
-	
 	public function pagination($url,$uri_segment,$total_rows,$per_page,$get_string = FALSE){
 		
 		$this->load->library('pagination');
@@ -137,7 +172,6 @@ class MY_Controller extends CI_Controller{
 		$this->pagination->initialize($config);
 		return $this->pagination->create_links();
 	}
-	
 	
 	public function pagination_old($url,$uri_segment,$total_rows,$per_page){
 		

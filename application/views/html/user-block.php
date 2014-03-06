@@ -20,7 +20,7 @@ endif;?>
 
 	} else {
 		$CI = & get_instance();
-		$tradeAccount = $CI->getTradeAccountInfo();
+		$tradeAccount = $CI->getTradeAccountInfoDengiOnLine();
 		foreach ($tradeAccount['accounts'] as $acc): ?>
 			<!--<div class="trader-div"><a href="<?=site_url('cabinet/balance');?>">trader_<?=$acc['accountId'];?></a></div>-->
 			<div class="trader-div">

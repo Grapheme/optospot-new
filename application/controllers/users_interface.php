@@ -1,6 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Users_interface extends MY_Controller{
+class Users_interface extends MY_Controller {
 	
 	public function redactorUploadImage(){
 		
@@ -69,8 +69,6 @@ class Users_interface extends MY_Controller{
 			$this->config->set_item('base_url',$this->baseURL.$this->language_url.'/');
 		endif;
 	}
-	
-	
 	
 	public function index(){
 		

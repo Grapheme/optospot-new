@@ -54,7 +54,9 @@
 			'account' => 'Аккаунт',
 			'deposit' => 'Счет',
 			'amount' => 'Сумма',
-			'deposit_funds' => 'Пополнить'
+			'deposit_funds' => 'Пополнить',
+			'deposit_dengionline' => 'Пополнить через Dengi Online',
+			'deposit_rbkmoney' => 'Пополнить через RBK Money'
 		),
 		'client_sidebar' => array(
 			'navigation' => 'Навигация',

@@ -1,6 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Ajax_interface extends MY_Controller{
+class Ajax_interface extends MY_Controller {
 	
 	function __construct(){
 		
@@ -15,7 +15,7 @@ class Ajax_interface extends MY_Controller{
 			show_error('В доступе отказано');
 		endif;
 		$json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>site_url());
-		if($this->postDataValidation('signin') == TRUE):
+		if($this->postDataValidation('signin')):
 			if($user = $this->accounts->authentication($_POST['login'],$_POST['password'])):
 				$json_request['status'] = TRUE;
 				$json_request['message'] = '';

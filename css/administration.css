@@ -66,6 +66,9 @@ label, input { font-size: 13px !important; }
 .btn-mini {
 	padding: 3px 6px;
 }
+.none-display {
+	display: none;
+}
 
 .navbar-inner { border-radius: 2px; }
 .table { border-radius: 2px; } 
