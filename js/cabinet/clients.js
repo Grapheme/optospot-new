@@ -95,6 +95,12 @@ $(function(){
 			$("#deposit_value").val(50).css({'background' : '#ffeeee'}).focus();
 		}
 	});
+	$("#submit_deposit_form_cancel").click(function(){
+		console.log(1);
+		$("#deposit_system").fadeOut('fast',function(){
+			$("#div_deposit_value").fadeIn('fast');
+		});
+	});
 	$(".submit_deposit_form").click(function(){
 		var _form = document.getElementById($(this).attr('data-form-id'));
 		if($(_form).find('input[name="amount"]').val().trim() > 0){

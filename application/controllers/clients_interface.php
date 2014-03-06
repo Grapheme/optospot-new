@@ -36,11 +36,14 @@ class Clients_interface extends MY_Controller {
 		$dengiOnLineAccount = $this->getTradeAccountInfoDengiOnLine();
 		$rbkMoneyAccount = $this->getTradeAccountInfoRBKMoney();
 		$pagevar['accounts'] = array(
-			'dengionline'=>$dengiOnLineAccount['accounts'],
-			'rbkmoney'=>$rbkMoneyAccount['accounts']
+			'rbkmoney'=>$rbkMoneyAccount['accounts'],
+			'dengionline'=>$dengiOnLineAccount['accounts']
 		);
 		$pagevar['accounts']['dengionline']['deposit'] = $this->settings->value(3,'link').';'.$dengiOnLineAccount['action_deposit'];
 		$pagevar['accounts']['rbkmoney']['deposit'] = $this->settings->value(4,'link').';'.$rbkMoneyAccount['action_deposit'];
+		
+		$pagevar['accounts']['dengionline']['information'] = $this->localization->getLocalMessage('dengionline','deposit_info');
+		$pagevar['accounts']['rbkmoney']['information'] = $this->localization->getLocalMessage('rbkmoney','deposit_info');
 		$this->load->view("clients_interface/balance",$pagevar);
 	}
 	
