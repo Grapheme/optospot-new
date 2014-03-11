@@ -42,6 +42,12 @@ class Clients_interface extends MY_Controller {
 		$pagevar['accounts']['dengionline']['deposit'] = $this->settings->value(3,'link').';'.$dengiOnLineAccount['action_deposit'];
 		$pagevar['accounts']['rbkmoney']['deposit'] = $this->settings->value(4,'link').';'.$rbkMoneyAccount['action_deposit'];
 		
+		if($this->input->get('status') == 'success'):
+			$pagevar['msgs'] = $this->localization->getLocalMessage('payment','success');
+		endif;
+		if($this->input->get('status') == 'failure'):
+			$pagevar['msgr'] = $this->localization->getLocalMessage('payment','failure');
+		endif;
 		$pagevar['accounts']['dengionline']['information'] = $this->localization->getLocalMessage('dengionline','deposit_info');
 		$pagevar['accounts']['rbkmoney']['information'] = $this->localization->getLocalMessage('rbkmoney','deposit_info');
 		$this->load->view("clients_interface/balance",$pagevar);

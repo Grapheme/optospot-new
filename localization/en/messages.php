@@ -24,6 +24,10 @@
 			'success' => 'request has been sent successfully',
 			'failure' => 'a request returned an error',
 		),
+		'payment' => array(
+			'success' => 'Payment successfull.',
+			'failure' => 'Payment failed. Try to pay with another payment system.',
+		),
 		'forgot' => array(
 			'success' => 'Password is sent to your via email',
 			'error' => 'Specified email does not exist',

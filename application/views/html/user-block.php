@@ -18,7 +18,7 @@
 endif;?>
 <?php if($this->profile['demo'] == 1 && $this->account['id'] > 0):?>
 
-<?php else:?>
+<?php elseif($this->profile['demo'] == 0 && $this->account['id'] > 0):?>
 	<?php 
 		$CI = & get_instance();
 		$account = $CI->getTradeAccountInfoDengiOnLine();

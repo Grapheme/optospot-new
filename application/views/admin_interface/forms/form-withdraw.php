@@ -12,8 +12,8 @@
 			<option value="22">WebMoney WME</option>
 			<option value="23">WebMoney WMZ</option>
 			<option value="28">QIWI-кошелек</option>
-			<option value="1011350">Visa</option>
-			<option value="1013538">Яндекс.Деньги</option>
+			<!--<option value="1011350">Visa</option>-->
+			<!--<option value="1013538">Яндекс.Деньги</option>-->
 		</select>
 		<div class="withdraw-div">
 			<label>Specify the account number to withdraw money:</label>

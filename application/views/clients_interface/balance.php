@@ -17,13 +17,14 @@
 				<?php $this->load->view("alert_messages/alert-success");?>
 				<div>
 				<?php if(!empty($accounts)):?>
-					<div id="deposit_system" class="none-display">
+					<div class="clear"> </div>
+					<div id="deposit_system" class="none-display clearfix">
+						<button type="button" class="pay-btn submit_deposit_form" data-form-id="form_rbkmoney"><img src="<?=baseURL('img/visamc.png');?>" /></button>
 					<?php foreach($accounts as $system => $account):?>
-						<p><?=$account['information'];?></p>
-						<button type="button" class="btn btn-mini btn-success submit_deposit_form" data-form-id="form_<?=$system;?>"><?=$this->localization->getLocalButton('client_cabinet','deposit_'.$system);?></button>
+						<button type="button" class="pay-btn submit_deposit_form" data-form-id="form_<?=$system;?>"><img src="<?=baseURL('img/'.$system.'.png');?>" /></button>
 					<?php endforeach; ?>
-					<hr/>
-					<button type="button" id="submit_deposit_form_cancel" class="btn btn-mini btn-success"><?=$this->localization->getLocalButton('client_cabinet','deposit_submit_cancel');?></button>
+						<hr/>
+						<button type="button" id="submit_deposit_form_cancel" class="btn btn-mini btn-success"><?=$this->localization->getLocalButton('client_cabinet','deposit_submit_cancel');?></button>
 					</div>
 				<?php endif;?>
 					<table id="div_deposit_value" class="table table-bordered">
@@ -53,8 +54,8 @@
 									<form id="form_<?=$system;?>" method="post" action="<?=$account['deposit'];?>">
 										<input type="hidden" name="amount" value="50" />
 										<input type="hidden" name="account" value="<?= $account['accountId']; ?>" />
-										<input type="hidden" name="success" value="http://<?= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]; ?>" />
-										<input type="hidden" name="cancel" value="http://<?= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]; ?>" />
+										<input type="hidden" name="success" value="<?=site_url(USER_START_PAGE.'?status=success')?>" />
+										<input type="hidden" name="cancel" value="<?=site_url(USER_START_PAGE.'?status=failure')?>" />
 										<button id="submit_<?=$system;?>" type="submit">Submit</button>
 									</form>
 								</td>

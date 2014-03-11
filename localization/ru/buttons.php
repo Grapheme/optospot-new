@@ -57,7 +57,7 @@
 			'deposit_funds' => 'Пополнить',
 			'deposit_dengionline' => 'Пополнить через Dengi Online',
 			'deposit_rbkmoney' => 'Пополнить через RBK Money',
-			'deposit_submit_cancel' => 'Отмена'
+			'deposit_submit_cancel' => 'Отменить оплату'
 		),
 		'client_sidebar' => array(
 			'navigation' => 'Навигация',

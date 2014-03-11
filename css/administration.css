@@ -13,6 +13,16 @@ h1 { margin: 1em 0; font: 29px/34px "din-condensed-web", sans-serif; text-transf
 .hightPageslist { overflow: auto; max-height: 300px; }
 .navbar .brand { font-size: 14px; }
 
+button.pay-btn {
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	background: #fff;
+	-webkit-box-shadow: 0 0 3px #ccc;
+	   -moz-box-shadow: 0 0 3px #ccc;
+		    box-shadow: 0 0 3px #ccc;
+	margin: 0 10px 0 0;
+}
+
 .well { background-color: transparent; border: 0 none; box-shadow: none; margin-top: 0; padding-top: 0; }
 .sidebar-nav { margin-top: 0; padding-top: 0; }
 .nav-tabs > li, .nav-pills > li { line-height: 1em; margin: 0 inherit; }

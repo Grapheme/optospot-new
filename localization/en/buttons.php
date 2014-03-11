@@ -53,7 +53,7 @@
 			'deposit_funds' => 'Deposit Funds',
 			'deposit_dengionline' => 'Deposit from Dengi Online',
 			'deposit_rbkmoney' => 'Deposit from RBK Money',
-			'deposit_submit_cancel' => 'Cancel'
+			'deposit_submit_cancel' => 'Cancel payment'
 		),
 		'withdraw' => array(
 			'submit_withdraw' => 'Send request',

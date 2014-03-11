@@ -96,7 +96,6 @@ $(function(){
 		}
 	});
 	$("#submit_deposit_form_cancel").click(function(){
-		console.log(1);
 		$("#deposit_system").fadeOut('fast',function(){
 			$("#div_deposit_value").fadeIn('fast');
 		});
