@@ -15,6 +15,9 @@
 				</div>
 				<?php $this->load->view("alert_messages/alert-error");?>
 				<?php $this->load->view("alert_messages/alert-success");?>
+				<p>
+					<?=$this->localization->getLocalMessage('payment','annotation')?>
+				</p>
 				<div>
 				<?php if(!empty($accounts)):?>
 					<div class="clear"> </div>
@@ -69,7 +72,7 @@
 						</tbody>
 					</table>	
 				</div>
-			
+				<?=$this->localization->getLocalMessage('payment','description')?>
 			</div>
 		<?php $this->load->view("clients_interface/includes/rightbar");?>
 		</div>

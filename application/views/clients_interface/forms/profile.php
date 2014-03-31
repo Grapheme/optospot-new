@@ -1,6 +1,9 @@
 <?=form_open('cabinet/profile',array('class'=>'form-horizontal form-edit-user')); ?>
 	<fieldset>
 		<legend><?=$this->localization->getLocalButton('form_profile','legend')?>: <em><?=strtolower($account['email']);?></em></legend>
+		<p>
+			<?=$this->localization->getLocalMessage('client_cabinet','annotation')?>
+		</p>
 		<ul id="ProductTab" class="nav nav-tabs">
 			<li class="active"><a href="#general" data-toggle="tab"><?=$this->localization->getLocalButton('form_profile','general_tab')?></a></li>
 			<li><a href="#address" data-toggle="tab"><?=$this->localization->getLocalButton('form_profile','address_tab')?></a></li>

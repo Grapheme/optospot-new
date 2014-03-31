@@ -170,6 +170,7 @@ class Ajax_interface extends MY_Controller {
 			$json_request['redirect'] = FALSE;
 			$json_request['responseText'] = $this->localization->getLocalMessage('withdraw','success');
 		else:
+			print_r(validation_errors());
 			$json_request['responseText'] = $this->localization->getLocalMessage('withdraw','failure');
 		endif;
 		echo json_encode($json_request);
