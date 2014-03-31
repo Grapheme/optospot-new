@@ -5,6 +5,13 @@
 Логин: <?=$reg_data['login'];?><br/>
 Пароль: <?=$reg_data['password'];?>
 <br/>----------------------------</p>
+<?php if(isset($reg_data['auto_demo']) && !is_null($reg_data['auto_demo'])):?>
+<p>Для Вас автоматически был создан Демо счет.</p>
+<p>---------------------------- <br/>
+Логин: <?=$reg_data['auto_demo']['login'];?><br/>
+Пароль: <?=$reg_data['auto_demo']['password'];?>
+<br/>----------------------------</p>
+<?php endif;?>
 <p>Вы находитесь всего в одном шаге от нового этапа в Вашей жизни. Этапа достойного заработка, основанного всего лишь на Ваших анализе и стратегии. Вы также можете ознакомиться с кратким видеообзором (ссылка на видео), который несомненно поможет Вам лучше ориентироваться в настройках и возможностях платформы OptoSpot.</p>
 <p>Спасибо за то, что выбрали нашу компанию.</p>
 
@@ -28,4 +35,11 @@ Web-site: www.optospot.net
 Login: <?=$reg_data['login'];?><br/>
 Password: <?=$reg_data['password'];?>
 <br/>----------------------------</p>
+<?php if(isset($reg_data['auto_demo']) && !is_null($reg_data['auto_demo'])):?>
+<p>For you automatically created a Demo account.</p>
+<p>---------------------------- <br/>
+Demo Login: <?=$reg_data['auto_demo']['login'];?><br/>
+Demo Password: <?=$reg_data['auto_demo']['password'];?>
+<br/>----------------------------</p>
+<?php endif;?>
 <p>Thank you for being registered.</p>

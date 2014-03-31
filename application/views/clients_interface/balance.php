@@ -45,7 +45,7 @@
 								<td width="150px"><?=(isset($accounts['dengionline']['amount']))?$accounts['dengionline']['amount']:'undefined';?></td>
 								<td>
 									<label><?=$this->localization->getLocalButton('client_cabinet','amount')?></label>
-									<input id="deposit_value"autocomplete="off" type="text" class="span2" value="50" />
+									<input id="deposit_value" autocomplete="off" type="text" class="span2" value="50" />
 									<button type="submit" id="set_deposit_value" class="btn btn-mini btn-success"><?=$this->localization->getLocalButton('client_cabinet','deposit_funds')?></button>
 								</td>
 							</tr>

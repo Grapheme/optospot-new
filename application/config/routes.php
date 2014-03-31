@@ -8,6 +8,8 @@ $route['redactor/get-uploaded-images'] = "users_interface/redactorUploadedImages
 $route['get-signup-accounts(\/:num)*?'] = "users_interface/getSignupAccount";
 /************************************************** CLIENT INTRERFACE ***********************************************/
 $route[':any/cabinet/balance'] = "clients_interface/balance";
+$route[':any/cabinet/open-account'] = "clients_interface/openAccount";
+$route[':any/cabinet/my-accounts'] = "clients_interface/myAccounts";
 $route[':any/cabinet/profile'] = "clients_interface/profile";
 $route[':any/cabinet/withdraw'] = "clients_interface/withdraw";
 /*************************************************** ADMINS INTRERFACE ***********************************************/
@@ -38,6 +40,7 @@ $route[':any/login'] = "ajax_interface/loginIn";
 $route[':any/signup'] = "ajax_interface/signUp";
 $route[':any/signup-account'] = "ajax_interface/signUp";
 $route[':any/signup-real-account'] = "ajax_interface/createRealAccount";
+$route[':any/signup-demo-account'] = "ajax_interface/createDemoAccount";
 $route[':any/cabinet/withdraw/request'] = "ajax_interface/withdrawRequest";
 
 

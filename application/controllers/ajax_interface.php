@@ -45,6 +45,10 @@ class Ajax_interface extends MY_Controller {
 		if($this->postDataValidation('signup') === TRUE):
 			if($this->accounts->search('email',$this->input->post('email')) === FALSE):
 				if($resultData = $this->sendResisterData($this->input->post())):
+					$resultData['auto_demo'] = NULL;
+					if($this->input->post('account_type') == 2):
+						$resultData['auto_demo'] = $this->sendResisterData($this->input->post(),1);
+					endif;
 					$mailtext = $this->load->view('mails/signup',array('account'=>$resultData['accountID'],'reg_data'=>$resultData),TRUE);
 					$this->sendMail($this->input->post('email'),'robot@sysfx.com','Optospot trading platform','Welcome to Optospot.net',$mailtext);
 					$this->setLoginSession($resultData['accountID']);
@@ -88,6 +92,29 @@ class Ajax_interface extends MY_Controller {
 		echo json_encode($json_request);
 	}
 	
+	public function createDemoAccount(){
+		
+		if(!$this->input->is_ajax_request()):
+			show_error('В доступе отказано');
+		endif;
+		$json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>site_url());
+		if($this->postDataValidation('signup') == TRUE):
+			$registerData = $this->input->post();
+			$registerData['coach'] = 0;
+			if($resultData = $this->sendResisterData($registerData)):
+				$mailtext = $this->load->view('mails/signup',array('account'=>$registerData,'reg_data'=>$resultData),TRUE);
+				$this->sendMail($registerData['email'],'robot@sysfx.com','Optospot trading platform','Welcome to Optospot.net',$mailtext);
+				$json_request['status'] = TRUE;
+				$json_request['redirect'] = site_url($this->uri->segment(1).'/cabinet/my-accounts');
+			else:
+				$json_request['responseText'] = $this->localization->getLocalMessage('signup','failure');
+			endif;
+		else:
+			$json_request['responseText'] = $this->localization->getLocalMessage('signup','failure');
+		endif;
+		echo json_encode($json_request);
+	}
+	
 	public function forgotPassword(){
 		
 		if(!$this->input->is_ajax_request()):
@@ -118,13 +145,16 @@ class Ajax_interface extends MY_Controller {
 		echo json_encode(array('vlink'=>$this->settings->value(2,'link')));
 	}
 
-	public function sendResisterData($registerData = FALSE){
-		
+	public function sendResisterData($registerData = FALSE,$setModeStatus = NULL){
+
 		if(file_exists(getcwd().'/BaseJsonRpcClient.php') && $registerData !== FALSE):
-			include getcwd().'/BaseJsonRpcClient.php';
+			include_once getcwd().'/BaseJsonRpcClient.php';
 			$this->load->model(array('settings'));
 			$client = new BaseJsonRpcClient($this->settings->value(1,'link'));
 			$demoStatus = TRUE;
+			if(!is_null($setModeStatus)):
+				$registerData['account_type'] = $setModeStatus;
+			endif;
 			if($registerData['account_type'] == 1):
 				$registerData['mode'] = 'demo';
 				$schema = 'edforex184';

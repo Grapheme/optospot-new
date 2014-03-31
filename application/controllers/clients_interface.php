@@ -73,7 +73,6 @@ class Clients_interface extends MY_Controller {
 	private function isDemoRegisterRealAccount(){
 		
 		if($this->profile['demo'] == 1):
-			
 			$pagevar = array(
 				'title' => $this->localization->getLocalMessage('client_cabinet','real_reg_title'),
 				'description' => $this->localization->getLocalMessage('client_cabinet','real_reg_description'),
@@ -84,6 +83,27 @@ class Clients_interface extends MY_Controller {
 			return TRUE;
 		else:
 			return FALSE;
+		endif;
+	}
+	
+	public function openAccount(){
+		
+		$pagevar = array('msgs' => '','msgr' => '','accounts' =>array());
+		if($accounts = $this->accounts->getWhere(NULL,array('email'=>$this->profile['email']),TRUE)):
+			foreach($accounts as $account):
+				$pagevar['accounts'][$account['demo']] = $account;
+			endforeach;
+		endif;
+		if($this->input->get('reg') == 'real' && !isset($pagevar['accounts'][0])):
+			$pagevar['title'] = $this->localization->getLocalMessage('client_cabinet','real_reg_title');
+			$pagevar['description'] = $this->localization->getLocalMessage('client_cabinet','real_reg_description');
+			$this->load->view("clients_interface/register-real-account",$pagevar);
+		elseif($this->input->get('reg') == 'demo' && !isset($pagevar['accounts'][1])):
+			$pagevar['title'] = $this->localization->getLocalMessage('client_cabinet','real_demo_title');
+			$pagevar['description'] = $this->localization->getLocalMessage('client_cabinet','real_demo_description');
+			$this->load->view("clients_interface/register-demo-account",$pagevar);
+		else:
+			show_404();
 		endif;
 	}
 	
@@ -116,6 +136,24 @@ class Clients_interface extends MY_Controller {
 		$pagevar['account']['password'] = $this->encrypt->decode($pagevar['account']['trade_password']);
 		$pagevar['account']['signdate'] = swap_dot_date($pagevar['account']['signdate']);
 		$this->load->view("clients_interface/profile",$pagevar);
+	}
+	
+	public function myAccounts(){
+		
+		$pagevar = array(
+			'title' => $this->localization->getLocalMessage('client_cabinet','my_accounts_title'),
+			'description' => $this->localization->getLocalMessage('client_cabinet','my_accounts_description'),
+			'accounts' => array(),
+			'langs' => $this->languages->getAll(),
+		);
+		if($accounts = $this->accounts->getWhere(NULL,array('email'=>$this->profile['email']),TRUE)):
+			foreach($accounts as $account):
+				$pagevar['accounts'][$account['demo']] = $account;
+			endforeach;
+		endif;
+		
+//		print_r($pagevar['accounts']);exit;
+		$this->load->view("clients_interface/my-accounts",$pagevar);
 	}
 	
 	private function ExecuteUpdatingProfile($post){

@@ -11,6 +11,7 @@
 				<li num="balance"><?=anchor('cabinet/balance',$this->localization->getLocalButton('client_sidebar','real_register'));?></li>
 				<li num="withdraw"><?=anchor('cabinet/balance',$this->localization->getLocalButton('client_sidebar','withdrawal'));?></li>
 			<?php endif;?>
+			<li num="my-accounts"><?=anchor('cabinet/my-accounts',$this->localization->getLocalButton('client_sidebar','my-accounts'));?></li>
 			<li num="profile"><?=anchor('cabinet/profile',$this->localization->getLocalButton('client_sidebar','profile'));?></li>
 			<li class="nav-header"><?=$this->localization->getLocalButton('client_sidebar','actions')?></li>
 			<li><?=anchor('logoff',$this->localization->getLocalButton('client_sidebar','logout'));?></li>

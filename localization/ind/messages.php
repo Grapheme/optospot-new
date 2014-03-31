@@ -23,10 +23,13 @@
 		'withdraw' => array(
 			'success' => 'request has been sent successfully',
 			'failure' => 'a request returned an error',
+			'annotation' => '<p>This is the withdrawal form. All fields are mandatory. Please note that the Deposit and Withdrawal methods may be different. With the help of this form you can request a withdrawal using any of the available payment methods. The minimum withdrawal amount is $1.</p><p>All withdrawal requests are processed within 1-2 business days.</p>',
 		),
 		'payment' => array(
 			'success' => 'Payment successfull.',
 			'failure' => 'Payment failed. Try to pay with another payment system.',
+			'annotation' => 'In order to begin trading, you will need to add funds to your account. Please enter the amount and click “Deposit”. You will then see the list of all available payment methods. Choose the one that suits you best, and complete the request form.',
+			'description' => '<p class="em">This is the withdrawal form. All fields are mandatory. Please note that the Deposit and Withdrawal methods may be different. With the help of this form you can request a withdrawal using any of the available payment methods.</p><p class="em">All withdrawal requests are processed within 1-2 business days.</p><p class="em">The minimum withdrawal amount is $1.</p>',
 		),
 		'forgot' => array(
 			'success' => 'Password is sent to your via email',
@@ -35,11 +38,16 @@
 		),
 		'client_cabinet' => array(
 			'real_reg_title' => 'Cabinet - Real account registration',
+			'real_demo_title' => 'Cabinet - Demo account registration',
 			'real_reg_description' => '',
+			'real_demo_description' => '',
 			'profile_title' => 'Cabinet - My profile',
 			'profile_description' => '',
+			'my_accounts_title' => 'Cabinet - My accounts',
+			'my_accounts_description' => '',
 			'balance_title' => 'Cabinet - Deposit Info',
 			'balance_description' => '',
+			'annotation' => 'In this section you can complete and update your personal information. Filling of all fields is not mandatory.',
 		),
 		'form_responce' => array(
 			'profile_saved' => 'Profile is saved',
