@@ -107,7 +107,7 @@
 			$name_str = "";
 		}
 		//////////////
-		$params = $account.$amount.'643'.$expiry.$name.$payment.'9015115115'.$unid;
+		$params = $account.$amount.'840'.$expiry.$name.$payment.'9015115115'.$unid;
 		$signString = md5($timestamp . $project . $action . $params . $secret);
 		$xml = "xml=<request>
 		  <project>$project</project>
@@ -117,7 +117,7 @@
 		  <params>
 			<account>".$account."</account>
 			<amount>".$amount."</amount>
-			<currency>643</currency>
+			<currency>840</currency>
 			".$expiry_str.$name_str."
 			<paysystem>".$payment."</paysystem>
 			<phone>9015115115</phone>
@@ -180,7 +180,7 @@
 				curl_close($ch);
 				
 				if($payfinal->status == 1 or $payfinal->status == 2) {
-					$response = "Your ".$amount." RUB are sending!";
+					$response = "Your ".$amount." USD are sending!";
 				} else {
 					$response = "Error: ".$payfinal->status;
 				}
@@ -252,7 +252,7 @@
 									<!--<option value="19">WebMoney WMR</option>
 									<option value="22">WebMoney WME</option>
 									<option value="23">WebMoney WMZ</option>-->
-									<option value="28">QIWI-кошелек</option>
+									<option value="2">QIWI-кошелек</option>
 									<!--<option value="1011350">Visa</option>-->
 									<!--<option value="1013538">Яндекс.Деньги</option>-->
 								</select>
@@ -269,7 +269,7 @@
 									<input type="text" name="expiry">
 								</div>
 								<div class="withdraw-div">
-									<label>Amount for withdrawal:</label>
+									<label>Amount for withdrawal (USD):</label>
 									<input type="text" class="valid-required" name="amount"><br>
 								</div>
 							</fieldset>
