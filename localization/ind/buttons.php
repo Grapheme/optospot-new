@@ -61,6 +61,9 @@
 		'withdraw' => array(
 			'submit_withdraw' => 'Send request',
 			'payment' => 'Choose payment',
+			'holder_name' => 'Name',
+			'account_number' => 'Specify the account number to withdraw money',
+			'expiry_date' => 'Expiry date',
 		),
 		'client_sidebar' => array(
 			'navigation' => 'Navigation',
