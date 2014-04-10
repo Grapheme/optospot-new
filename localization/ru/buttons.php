@@ -32,6 +32,9 @@
 		'withdraw' => array(
 			'submit_withdraw' => 'Отправить запрос',
 			'payment' => 'Платежная система',
+			'holder_name' => 'Имя держателя карты',
+			'account_number' => 'Номер счета',
+			'expiry_date' => 'Срок действия карты',
 		),
 		'user_block' => array(
 			'hello' => 'Здравствуйте',
@@ -104,7 +107,7 @@
 			'above' => 'Выше',
 			'below' => 'Ниже',
 			'invest' => 'Платеж',
-		)
+		),
 	);
 	
 ?>
