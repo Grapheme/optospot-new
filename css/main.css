@@ -97,6 +97,26 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.trading-popup {
+	position: absolute;
+	top: 35px;
+	z-index: 99;
+	display: none;
+	background: #fff;
+	border: 1px solid #d5d5d5;
+}
+
+.trading-popup a {
+	display: block;
+	color: #000;
+	padding: 0 15px 0 15px;
+	text-decoration: none;
+}
+
+.trading-popup a:hover {
+	background: #e2e2e2;
+}
+
 .money-couple-select {
 	position: relative;
 	margin: 0 0 0 20px !important;

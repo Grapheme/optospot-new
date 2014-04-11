@@ -446,3 +446,8 @@ $('.green-enter').click(function(event){
 $('.dark-screen').click(function(){
 	loginClose();
 });
+
+$('#deposit-link').click(function(){
+	$('.trading-popup').fadeToggle();
+	return false;
+});

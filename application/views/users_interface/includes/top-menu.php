@@ -3,7 +3,15 @@
 		<nav>
 			<ul>
 			<?php for($i=1;$i<count($main_menu);$i++):?>
-				<li><?=anchor($main_menu[$i]['url'],$main_menu[$i]['link'],'class="top-link"');?></li>
+				<?php if($main_menu[$i]['url'] == 'binarnaya-platforma/online-treiding') { ?>
+					<li><a href="binarnaya-platforma/online-treiding" id="deposit-link" class="top-link">Трейдинг</a></li>
+					<div class="trading-popup">
+							<a href="binarnaya-platforma/online-treiding?acc=pro"><?=$this->localization->getLocalButton('signup','real_account')?></a>
+							<a href="binarnaya-platforma/online-treiding?acc=demo"><?=$this->localization->getLocalButton('signup','demo_account')?></a>
+						</div>
+				<? } else { ?>
+					<li><?=anchor($main_menu[$i]['url'],$main_menu[$i]['link'],'class="top-link"');?></li>
+				<?php } ?>
 			<?php endfor;?>
 			<?php
 				/*switch ($this->language):

@@ -20,9 +20,11 @@
 					$language = 'ru_RU';
 				endif;
 			?>
-			<?php if($this->loginstatus && $this->profile['demo'] == 0):?>
+			<?php /*if($this->loginstatus && $this->profile['demo'] == 0):*/
+					if(isset($_GET['acc']) == 'pro'):?>
 				<iframe id="trade-wrapper" src="http://live.actforex.sysfx.com:8100/trade/trade.jsp?entry=deal.184&&lang=<?=$language;?>"></iframe>
-			<?php elseif($this->loginstatus && $this->profile['demo'] == 1):?>
+			<?php /*elseif($this->loginstatus && $this->profile['demo'] == 1):*/
+					elseif(isset($_GET['acc']) == 'demo'): ?>
 				<iframe id="trade-wrapper" src="http://demo.actforex.sysfx.com:8100/trade/trade.jsp?entry=demo.184&lang=<?=$language;?>"></iframe>
 			<?php else:?>
 				<iframe id="trade-wrapper" src="http://live.actforex.sysfx.com:8100/trade/trade.jsp?entry=deal.184&lang=<?=$language;?>"></iframe>
