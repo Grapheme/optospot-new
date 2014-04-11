@@ -3,7 +3,11 @@
 		<ul class="nav nav-pills nav-stacked">
 			<li class="nav-header"><?=$this->localization->getLocalButton('client_sidebar','navigation')?></li>
 			<li num="home"><?=anchor('',$this->localization->getLocalButton('client_sidebar','home'));?></li>
-			<li num="trading"><?=anchor('trade',$this->localization->getLocalButton('client_sidebar','trade'));?></li>
+			<?php if($this->loginstatus && $this->profile['demo'] == 0): ?>
+			<li num="trading"><a href="<?=site_url('binarnaya-platforma/online-treiding?acc=pro')?>"><?= $this->localization->getLocalButton('client_sidebar','trade') ?></a></li>
+			<?php else: ?>
+			<li num="trading"><a href="<?=site_url('binarnaya-platforma/online-treiding?acc=demo')?>"><?= $this->localization->getLocalButton('client_sidebar','trade') ?></a></li>
+			<?php endif; ?>
 			<?php if($this->profile['demo'] == 0):?>
 				<li num="balance"><?=anchor('cabinet/balance',$this->localization->getLocalButton('client_sidebar','deposit'));?></li>
 				<li num="withdraw"><?=anchor('cabinet/withdraw',$this->localization->getLocalButton('client_sidebar','withdrawal'));?></li>
