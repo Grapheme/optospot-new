@@ -88,3 +88,9 @@ label, input { font-size: 13px !important; }
 .table td label { display: inline-block; }
 .table td input { display: inline-block; border-radius: 2px; margin: 0 7px; box-shadow: none; }
 .table td form { margin: 0; padding: 0; }
+
+.row .span19 p { font-size: 13px; padding: 0 4px; margin: 0 0 1em 0; }
+.row .span19 p.em { font-style: italic;	}
+
+
+

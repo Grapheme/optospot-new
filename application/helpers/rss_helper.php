@@ -6,10 +6,13 @@ if(!function_exists('getRSS')){
 		$xmlDoc = new DOMDocument();
 		$xmlDoc->load($xml);
 		//get elements from "<channel>"
-		$channel=$xmlDoc->getElementsByTagName('channel')->item(0);
-		$channel_title = $channel->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue;
-		$channel_link = $channel->getElementsByTagName('link')->item(0)->childNodes->item(0)->nodeValue;
-		$channel_desc = $channel->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue;
+		
+		/*
+			$channel=$xmlDoc->getElementsByTagName('channel')->item(0);
+			$channel_title = $channel->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue;
+			$channel_link = $channel->getElementsByTagName('link')->item(0)->childNodes->item(0)->nodeValue;
+			$channel_desc = $channel->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue;
+		*/
 		
 		//output elements from "<channel>"
 		//echo("<h2 class=\"news-title\"><a target=\"_blank\" href='" . $channel_link  . "'>" . str_replace('РБК daily от 11.04.2007', 'РБК Daily', $channel_title ) . "</a></h2>");

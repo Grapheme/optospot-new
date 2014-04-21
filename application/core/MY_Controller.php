@@ -99,7 +99,7 @@ class MY_Controller extends CI_Controller {
 			
 		}
 		if($result['accounts'] = json_decode($contents, true)):
-			$result['accounts'] = $result['accounts'][0];
+			$result['accounts'] = (isset($result['accounts'][0]))?$result['accounts'][0]:array();
 		endif;
 		$this->load->model('settings');
 		$result['action_deposit'] = 'jsessionid='.$jsessionid;
@@ -130,7 +130,7 @@ class MY_Controller extends CI_Controller {
 			
 		}
 		if($result['accounts'] = json_decode($contents, true)):
-			$result['accounts'] = $result['accounts'][0];
+			$result['accounts'] = (isset($result['accounts'][0]))?$result['accounts'][0]:array();
 		endif;
 		$this->load->model('settings');
 		$result['action_deposit'] = 'jsessionid='.$jsessionid;
