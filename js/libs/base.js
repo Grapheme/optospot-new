@@ -301,25 +301,22 @@ $.fn.formSubmitNoValidReg = function() {
 		},
 		success : function(response, status, xhr, jqForm) {
 			if (response.status == true) {
-				if (response.responseText != '') {
-					$('#reg-1 .reg-blocked').fadeIn();
-					$('#reg-2 .reg-blocked').fadeIn();
-					$(_form).find(".reg-block-in .div-form-operation").html('');
-					$(_form).find(".reg-normal").fadeOut('fast', function() {
-						$(_form).find(".reg-success").fadeIn('fast');
-					});
-					$('#circle-3').fadeOut(function() {
-						$('#reg-3').fadeIn();
-					});
-					$('#button-2').fadeOut();
-					if ($('.acc-radio[value=1]').is(':checked')) {
-						$('.reg-desc').slideDown();
-						$('.reg-desc-2').slideUp();
-					} else {
-						$('.reg-desc').slideUp();
-						$('.reg-desc-2').slideDown();
-					}
-
+				$('#reg-1 .reg-blocked').fadeIn();
+				$('#reg-2 .reg-blocked').fadeIn();
+				$(_form).find(".reg-block-in .div-form-operation").html('');
+				$(_form).find(".reg-normal").fadeOut('fast', function() {
+					$(_form).find(".reg-success").fadeIn('fast');
+				});
+				$('#circle-3').fadeOut(function() {
+					$('#reg-3').fadeIn();
+				});
+				$('#button-2').fadeOut();
+				if ($('.acc-radio[value=1]').is(':checked')) {
+					$('.reg-desc').slideDown();
+					$('.reg-desc-2').slideUp();
+				} else {
+					$('.reg-desc').slideUp();
+					$('.reg-desc-2').slideDown();
 				}
 			} else {
 				$(_form).find(".reg-block-in .div-form-operation").html('');
