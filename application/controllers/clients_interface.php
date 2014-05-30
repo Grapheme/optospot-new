@@ -35,12 +35,15 @@ class Clients_interface extends MY_Controller {
 		);
 		$dengiOnLineAccount = $this->getTradeAccountInfoDengiOnLine();
 		$rbkMoneyAccount = $this->getTradeAccountInfoRBKMoney();
+		$okPayAccount = $this->getTradeAccountInfoOkPay();
 		$pagevar['accounts'] = array(
 			'rbkmoney'=>$rbkMoneyAccount['accounts'],
-			'dengionline'=>$dengiOnLineAccount['accounts']
+			'dengionline'=>$dengiOnLineAccount['accounts'],
+			'okpay'=>$okPayAccount['accounts']
 		);
 		$pagevar['accounts']['dengionline']['deposit'] = $this->settings->value(3,'link').';'.$dengiOnLineAccount['action_deposit'];
 		$pagevar['accounts']['rbkmoney']['deposit'] = $this->settings->value(4,'link').';'.$rbkMoneyAccount['action_deposit'];
+		$pagevar['accounts']['okpay']['deposit'] = $this->settings->value(5,'link').';'.$okPayAccount['action_deposit'];
 		
 		if($this->input->get('status') == 'success'):
 			$pagevar['msgs'] = $this->localization->getLocalMessage('payment','success');
@@ -50,6 +53,7 @@ class Clients_interface extends MY_Controller {
 		endif;
 		$pagevar['accounts']['dengionline']['information'] = $this->localization->getLocalMessage('dengionline','deposit_info');
 		$pagevar['accounts']['rbkmoney']['information'] = $this->localization->getLocalMessage('rbkmoney','deposit_info');
+		$pagevar['accounts']['okpay']['information'] = $this->localization->getLocalMessage('okpay','deposit_info');
 		$this->load->view("clients_interface/balance",$pagevar);
 	}
 	

@@ -109,6 +109,9 @@
 		),
 		'rbkmoney' => array(
 			'deposit_info'=>''
+		),
+		'okpay' => array(
+			'deposit_info'=>''
 		)
 	);
 	

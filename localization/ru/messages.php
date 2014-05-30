@@ -108,6 +108,9 @@
 		),
 		'rbkmoney' => array(
 			'deposit_info'=>'Оплата через систему RBK Money'
+		),
+		'okpay' => array(
+			'deposit_info'=>'Оплата через систему OkPay'
 		)
 	);
 	

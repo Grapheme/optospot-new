@@ -25,6 +25,7 @@
 		'withdraw' => array(
 			'summa' => 'Сумма для вывода',
 			'details' => 'Реквизиты счета',
+			'holder_name' => 'Name',
 		),
 	);
 	
