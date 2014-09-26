@@ -32,6 +32,7 @@ class Pages extends MY_Model{
 		$this->db->where('url !=','faq');
 		$this->db->where('url !=','deposit');
 		$this->db->where('url !=','contact-us');
+        $this->db->order_by('title');
 		$this->db->order_by('category');
 		$this->db->order_by($this->order_by);
 		$query = $this->db->get('pages');

@@ -29,7 +29,7 @@ Web-site: www.optospot.net
 	***********************************************
 </p>
 
-<p>Dear <em><?=$account['fname'].' '.$account['lname'];?></em>,</p>
+<p>Dear<em><?=$account['fname'].' '.$account['lname'];?></em>,</p>
 <p>Welcome to the site optospot.net. Please save this message. Parameters of your account are as follows:</p>
 <p>---------------------------- <br/>
 Login: <?=$reg_data['login'];?><br/>

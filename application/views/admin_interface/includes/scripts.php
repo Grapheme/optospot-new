@@ -5,9 +5,9 @@
 <script type="text/javascript" src="<?=baseURL('js/libs/base.js');?>"></script>
 <script type="text/javascript" src="<?=baseURL('js/cabinet/admin.js');?>"></script>
 <script type="text/javascript">
-	<?php $url = ($this->uri->segment(3) == FALSE)?$this->uri->segment(2):$this->uri->segment(3);?>
-	$("li[num='<?=$url;?>']").addClass('active');
-	$(".backpath").click(function(){
-		mt.redirect("<?=$this->session->userdata('backpath');?>")}
-	);
+    <?php $url = ($this->uri->segment(3) == FALSE)?$this->uri->segment(2):$this->uri->segment(3);?>
+    $("li[num='<?=$url;?>']").addClass('active');
+    $(".backpath").click(function(){
+            mt.redirect("<?=$this->session->userdata('backpath');?>")}
+    );
 </script>

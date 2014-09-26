@@ -1,0 +1,54 @@
+
+<!-- saved from url=(0046)http://codemirror.net/1/contrib/php/index.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/codemirror.css">
+    <title>CodeMirror: PHP+HTML+JavaScript+CSS mixed-mode demonstration</title>
+  </head>
+  <body>
+
+    <textarea id="code">
+    The "root" parser is XML in HTML mode.
+Next, we can switch into PHP mode, for example. This is
+&lt;?php echo 'text output by';
+?&gt;
+PHP. &lt;/b&gt;
+On the line above, we just had an XML syntax error due to the &lt;/b&gt; tag not being opened.
+
+&lt;?xml version='1.0' encoding='UTF-8' standalone='yes'?&gt;   HTML text will follow
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Similarly, the 'script' tag will switch to the JavaScript parser:&lt;/title&gt;
+    &lt;script type="text/javascript"&gt;
+       // Press enter inside the object and your new line will be suitably
+       // indented.
+       var keyBindings = {
+         enter: "newline-and-indent",
+         tab: "reindent-selection",
+         ctrl_enter: "reparse-buffer",
+         ctrl_z: "undo",
+         ctrl_y: "redo",
+         ctrl_backspace: "undo-for-safari-which-stupidly-enough-blocks-ctrl-z"
+       };
+
+l\  The PHP code below contains some deliberate errors. Play with the editor by fixing them
+  and observing how the highlight changes.
+
+    </textarea>
+</div>
+
+    <script type="text/javascript">
+      var editor = CodeMirror.fromTextArea('code', {
+        height: "350px",
+        parserfile: ["parsexml.js", "parsecss.js", "tokenizejavascript.js", "parsejavascript.js",
+                     "../contrib/php/js/tokenizephp.js", "../contrib/php/js/parsephp.js",
+                     "../contrib/php/js/parsephphtmlmixed.js"],
+        stylesheet: ["../../css/xmlcolors.css", "../../css/jscolors.css", "../../css/csscolors.css", "css/phpcolors.css"],
+        path: "../../js/",
+        continuousScanning: 500
+      });
+    </script>
+
+
+  
+
+</body></html>

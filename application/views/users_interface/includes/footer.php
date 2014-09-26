@@ -1,6 +1,27 @@
+<?php
+
+$blocked = array(0,0,0);
+for($i=0;$i<count($footer['pages']);$i++):
+    if($footer['pages'][$i]['category'] == 23):
+        $blocked[0] = 4;
+    endif;
+    if($footer['pages'][$i]['category'] == 22):
+        $blocked[1] = 14;
+    endif;
+    if($footer['pages'][$i]['category'] == 21):
+        $blocked[2] = 19;
+    endif;
+endfor;
+
+?>
 <footer>
 	<div class="container_12 footer-container">
 	<?php for($i=0;$i<count($footer['category']);$i++):?>
+        <?php
+        if (in_array($footer['category'][$i]['id'],$blocked)):
+            continue;
+        endif;
+        ?>
 		<div class="footer-block">
 		<h4><?=$footer['category'][$i]['title'];?></h4>
 			<nav>

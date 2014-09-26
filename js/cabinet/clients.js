@@ -4,7 +4,8 @@
 
 $(function(){
 	var mainOptions = {target: null,beforeSubmit: mt.ajaxBeforeSubmit,success: mt.ajaxSuccessSubmit,dataType:'json',type:'post'};
-	if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '1011350'){
+    $("#ChangeLang").change(function(){mt.redirect(mt.getBaseURL(mt.getLanguageURL()+'/change-site-language/'+$(this).val()));});
+    if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '1011350'){
 		$('.expiry-div').show();
 	}
 	if($('select[name=payment]').val() == '9'){
@@ -15,13 +16,18 @@ $(function(){
 		if($('select[name=payment]').val() == '1011350'){
 			$('.expiry-div').fadeIn();
 			$('.name-div').fadeOut();
-		} else if($('select[name=payment]').val() == '9') {
+		} else if($('select[name=payment]').val() == 9) {
+            $("input[name='account']").removeClass('qiwi-account').addClass('card-account').val('').focus();
 			$('.name-div').fadeIn();
 			$('.expiry-div').fadeIn();
-		} else {
+		} else if($('select[name=payment]').val() == 28) {
+            $("input[name='account']").removeClass('card-account').addClass('qiwi-account').val('').focus();
 			$('.expiry-div').fadeOut();
 			$('.name-div').fadeOut();
-		}
+		} else {
+            $('.expiry-div').fadeOut();
+            $('.name-div').fadeOut();
+        }
 	});
 	$("button.btn-account-create").click(function(){
 		var _this = this;

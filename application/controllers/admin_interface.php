@@ -27,10 +27,20 @@ class Admin_interface extends MY_Controller{
 				$this->session->set_userdata('msgr','Error. Incorrectly filled in the required fields!');
 			endif;
 		endif;
+        if($this->input->post('submit-mail') !== FALSE):
+            $this->load->helper('file');
+            $file_path = 'application/views/mails/'.$this->input->post('file_name');
+            if($edit_file = get_file_info($file_path)):
+                write_file($file_path,$this->input->post('mail_file'));
+                $this->session->set_userdata('msgs','Mail text saved!');
+                redirect('admin-panel/actions/settings');
+            endif;
+        endif;
 		$this->load->model('settings');
 		$pagevar = array(
 			'settings' => array('registration'=>$this->settings->value(1,'link'),'charts'=>$this->settings->value(2,'link'),'deposit'=>$this->settings->value(3,'link')),
 			'form_legend' => 'The form of editing settings links.',
+			'form_legend_mail' => 'The form of editing settings mails.',
 			'msgs' => $this->session->userdata('msgs'),
 			'msgr' => $this->session->userdata('msgr')
 		);
@@ -207,7 +217,7 @@ class Admin_interface extends MY_Controller{
 		if($this->input->post('submit') !== FALSE):
 			unset($_POST['submit']);
 			if($this->postDataValidation('home_page') == TRUE):
-                if($this->ExecuteUpdatingHomePage($this->uri->segment(5),$this->input->post())):
+				if($this->ExecuteUpdatingHomePage($this->uri->segment(5),$this->input->post())):
 					$this->session->set_userdata('msgs','Page saved!');
 				else:
 					$this->session->set_userdata('msgr','Error. Language is not added!');
@@ -485,7 +495,7 @@ class Admin_interface extends MY_Controller{
 			$this->languages->delete_record($lang,'languages');
 			$this->pages->deleteLanguage($lang);
 			$this->category->delete(NULL,array('language'=>$lang));
-			$this->accounts->setBaseLang($lang,$base_language);
+			$this->accounts->setBaseLang($lang,$baseLanguage);
 			$this->session->set_userdata('msgs','Languages deleted successfully.');
 			redirect('admin-panel/actions/pages');
 		else:
@@ -547,8 +557,7 @@ class Admin_interface extends MY_Controller{
 			$this->TotalCount = $this->accounts->search_count($searchParameters,$this->input->get('login'),$this->input->get('email'));
 		return $users;
 	}
-	
-	
+
 	public function accountEdit(){
 		
 		if($this->input->post('submit') !== FALSE):

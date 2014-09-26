@@ -17,7 +17,7 @@
 				<!--<option value="1013538">Яндекс.Деньги</option>-->
 			</select>
 			<div class="withdraw-div">
-				<input placeholder="<?=$this->localization->getLocalButton('withdraw','account_number')?>" type="text" class="valid-required" name="account">
+				<input placeholder="<?=$this->localization->getLocalButton('withdraw','account_number')?>" type="text" class="valid-required card-account" name="account">
 			</div>
 			<div class="name-div withdraw-div" style="display: none;">
 				<input placeholder="<?=$this->localization->getLocalButton('withdraw','holder_name')?>" type="text" name="name">
