@@ -84,7 +84,7 @@ class Users_interface extends MY_Controller {
 		);
 		$pagevar['footer']['category'] = $this->category->getWhere(NULL,array('language'=>$this->language),TRUE);
 		$pagevar['footer']['pages'] = $this->pages->getWhere(NULL,array('language'=>$this->language),TRUE);
-		$this->load->view("users_interface/index",$pagevar);
+        $this->load->view("users_interface/index",$pagevar);
 	}
 	
 	public function pages($page_url = ''){
@@ -137,7 +137,7 @@ class Users_interface extends MY_Controller {
 	public function award() {
 		
 		$this->load->model(array('pages','languages','category'));
-		$dataPage = $this->pages->readFieldsUrl('binarnaya-platforma/online-treiding',$this->language);
+		$dataPage = $this->pages->readFieldsUrl('award',$this->language);
 		$pagevar = array(
 			'title' => (!empty($dataPage['title']))?$dataPage['title']:'Optospot trading platform',
 			'description' => $dataPage['description'],
@@ -231,10 +231,11 @@ class Users_interface extends MY_Controller {
 		
 		
 		$this->load->model(array('pages','languages','category'));
-		$dataPage = $this->pages->getHomePage($this->language);
+		$dataPage = $this->pages->readFieldsUrl('registering',$this->language);
+
 		$pagevar = array(
-			'title' => (isset($dataPage[0]['title']) && !empty($dataPage[0]['title']))?$dataPage[0]['title']:'Optospot trading platform',
-			'description' => (isset($dataPage[0]['description']) && !empty($dataPage[0]['description']))?$dataPage[0]['description']:'Optospot trading platform',
+			'title' => ($this->language == 3)?'Торговля бинарными опционами онлайн. Регистрация бинарные опционы. Регистрация на бинарных опционах':'Registering',
+			'description' => ($this->language == 3)?'Торговля бинарными опционами онлайн на Оptospot.net – доходное дело. Первый ваш шаг -  регистрации бинарные опционы. Регистрация на нашем сайте бинарных опционов предельно проста.':'',
 			'page' => (isset($dataPage))?$dataPage:array(),
 			'languages' => $this->languages->visibleLanguages(),
 			'main_menu' => $this->pages->readTopMenu($this->language),

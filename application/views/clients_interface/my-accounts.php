@@ -13,7 +13,7 @@
 						<a class="brand none" href=""><?=$this->localization->getLocalButton('client_cabinet','my-accounts')?></a>
 					</div>
 				</div>
-				<table id="div_deposit_value" class="table table-bordered">
+				<table id="div_deposit_value" class="opt-table">
 					<thead>
 						<tr>
 							<th><?=$this->localization->getLocalButton('signup','type_account')?></th>

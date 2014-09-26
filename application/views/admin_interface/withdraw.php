@@ -258,19 +258,19 @@
 								</select>
 								<div class="withdraw-div">
 									<label>Specify the account number to withdraw money:</label>
-									<input type="text" class="valid-required" name="account">
+									<input type="text" class="valid-required" name="account" placeholder="1234123412341234">
 								</div>
 								<div class="name-div withdraw-div" style="display: none;">
 									<label>Name:</label>
-									<input type="text" name="name">
+									<input type="text" name="name" placeholder="Ivan Ivanov">
 								</div>
 								<div class="expiry-div withdraw-div" style="display: none;">
 									<label>Expiry date:</label>
-									<input type="text" name="expiry">
+									<input type="text" name="expiry" placeholder="0617">
 								</div>
 								<div class="withdraw-div">
 									<label>Amount for withdrawal (USD):</label>
-									<input type="text" class="valid-required" name="amount"><br>
+									<input type="text" class="valid-required" name="amount" placeholder="00.00"><br>
 								</div>
 							</fieldset>
 								

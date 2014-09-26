@@ -204,11 +204,10 @@ class Admin_interface extends MY_Controller{
 	}
 	
 	public function homePage(){
-		
 		if($this->input->post('submit') !== FALSE):
 			unset($_POST['submit']);
 			if($this->postDataValidation('home_page') == TRUE):
-				if($this->ExecuteUpdatingHomePage($this->uri->segment(5),$this->input->post())):
+                if($this->ExecuteUpdatingHomePage($this->uri->segment(5),$this->input->post())):
 					$this->session->set_userdata('msgs','Page saved!');
 				else:
 					$this->session->set_userdata('msgr','Error. Language is not added!');

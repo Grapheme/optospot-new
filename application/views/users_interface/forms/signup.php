@@ -15,15 +15,20 @@
 		<div class="input-container select-out country-div">
 			<?php $this->load->view('html/select-countries');?>
 		</div>
-		<div class="input-container select-out account-div">
-			<select class="begin-input input-account" name="account_type" id="account">
-				<option value="0"><?=$this->localization->getLocalButton('signup','type_account');?></option>
-				<option value="1"><?=$this->localization->getLocalButton('signup','demo_account');?></option>
-				<option value="2"><?=$this->localization->getLocalButton('signup','real_account');?></option>
-			</select>
+		<div class="policy-checkbox">
+			<input type="checkbox" name="policy" id="policy"> <label for="policy">Я принимаю положения и <a href="<?=site_url('our-policies/optospot-terms-of-use')?>" class="form-link">условия</a></label>
 		</div>
+
+		<!-- <select class="begin-input input-account" name="account_type" id="account">
+			<option value="0"><?=$this->localization->getLocalButton('signup','type_account');?></option>
+			<option value="1"><?=$this->localization->getLocalButton('signup','demo_account');?></option>
+			<option value="2"><?=$this->localization->getLocalButton('signup','real_account');?></option>
+		</select> -->
+		<input type="hidden" value="0" name="account_type" id="account">
+
 		<div class="div-form-operation">
-			<button onclick="yaCounter21615634.reachGoal('frmregister'); return true;" class="red-button begin-button signup-submit btn-locked"><?=$this->localization->getLocalPlaceholder('signup','open_account')?></button>
+			<button onclick="$('#account').val('1'); yaCounter21615634.reachGoal('frmregister'); return true;" class="red-button begin-button signup-submit btn-locked"><?=$this->localization->getLocalButton('signup','try_for_free')?></button>
+			<br><?=$this->localization->getLocalButton('signup','or')?> <a onclick="$('#account').val('2'); yaCounter21615634.reachGoal('frmregister'); return true;" class="form-link signup-submit btn-locked"><?=$this->localization->getLocalButton('signup','try_for_real')?></a>
 		</div>
 	</div>
 	<div class="reg-error none-display">

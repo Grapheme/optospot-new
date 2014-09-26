@@ -20,7 +20,10 @@
 			'by_register_text_pro' => 'Akun Anda berhasil terdaftar. Untuk memulai trading Anda perlu melakukan deposit. Deposit minimum pada platform Optospot hanya $5.<br><br>Untuk membuat deposit Anda dapat menggunakan VISA / Mastercard atau sistem pembayaran yang Anda suka. Mulai trading sekarang.',
 			'begin_trading' => 'Mulai trading',
 			'active_submit_real' => 'REGISTER REAL ACCOUNT',
-			'active_submit_demo' => 'REGISTER DEMO ACCOUNT'
+			'active_submit_demo' => 'REGISTER DEMO ACCOUNT',
+			'try_for_free' => 'Try for free',
+			'try_for_real' => 'Trade with real funds',
+			'or' => 'or'
 		),
 		'signin' => array(
 			'login' => 'Log in',

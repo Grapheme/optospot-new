@@ -20,7 +20,10 @@
 			'by_register_text_pro' => 'Your account successfully registered. In order to start trading you need to make a deposit. The minimum deposit on Optospot platform is only $5.<br><br>To make a deposit you can use VISA/Mastercard or any payment system you like. Start trading now.',
 			'begin_trading' => 'Start trading',
 			'active_submit_real' => 'REGISTER REAL ACCOUNT',
-			'active_submit_demo' => 'REGISTER DEMO ACCOUNT'
+			'active_submit_demo' => 'REGISTER DEMO ACCOUNT',
+			'try_for_free' => 'Try for free',
+			'try_for_real' => 'Trade with real funds',
+			'or' => 'or'
 		),
 		'signin' => array(
 			'login' => 'Log in',
@@ -38,7 +41,7 @@
 			'fill-acc' => 'Fill balance'
 		),
 		'copyright' => array(
-			'copy' => '2012-2013 OptoSpot. All Rights Reserved',
+			'copy' => '2012-'.date('Y').' OptoSpot. All Rights Reserved',
 			'development' => 'Developed by <a href="http://grphm.com/" target="_blank">&laquo;Grapheme&raquo;</a>'
 		),
 		'client_cabinet' => array(

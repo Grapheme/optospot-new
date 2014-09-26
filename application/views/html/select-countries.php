@@ -1,4 +1,4 @@
-<select class="begin-input input-country" name="country" id="country">
+<select class="begin-input input-country opt-input opt-reg" name="country" id="country">
 	<option title="+93" value="Afghanistan">Afghanistan</option>
 	<option title="+355" value="Albania">Albania</option>
 	<option title="+213" value="Algeria">Algeria</option>

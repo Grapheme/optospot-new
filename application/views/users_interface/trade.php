@@ -12,29 +12,33 @@
 	<div class="main-container">
 		<div class="container_12">
 			<div class="grid_12">
-			<h1><?=$this->localization->getLocalMessage('trade','title')?></h1>
-			<p style="text-align: center;"><?=$this->localization->getLocalMessage('trade','loading-text')?></p>
-			<?php 
-				$language = 'en_EN';
-				if($this->language == 3):
-					$language = 'ru_RU';
-				endif;
-			?>
-			<?php /*if($this->loginstatus && $this->profile['demo'] == 0):*/
-					if(isset($_GET['acc']) && $_GET['acc'] == 'pro'):?>
-				<iframe id="trade-wrapper" src="http://live.actforex.sysfx.com:8100/trade/trade.jsp?entry=deal.184&lang=<?=$language;?>"></iframe>
-			<?php /*elseif($this->loginstatus && $this->profile['demo'] == 1):*/
-					elseif(isset($_GET['acc']) && $_GET['acc'] == 'demo'): ?>
-				<iframe id="trade-wrapper" src="http://demo.actforex.sysfx.com:8100/trade/trade.jsp?entry=demo.184&lang=<?=$language;?>"></iframe>
-			<?php else:?>
-				<iframe id="trade-wrapper" src="http://live.actforex.sysfx.com:8100/trade/trade.jsp?entry=deal.184&lang=<?=$language;?>"></iframe>
-			<?php endif;?>
+				<h1><?=$this->localization->getLocalMessage('trade','title')?></h1>
+				<p style="text-align: center;"><?=$this->localization->getLocalMessage('trade','loading-text')?></p>
 			</div>
 		</div>
 		<div class="clear"></div>
+		
+		<?php 
+			$language = 'en_EN';
+			if($this->language == 3):
+				$language = 'ru_RU';
+			endif;
+		?>
+		<?php /*if($this->loginstatus && $this->profile['demo'] == 0):*/
+				if(isset($_GET['acc']) && $_GET['acc'] == 'pro'):?>
+			<iframe id="trade-wrapper" src="http://live.actforex.sysfx.com:8100/trade/trade.jsp?entry=deal.184&lang=<?=$language;?>"></iframe>
+		<?php /*elseif($this->loginstatus && $this->profile['demo'] == 1):*/
+				elseif(isset($_GET['acc']) && $_GET['acc'] == 'demo'): ?>
+			<iframe id="trade-wrapper" src="http://demo.actforex.sysfx.com:8100/trade/trade.jsp?entry=demo.184&lang=<?=$language;?>"></iframe>
+		<?php else:?>
+			<iframe id="trade-wrapper" src="http://live.actforex.sysfx.com:8100/trade/trade.jsp?entry=deal.184&lang=<?=$language;?>"></iframe>
+		<?php endif;?>
+			
 		<div class="container_12 reg-blocks">
+			<br/>
 			<?=$content;?>
 		</div>
+		<div class="clear"></div>
 	</div>
 	<div class="clear"></div>
 	<?php $this->load->view("users_interface/modal/signin");?>

@@ -369,11 +369,16 @@ $('.control-line#control-3').click(function(event){
 	$('#control-3').addClass('active');
 });
 
-$('button.signup-submit').click(function(event){
+$('.signup-submit').click(function(event){
+
 	event.preventDefault();
 	var _form = $(this).parents('form');
 	if(validationTop(_form) == true){
-		$(_form).formSubmitNoValid();
+		if ($("#policy").checked) {
+			$(_form).formSubmitNoValid();
+		}else{
+			$("#policy").addClass('policy-error');
+		}
 	}
 });
 

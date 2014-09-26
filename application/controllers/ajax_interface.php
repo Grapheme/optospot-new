@@ -17,9 +17,13 @@ class Ajax_interface extends MY_Controller {
 		$json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>site_url());
 		if($this->postDataValidation('signin')):
 			if($user = $this->accounts->authentication($_POST['login'],$_POST['password'])):
-				$json_request['status'] = TRUE;
-				$json_request['message'] = '';
-				$this->setLoginSession($user['id']);
+                $this->load->model('languages');
+                if($newLanguage = $this->languages->languageExist($this->uri->segment(1))):
+                    $this->accounts->updateField($user['id'],'language',$newLanguage['id']);
+                endif;
+                $json_request['status'] = TRUE;
+                $json_request['message'] = '';
+                $this->setLoginSession($user['id']);
 				$json_request['responseText'] = $this->localization->getLocalMessage('signin','login_success');
 				if($user['id'] == 0):
 					$json_request['redirect'] = site_url(ADMIN_START_PAGE);

@@ -15,7 +15,7 @@
 				</div>
 				<?php $this->load->view("alert_messages/alert-error");?>
 				<?php $this->load->view("alert_messages/alert-success");?>
-				<div class="span6">
+				<div class="span9">
 					<div class="signup-form" id="real-signup">
 						<?php $this->load->view("clients_interface/forms/register-real-account");?>
 					</div>

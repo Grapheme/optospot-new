@@ -19,7 +19,7 @@
 		</div>
 		<div class="award-block-left">
 			<div class="normal-text award-text" style="margin-top: 0;">
-				<?=$this->localization->getLocalMessage('award','text')?>
+				<p><?=$this->localization->getLocalMessage('award','text')?></p>
 			</div>
 			<img src="<?=baseURL('img/award-photo-2.png');?>" style="width: 130%; margin-left: -30%;">
 			<!--<div class="award-quote">

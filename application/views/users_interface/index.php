@@ -12,32 +12,32 @@
 	<div class="main-container">
 		<div class="container_12">
 			<div class="grid_12" style="text-align: center;">
-				<div class="top-circle">
+				<a href="http://optospot.net/ru/registering" class="top-circle">
 					<div>
 						<p class="circle-number">1</p>
 						<p class="circle-line"></p>
 						<h2 class="circle-title"><?=$this->localization->getLocalMessage('index','circle_step1_1')?></h2>
 						<p class="circle-description normal-text"><?=$this->localization->getLocalMessage('index','circle_step1_2')?></p>
 					</div>
-				</div>
+				</a>
 				<div class="top-circle-arrow">&nbsp;</div>
-				<div class="top-circle">
+				<a href="#tickers" class="top-circle">
 					<div>
 						<p class="circle-number">2</p>
 						<p class="circle-line"></p>
 						<h2 class="circle-title"><?=$this->localization->getLocalMessage('index','circle_step2_1')?></h2>
 						<p class="circle-description normal-text"><?=$this->localization->getLocalMessage('index','circle_step2_2')?></p>
 					</div>
-				</div>
+				</a>
 				<div class="top-circle-arrow">&nbsp;</div>
-				<div class="top-circle">
+				<a href="http://optospot.net/ru/binarnaya-platforma/online-treiding?acc=pro" class="top-circle">
 					<div>
 						<p class="circle-number">3</p>
 						<p class="circle-line"></p>
 						<h2 class="circle-title"><?=$this->localization->getLocalMessage('index','circle_step3_1')?></h2>
 						<p class="circle-description normal-text"><?=$this->localization->getLocalMessage('index','circle_step3_2')?></p>
 					</div>
-				</div>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -70,7 +70,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="container_12">
+	<!-- <div class="container_12">
 		<div class="grid_12">
 			<a target="_blank" href="#" class="right-banner">
 				<div class="hover-banner">
@@ -83,7 +83,7 @@
 				<div class="banner-text"><?=$this->localization->getLocalMessage('index','banner-right')?></div>
 			</a>
 		</div>
-	</div>
+	</div> -->
 	<div class="fish-container">
 		<div class="container_12">
 			<div class="grid_12">
@@ -105,8 +105,12 @@
 					<p class="normal-text"><?=$this->localization->getLocalMessage('index','fish3_2');?></p>
 				</div>
 			</div>
+			<div class="clearfix"></div>
 		</div>
+		<a name="tickers"></a>
 	</div>
+	<div class="clearfix"></div>
+    <?=(isset($page[4]['content']))?$page[4]['content']:'';?>
 	<div class="money-container">
 		<div class="container_12">
 			<div class="money-in-container">
@@ -143,11 +147,13 @@
 			</div>
 		</div>
 	</div>
-	<div class="fish-container good-points <?php if($this->loginstatus === TRUE) echo "authed";?>">
+    <?php if(isset($page[1]['content']) && !empty($page[1]['content'])): ?>
+    <div class="fish-container good-points <?php if($this->loginstatus === TRUE) echo "authed";?>">
 		<div class="container_12">
 			<?=(isset($page[1]['content']))?$page[1]['content']:'';?>
 		</div>
 	</div>
+    <?php endif;?>
 	<?php $this->load->view("users_interface/modal/signup");?>
 	<div class="fish-container">
 		<div class="container_12">

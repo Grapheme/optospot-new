@@ -430,7 +430,6 @@ class MY_Controller extends CI_Controller {
 			$resultCreateZip = $this->createZIP(array('zip_path'=>$parameters['upload_path'],'resources'=>$resources));
 			if($resultCreateZip['status'] == FALSE):
 				$errorMessage .= $resultCreateZip['message'];
-				break;
 			else:
 				if(isset($parameters['model']) && isset($parameters['recordID'])):
 					$this->load->model($parameters['model']);

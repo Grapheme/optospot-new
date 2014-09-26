@@ -9,10 +9,14 @@
 							<a href="<?=$main_menu[$i]['url'];?>?acc=pro"><?=$this->localization->getLocalButton('signup','real_account')?></a>
 							<a href="<?=$main_menu[$i]['url'];?>?acc=demo"><?=$this->localization->getLocalButton('signup','demo_account')?></a>
 						</div>
+
+				<? } elseif($main_menu[$i]['url'] == 'faq') { ?>
+					
 				<? } else { ?>
 					<li><?=anchor($main_menu[$i]['url'],$main_menu[$i]['link'],'class="top-link"');?></li>
 				<?php } ?>
 			<?php endfor;?>
+					<li><a target="_blank" href="http://optospot.net/banners/trade_binery_options_<?php if($this->language_url == "ru") { ?>RUS<?php } else { ?>ENG<?php } ?>.pdf" class="top-link"><?=$this->localization->getLocalMessage('index','banner-right')?></a></li>
 			<?php
 				/*switch ($this->language):
 					case '1': echo '<a target="_blank" class="top-link" href="'.baseURL('img/diploma.jpg').'">Awards</a>';break;

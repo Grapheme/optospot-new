@@ -570,11 +570,15 @@ button, a.green-button {
 }
 
 .green-button,.red-button {
+	display: inline-block;
 	text-decoration: none;
 	color: #fff !important;
 	border: 0;
 	border-radius: 3px;
-	padding: 10px 25px;
+	padding: 0 25px;
+	font-weight: 300;
+	height: 35px;
+	line-height: 37px;
 }
 
 .reg-desc a {
@@ -630,6 +634,10 @@ ul {
 	margin: 0;
 }
 
+a {
+	color: #2753ae;
+}
+
 .none-display {
 	display: none;
 }
@@ -643,7 +651,7 @@ ul {
 }
 
 .menu-left {
-	width: 515px;
+	width: 625px;
 }
 
 .menu-right {
@@ -758,8 +766,32 @@ h2.begin-title {
 }
 
 .begin-form {
-	padding-top: 30px;
+	padding-top: 15px;
 	overflow: visible;
+}
+
+.form-link {
+	color: #2753ae;
+	display: inline-block;
+	border-bottom: 1px solid;
+	cursor: pointer;
+	text-decoration: none;
+	-webkit-transition: border .5s ease;
+	        transition: border .5s ease;
+}
+
+.policy-checkbox {
+	margin-top: 10px;
+	font-size: 13px;
+	text-align: left;
+}
+
+.policy-checkbox input {
+	margin-right: 7px;
+}
+
+.form-link:hover {
+	border-color: transparent;
 }
 
 .begin-list {
@@ -798,12 +830,16 @@ h2.begin-title {
 }
 
 .begin-button {
-	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-top: 15px;
+	margin-bottom: 12px;
 }
 
 .reg-block-button {
 	margin-top: 30px;
+}
+
+.begin-form-div .div-form-operation {
+	padding-bottom: 25px;
 }
 
 .reg-desc {
@@ -863,6 +899,7 @@ select.begin-input {
 	height: 250px;
 	background: #b53a3a;
 	margin-top: 14px;
+	text-decoration: none;
 }
 
 .reg-circle {
@@ -942,6 +979,10 @@ select.begin-input {
 
 .fish-img-container {
 	height: 66px;
+}
+
+.fish-container {
+	padding: 25px 0;
 }
 
 .fish-container .grid_12 {
@@ -1039,7 +1080,7 @@ select.begin-input {
     border-radius: 2px 2px 2px 2px;
     box-shadow: 0 0 7px #E0E0E0;
     display: block;
-    height: 600px;
+    height: 900px;
     margin: 0 2%;
     overflow: hidden;
     padding: 5px;
@@ -1574,6 +1615,117 @@ footer {
 
 .footer-end-right a:hover {
 	text-decoration: underline;
+}
+
+.best-block {
+	background: #e8ebf0;
+	padding: 25px 0 15px;
+}
+
+.best-block table {
+	margin-top: 35px;
+	width: 100%;
+}
+
+.best-block td {
+	padding-left: 45px;
+}
+
+.best-block tr td:last-child {
+	padding-right: 45px;
+}
+
+.best-block thead tr {
+	height: 55px;
+	background: #5e9c6b;
+	color: #fff;
+	font-size: 15px;
+	text-transform: uppercase;
+	border-bottom: 1px solid #cacaca;
+}
+
+.best-block tbody tr {
+	font-size: 13px;
+	height: 45px;
+	background: #fff;
+	border-top: 1px solid #cacaca;
+}
+
+.types-block {
+	padding: 25px 0;
+	background: url(../img/back-good.jpg) no-repeat center center / cover;
+}
+
+.types-block h1 {
+	color: #fff;
+}
+
+.types-block .container_12 {
+	padding-top: 25px;
+}
+
+.types-block .grid_4:first-child, .types-block .grid_4:nth-of-type(3) {
+	margin-top: 40px;
+}
+
+.types-block .grid_4 header {
+	color: #fff;
+	height: 75px;
+	line-height: 75px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.types-block .grid_4 {
+	background: #fff;
+}
+
+.type-list li {
+	height: 45px;
+	line-height: 45px;
+	border-top: 1px solid #cacaca;
+	font-size: 13px;
+	text-align: center;
+	padding: 0 25px;
+}
+
+.type-list li span {
+	display: inline-block;
+	line-height: normal;
+	vertical-align: middle;
+}
+
+.type-btn {
+	height: 100px;
+	text-align: center;
+	line-height: 100px;
+	border-top: 1px solid #cacaca;
+}
+
+.type-free header {
+	background: #72acee;
+}
+
+.type-real header {
+	background: #5e9c6b;
+}
+
+.type-vip header {
+	background: #eac51b;
+}
+
+.type-name {
+	font-size: 15px;
+}
+
+.type-text {
+	display: inline-block;
+	line-height: normal;
+	vertical-align: middle;
+}
+
+.type-desc {
+	font-size: 18px;
 }
 
 /* ==========================================================================

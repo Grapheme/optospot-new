@@ -1,4 +1,4 @@
-<div class="grid_9 money-div ticker-item" data-ccf="EUR" data-ccs="USD">
+<div class="money-div ticker-item" data-ccf="EUR" data-ccs="USD">
 	<div class="money-select-div">
 		<div class="money-couple-select">
 			<div class="money-triangle"></div>
@@ -29,7 +29,7 @@
 		<a onclick="yaCounter21615634.reachGoal('bid'); return true;" <?php if($this->loginstatus) { echo 'href="'.base_url('trade').'" class="green-button"'; } else { echo 'href="#" class="green-enter green-button"';}?>><?=$this->localization->getLocalButton('ticker','invest')?></a>
 	</div>
 </div>
-<div class="grid_9 money-div ticker-item" data-ccf="EUR" data-ccs="JPY">
+<div class="money-div ticker-item" data-ccf="EUR" data-ccs="JPY">
 	<div class="money-select-div">
 		<div class="money-couple-select">
 			<div class="money-triangle"></div>
@@ -60,7 +60,7 @@
 		<a onclick="yaCounter21615634.reachGoal('bid'); return true;" <?php if($this->loginstatus) { echo 'href="'.base_url('trade').'" class="green-button"'; } else { echo 'href="#" class="green-enter green-button"';}?>><?=$this->localization->getLocalButton('ticker','invest')?></a>
 	</div>
 </div>
-<div class="grid_9 money-div ticker-item" data-ccf="USD" data-ccs="JPY">
+<div class="money-div ticker-item" data-ccf="USD" data-ccs="JPY">
 	<div class="money-select-div">
 		<div class="money-couple-select">
 			<div class="money-triangle"></div>
