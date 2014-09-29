@@ -2,13 +2,16 @@
 
 $blocked = array(0,0,0);
 for($i=0;$i<count($footer['pages']);$i++):
-    if($footer['pages'][$i]['category'] == 23):
-        $blocked[0] = 4;
-    endif;
-    if($footer['pages'][$i]['category'] == 22):
-        $blocked[1] = 14;
-    endif;
+    // ENG
     if($footer['pages'][$i]['category'] == 21):
+        $blocked[1] = 4;
+    endif;
+    // РУС
+    if($footer['pages'][$i]['category'] == 23):
+        $blocked[0] = 14;
+    endif;
+    // IND
+    if($footer['pages'][$i]['category'] == 22):
         $blocked[2] = 19;
     endif;
 endfor;

@@ -29,5 +29,21 @@
 		</div>
 	</div>
 	<?php $this->load->view("clients_interface/includes/scripts");?>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(document).on("click focus",".card-account",function() {
+                $(".card-account").inputmask("mask", {
+                    "mask": "9999-9999-9999-9999",
+                    "placeholder": "X"
+                });
+            });
+            $(document).on("click focus",".qiwi-account",function() {
+                $(".qiwi-account").inputmask("mask", {
+                    "mask": "[+7] (999) 999 99 99",
+                    "placeholder": "X"
+                });
+            });
+        });
+    </script>
 </body>
 </html>

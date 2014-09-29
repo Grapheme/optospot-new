@@ -24,3 +24,5 @@ temporary/*
 application/config/config.php
 application/config/database.php
 .htaccess
+
+CI_phpStorm.php

@@ -114,7 +114,7 @@ class Admin_interface extends MY_Controller{
 		endif;
 		$this->load->model(array('languages','pages'));
 		$pagevar = array(
-			'langs' => $this->languages->getAll(),
+			'langs' => $this->languages->getAll('id'),
 			'langs_pages' => $this->pages->getPages(),
 			'page' => FALSE,
 			'redactor' => FALSE,

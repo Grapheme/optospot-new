@@ -65,7 +65,8 @@
 			'submit_withdraw' => 'Send request',
 			'payment' => 'Choose payment',
 			'holder_name' => 'Name',
-			'account_number' => 'Specify the account number to withdraw money',
+			'account_number' => 'Specify the card number to withdraw money',
+			'account_number_qiwi' => 'Specify the phone number to withdraw money',
 			'expiry_date' => 'Expiry date',
 		),
 		'client_sidebar' => array(

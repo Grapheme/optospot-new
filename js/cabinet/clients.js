@@ -18,10 +18,12 @@ $(function(){
 			$('.name-div').fadeOut();
 		} else if($('select[name=payment]').val() == 9) {
             $("input[name='account']").removeClass('qiwi-account').addClass('card-account').val('').focus();
+            $("input[name='account']").attr('placeholder',$("input[name='account']").attr('data-card'));
 			$('.name-div').fadeIn();
 			$('.expiry-div').fadeIn();
 		} else if($('select[name=payment]').val() == 28) {
             $("input[name='account']").removeClass('card-account').addClass('qiwi-account').val('').focus();
+            $("input[name='account']").attr('placeholder',$("input[name='account']").attr('data-qiwi'));
 			$('.expiry-div').fadeOut();
 			$('.name-div').fadeOut();
 		} else {

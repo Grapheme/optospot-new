@@ -36,7 +36,8 @@
 			'submit_withdraw' => 'Отправить запрос',
 			'payment' => 'Платежная система',
 			'holder_name' => 'Имя держателя карты',
-			'account_number' => 'Номер счета',
+			'account_number' => 'Номер карты',
+			'account_number_qiwi' => 'Номер телефона',
 			'expiry_date' => 'Срок действия карты',
 		),
 		'user_block' => array(
