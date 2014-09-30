@@ -20,10 +20,10 @@
 				<input placeholder="<?=$this->localization->getLocalButton('withdraw','account_number')?>" data-card="<?=$this->localization->getLocalButton('withdraw','account_number')?>" data-qiwi="<?=$this->localization->getLocalButton('withdraw','account_number_qiwi')?>" type="text" class="valid-required card-account" name="account">
 			</div>
 			<div class="name-div withdraw-div" style="display: none;">
-				<input placeholder="<?=$this->localization->getLocalButton('withdraw','holder_name')?>" type="text" name="name">
+				<input placeholder="<?=$this->localization->getLocalButton('withdraw','holder_name')?>" class="valid-required" type="text" name="name">
 			</div>
 			<div class="expiry-div withdraw-div" style="display: none;">
-				<input placeholder="<?=$this->localization->getLocalButton('withdraw','expiry_date')?>" type="text" name="expiry">
+				<input placeholder="<?=$this->localization->getLocalButton('withdraw','expiry_date')?>" class="valid-required card-expiry-date" type="text" name="expiry">
 			</div>
 			<div class="withdraw-div">
 				<input placeholder="<?=$this->localization->getLocalPlaceholder('withdraw','summa')?>" type="text" class="valid-required" name="amount"><br>

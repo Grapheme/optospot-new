@@ -43,6 +43,10 @@
                     "placeholder": "X"
                 });
             });
+            $(".card-expiry-date").inputmask("mask", {
+                "mask": "99/99",
+                "placeholder": "X"
+            });
         });
     </script>
 </body>
