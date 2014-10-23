@@ -25,8 +25,11 @@ class Ajax_interface extends MY_Controller {
                 $json_request['message'] = '';
                 $this->setLoginSession($user['id']);
 				$json_request['responseText'] = $this->localization->getLocalMessage('signin','login_success');
-				if($user['id'] == 0):
+
+                if($user['id'] == 0):
 					$json_request['redirect'] = site_url(ADMIN_START_PAGE);
+				elseif($user['id'] == 1):
+					$json_request['redirect'] = site_url('admin-panel/actions/pages');
 				else:
 					$this->config->set_item('base_url',$this->baseURL.$this->uri->segment(1).'/');
 					$json_request['redirect'] = site_url(USER_START_PAGE);

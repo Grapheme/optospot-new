@@ -23,7 +23,8 @@
 			'active_submit_demo' => 'REGISTER DEMO ACCOUNT',
 			'try_for_free' => 'Try for free',
 			'try_for_real' => 'Trade with real funds',
-			'or' => 'or'
+			'or' => 'or',
+            'checkbox' => 'Saya menerima <a href="'.site_url('our-policies/optospot-terms-of-use').'" class="form-link">syarat dan ketentuan</a>'
 		),
 		'signin' => array(
 			'login' => 'Log in',
@@ -45,9 +46,9 @@
 			'development' => 'Developed by <a href="http://grphm.com/" target="_blank">&laquo;Grapheme&raquo;</a>'
 		),
 		'client_cabinet' => array(
-			'page_name' => 'Account information',
+			'page_name' => 'INFORMASI ACCOUNT',
 			'demo_account' => 'Demo account',
-			'register_real_account' => 'Register real account',
+			'register_real_account' => 'DAFTAR ACCOUNT RIIL',
 			'register_demo_account' => 'Register demo account',
 			'withdrawal' => 'Withdrawal request',
 			'profile' => 'Profile',
@@ -71,16 +72,16 @@
 		),
 		'client_sidebar' => array(
 			'navigation' => 'Navigation',
-			'home' => 'Home page',
-			'trade' => 'Trade',
+			'home' => 'Halaman Depan',
+			'trade' => 'Trading',
 			'deposit' => 'Deposit Info',
-			'real_register' => 'Open real account',
+			'real_register' => 'Buka Account Riil',
 			'demo_register' => 'Open demo account',
 			'withdrawal' => 'Withdrawal',
-			'profile' => 'Profile',
+			'profile' => 'Profil',
 			'actions' => 'Actions',
 			'logout' => 'Logout',
-			'my-accounts' => 'My accounts'
+			'my-accounts' => 'Account Saya'
 		),
 		'form_profile' => array(
 			'legend' => 'The form of editing profile. User login',

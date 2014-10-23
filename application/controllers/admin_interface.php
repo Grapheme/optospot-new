@@ -9,14 +9,17 @@ class Admin_interface extends MY_Controller{
 	function __construct(){
 		
 		parent::__construct();
-		
-		if($this->loginstatus === FALSE || $this->account['id'] != 0):
+
+		if($this->loginstatus === FALSE || $this->account['id'] > 1):
 			redirect('');
 		endif;
+        if ($this->account['id'] == 1 && $this->uri->segment(3) != 'pages'):
+            redirect('admin-panel/actions/pages');
+        endif;
 	}
 	
 	public function settings(){
-		
+
 		if($this->input->post('submit') !== FALSE):
 			unset($_POST['submit']);
 			if($this->postDataValidation('edit_settings') == TRUE):

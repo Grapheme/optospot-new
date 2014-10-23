@@ -16,7 +16,8 @@
 			<?php $this->load->view('html/select-countries');?>
 		</div>
 		<div class="policy-checkbox">
-			<input type="checkbox" name="policy" id="policy"> <label for="policy">Я принимаю положения и <a href="<?=site_url('our-policies/optospot-terms-of-use')?>" class="form-link">условия</a></label>
+			<input type="checkbox" name="policy" id="policy">
+            <label for="policy"><?=$this->localization->getLocalButton('signup','checkbox')?></label>
 		</div>
 
 		<!-- <select class="begin-input input-account" name="account_type" id="account">

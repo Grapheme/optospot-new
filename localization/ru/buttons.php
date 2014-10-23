@@ -23,7 +23,8 @@
 			'active_submit_demo' => 'Регистрация демо-счета',
 			'try_for_free' => 'Попробовать бесплатно',
 			'try_for_real' => 'торговать на реальные средства',
-			'or' => 'или'
+			'or' => 'или',
+            'checkbox' => 'Я принимаю положения и <a href="'.site_url('our-policies/optospot-terms-of-use').'" class="form-link">условия</a>'
 		),
 		'signin' => array(
 			'login' => 'Вход',

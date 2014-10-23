@@ -23,7 +23,8 @@
 			'active_submit_demo' => 'REGISTER DEMO ACCOUNT',
 			'try_for_free' => 'Try for free',
 			'try_for_real' => 'Trade with real funds',
-			'or' => 'or'
+			'or' => 'or',
+            'checkbox' => 'I accept the terms and <a href="'.site_url('our-policies/optospot-terms-of-use').'" class="form-link">conditions</a>'
 		),
 		'signin' => array(
 			'login' => 'Log in',

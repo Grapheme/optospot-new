@@ -96,8 +96,8 @@
 		'trade' => array(
 			'title' => 'PLATFORM TRADING ONLINE',
 			'loading-text' => 'Loading platform dapat mengambil beberapa waktu. Anda dapat membuat secangkir kopi sebelum mulai perdagangan.</br>
-			If you have some problems - please install the <span class="normal-text"><a href="http://www.java.com/download" target="_blank">last version of Java</a></span>.</br>
-			<span style="color: #ADABAB;">Not all browsers can work with this plugin.</span>',
+			Jika mengalami kesulitan - Mohon install <span class="normal-text"><a href="http://www.java.com/download" target="_blank">Java versi terbaru</a></span>.</br>
+			<span style="color: #ADABAB;">Tidak semua browser dapat menggunakan plugin ini.</span>',
 		),
 		'award' => array(
 			'title' => 'OptoSpot - лучший брокер бинарных опционов',
