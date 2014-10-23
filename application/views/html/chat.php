@@ -1,10 +1,9 @@
 <?php 
-if($this->language_url == "ru") {
+if($this->language == 3):
 	$chat_lang = "ru";
-} else
-	{
-		$chat_lang = "en";
-	} 
+else:
+    $chat_lang = "en";
+endif;
 ?>
 <script>
 	(function(){

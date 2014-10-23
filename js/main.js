@@ -370,11 +370,10 @@ $('.control-line#control-3').click(function(event){
 });
 
 $('.signup-submit').click(function(event){
-
 	event.preventDefault();
 	var _form = $(this).parents('form');
 	if(validationTop(_form) == true){
-		if ($("#policy").checked) {
+		if ($("#policy").prop('checked')) {
 			$(_form).formSubmitNoValid();
 		}else{
 			$("#policy").addClass('policy-error');

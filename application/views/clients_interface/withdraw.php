@@ -43,9 +43,11 @@
                     "placeholder": "X"
                 });
             });
-            $(".card-expiry-date").inputmask("mask", {
-                "mask": "99/99",
-                "placeholder": "X"
+            $(document).on("click focus",".card-expiry-date",function() {
+                $(".card-expiry-date").inputmask("mask", {
+                    "mask": "99/99",
+                    "placeholder": "X"
+                });
             });
         });
     </script>
