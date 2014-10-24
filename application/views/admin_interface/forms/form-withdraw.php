@@ -30,6 +30,7 @@
 			</div>
 		</fieldset>
 	</div>
+			
 	<div class="form-actions">
 		<button class="opt-btn btn-withdrawal" type="submit" value="Send money"><?=$this->localization->getLocalButton('withdraw','submit_withdraw')?></button>
 	</div>

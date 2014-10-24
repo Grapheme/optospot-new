@@ -55,7 +55,7 @@
 				</div>
 			</div>
 			<div class="grid_8" id="screen-2">
-				<p class="screen2-text"><?=$this->localization->getLocalMessage('index','screen2_1')?></p>
+				<!--<p class="screen2-text"><?=$this->localization->getLocalMessage('index','screen2_1')?></p>-->
 			</div>
 			<a href="<?=site_url('award');?>" class="grid_8" id="screen-3">
 				<p class="screen2-text" style="width: 670px; margin-bottom: 10px;"><?=$this->localization->getLocalMessage('index','screen_3_title')?></p>

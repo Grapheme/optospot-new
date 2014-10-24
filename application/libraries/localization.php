@@ -30,7 +30,7 @@ class Localization {
 		
 		if(!empty($method) && !empty($section)):
 			include($this->getFilePath('placeholders'));
-			return $localize[$section][$method];
+			return @$localize[$section][$method];
 		endif;
 		return '';
 	}
@@ -39,7 +39,7 @@ class Localization {
 		
 		if(!empty($method) && !empty($section)):
 			include($this->getFilePath('buttons'));
-			return $localize[$section][$method];
+			return @$localize[$section][$method];
 		endif;
 		return '';
 	}
@@ -48,7 +48,7 @@ class Localization {
 		
 		if(!empty($method) && !empty($section)):
 			include($this->getFilePath('messages'));
-			return $localize[$section][$method];
+			return @$localize[$section][$method];
 		endif;
 		return '';
 	}
