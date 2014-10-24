@@ -98,10 +98,10 @@
 			'loading-text' => 'Platform loading can take some time. You just can make a cup of coffee before starting to trade.</br>
 			If you have some problems - please install the <span class="normal-text"><a href="http://www.java.com/download" target="_blank">last version of Java</a></span>.</br>
 			<span style="color: #ADABAB;">Not all browsers can work with this plugin.</span>',
-            'feature'=> '',
-            'newtab'=> '',
-            'or'=> '',
-            'desktop'=> ''
+            'feature'=> 'For more convenient work with the applet, you can',
+            'newtab'=> 'Open in new tab',
+            'or'=> 'or',
+            'desktop'=> 'Download desktop app'
 		),
 		'award' => array(
 			'title' => 'OptoSpot - лучший брокер бинарных опционов',
