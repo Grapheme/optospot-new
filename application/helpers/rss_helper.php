@@ -23,7 +23,7 @@ if(!function_exists('getRSS')){
 		for ($i=0; $i<=$count; $i++){
 			$item_title=$x->item($i)->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue;
 			$item_link=$x->item($i)->getElementsByTagName('link')->item(0)->childNodes->item(0)->nodeValue;
-			$item_desc=$x->item($i)->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue;
+			//$item_desc=$x->item($i)->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue;
 			if($class == FALSE):
 				echo ('<a target="_blank" href="'.$item_link.'">'.$item_title.'</a>');
 			else:

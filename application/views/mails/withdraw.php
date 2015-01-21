@@ -1,3 +1,4 @@
+
 <?php
     $payment = array(
         '1011350'=>'Visa',
@@ -16,12 +17,18 @@
         '108'=> 'OOOPay',
         '109'=> 'RBK Money');
 ?>
+
+
 <h2>Withdrawal request!</h2>
 ID account: <?=$post['account_id']?><br/>
 Trade login: <?=$post['trade_login']?><br/>
 Account Email: <?=$post['email']?><br/>
 Payment system: <?=(isset($payment[$post['payment']])?$payment[$post['payment']]:'Не указано');?><br/>
 Account number to withdraw money: <?=$post['account']?><br/>
+<?php if(!empty($post['name'])):?>
 Name: <?=$post['name']?><br/>
+<?php endif; ?>
+<?php if(!empty($post['expiry'])):?>
 Expiry date: <?=$post['expiry']?><br/>
+<?php endif; ?>
 Specify the amount of money, RUB: = <?=$post['amount']?><br/>

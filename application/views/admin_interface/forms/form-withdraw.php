@@ -1,9 +1,9 @@
 <form action="<?=$action;?>" method="POST" class="form-horizontal form-edit-settings form-withdraw">
-	<?php if($this->account['id'] > 0):?>
-		<input type="hidden" name="account_id" value="<?=$this->account['id'];?>" />
-		<input type="hidden" name="trade_login" value="<?=$this->profile['trade_login'];?>" />
-		<input type="hidden" name="email" value="<?=$this->profile['email'];?>" />
-	<?php endif; ?>
+<?php if($this->account['id'] > 0):?>
+	<input type="hidden" name="account_id" value="<?=$this->account['id'];?>" />
+	<input type="hidden" name="trade_login" value="<?=$this->profile['trade_login'];?>" />
+	<input type="hidden" name="email" value="<?=$this->profile['email'];?>" />
+<?php endif; ?>
 	<div class="form-container">
 		<fieldset>
 			<label><?=$this->localization->getLocalButton('withdraw','payment')?>:</label>
@@ -38,9 +38,9 @@
 			</div>
 		</fieldset>
 	</div>
-
+			
 	<div class="form-actions">
 		<button class="opt-btn btn-withdrawal" type="submit" value="Send money"><?=$this->localization->getLocalButton('withdraw','submit_withdraw')?></button>
 	</div>
-
+	
 </form>
