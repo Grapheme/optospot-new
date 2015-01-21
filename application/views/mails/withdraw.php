@@ -1,4 +1,21 @@
-<?php $payment = array('9'=>'MasterCard','19'=>'WebMoney WMR','22'=>'WebMoney WME','23'=>'WebMoney WMZ','28'=>'QIWI-кошелек','1011350'=>'Visa','1013538'=>'Яндекс.Деньги');?>
+<?php
+    $payment = array(
+        '1011350'=>'Visa',
+        '9'=>'MasterCard',
+        '28'=>'QIWI-кошелек',
+        '33'=>'Яндекс.Деньги',
+        '19'=>'WebMoney',
+
+        '101'=> 'Okpay',
+        '102'=> 'bitcoin',
+        '103'=> 'litecoin',
+        '104'=> 'dogecoin',
+        '105'=> 'W1',
+        '106'=> 'EgoPay',
+        '107'=> 'Payza',
+        '108'=> 'OOOPay',
+        '109'=> 'RBK Money');
+?>
 <h2>Withdrawal request!</h2>
 ID account: <?=$post['account_id']?><br/>
 Trade login: <?=$post['trade_login']?><br/>
