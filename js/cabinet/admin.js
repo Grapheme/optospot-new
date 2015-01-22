@@ -10,6 +10,10 @@ $(function(){
 	//$('select[name=payment]').find('option[value=9]').html('MasterCard');
 	//$('select[name=payment]').find('option[value=1011350]').html('Visa');
 
+	$('.js-confirm').click(function(){
+		return confirm('Continue?');
+	});
+
 	if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '1011350'){
 		$('.expiry-div').show();
 	}

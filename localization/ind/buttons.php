@@ -42,7 +42,7 @@
 			'fill-acc' => 'Fill balance'
 		),
 		'copyright' => array(
-			'copy' => '2012-2013 OptoSpot. All Rights Reserved',
+			'copy' => '2012-'.date('Y').' OptoSpot. All Rights Reserved',
 			'development' => 'Developed by <a href="http://grphm.com/" target="_blank">&laquo;Grapheme&raquo;</a>'
 		),
 		'client_cabinet' => array(
@@ -51,6 +51,7 @@
 			'register_real_account' => 'DAFTAR ACCOUNT RIIL',
 			'register_demo_account' => 'Register demo account',
 			'withdrawal' => 'Withdrawal request',
+			'documents' => 'Download documents',
 			'profile' => 'Profile',
 			'balance' => 'Balance',
 			'account' => 'Account',
@@ -112,6 +113,16 @@
 			'above' => 'Above',
 			'below' => 'Below',
 			'invest' => 'Invest',
+		),
+		'user_documents' => array(
+			'doc_link' => 'Document',
+			'doc_size' => 'Size',
+			'doc_approved' => 'Status',
+			'doc_approved_access' => 'Approved',
+			'doc_approved_fail' => 'Not approved',
+			'doc_approved_action' => 'Approve',
+			'empty_list' => 'Documents not available',
+			'upload_submit' => 'Upload'
 		)
 	);
 	

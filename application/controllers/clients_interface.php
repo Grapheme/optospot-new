@@ -33,18 +33,31 @@ class Clients_interface extends MY_Controller {
 			'msgs' => '',
 			'msgr' => ''
 		);
+
+//		$astroPay = $this->getTradeAccountAstroPay();
+//		print_r($astroPay);
+//		exit;
+
+
 		$dengiOnLineAccount = $this->getTradeAccountInfoDengiOnLine();
 		$rbkMoneyAccount = $this->getTradeAccountInfoRBKMoney();
 		$okPayAccount = $this->getTradeAccountInfoOkPay();
+//		$astroPay = $this->getTradeAccountAstroPay();
 		$pagevar['accounts'] = array(
 			'rbkmoney'=>$rbkMoneyAccount['accounts'],
 			'dengionline'=>$dengiOnLineAccount['accounts'],
-			'okpay'=>$okPayAccount['accounts']
+			'okpay'=>$okPayAccount['accounts'],
+//			'astropay'=>$astroPay['accounts']
 		);
+
+//		print_r($pagevar['accounts']);
+//		exit;
+
 		$pagevar['accounts']['dengionline']['deposit'] = $this->settings->value(3,'link').';'.$dengiOnLineAccount['action_deposit'];
 		$pagevar['accounts']['rbkmoney']['deposit'] = $this->settings->value(4,'link').';'.$rbkMoneyAccount['action_deposit'];
 		$pagevar['accounts']['okpay']['deposit'] = $this->settings->value(5,'link').';'.$okPayAccount['action_deposit'];
-		
+//		$pagevar['accounts']['astropay']['deposit'] = $this->settings->value(6,'link').';'.$okPayAccount['action_deposit'];
+
 		if($this->input->get('status') == 'success'):
 			$pagevar['msgs'] = $this->localization->getLocalMessage('payment','success');
 		endif;
@@ -63,15 +76,31 @@ class Clients_interface extends MY_Controller {
 			return TRUE;
 		endif;*/
 		
-		$this->load->model('settings');
+		$this->load->model(array('settings','users_documents'));
 		$pagevar = array(
 			'title' => $this->localization->getWithdrawPlace('client_cabinet','balance_title'),
 			'description' => $this->localization->getWithdrawPlace('client_cabinet','balance_description'),
 			'action_deposit'=> $this->settings->value(3,'link'),
+			'documents' => $this->users_documents->getWhere(NULL,array('user_id'=>$this->account['id']),TRUE),
 			'msgs' => '',
 			'msgr' => ''
 		);
-		$this->load->view("clients_interface/withdraw",$pagevar);
+		$hasNotApprovedDocuments = FALSE;
+		if (count($pagevar['documents'])):
+			foreach($pagevar['documents'] as $document):
+				if ($document['approved'] == 0):
+					$hasNotApprovedDocuments = TRUE;
+					break;
+				endif;
+			endforeach;
+		endif;
+		if ($hasNotApprovedDocuments || count($pagevar['documents']) == 0):
+			$pagevar['title'] = $this->localization->getUserDocuments('client_cabinet','title');
+			$pagevar['description'] = $this->localization->getUserDocuments('client_cabinet','description');
+			$this->load->view("clients_interface/documents",$pagevar);
+		else:
+			$this->load->view("clients_interface/withdraw",$pagevar);
+		endif;
 	}
 	
 	private function isDemoRegisterRealAccount(){
@@ -156,7 +185,6 @@ class Clients_interface extends MY_Controller {
 			endforeach;
 		endif;
 		
-//		print_r($pagevar['accounts']);exit;
 		$this->load->view("clients_interface/my-accounts",$pagevar);
 	}
 	
@@ -167,5 +195,17 @@ class Clients_interface extends MY_Controller {
 						"country"=>$post['country'],"state"=>$post['state'],"city"=>$post['city']);
 		$this->updateItem(array('update'=>$account,'translit'=>NULL,'model'=>'accounts'));
 		return TRUE;
+	}
+
+	public function uploadWithdrawDocument(){
+
+		$uploadPath = 'download/accounts';
+		if(isset($_FILES['file']['name']) && $_FILES['file']['error'] === UPLOAD_ERR_OK):
+			if($uploadResult = $this->uploadSingleImage(getcwd().'/'.$uploadPath,'tif|tiff|gif|jpg|png|pdf')):
+				$insert = array('user_id'=>$this->account['id'],'path'=>$uploadPath.'/'.$uploadResult,'original_name'=>$_FILES['file']['name'],'filesize'=>$_FILES['file']['size'],'mimetype'=>$_FILES['file']['type'],'approved'=>0,'created_at'=>date('Y-m-d H:i:s'));
+				$this->db->insert('users_documents',$insert);
+			endif;
+		endif;
+		redirect($this->language.'/cabinet/withdraw');
 	}
 }

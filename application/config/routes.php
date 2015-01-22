@@ -12,6 +12,7 @@ $route[':any/cabinet/open-account'] = "clients_interface/openAccount";
 $route[':any/cabinet/my-accounts'] = "clients_interface/myAccounts";
 $route[':any/cabinet/profile'] = "clients_interface/profile";
 $route[':any/cabinet/withdraw'] = "clients_interface/withdraw";
+$route[':any/cabinet/documents/upload'] = "clients_interface/uploadWithdrawDocument";
 /*************************************************** ADMINS INTRERFACE ***********************************************/
 $route['admin-panel/actions/users-list(\/:any)*?'] = "admin_interface/accountsList";
 $route['admin-panel/actions/users/edit/id/:num'] = "admin_interface/accountEdit";
@@ -33,6 +34,11 @@ $route['admin-panel/actions/settings'] = "admin_interface/settings";
 $route['admin-panel/actions/profile'] = "admin_interface/actions_profile";
 $route['redactor/upload'] = "admin_interface/redactorUploadImage";
 $route['admin-panel/withdraw'] = "admin_interface/withdraw";
+
+$route['admin-panel/documents'] = "admin_interface/documents";
+$route['admin-panel/documents/approve/:num'] = "admin_interface/approveDocuments";
+$route['admin-panel/documents/delete/:num'] = "admin_interface/deleteDocuments";
+
 $route['admin-panel/registered(\/:any)*?'] = "admin_interface/registered";
 $route['admin-panel/log(\/:any)*?'] = "admin_interface/logList";
 /*************************************************** USERS INTRERFACE ***********************************************/
@@ -42,7 +48,6 @@ $route[':any/signup-account'] = "ajax_interface/signUp";
 $route[':any/signup-real-account'] = "ajax_interface/createRealAccount";
 $route[':any/signup-demo-account'] = "ajax_interface/createDemoAccount";
 $route[':any/cabinet/withdraw/request'] = "ajax_interface/withdrawRequest";
-
 
 $route['get-chart-link'] = "ajax_interface/getChartLink";
 $route[':any/forgot-password'] = "ajax_interface/forgotPassword";

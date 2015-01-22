@@ -59,6 +59,7 @@
 			'register_real_account' => 'Открытие профи-счета',
 			'register_demo_account' => 'Открытие демо-счета',
 			'withdrawal' => 'Запрос на вывод средств',
+			'documents' => 'Загрузка документов',
 			'profile' => 'Профиль',
 			'balance' => 'Баланс',
 			'account' => 'Аккаунт',
@@ -112,6 +113,16 @@
 			'above' => 'Выше',
 			'below' => 'Ниже',
 			'invest' => 'Платеж',
+		),
+		'user_documents' => array(
+			'doc_link' => 'Документ',
+			'doc_size' => 'Размер',
+			'doc_approved' => 'Статус',
+			'doc_approved_access' => 'Подтвержден',
+			'doc_approved_fail' => 'Не подтвержден',
+			'doc_approved_action' => 'Подтверждить',
+			'empty_list' => 'Документы отсутствуют',
+			'upload_submit' => 'Загрузить'
 		)
 	);
 	

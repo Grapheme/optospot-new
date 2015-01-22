@@ -167,6 +167,43 @@ class MY_Controller extends CI_Controller {
 		$result['action_deposit'] = 'jsessionid='.$jsessionid;
 		return $result;
 	}
+
+	public function getTradeAccountAstroPay(){
+
+		$contents = array();
+		$result = array('accounts'=>array(),'action_deposit'=>FALSE);
+		try{
+//			$postdata = http_build_query(array('j_username' => $this->profile['trade_login'], 'j_password' => $this->encrypt->decode($this->profile['trade_password'])));
+			$postdata = http_build_query(array('j_username' => 'main14056', 'j_password' => $this->encrypt->decode('9IZH1oH7LUeo87tMa68V98LTmH2/wcB0zMToK2YmBlAIuwISSxlxv3ecqy4Zp8TM7ahFLXcbfSlCCzB8hrIPZA==')));
+
+			$opts = array('http' => array('method'=>'POST','header'=>'Content-type: application/x-www-form-urlencoded','content'=>$postdata));
+			$context  = stream_context_create($opts);
+			$json_string = file_get_contents('http://optospot.sysfx.com:5023/astropay.demo.184/service/serviceLogin.jsp',false, $context);
+			$res = json_decode($json_string,true);
+
+//			print_r($res);
+//			exit;
+
+			if(isset($res['errorCode'])):
+				$pagevar['msgs'] = $res['message'];
+			elseif( $res['status'] != 'LOGIN' ):
+				$pagevar['msgr'] =  'Error while requesting user balance. Please send email to support@optospot.net with problem description.';
+			endif;
+			$jsessionid = @$res['jsessionid'];
+//			setcookie('jsessionidokpay', $jsessionid, time() + (86400 * 7)); // 86400 = 1 day
+			$opts = array('http' => array('method' => 'GET', 'header'=> 'Cookie: jsessionid=' . $jsessionid."\r\n"));
+			$context = stream_context_create($opts);
+			$contents = file_get_contents('http://optospot.sysfx.com:5023/astropay.demo.184/service/secure/serviceAccounts.jsp;jsessionid='.$jsessionid, false, $context);
+		} catch (Exception $e) {
+
+		}
+		if($result['accounts'] = json_decode($contents, true)):
+			$result['accounts'] = (isset($result['accounts'][0]))?$result['accounts'][0]:array();
+		endif;
+		$this->load->model('settings');
+		$result['action_deposit'] = 'jsessionid='.$jsessionid;
+		return $result;
+	}
 	/*************************************************************************************************************/
 	public function pagination($url,$uri_segment,$total_rows,$per_page,$get_string = FALSE){
 		
@@ -268,26 +305,27 @@ class MY_Controller extends CI_Controller {
 		return $mail->Send();
 		
 		
-		/*$this->load->library('email');
-		$this->email->clear(TRUE);
-		$config['smtp_host'] = 'localhost';
-		$config['charset'] = 'utf-8';
-		$config['wordwrap'] = TRUE;
-		$config['mailtype'] = 'html';
-		$this->email->initialize($config);
-		$this->email->to($to);
-		$this->email->from($from_mail,$from_name);
-		$this->email->bcc('');
-		$this->email->subject($subject);
-		for($i=0;$i<count($attach);$i++):
-			$this->email->attach($attach[$i]['path']);
-		endfor;
-		$this->email->message($text);
-		if($this->email->send()):
-			return TRUE;
-		else:
-			show_error($this->email->print_debugger());
-		endif;*/
+//		$this->load->library('email');
+//		$this->email->clear(TRUE);
+//		$config['smtp_host'] = 'localhost';
+//		$config['charset'] = 'utf-8';
+//		$config['wordwrap'] = TRUE;
+//		$config['mailtype'] = 'html';
+//		$this->email->initialize($config);
+//		$this->email->to($to);
+//		$this->email->from($from_mail,$from_name);
+//		$this->email->bcc('');
+//		$this->email->subject($subject);
+//		for($i=0;$i<count($attach);$i++):
+//			$this->email->attach($attach[$i]['path']);
+//		endfor;
+//		$this->email->message($text);
+//		if($this->email->send()):
+//			return $this->email->print_debugger();
+//			return TRUE;
+//		else:
+//			show_error($this->email->print_debugger());
+//		endif;
 	}
 	
 	public function loadimage(){
@@ -491,7 +529,7 @@ class MY_Controller extends CI_Controller {
 		return $return;
 	}
 	
-	public function uploadSingleImage($uploadPath = NULL){
+	public function uploadSingleImage($uploadPath = NULL,$allowed_types = null){
 		
 		if(is_null($uploadPath) || ($this->createDir($uploadPath) == FALSE)):
 			$uploadPath = NULL;
@@ -502,16 +540,18 @@ class MY_Controller extends CI_Controller {
 				$this->load->helper('string');
 				$config = array();
 				$config['upload_path'] = $uploadPath.'/';
-				$config['allowed_types'] = ALLOWED_TYPES_IMAGES;
+				$config['allowed_types'] = is_null($allowed_types) ? ALLOWED_TYPES_IMAGES : $allowed_types;
 				$config['remove_spaces'] = TRUE;
 				$config['overwrite'] = TRUE;
 				$config['max_size'] = 5120;
 				$config['file_name'] = preg_replace('/.+(.)(\.)+/',random_string('nozero',12)."\$2",$_FILES['file']['name']);
 				$this->upload->initialize($config);
-				$this->upload->do_upload('file');
+				if($this->upload->do_upload('file')):
+					return $config['file_name'];
+				endif;
 			endif;
 		endif;
-		return $config['file_name'];
+		return FALSE;
 	}
 	
 	public function dropUploadFile(){

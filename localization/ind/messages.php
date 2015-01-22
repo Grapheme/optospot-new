@@ -25,6 +25,9 @@
 			'failure' => 'a request returned an error',
 			'annotation' => '<p>This is the withdrawal form. All fields are mandatory. Please note that the Deposit and Withdrawal methods may be different. With the help of this form you can request a withdrawal using any of the available payment methods. The minimum withdrawal amount is $1.</p><p>All withdrawal requests are processed within 1-2 business days.</p>',
 		),
+		'documents' => array(
+			'annotation' => '<p></p>',
+		),
 		'payment' => array(
 			'success' => 'Payment successfull.',
 			'failure' => 'Payment failed. Try to pay with another payment system.',

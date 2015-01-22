@@ -51,6 +51,7 @@
 			'register_real_account' => 'Register real account',
 			'register_demo_account' => 'Register demo account',
 			'withdrawal' => 'Withdrawal request',
+			'documents' => 'Download documents',
 			'profile' => 'Profile',
 			'balance' => 'Balance',
 			'account' => 'Account',
@@ -113,6 +114,16 @@
 			'below' => 'Below',
 			'invest' => 'Invest',
 		),
+		'user_documents' => array(
+			'doc_link' => 'Document',
+			'doc_size' => 'Size',
+			'doc_approved' => 'Status',
+			'doc_approved_access' => 'Approved',
+			'doc_approved_fail' => 'Not approved',
+			'doc_approved_action' => 'Approve',
+			'empty_list' => 'Documents not available',
+			'upload_submit' => 'Upload'
+		)
 	);
 	
 ?>

@@ -5,6 +5,7 @@
 			<li class="active"><a href="#general" data-toggle="tab">General</a></li>
 			<li><a href="#address" data-toggle="tab">Address</a></li>
 			<li><a href="#additionally" data-toggle="tab">Advanced</a></li>
+			<li><a href="#documents" data-toggle="tab">Documents</a></li>
 		</ul>
 		<div id="ProductTabContent" class="tab-content">
 			<div class="tab-pane fade in active" id="general">
@@ -133,6 +134,37 @@
 					</div>
 				</div>
 			<?php endif;?>
+			</div>
+			<div class="tab-pane fade in" id="documents">
+				<table class="opt-table">
+					<thead>
+					<tr>
+						<th>Document</th>
+						<th>Size</th>
+						<th>Date</th>
+						<th>Action</th>
+					</tr>
+					</thead>
+					<tbody>
+					<?php if(count($documents)):?>
+						<?php $this->load->helper('date');?>
+						<?php foreach($documents as $document): ?>
+							<tr>
+								<td width="100px"><a href="<?=$this->baseURL.$document['path'];?>" target="_blank"><?=$document['original_name']?></a></td>
+								<td width="150px"><?=round($document['filesize']/1024);?> Кb</td>
+								<td width="150px"><?=swap_dot_date_without_time($document['created_at']);?></td>
+								<td width="150px">
+									<a class="js-confirm" href="<?=$this->baseURL.'admin-panel/documents/delete/'.$document['id']?>">Delete</a>
+								</td>
+							</tr>
+						<?php endforeach; ?>
+					<?php else:?>
+						<tr>
+							<td colspan="4"><?=$this->localization->getLocalButton('user_documents','empty_list')?></td>
+						</tr>
+					<?php endif; ?>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</fieldset>

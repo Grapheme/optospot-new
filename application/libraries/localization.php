@@ -77,8 +77,31 @@ class Localization {
 		return $localize[$this->CI->uri->segment(1)][$section][$method];
 	}
 	
-	function getWithdrawPlace($section = '',$method = ''){
+	function getUserDocuments($section = '',$method = ''){
 		
+		$localize[ENGLAN] = array(
+			'client_cabinet' => array(
+				'title' => 'Cabinet - Documents',
+				'description' => '',
+			)
+		);
+		$localize[RUSLAN] = array(
+			'client_cabinet' => array(
+				'title' => 'Личный кабинет - Документы',
+				'description' => '',
+			)
+		);
+		$localize[INDLAN] = array(
+			'client_cabinet' => array(
+				'title' => 'Cabinet - вocuments',
+				'description' => '',
+			)
+			
+		);
+		return $localize[$this->CI->uri->segment(1)][$section][$method];
+	}
+function getWithdrawPlace($section = '',$method = ''){
+
 		$localize[ENGLAN] = array(
 			'client_cabinet' => array(
 				'balance_title' => 'Cabinet - Withdrawal',
@@ -96,7 +119,7 @@ class Localization {
 				'balance_title' => 'Cabinet - withdrawal',
 				'balance_description' => '',
 			)
-			
+
 		);
 		return $localize[$this->CI->uri->segment(1)][$section][$method];
 	}
