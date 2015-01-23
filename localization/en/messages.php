@@ -26,7 +26,9 @@
 			'annotation' => '<p>This is the withdrawal form. All fields are mandatory. Please note that the Deposit and Withdrawal methods may be different. With the help of this form you can request a withdrawal using any of the available payment methods. The minimum withdrawal amount is $1.</p><p>All withdrawal requests are processed within 1-2 business days.</p>',
 		),
 		'documents' => array(
-			'annotation' => '<p></p>',
+			'annotation' => '<p>In order to confirm your personal information, please upload the following documents to your Cabinet:</p><p>1. Proof of ID - a government issued document displaying your full name, birth date, and photo. Acceptable documents include: passport, driver\'s license, government ID card.</p><p>2. Proof of Address - a document displaying your full name, full home address, and a date of issue within 6 months. Acceptable documents include: bank statement, telephone bill, utility bill, credit card statement, insurance bill, etc.</p>',
+			'form_format_files' => 'You may upload documents in TIFF, JPG, PNG, GIF, PDF formats up to 5MB.',
+			'form_annotation' => '<br><p>If your documents are approved, your account manager will update your status to “Verified” within the next two business days, or will notify you in case if the documents do not meet the requirements.</p><p>Attention: Prior to requesting a withdrawal of funds from your trading account, your documents must be fully approved!</p>',
 		),
 		'payment' => array(
 			'success' => 'Payment successfull.',

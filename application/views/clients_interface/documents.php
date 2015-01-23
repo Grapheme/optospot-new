@@ -10,7 +10,7 @@
 			<div class="span19">
 				<div class="navbar">
 					<div class="navbar-inner">
-						<a class="brand no-clickable" href=""><?=$this->localization->getLocalButton('client_cabinet','documents')?></a>
+						<a class="brand no-clickable" href=""><?=$this->localization->getLocalButton('client_cabinet','withdrawal')?></a>
 					</div>
 				</div>
 				<?php $this->load->view("alert_messages/alert-error");?>
@@ -52,7 +52,9 @@
 					</table>
 					<div class="signup-form" id="real-signup">
 						<?php $this->load->view('clients_interface/forms/upload-document');?>
+						<?=$this->localization->getLocalMessage('documents','form_format_files')?>
 					</div>
+					<?=$this->localization->getLocalMessage('documents','form_annotation')?>
 				</div>
 			</div>
 		<?php $this->load->view("clients_interface/includes/rightbar");?>

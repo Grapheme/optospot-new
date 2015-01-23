@@ -14,6 +14,10 @@ $(function(){
 		return confirm('Continue?');
 	});
 
+	$(".js-confirm-modal").click(function(){
+		$("#form-delete-document").attr('action',$(this).data('action'));
+	});
+
 	if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '1011350'){
 		$('.expiry-div').show();
 	}

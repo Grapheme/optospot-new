@@ -649,9 +649,9 @@ class Admin_interface extends MY_Controller{
 			endif;
 		endif;
 		if (isset($record[0]['path'])):
-//			unlink(getcwd().'/'.$record[0]['path']);
+			unlink(getcwd().'/'.$record[0]['path']);
 		endif;
-//		$this->db->where('id',$this->uri->segment(4))->delete('users_documents');
+		$this->db->where('id',$this->uri->segment(4))->delete('users_documents');
 		if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])):
 			redirect($_SERVER['HTTP_REFERER']);
 		else:

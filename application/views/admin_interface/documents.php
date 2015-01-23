@@ -38,7 +38,7 @@
                             <td width="150px"><?=swap_dot_date_without_time($document['date']);?></td>
                             <td width="150px">
                                 <a class="js-confirm" href="<?=$this->baseURL.'admin-panel/documents/approve/'.$document['document_id']?>">Approve</a> /
-                                <a href="#rejectModal" role="button" class="js-confirm-modal" data-toggle="modal">Delete</a>
+                                <a href="#rejectModal" data-action="<?=$this->baseURL.'admin-panel/documents/delete/'.$document['document_id'];?>" role="button" class="js-confirm-modal" data-toggle="modal">Delete</a>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -53,7 +53,7 @@
             </div>
         </div>
         <div id="rejectModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <form style="margin: 0;" action="<?=$this->baseURL.'admin-panel/documents/delete/'.$document['document_id']?>" method="post">
+            <form style="margin: 0;" id="form-delete-document" action="#" method="post">
                 <div class="modal-header">
                     <h3 id="myModalLabel">Delete document</h3>
                 </div>
