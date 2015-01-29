@@ -121,6 +121,9 @@
 		),
 		'okpay' => array(
 			'deposit_info'=>''
+		),
+		'astropay' => array(
+			'deposit_info'=>''
 		)
 	);
 	

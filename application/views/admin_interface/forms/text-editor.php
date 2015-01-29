@@ -40,6 +40,12 @@
 			</div>
 			<div class="tab-pane fade" id="category">
 				<div class="control-group">
+					<label for="sort" class="control-label">Sort: </label>
+					<div class="controls">
+						<input type="text" class="span2" name="sort" value="<?=$page['sort'];?>">
+					</div>
+				</div>
+				<div class="control-group">
 					<label for="image" class="control-label">Category: </label>
 					<div class="controls">
 						<select id="CategoryPage" name="category" class="span9" <?=(!$page['manage'])?'disabled="disabled"':'';?>>
@@ -54,9 +60,11 @@
 					</div>
 				</div>
 				<div class="control-group">
-					<label for="sort" class="control-label">Sort: </label>
+					<label for="second_page" class="control-label">Второстепенная страница: </label>
 					<div class="controls">
-						<input type="text" class="span2" name="sort" value="<?=$page['sort'];?>">
+						<label class="checkbox" style="width:0;">
+							<input type="checkbox" value="1" name="second_page" autocomplete="off" <?=($page['second_page'])?'checked="checked"':'';?>>
+						</label>
 					</div>
 				</div>
 			</div>

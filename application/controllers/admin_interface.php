@@ -330,21 +330,31 @@ class Admin_interface extends MY_Controller{
 		return FALSE;
 	}
 	
-	private function ExecuteCreatingPage($langID,$page,$manage = NULL){
+	private function ExecuteCreatingPage($langID,$post,$manage = NULL){
 		
 		if(!is_null($manage)):
-			$page['manage'] = $manage;
+			$post['manage'] = $manage;
 		endif;
-		
-		$page = array("language"=>$langID,'title'=>$page['title'],'description'=>$page['description'],'link'=>$page['link'],
-			'content'=>$page['content'],'url'=>$page['url'],'category'=>$page['category'],'manage'=>$page['manage'],'sort'=>$page['sort']);
+		$second_page = 0;
+		if (isset($post['second_page'])):
+			$second_page = $post['second_page'];
+		endif;
+		$page = array(
+			"language"=>$langID,'title'=>$post['title'],'description'=>$post['description'],'link'=>$post['link'],
+			'content'=>$post['content'],'url'=>$post['url'],'category'=>$post['category'],'manage'=>$post['manage'],'sort'=>$post['sort'],
+			'second_page'=>$second_page
+		);
 		return $this->insertItem(array('insert'=>$page,'model'=>'pages'));
 	}
 	
 	private function ExecuteUpdatingPage($pageID,$post){
-		
+
+		$second_page = 0;
+		if (isset($post['second_page'])):
+			$second_page = $post['second_page'];
+		endif;
 		$page = array("id"=>$pageID,'title'=>$post['title'],'description'=>$post['description'],'link'=>$post['link'],
-			'content'=>$post['content'],'url'=>$post['url'],'sort'=>$post['sort']);
+			'content'=>$post['content'],'url'=>$post['url'],'sort'=>$post['sort'],'second_page'=>$second_page);
 		if(isset($post['category'])):
 			$page['category'] = $post['category'];
 		endif;

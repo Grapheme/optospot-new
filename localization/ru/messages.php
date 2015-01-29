@@ -120,6 +120,9 @@
 		),
 		'okpay' => array(
 			'deposit_info'=>'Оплата через систему OkPay'
+		),
+		'astropay' => array(
+			'deposit_info'=>''
 		)
 	);
 	

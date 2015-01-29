@@ -53,9 +53,9 @@
 								<td width="100px">&nbsp;</td>
 								<td width="150px">&nbsp;</td>
 								<td>
-									<form id="form_<?=$system;?>" method="post" action="<?=$account['deposit'];?>">
+									<form id="form_<?=$system;?>" method="post" action="<?=@$account['deposit'];?>">
 										<input type="hidden" name="amount" value="50" />
-										<input type="hidden" name="account" value="<?= $account['accountId']; ?>" />
+										<input type="hidden" name="account" value="<?= @$account['accountId']; ?>" />
 										<input type="hidden" name="success" value="<?=site_url(USER_START_PAGE.'?status=success')?>" />
 										<input type="hidden" name="cancel" value="<?=site_url(USER_START_PAGE.'?status=failure')?>" />
 										<button id="submit_<?=$system;?>" type="submit">Submit</button>
