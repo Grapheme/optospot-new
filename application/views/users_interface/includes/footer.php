@@ -31,7 +31,16 @@ endfor;
 				<ul>
 			<?php for($j=0;$j<count($footer['pages']);$j++):?>
 				<?php if($footer['pages'][$j]['category'] == $footer['category'][$i]['id']):?>
+					<?php if($footer['pages'][$j]['second_page'] == 0):?>
 					<li><?=anchor($footer['pages'][$j]['url'],$footer['pages'][$j]['link'],'class="footer-link"');?></li>
+					<?php endif;?>
+				<?php endif;?>
+			<?php endfor;?>
+			<?php for($j=0;$j<count($footer['pages']);$j++):?>
+				<?php if($footer['pages'][$j]['category'] == $footer['category'][$i]['id']):?>
+					<?php if($footer['pages'][$j]['second_page'] == 1):?>
+						<li class="second"><?=anchor($footer['pages'][$j]['url'],$footer['pages'][$j]['link'],'class="footer-link"');?></li>
+					<?php endif;?>
 				<?php endif;?>
 			<?php endfor;?>
 				</ul>
