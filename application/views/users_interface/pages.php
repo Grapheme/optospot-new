@@ -15,21 +15,20 @@
 			<div class="grid_3 typical-menu">
 				<nav>
 					<ul>
-				<?php for($i=0;$i<count($footer['pages']);$i++) { ?>
-					<?php if($footer['pages'][$i]['category'] == $active_category) {?>
+				<?php for($i=0;$i<count($footer['pages']);$i++): ?>
+					<?php if($footer['pages'][$i]['category'] == $active_category && $footer['pages'][$i]['second_page'] == 0):?>
 						<li data-url="<?=$footer['pages'][$i]['url'];?>">
-						<?php if($footer['pages'][$i]['url'] == noFirstSegment(uri_string()))
-						{
+						<?php if($footer['pages'][$i]['url'] == noFirstSegment(uri_string())):
 							$isactive = " active";
-						} else {
+						else:
 							$isactive = "";
-						}
+						endif;
 						?>
 							<?=anchor($footer['pages'][$i]['url'],$footer['pages'][$i]['link'],'class="typical-link'.$isactive.'"');?>
 						<br>
 						</li>
-					<?php } ?>
-				<?php } ?>
+					<?php endif; ?>
+				<?php endfor; ?>
 					</ul>
 				</nav>
 			</div>
