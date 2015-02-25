@@ -97,9 +97,7 @@
                 <?php if((isset($documents[1]) && $documents[1]['approved'] == 2) || (isset($documents[2]) && $documents[2]['approved'] == 2)):?>
                     <div style="margin: 10px 0 10px 0"><?=$this->localization->getLocalButton('user_documents','documents_rejected');?></div>
                 <?php endif;?>
-                <?php if((isset($documents[1]) && in_array($documents[1]['approved'],array(0,2))) || (isset($documents[2]) && in_array($documents[2]['approved'],array(0,2)))):?>
                     <div><?=$this->localization->getLocalMessage('documents','form_format_files')?></div>
-                <?php endif;?>
 					<?=$this->localization->getLocalMessage('documents','form_annotation')?>
 				</div>
 			</div>

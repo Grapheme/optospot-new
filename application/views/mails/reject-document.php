@@ -6,7 +6,7 @@
 <body>
     <p>Уважаемый трейдер,</p>
     <p>Документ, загруженный Вами для подтверждения Вашей личности, был отклонён со следующим комментарием:</p>
-    <p><?=$comment;?></p>
+    <p><?=$content;?></p>
     <p>Пожалуйста, добавьте новый документ в вашем кабинете с учётом этих требований.</p>
     <p>Если возникнут дополнительные вопросы - обращайтесь в нашу службу поддержки.</p>
         <br>
@@ -25,7 +25,7 @@
         <br>
     <p>Dear Trader,</p>
     <p>Documents that you uploaded for the cabinet verification were rejected, with the following commentary:</p>
-    <p><?=$comment;?></p>
+    <p><?=$content;?></p>
     <p>Please upload a new document in your cabinet, taking these requirements into consideration.</p>
         <br>
         <br>
