@@ -139,10 +139,9 @@
 				<table class="opt-table">
 					<thead>
 					<tr>
-						<th>Document</th>
-						<th>Size</th>
-						<th>Date</th>
-						<th>Action</th>
+                        <th>Document</th>
+                        <th>Date</th>
+                        <th>Action</th>
 					</tr>
 					</thead>
 					<tbody>
@@ -150,11 +149,23 @@
 						<?php $this->load->helper('date');?>
 						<?php foreach($documents as $document): ?>
 							<tr>
-								<td width="100px"><a href="<?=$this->baseURL.$document['path'];?>" target="_blank"><?=$document['original_name']?></a></td>
-								<td width="150px"><?=round($document['filesize']/1024);?> Кb</td>
-								<td width="150px"><?=swap_dot_date_without_time($document['created_at']);?></td>
-								<td width="150px">
-									<a class="js-confirm" href="<?=$this->baseURL.'admin-panel/documents/delete/'.$document['id']?>">Delete</a>
+								<td>
+                                <?php if($document['type'] == 1):?>
+                                    <a href="<?=$this->baseURL.$document['path'];?>" target="_blank">Proof of identity</a>
+                                <?php else:?>
+                                    <a href="<?=$this->baseURL.$document['path'];?>" target="_blank">Proof of address</a>
+                                <?php endif;?>
+                                </td>
+								<td><?=swap_dot_date_with_time($document['created_at']);?></td>
+								<td>
+                                <?php if($document['approved'] == 0):?>
+                                    <a class="js-confirm" href="<?=$this->baseURL.'admin-panel/documents/approve/'.$document['document_id']?>">Approve</a> /
+                                    <a href="#rejectModal" data-action="<?=$this->baseURL.'admin-panel/documents/reject/'.$document['document_id'];?>" role="button" class="js-confirm-modal" data-toggle="modal">Reject</a>
+                                <?php elseif($document['approved'] == 1):?>
+                                    <p class="text-success">Approved</p>
+                                <?php elseif($document['approved'] == 2):?>
+                                    <a class="js-popover" data-content="<?=htmlspecialchars($document['comment']);?>" data-placement="bottom" data-toggle="popover" href="javascript:void(0);" data-trigger="hover">Reject</a>
+                                <?php endif;?>
 								</td>
 							</tr>
 						<?php endforeach; ?>

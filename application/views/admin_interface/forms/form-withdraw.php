@@ -12,17 +12,17 @@
 				<option value="9">MasterCard</option>
 				<option value="28">QIWI-кошелек</option>
 				<option value="33">Яндекс.Деньги</option>
-				<option value="19">WebMoney</option>
+				<!--<option value="19">WebMoney</option>-->
 
 				<option value="101">Okpay</option>
-				<option value="102">bitcoin</option>
-				<option value="103">litecoin</option>
-				<option value="104">dogecoin</option>
+				<!--<option value="102">bitcoin</option>-->
+				<!--<option value="103">litecoin</option>-->
+				<!--<option value="104">dogecoin</option>-->
 				<option value="105">W1</option>
 				<option value="106">EgoPay</option>
-				<option value="107">Payza</option>
+				<!--<option value="107">Payza</option>-->
 				<option value="108">OOOPay</option>
-				<option value="109">RBK Money</option>
+				<!--<option value="109">RBK Money</option>-->
 			</select>
 			<div class="withdraw-div">
 				<input placeholder="<?=$this->localization->getLocalButton('withdraw','account_number')?>" data-card="<?=$this->localization->getLocalButton('withdraw','account_number')?>" data-qiwi="<?=$this->localization->getLocalButton('withdraw','account_number_qiwi')?>" type="text" class="valid-required card-account" name="account">

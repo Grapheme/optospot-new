@@ -229,7 +229,8 @@ class Ajax_interface extends MY_Controller {
 			'email'=>$registerData['email'],'country'=>$registerData['country'],'day_phone'=>'','coach'=>$registerData['coach'],
 			'password'=>md5($registerData['password']),'trade_login'=>$registerData['trade_login'],'trade_password'=>$this->encrypt->encode($registerData['password']),
 			'signdate'=>date("Y-m-d"),'language'=>$registerData['language']);
-		return $this->insertItem(array('insert'=>$account,'model'=>'accounts'));
+		$this->insertItem(array('insert'=>$account,'model'=>'accounts'));
+        return $registerData;
 	}
 	
 	private function registerLoging($loginResponse = NULL){

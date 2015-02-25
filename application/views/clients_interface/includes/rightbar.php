@@ -16,7 +16,23 @@
 		<?php endif;?>
 		<li num="my-accounts"><?=anchor('cabinet/my-accounts',$this->localization->getLocalButton('client_sidebar','my-accounts'));?></li>
 		<li num="profile"><?=anchor('cabinet/profile',$this->localization->getLocalButton('client_sidebar','profile'));?></li>
-		<!-- <li class="nav-header"><?=$this->localization->getLocalButton('client_sidebar','actions')?></li> -->
+    <?php
+        $ApprovedDocuments = TRUE;
+        if($documentsList = $this->users_documents->getWhere(NULL,array('user_id'=>$this->account['id']),TRUE)):
+            foreach($documentsList as $document):
+                if ($document['approved'] != 1):
+                    $ApprovedDocuments = FALSE;
+                    break;
+                endif;
+            endforeach;
+        endif;
+    ?>
+    <?php if(!$ApprovedDocuments):?>
+        <li num="verification"><a href="javascript:void(0);"><?=$this->localization->getLocalButton('client_sidebar','verification_off')?></a></li>
+    <?php endif;?>
 	</ul>
+    <?php if($ApprovedDocuments):?>
+        <p class="text-success" style="margin: 10px 0 0 15px;"><?=$this->localization->getLocalButton('client_sidebar','verification_on')?></p>
+    <?php endif;?>
 	<div class="logout-div"><?=anchor('logoff',$this->localization->getLocalButton('client_sidebar','logout'));?></div>
 </div>

@@ -12,6 +12,7 @@ $route[':any/cabinet/open-account'] = "clients_interface/openAccount";
 $route[':any/cabinet/my-accounts'] = "clients_interface/myAccounts";
 $route[':any/cabinet/profile'] = "clients_interface/profile";
 $route[':any/cabinet/withdraw'] = "clients_interface/withdraw";
+$route[':any/cabinet/verification'] = "clients_interface/verification";
 $route[':any/cabinet/documents/upload'] = "clients_interface/uploadWithdrawDocument";
 /*************************************************** ADMINS INTRERFACE ***********************************************/
 $route['admin-panel/actions/users-list(\/:any)*?'] = "admin_interface/accountsList";
@@ -37,6 +38,7 @@ $route['admin-panel/withdraw'] = "admin_interface/withdraw";
 
 $route['admin-panel/documents'] = "admin_interface/documents";
 $route['admin-panel/documents/approve/:num'] = "admin_interface/approveDocuments";
+$route['admin-panel/documents/reject/:num'] = "admin_interface/rejectDocuments";
 $route['admin-panel/documents/delete/:num'] = "admin_interface/deleteDocuments";
 
 $route['admin-panel/registered(\/:any)*?'] = "admin_interface/registered";

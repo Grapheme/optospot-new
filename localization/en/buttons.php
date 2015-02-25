@@ -82,7 +82,9 @@
 			'profile' => 'Profile',
 			'actions' => 'Actions',
 			'logout' => 'Logout',
-			'my-accounts' => 'My accounts'
+			'my-accounts' => 'My accounts',
+            'verification_off' => 'Verification',
+            'verification_on' => 'Verified',
 		),
 		'form_profile' => array(
 			'legend' => 'The form of editing profile. User login',
@@ -116,13 +118,21 @@
 		),
 		'user_documents' => array(
 			'doc_link' => 'Document',
+            'doc_date_upload' => 'Upload date',
+            'doc_actions' => 'Action',
+            'doc_action_upload' => 'Upload new',
+            'documents_checked' => 'Checked',
+            'documents_reject' => 'Rejected',
+            'documents_rejected' => 'Click on the status "Rejected" to find out the reason why the document was not adopted',
 			'doc_size' => 'Size',
 			'doc_approved' => 'Status',
 			'doc_approved_access' => 'Approved',
 			'doc_approved_fail' => 'Not approved',
 			'doc_approved_action' => 'Approve',
 			'empty_list' => 'Documents not available',
-			'upload_submit' => 'Upload'
+			'upload_submit' => 'Upload',
+            'identity_card' => 'Identity card',
+            'identity_address' => 'Identity address',
 		)
 	);
 	

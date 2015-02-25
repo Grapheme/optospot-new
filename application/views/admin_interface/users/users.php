@@ -40,6 +40,7 @@
 									<br/><br/><span class="label label-inverse"><em>User is not active</em></span>
 								<?php endif;?>
 								<br/><br/>
+								<span class="label label-info"><em><?=($accounts[$i]['verification'])?'Verified':'Not Verified'?></em></span><br>
 								<span class="label label-inverse"><em><?=($accounts[$i]['demo'])?'Demo account':'Real account'?></em></span>
 							</td>
 							<td class="span12">

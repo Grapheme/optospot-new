@@ -48,6 +48,7 @@ class Pages extends MY_Model{
 		$this->db->where('language',$language);
 		$this->db->where('category',0);
 		$this->db->where('manage',0);
+		$this->db->where('second_page',0);
 		$this->db->order_by('id ASC');
 		$query = $this->db->get($this->table);
 		$data = $query->result_array();

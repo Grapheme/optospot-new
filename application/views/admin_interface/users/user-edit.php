@@ -22,5 +22,10 @@
 		</div>
 	</div>
 	<?php $this->load->view("admin_interface/includes/scripts");?>
+    <script>
+        $(function(){
+            $(".js-popover").popover();
+        });
+    </script>
 </body>
 </html>

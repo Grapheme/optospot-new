@@ -173,12 +173,10 @@ class MY_Controller extends CI_Controller {
 		$contents = array();
 		$result = array('accounts'=>array(),'action_deposit'=>FALSE);
 		try{
-//			$postdata = http_build_query(array('j_username' => $this->profile['trade_login'], 'j_password' => $this->encrypt->decode($this->profile['trade_password']),'country'=>'EN'));
-			$postdata = http_build_query(array('j_username' => 'main14056', 'j_password' => $this->encrypt->decode('9IZH1oH7LUeo87tMa68V98LTmH2/wcB0zMToK2YmBlAIuwISSxlxv3ecqy4Zp8TM7ahFLXcbfSlCCzB8hrIPZA=='),'country'=>'RU'));
-
+			$postdata = http_build_query(array('j_username' => $this->profile['trade_login'], 'j_password' => $this->encrypt->decode($this->profile['trade_password']),'country'=>'EN'));
 			$opts = array('http' => array('method'=>'POST','header'=>'Content-type: application/x-www-form-urlencoded','content'=>$postdata));
 			$context  = stream_context_create($opts);
-			$json_string = file_get_contents('http://optospot.sysfx.com/astropay.demo.184/service/serviceLogin.jsp',false, $context);
+			$json_string = file_get_contents('http://optospot.sysfx.com/astropay.deal.184/service/serviceLogin.jsp',false, $context);
 			$res = json_decode($json_string,true);
 			if(isset($res['errorCode'])):
 				$pagevar['msgs'] = $res['message'];
@@ -189,7 +187,7 @@ class MY_Controller extends CI_Controller {
 //			setcookie('jsessionidokpay', $jsessionid, time() + (86400 * 7)); // 86400 = 1 day
 			$opts = array('http' => array('method' => 'GET', 'header'=> 'Cookie: jsessionid=' . $jsessionid."\r\n"));
 			$context = stream_context_create($opts);
-			$contents = file_get_contents('http://optospot.sysfx.com/astropay.demo.184/service/secure/serviceAccounts.jsp;jsessionid='.$jsessionid, false, $context);
+			$contents = file_get_contents('http://optospot.sysfx.com/astropay.deal.184/service/secure/serviceAccounts.jsp;jsessionid='.$jsessionid, false, $context);
 		} catch (Exception $e) {
 
 		}

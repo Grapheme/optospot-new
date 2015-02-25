@@ -9,6 +9,7 @@ class Clients_interface extends MY_Controller {
 			redirect('');
 		endif;
 		$this->load->model('languages');
+        $this->load->model('users_documents');
 		$userLangURI = $this->languages->value($this->profile['language'],'uri');
 		if($userLangURI != $this->uri->segment(1)):
 			redirect($userLangURI.'/cabinet/balance');
@@ -68,24 +69,31 @@ class Clients_interface extends MY_Controller {
 		endif;*/
 		
 		$this->load->model(array('settings','users_documents'));
+        $documents = array();
+        if($documentsList = $this->users_documents->getWhere(NULL,array('user_id'=>$this->account['id']),TRUE)):
+            foreach($documentsList as $document):
+                $documents[$document['type']] = $document;
+            endforeach;
+        endif;
 		$pagevar = array(
 			'title' => $this->localization->getWithdrawPlace('client_cabinet','balance_title'),
 			'description' => $this->localization->getWithdrawPlace('client_cabinet','balance_description'),
 			'action_deposit'=> $this->settings->value(3,'link'),
-			'documents' => $this->users_documents->getWhere(NULL,array('user_id'=>$this->account['id']),TRUE),
+			'documents' => $documents,
 			'msgs' => '',
 			'msgr' => ''
 		);
 		$hasNotApprovedDocuments = FALSE;
 		if (count($pagevar['documents'])):
 			foreach($pagevar['documents'] as $document):
-				if ($document['approved'] == 0):
+				if ($document['approved'] != 1):
 					$hasNotApprovedDocuments = TRUE;
 					break;
 				endif;
 			endforeach;
 		endif;
 		if ($hasNotApprovedDocuments || count($pagevar['documents']) == 0):
+            $this->load->helper('date');
 			$pagevar['title'] = $this->localization->getUserDocuments('client_cabinet','title');
 			$pagevar['description'] = $this->localization->getUserDocuments('client_cabinet','description');
 			$this->load->view("clients_interface/documents",$pagevar);
@@ -190,13 +198,31 @@ class Clients_interface extends MY_Controller {
 
 	public function uploadWithdrawDocument(){
 
+        $this->load->model('users_documents');
+
+        if ($document = $this->users_documents->getWhere(NULL,array('user_id'=>$this->account['id'],'type'=>$this->input->post('type')))):
+            if (isset($document['path'])):
+                unlink(getcwd().'/'.$document['path']);
+            endif;
+            $this->db->where('id',$document['id'])->delete('users_documents');
+        endif;
 		$uploadPath = 'download/accounts';
 		if(isset($_FILES['file']['name']) && $_FILES['file']['error'] === UPLOAD_ERR_OK):
 			if($uploadResult = $this->uploadSingleImage(getcwd().'/'.$uploadPath,'tif|tiff|gif|jpg|png|pdf')):
-				$insert = array('user_id'=>$this->account['id'],'path'=>$uploadPath.'/'.$uploadResult,'original_name'=>$_FILES['file']['name'],'filesize'=>$_FILES['file']['size'],'mimetype'=>$_FILES['file']['type'],'approved'=>0,'created_at'=>date('Y-m-d H:i:s'));
+				$insert = array('user_id'=>$this->account['id'],'type'=>$this->input->post('type'),'path'=>$uploadPath.'/'.$uploadResult,'original_name'=>$_FILES['file']['name'],'filesize'=>$_FILES['file']['size'],'mimetype'=>$_FILES['file']['type'],'approved'=>0,'created_at'=>date('Y-m-d H:i:s'));
 				$this->db->insert('users_documents',$insert);
 			endif;
 		endif;
 		redirect($this->language.'/cabinet/withdraw');
 	}
+
+    public function verification(){
+
+        $pagevar = array(
+            'title' => $this->localization->getLocalMessage('client_cabinet','profile_title'),
+            'description' => $this->localization->getLocalMessage('client_cabinet','profile_description'),
+            'langs' => $this->languages->getAll(),
+        );
+        $this->load->view("clients_interface/verification",$pagevar);
+    }
 }

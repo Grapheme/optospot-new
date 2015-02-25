@@ -551,7 +551,28 @@ class Admin_interface extends MY_Controller{
 		for($i=0;$i<count($pagevar['accounts']);$i++):
 			$pagevar['accounts'][$i]['password'] = $this->encrypt->decode($pagevar['accounts'][$i]['trade_password']);
 			$pagevar['accounts'][$i]['signdate'] = swap_dot_date($pagevar['accounts'][$i]['signdate']);
+			$pagevar['accounts'][$i]['verification'] = FALSE;
 		endfor;
+        if (count($pagevar['accounts'])):
+            $accountIDs = array();
+            foreach($pagevar['accounts'] as $account):
+                $accountIDs[] = $account['id'];
+            endforeach;
+            if (count($accountIDs)):
+                $this->load->model('users_documents');
+                if($documents = $this->users_documents->getWhereIN(array('field'=>'user_id','where_in'=>$accountIDs,'where'=>array('approved'=>1),'many_records'=>TRUE))):
+                    $accountDocuments = array();
+                    foreach($documents as $index => $document):
+                        @$accountDocuments[$document['user_id']]++;
+                    endforeach;
+                endif;
+            endif;
+            foreach($pagevar['accounts'] as $index => $account):
+                if (isset($accountDocuments[$account['id']]) && $accountDocuments[$account['id']] == 2):
+                    $pagevar['accounts'][$index]['verification'] = TRUE;
+                endif;
+            endforeach;
+        endif;
 		$this->session->set_userdata('backpath',base_url(uri_string()));
 		$this->load->view("admin_interface/users/users",$pagevar);
 	}
@@ -619,21 +640,26 @@ class Admin_interface extends MY_Controller{
 			'msgr' => $this->session->userdata('msgr'),
 		);
 		$documents = array();
-		if($all_documents = $this->users_documents->getWhere(NULL,array('approved'=>0),TRUE)):
-			foreach($this->db->select('id,first_name,last_name')->get('users')->result_array() as $account):
+		if($all_documents = $this->users_documents->getAll()):
+			foreach($this->db->select('id,first_name,last_name,trade_login')->get('users')->result_array() as $account):
 				foreach($all_documents as $index => $document):
 					if ($document['user_id'] == $account['id']):
 						$all_documents[$index]['name'] = $account['first_name'].' '.$account['last_name'];
+						$all_documents[$index]['trade_login'] = $account['trade_login'];
 					endif;
 				endforeach;
 			endforeach;
 			foreach($all_documents as $index => $document):
 				$documents[$document['user_id']][$index]['document_id'] = $document['id'];
+				$documents[$document['user_id']][$index]['type'] = $document['type'];
 				$documents[$document['user_id']][$index]['path'] = $document['path'];
+				$documents[$document['user_id']][$index]['comment'] = $document['comment'];
+				$documents[$document['user_id']][$index]['approved'] = $document['approved'];
 				$documents[$document['user_id']][$index]['original_name'] = $document['original_name'];
 				$documents[$document['user_id']][$index]['filesize'] = $document['filesize'];
 				$documents[$document['user_id']][$index]['date'] = $document['created_at'];
 				$documents[$document['user_id']][$index]['name'] = $document['name'];
+				$documents[$document['user_id']][$index]['trade_login'] = $document['trade_login'];
 			endforeach;
 		endif;
 		$pagevar['documents'] = $documents;
@@ -648,7 +674,25 @@ class Admin_interface extends MY_Controller{
 		redirect('admin-panel/documents');
 	}
 
-	public function deleteDocuments(){
+	public function rejectDocuments(){
+
+		$record = $this->db->where('id',$this->uri->segment(4))->select('user_id,path')->get('users_documents')->result_array();
+		if ($this->input->post('content') != '' && isset($record[0]['user_id'])):
+			$account = $this->db->select('email')->where('id',$record[0]['user_id'])->get('users')->result_array();
+			if (isset($account[0]['email'])):
+				$mailtext = $this->load->view('mails/reject-document',$this->input->post(),TRUE);
+				$result = $this->sendMail($account[0]['email'],'support@optospot.net','Optospot trading platform','Ваш документ для верификации был отлонён',$mailtext);
+			endif;
+		endif;
+		$this->db->where('id',$this->uri->segment(4))->update('users_documents',array('approved'=>2,'comment'=>$this->input->post('content')));
+		if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])):
+			redirect($_SERVER['HTTP_REFERER']);
+		else:
+			redirect('admin-panel/documents');
+		endif;
+	}
+
+    public function deleteDocuments(){
 
 		$record = $this->db->where('id',$this->uri->segment(4))->select('user_id,path')->get('users_documents')->result_array();
 		if ($this->input->post('content') != '' && isset($record[0]['user_id'])):
@@ -667,7 +711,6 @@ class Admin_interface extends MY_Controller{
 		else:
 			redirect('admin-panel/documents');
 		endif;
-
 	}
 
 	private function ExecuteUpdatingAccount($accountID,$post){

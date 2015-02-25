@@ -178,7 +178,7 @@
 		$replacement = "\$5.$3.\$1";
 		return preg_replace($pattern, $replacement,$field);
 	}
-	
+
 	function swap_dot_date_with_time($field){
 			
 		$list = preg_split("/-/",$field);
@@ -206,5 +206,5 @@
 		endfor;
 		return $timeSting;
 	}
-	
+
 ?>

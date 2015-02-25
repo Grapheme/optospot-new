@@ -82,7 +82,9 @@
 			'profile' => 'Профиль',
 			'actions' => 'Действия',
 			'logout' => 'Выход',
-			'my-accounts' => 'Мои счета'
+			'my-accounts' => 'Мои счета',
+            'verification_off' => 'Верификация',
+            'verification_on' => 'Верифицирован',
 		),
 		'form_profile' => array(
 			'legend' => 'Редактирование профиля. Логин',
@@ -116,13 +118,21 @@
 		),
 		'user_documents' => array(
 			'doc_link' => 'Документ',
+			'doc_date_upload' => 'Дата загрузки',
+			'doc_actions' => 'Действие',
+			'doc_action_upload' => 'Загрузить новый',
+			'documents_checked' => 'Проверяется',
+			'documents_reject' => 'Отклонен',
+			'documents_rejected' => 'Нажмите на статус "Отклонен", чтобы узнать причину, по которой документ не был принят',
 			'doc_size' => 'Размер',
 			'doc_approved' => 'Статус',
 			'doc_approved_access' => 'Подтвержден',
 			'doc_approved_fail' => 'Не подтвержден',
 			'doc_approved_action' => 'Подтверждить',
 			'empty_list' => 'Документы отсутствуют',
-			'upload_submit' => 'Загрузить'
+			'upload_submit' => 'Загрузить',
+            'identity_card' => 'Удостоверение личности',
+            'identity_address' => 'Удостоверение адреса',
 		)
 	);
 	
