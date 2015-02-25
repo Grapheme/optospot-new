@@ -16,8 +16,8 @@
     <p>Алексей Глушаков</p>
     <p>Оператор по работе с клиентами</p>
     <br>
-    <p>Служба поддержки</p>
-    <p>support@optospot.net</p>
+    <p>Служба поддержки<br>
+    support@optospot.net</p>
 
         <br>
         <br>
@@ -35,7 +35,7 @@
     <p>Customer support representative</p>
     <p>support@optospot.net</p>
         <br>
-    <p>Optospot customer service</p>
-    <p>support@optospot.net</p>
+    <p>Optospot customer service<br>
+    support@optospot.net</p>
 </body>
 </html>
