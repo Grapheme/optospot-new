@@ -29,8 +29,8 @@
                     <tbody>
                 <?php if(count($documents)):?>
                     <?php $this->load->helper('date');?>
+                     <?php $style = '';?>
                     <?php foreach($documents as $account_id => $account_documents): ?>
-                        <?php $style = '';?>
                         <?php $showDocuments = FALSE;?>
                         <?php foreach($account_documents as $document): ?>
                             <?php if($document['approved'] != 1):?>
@@ -60,10 +60,11 @@
                                 <a class="js-popover" data-content="<?=htmlspecialchars($document['comment']);?>" data-placement="bottom" data-toggle="popover" href="javascript:void(0);" data-trigger="hover">Reject</a>
                             <?php endif;?>
                             </td>
+                            <?php $style = '';?>
                         </tr>
                         <?php endforeach; ?>
-                        <?php $style = ' style="border-bottom:1pt solid black;"';?>
                     <?php endif;?>
+                        <?php $style = ' style="border-top:1pt solid black;"';?>
                     <?php endforeach; ?>
                 <?php else:?>
                         <tr>

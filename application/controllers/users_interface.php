@@ -201,7 +201,7 @@ class Users_interface extends MY_Controller {
 <p>You have requested a new password to access the site <?=anchor('','Optospot trading platform');?></p>
 <p>Login: <?=$user['trade_login'];?><br/>Password: <?=$this->encrypt->decode($user['trade_password']);?></p>
 		<?php	$mailtext = ob_get_clean();
-			$this->sendMail($user['email'],'robot@sysfx.com','Optospot trading platform','Requested a new password to optospot.net',$mailtext);
+			$this->sendMail($user['email'],'support@optospot.net','Optospot trading platform','Requested a new password to optospot.net',$mailtext);
 			$statusval['status'] = TRUE;
 			$this->session->set_userdata('msgs','Password changed.');
 		else:

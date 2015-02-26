@@ -123,6 +123,7 @@
             'doc_action_upload' => 'Upload new',
             'documents_checked' => 'Checked',
             'documents_reject' => 'Rejected',
+            'documents_approved' => 'Approved',
             'documents_rejected' => 'Click on the status "Rejected" to find out the reason why the document was not adopted',
             'doc_size' => 'Size',
             'doc_approved' => 'Status',

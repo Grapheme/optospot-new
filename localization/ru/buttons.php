@@ -122,6 +122,7 @@
 			'doc_actions' => 'Действие',
 			'doc_action_upload' => 'Загрузить новый',
 			'documents_checked' => 'Проверяется',
+			'documents_approved' => 'Подтвержден',
 			'documents_reject' => 'Отклонен',
 			'documents_rejected' => 'Нажмите на статус "Отклонен", чтобы узнать причину, по которой документ не был принят',
 			'doc_size' => 'Размер',

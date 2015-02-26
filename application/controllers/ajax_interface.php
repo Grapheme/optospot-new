@@ -57,7 +57,7 @@ class Ajax_interface extends MY_Controller {
 						$resultData['auto_demo'] = $this->sendResisterData($this->input->post(),1);
 					endif;
 					$mailtext = $this->load->view('mails/signup',array('account'=>$resultData['accountID'],'reg_data'=>$resultData),TRUE);
-					$this->sendMail($this->input->post('email'),'robot@sysfx.com','Optospot trading platform','Welcome to Optospot.net',$mailtext);
+					$this->sendMail($this->input->post('email'),'support@optospot.net','Optospot trading platform','Welcome to Optospot.net',$mailtext);
 					$this->setLoginSession($resultData['accountID']);
 					$json_request['redirect'] = FALSE;
 					$json_request['status'] = TRUE;
@@ -84,7 +84,7 @@ class Ajax_interface extends MY_Controller {
 			$registerData['coach'] = 0;
 			if($resultData = $this->sendResisterData($registerData)):
 				$mailtext = $this->load->view('mails/signup',array('account'=>$registerData,'reg_data'=>$resultData),TRUE);
-				$this->sendMail($registerData['email'],'robot@sysfx.com','Optospot trading platform','Welcome to Optospot.net',$mailtext);
+				$this->sendMail($registerData['email'],'support@optospot.net','Optospot trading platform','Welcome to Optospot.net',$mailtext);
 				$json_request['status'] = TRUE;
 				$this->setLoginSession($resultData['accountID']);
 				$this->profile = $this->accounts->getWhere($resultData['accountID']);
@@ -110,7 +110,7 @@ class Ajax_interface extends MY_Controller {
 			$registerData['coach'] = 0;
 			if($resultData = $this->sendResisterData($registerData)):
 				$mailtext = $this->load->view('mails/signup',array('account'=>$registerData,'reg_data'=>$resultData),TRUE);
-				$this->sendMail($registerData['email'],'robot@sysfx.com','Optospot trading platform','Welcome to Optospot.net',$mailtext);
+				$this->sendMail($registerData['email'],'support@optospot.net','Optospot trading platform','Welcome to Optospot.net',$mailtext);
 				$json_request['status'] = TRUE;
 				$json_request['redirect'] = site_url($this->uri->segment(1).'/cabinet/my-accounts');
 			else:
@@ -131,7 +131,7 @@ class Ajax_interface extends MY_Controller {
 		if($this->postDataValidation('forgot') == TRUE):
 			if($account = $this->accounts->getWhere(NULL,array('email'=>$_POST['email']))):
 				$mailtext = $this->load->view('mails/forgot',$account,TRUE);
-				$this->sendMail($account['email'],'robot@sysfx.com','Optospot trading platform','Requested a new password to optospot.net',$mailtext);
+				$this->sendMail($account['email'],'support@optospot.net','Optospot trading platform','Requested a new password to optospot.net',$mailtext);
 				$json_request['status'] = TRUE;
 				$json_request['responseText'] = $this->localization->getLocalMessage('forgot','success');
 			else:
@@ -202,8 +202,8 @@ class Ajax_interface extends MY_Controller {
 		$json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>site_url());
 		if($this->postDataValidation('user_withdraw') == TRUE):
 			$mailtext = $this->load->view('mails/withdraw',array('post'=>$this->input->post()),TRUE);
-			$this->sendMail('support@optospot.net','robot@sysfx.com','Optospot trading platform','Withdrawal Optospot.net',$mailtext);
-			#$this->sendMail('vkharseev@gmail.com','robot@sysfx.com','Optospot trading platform','Withdrawal Optospot.net',$mailtext);
+			$this->sendMail('support@optospot.net','support@optospot.net','Optospot trading platform','Withdrawal Optospot.net',$mailtext);
+			#$this->sendMail('vkharseev@gmail.com','support@optospot.net','Optospot trading platform','Withdrawal Optospot.net',$mailtext);
 			$json_request['status'] = TRUE;
 			$json_request['redirect'] = FALSE;
 			$json_request['responseText'] = $this->localization->getLocalMessage('withdraw','success');

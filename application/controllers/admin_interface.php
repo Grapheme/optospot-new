@@ -699,7 +699,7 @@ class Admin_interface extends MY_Controller{
 			$account = $this->db->select('email')->where('id',$record[0]['user_id'])->get('users')->result_array();
 			if (isset($account[0]['email'])):
 				$mailtext = $this->load->view('mails/reject-document',$this->input->post(),TRUE);
-				$result = $this->sendMail($account[0]['email'],'robot@sysfx.com','Optospot trading platform','The reason for the deviation of the document',$mailtext);
+				$result = $this->sendMail($account[0]['email'],'support@optospot.net','Optospot trading platform','The reason for the deviation of the document',$mailtext);
 			endif;
 		endif;
 		if (isset($record[0]['path'])):
