@@ -173,19 +173,48 @@ class Clients_interface extends MY_Controller {
 	public function myAccounts(){
 		
 		$pagevar = array(
-			'title' => $this->localization->getLocalMessage('client_cabinet','my_accounts_title'),
-			'description' => $this->localization->getLocalMessage('client_cabinet','my_accounts_description'),
-			'accounts' => array(),
-			'langs' => $this->languages->getAll(),
-		);
-		if($accounts = $this->accounts->getWhere(NULL,array('email'=>$this->profile['email']),TRUE)):
-			foreach($accounts as $account):
-				$pagevar['accounts'][$account['demo']] = $account;
-			endforeach;
-		endif;
-		
-		$this->load->view("clients_interface/my-accounts",$pagevar);
+            'title' => $this->localization->getLocalMessage('client_cabinet','my_accounts_title'),
+            'description' => $this->localization->getLocalMessage('client_cabinet','my_accounts_description'),
+            'accounts' => array(),
+            'langs' => $this->languages->getAll(),
+        );
+        if($accounts = $this->accounts->getWhere(NULL,array('email'=>$this->profile['email']),TRUE)):
+            foreach($accounts as $account):
+                $pagevar['accounts'][$account['demo']] = $account;
+            endforeach;
+        endif;
+
+        $this->load->view("clients_interface/my-accounts",$pagevar);
 	}
+
+    public function partnerProgram(){
+
+        $this->load->model('partner_program');
+
+        $pagevar = array(
+            'title' => $this->localization->getLocalMessage('client_cabinet','partner_program_title'),
+            'description' => $this->localization->getLocalMessage('client_cabinet','partner_program_description'),
+            'accounts' => array(),
+            'partners' => array(),
+            'langs' => $this->languages->getAll(),
+        );
+        if($accounts = $this->accounts->getWhere(NULL,array('email'=>$this->profile['email']),TRUE)):
+            foreach($accounts as $account):
+                $pagevar['accounts'][$account['demo']] = $account;
+            endforeach;
+        endif;
+        if($partners = $this->partner_program->getWhere(NULL,array('partner_id'=>$this->profile['id']),TRUE)):
+            $partnerIDs = array();
+            foreach($partners as $index => $partner):
+                $partnerIDs[$index] = $partner['invite_id'];
+            endforeach;
+            if (!empty($partnerIDs)):
+                $pagevar['partners'] = $this->accounts->getWhereIn(array('field'=>'id','where_in'=>$partnerIDs,'many_records'=>TRUE));
+            endif;
+
+        endif;
+        $this->load->view("clients_interface/partner-program",$pagevar);
+    }
 	
 	private function ExecuteUpdatingProfile($post){
 		

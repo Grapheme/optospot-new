@@ -47,7 +47,6 @@ class MY_Controller extends CI_Controller {
 	}
 	
 	public function setLoginSession($accountID){
-		
 		if($accountInfo = $this->accounts->getWhere($accountID)):
 			$account = json_encode(array('id'=>$accountInfo['id'],'demo'=>$accountInfo['demo']));
 			$this->session->set_userdata(array('logon'=>md5($accountInfo['email']),'account'=>$account));

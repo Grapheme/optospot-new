@@ -180,10 +180,12 @@ class Users_interface extends MY_Controller {
 		
 	}
 	
-	public function logoff(){
+	public function logoff($redirect = TRUE){
 		
 		$this->session->unset_userdata(array('logon'=>'','profile'=>'','account'=>'','backpath'=>''));
-		redirect('');
+        if ($redirect):
+            redirect('');
+        endif;
 	}
 	
 	public function forgot_password(){
@@ -228,8 +230,20 @@ class Users_interface extends MY_Controller {
 	}
 
 	public function registering(){
-		
-		
+
+        if($this->input->get('pp')):
+            $this->logoff(FALSE);
+        endif;
+
+//        if ($this->loginstatus):
+//            if($this->profile['id'] == 0):
+//                redirect(site_url(ADMIN_START_PAGE));
+//            elseif($this->profile['id'] == 1):
+//                redirect(site_url('admin-panel/actions/pages'));
+//            else:
+//                redirect(site_url(USER_START_PAGE));
+//            endif;
+//        endif;
 		$this->load->model(array('pages','languages','category'));
 		$dataPage = $this->pages->readFieldsUrl('registering',$this->language);
 

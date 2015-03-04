@@ -50,7 +50,9 @@
 			'profile_description' => '',
 			'my_accounts_title' => 'Личный кабинет - Мои счета',
 			'my_accounts_description' => '',
-			'balance_title' => 'Личный кабинет - Пополнить счет',
+            'partner_program_title' => 'Личный кабинет - Партнерская программа',
+            'partner_program_description' => '',
+            'balance_title' => 'Личный кабинет - Пополнить счет',
 			'balance_description' => '',
 			'annotation' => 'В разделах «Основные» и «Адреса» вы можете заполнить и редактировать ваши личные данные. В секции «Дополнительно» указаны логин и пароль вашего торгового счета.',
 		),
@@ -123,7 +125,14 @@
 		),
 		'astropay' => array(
 			'deposit_info'=>''
-		)
+		),
+        'partner-program' =>array(
+            'annotation' => 'Ссылка для регистрации:',
+            'invite_annotation' => 'Список партнеров',
+            'partners_list_empty' => 'Список пуст',
+            'invite_account_name' => 'Партнет',
+            'invite_account_summa' => 'Сумма',
+        )
 	);
 	
 ?>

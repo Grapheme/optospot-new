@@ -69,7 +69,8 @@
 			'deposit_dengionline' => 'Пополнить через Dengi Online',
 			'deposit_rbkmoney' => 'Пополнить через RBK Money',
 			'deposit_submit_cancel' => 'Отменить оплату',
-			'my-accounts' => 'Мои счета'
+			'my-accounts' => 'Мои счета',
+            'partner-program' => 'Партнерская программа',
 		),
 		'client_sidebar' => array(
 			'navigation' => 'Навигация',
@@ -83,6 +84,7 @@
 			'actions' => 'Действия',
 			'logout' => 'Выход',
 			'my-accounts' => 'Мои счета',
+			'partner-program' => '<nobr>Партнерская программа</nobr>',
             'verification_off' => 'Верификация',
             'verification_on' => 'Верифицирован',
 		),

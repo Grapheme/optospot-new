@@ -50,7 +50,9 @@
 			'profile_description' => '',
 			'my_accounts_title' => 'Cabinet - My accounts',
 			'my_accounts_description' => '',
-			'balance_title' => 'Cabinet - Deposit Info',
+            'partner_program_title' => 'Cabinet - Partner program',
+            'partner_program_description' => '',
+            'balance_title' => 'Cabinet - Deposit Info',
 			'balance_description' => '',
 			'annotation' => 'In this section you can complete and update your personal information. Filling of all fields is not mandatory.',
 		),
@@ -124,7 +126,14 @@
 		),
 		'astropay' => array(
 			'deposit_info'=>''
-		)
+		),
+        'partner-program' =>array(
+            'annotation' => 'Link to register:',
+            'invite_annotation' => 'Partners List',
+            'partners_list_empty' => 'List is empty',
+            'invite_account_name' => 'Partner',
+            'invite_account_summa' => 'Sum',
+        )
 	);
 	
 ?>

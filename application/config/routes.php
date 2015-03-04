@@ -10,6 +10,7 @@ $route['get-signup-accounts(\/:num)*?'] = "users_interface/getSignupAccount";
 $route[':any/cabinet/balance'] = "clients_interface/balance";
 $route[':any/cabinet/open-account'] = "clients_interface/openAccount";
 $route[':any/cabinet/my-accounts'] = "clients_interface/myAccounts";
+$route[':any/cabinet/partner-program'] = "clients_interface/partnerProgram";
 $route[':any/cabinet/profile'] = "clients_interface/profile";
 $route[':any/cabinet/withdraw'] = "clients_interface/withdraw";
 $route[':any/cabinet/verification'] = "clients_interface/verification";

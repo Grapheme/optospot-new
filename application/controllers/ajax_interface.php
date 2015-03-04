@@ -52,13 +52,22 @@ class Ajax_interface extends MY_Controller {
 		if($this->postDataValidation('signup') === TRUE):
 			if($this->accounts->search('email',$this->input->post('email')) === FALSE):
 				if($resultData = $this->sendResisterData($this->input->post())):
-					$resultData['auto_demo'] = NULL;
-					if($this->input->post('account_type') == 2):
-						$resultData['auto_demo'] = $this->sendResisterData($this->input->post(),1);
-					endif;
+                    $resultData['auto_demo'] = NULL;
+                    if ($this->input->post('pp')):
+                        $partnerID = $this->input->post('pp');
+                        if (!empty($partnerID) && $this->accounts->getWhere($partnerID)):
+                            $this->load->model('partner_program');
+                            if (!$this->partner_program->getWhere(NULL,array('partner_id'=>$partnerID,'invite_id'=>@$resultData['accountID']['id']))):
+                                $this->partner_program->insertRecord(array('partner_id'=>$partnerID,'invite_id'=>@$resultData['accountID']['id'],'created_at'=>date('Y-m-d H:i:s')));
+                            endif;
+                        endif;
+                    endif;
+                    if($this->input->post('account_type') == 2):
+                        $resultData['auto_demo'] = $this->sendResisterData($this->input->post(),1);
+                    endif;
 					$mailtext = $this->load->view('mails/signup',array('account'=>$resultData['accountID'],'reg_data'=>$resultData),TRUE);
 					$this->sendMail($this->input->post('email'),'support@optospot.net','Optospot trading platform','Welcome to Optospot.net',$mailtext);
-					$this->setLoginSession($resultData['accountID']);
+                    $this->setLoginSession($resultData['accountID']['id']);
 					$json_request['redirect'] = FALSE;
 					$json_request['status'] = TRUE;
 				else:
@@ -222,14 +231,13 @@ class Ajax_interface extends MY_Controller {
 		endif;
 		if(!isset($registerData['coach'])):
 			$registerData['coach'] = 1;
-
 		endif;
 		$this->load->library('encrypt');
 		$account = array("remote_id"=>$registerData['remote_id'],'demo'=>$demo,'first_name'=>$registerData['fname'],'last_name'=>$registerData['lname'],
 			'email'=>$registerData['email'],'country'=>$registerData['country'],'day_phone'=>'','coach'=>$registerData['coach'],
 			'password'=>md5($registerData['password']),'trade_login'=>$registerData['trade_login'],'trade_password'=>$this->encrypt->encode($registerData['password']),
 			'signdate'=>date("Y-m-d"),'language'=>$registerData['language']);
-		$this->insertItem(array('insert'=>$account,'model'=>'accounts'));
+        $registerData['id'] = $this->insertItem(array('insert'=>$account,'model'=>'accounts'));
         return $registerData;
 	}
 	

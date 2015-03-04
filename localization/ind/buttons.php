@@ -61,7 +61,8 @@
 			'deposit_dengionline' => 'Deposit from Dengi Online',
 			'deposit_rbkmoney' => 'Deposit from RBK Money',
 			'deposit_submit_cancel' => 'Cancel',
-			'my-accounts' => 'My accounts'
+			'my-accounts' => 'My accounts',
+            'partner-program' => 'Partner program',
 		),
 		'withdraw' => array(
 			'submit_withdraw' => 'Send request',
@@ -83,6 +84,7 @@
 			'actions' => 'Actions',
 			'logout' => 'Logout',
 			'my-accounts' => 'Account Saya',
+            'partner-program' => 'Partner program',
             'verification_off' => 'Verification',
             'verification_on' => 'Verified',
 		),
