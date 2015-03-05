@@ -15,8 +15,10 @@
 			<li num="withdraw"><?=anchor('cabinet/balance',$this->localization->getLocalButton('client_sidebar','withdrawal'));?></li>
 		<?php endif;?>
 		<li num="my-accounts"><?=anchor('cabinet/my-accounts',$this->localization->getLocalButton('client_sidebar','my-accounts'));?></li>
-		<li num="partner-program"><?=anchor('cabinet/partner-program',$this->localization->getLocalButton('client_sidebar','partner-program'));?></li>
-		<li num="profile"><?=anchor('cabinet/profile',$this->localization->getLocalButton('client_sidebar','profile'));?></li>
+        <?php if($this->loginstatus && $this->profile['demo'] == 0): ?>
+        <li num="partner-program"><?=anchor('cabinet/partner-program',$this->localization->getLocalButton('client_sidebar','partner-program'));?></li>
+		<?php endif; ?>
+        <li num="profile"><?=anchor('cabinet/profile',$this->localization->getLocalButton('client_sidebar','profile'));?></li>
     <?php
         $ApprovedDocuments = TRUE;
         if($documentsList = $this->users_documents->getWhere(NULL,array('user_id'=>$this->account['id']),TRUE)):

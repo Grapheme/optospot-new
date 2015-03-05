@@ -53,12 +53,14 @@ class Ajax_interface extends MY_Controller {
 			if($this->accounts->search('email',$this->input->post('email')) === FALSE):
 				if($resultData = $this->sendResisterData($this->input->post())):
                     $resultData['auto_demo'] = NULL;
-                    if ($this->input->post('pp')):
-                        $partnerID = $this->input->post('pp');
-                        if (!empty($partnerID) && $this->accounts->getWhere($partnerID)):
+                    if (isset($_COOKIE["pp_reg"])):
+                        $partnerID = $_COOKIE["pp_reg"];
+                        $partnerDemo = 0;
+                        $partner = $this->accounts->getWhere(NULL,array('remote_id'=>$partnerID,'demo'=>$partnerDemo));
+                        if (!empty($partnerID) && $partner):
                             $this->load->model('partner_program');
-                            if (!$this->partner_program->getWhere(NULL,array('partner_id'=>$partnerID,'invite_id'=>@$resultData['accountID']['id']))):
-                                $this->partner_program->insertRecord(array('partner_id'=>$partnerID,'invite_id'=>@$resultData['accountID']['id'],'created_at'=>date('Y-m-d H:i:s')));
+                            if (!$this->partner_program->getWhere(NULL,array('partner_id'=>$partner['id'],'invite_id'=>@$resultData['accountID']['id']))):
+                                $this->partner_program->insertRecord(array('partner_id'=>$partner['id'],'invite_id'=>@$resultData['accountID']['id'],'created_at'=>date('Y-m-d H:i:s')));
                             endif;
                         endif;
                     endif;
@@ -174,13 +176,17 @@ class Ajax_interface extends MY_Controller {
 			if($registerData['account_type'] == 1):
 				$registerData['mode'] = 'demo';
 				$schema = 'edforex184';
+                $office = 'Main';
 			else:
 				$registerData['mode'] = 'real';
 				$schema = 'eforex184';
 				$demoStatus = FALSE;
+                if (isset($_COOKIE["pp_reg"])):
+                    $office = $_COOKIE["pp_reg"];
+                endif;
 			endif;
-			$params = array('providerId'=>'ICTS','fields'=>array('fname'=>$registerData['fname'],'lname'=>$registerData['lname'],'schema$'=>$schema,'office'=>'Main','Send_Email'=>'N','email'=>$registerData['email'],'phone'=>'','Gen_Login'=> 'COMPANY'));
-			if($registerData['account_type'] == 1):
+			$params = array('providerId'=>'ICTS','fields'=>array('fname'=>$registerData['fname'],'lname'=>$registerData['lname'],'schema$'=>$schema,'office'=>$office,'Send_Email'=>'N','email'=>$registerData['email'],'phone'=>'','Gen_Login'=> 'COMPANY'));
+            if($registerData['account_type'] == 1):
 				$params['fields']['Balance'] = '1000';
 			endif;
 			$response = $client->registrate($params);

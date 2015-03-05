@@ -12,13 +12,6 @@
 	<div class="main-container">
 		<div class="container_12 reg-blocks">
 			<form action="<?=site_url('signup-account');?>" method="POST">
-                <?php if($this->input->get('pp')):?>
-                <?php
-                    $this->load->model('accounts');
-                    $inviteAccount = $this->accounts->getWhere(NULL,array("md5(email)"=>$this->input->get('pp')));
-                ?>
-                <input type="hidden" name="pp" value="<?=@$inviteAccount['id'];?>" >
-                <?php endif;?>
 				<div class="grid_12"><h1 class="reg-title"><?=$this->localization->getLocalButton('signup','form_title');?></h1></div>
 				<div class="grid_4 reg-block" id="reg-1">
 					<div class="reg-blocked" style="display:none;">&nbsp;</div>

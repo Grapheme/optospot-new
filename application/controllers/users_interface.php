@@ -68,10 +68,13 @@ class Users_interface extends MY_Controller {
 			$this->language_url = $language['uri'];
 			$this->config->set_item('base_url',$this->baseURL.$this->language_url.'/');
 		endif;
+        if ($this->input->get('pp') !== FALSE):
+            setcookie('pp_reg',$this->input->get('pp'),time()+604800);
+        endif;
 	}
 	
 	public function index(){
-		
+
 		$this->load->model(array('pages','languages','category'));
 		$dataPage = $this->pages->getHomePage($this->language);
 		$pagevar = array(
@@ -231,19 +234,15 @@ class Users_interface extends MY_Controller {
 
 	public function registering(){
 
-        if($this->input->get('pp')):
-            $this->logoff(FALSE);
+        if ($this->loginstatus):
+            if($this->profile['id'] == 0):
+                redirect(site_url(ADMIN_START_PAGE));
+            elseif($this->profile['id'] == 1):
+                redirect(site_url('admin-panel/actions/pages'));
+            else:
+                redirect(site_url(USER_START_PAGE));
+            endif;
         endif;
-
-//        if ($this->loginstatus):
-//            if($this->profile['id'] == 0):
-//                redirect(site_url(ADMIN_START_PAGE));
-//            elseif($this->profile['id'] == 1):
-//                redirect(site_url('admin-panel/actions/pages'));
-//            else:
-//                redirect(site_url(USER_START_PAGE));
-//            endif;
-//        endif;
 		$this->load->model(array('pages','languages','category'));
 		$dataPage = $this->pages->readFieldsUrl('registering',$this->language);
 

@@ -84,7 +84,7 @@
 			'actions' => 'Actions',
 			'logout' => 'Logout',
 			'my-accounts' => 'Account Saya',
-            'partner-program' => 'Partner program',
+            'partner-program' => 'IB program',
             'verification_off' => 'Verification',
             'verification_on' => 'Verified',
 		),

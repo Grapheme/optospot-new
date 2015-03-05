@@ -84,7 +84,7 @@
 			'actions' => 'Действия',
 			'logout' => 'Выход',
 			'my-accounts' => 'Мои счета',
-			'partner-program' => '<nobr>Партнерская программа</nobr>',
+			'partner-program' => 'IB программа',
             'verification_off' => 'Верификация',
             'verification_on' => 'Верифицирован',
 		),
