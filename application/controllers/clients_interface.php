@@ -21,7 +21,39 @@ class Clients_interface extends MY_Controller {
 	}
 	
 	public function balance(){
-		
+
+//        $f= fopen('https://perfectmoney.is/acct/balance.asp?AccountID=3408791&PassPhrase=z5JDh3qlYF4IB', 'rb');
+//
+//        if ($f === false) {
+//            echo 'error openning url';
+//        }
+//
+//// getting data
+//        $out = array();
+//        $out = "";
+//        while (!feof($f)) $out .= fgets($f);
+//
+//        fclose($f);
+//
+//// searching for hidden fields
+//        if (!preg_match_all("/<input name='(.*)' type='hidden' value='(.*)'>/", $out, $result, PREG_SET_ORDER)) {
+//            echo 'Ivalid output';
+//            exit;
+//        }
+//
+//// putting data to array
+//        $ar = "";
+//        foreach ($result as $item) {
+//            $key = $item[1];
+//            $ar[$key] = $item[2];
+//        }
+//
+//        echo '<pre>';
+//        print_r($ar);
+//        echo '</pre>';
+//
+//        exit;
+
 		if($this->isDemoRegisterRealAccount()):
 			return TRUE;
 		endif;
@@ -37,7 +69,7 @@ class Clients_interface extends MY_Controller {
 		$dengiOnLineAccount = $this->getTradeAccountInfoDengiOnLine();
 		$rbkMoneyAccount = $this->getTradeAccountInfoRBKMoney();
 		$okPayAccount = $this->getTradeAccountInfoOkPay();
-//		$astroPay = $this->getTradeAccountAstroPay();
+		$astroPay = $this->getTradeAccountAstroPay();
 		$pagevar['accounts'] = array(
 			'rbkmoney'=>$rbkMoneyAccount['accounts'],
 			'dengionline'=>$dengiOnLineAccount['accounts'],
@@ -47,7 +79,7 @@ class Clients_interface extends MY_Controller {
 		$pagevar['accounts']['dengionline']['deposit'] = $this->settings->value(3,'link').';'.$dengiOnLineAccount['action_deposit'];
 		$pagevar['accounts']['rbkmoney']['deposit'] = $this->settings->value(4,'link').';'.$rbkMoneyAccount['action_deposit'];
 		$pagevar['accounts']['okpay']['deposit'] = $this->settings->value(5,'link').';'.$okPayAccount['action_deposit'];
-//		$pagevar['accounts']['astropay']['deposit'] = $this->settings->value(6,'link').';'.$astroPay['action_deposit'];
+		$pagevar['accounts']['astropay']['deposit'] = $this->settings->value(6,'link').';'.$astroPay['action_deposit'];
 
 		if($this->input->get('status') == 'success'):
 			$pagevar['msgs'] = $this->localization->getLocalMessage('payment','success');
@@ -58,7 +90,7 @@ class Clients_interface extends MY_Controller {
 		$pagevar['accounts']['dengionline']['information'] = $this->localization->getLocalMessage('dengionline','deposit_info');
 		$pagevar['accounts']['rbkmoney']['information'] = $this->localization->getLocalMessage('rbkmoney','deposit_info');
 		$pagevar['accounts']['okpay']['information'] = $this->localization->getLocalMessage('okpay','deposit_info');
-//		$pagevar['accounts']['astropay']['information'] = $this->localization->getLocalMessage('astropay','deposit_info');
+		$pagevar['accounts']['astropay']['information'] = $this->localization->getLocalMessage('astropay','deposit_info');
 		$this->load->view("clients_interface/balance",$pagevar);
 	}
 	

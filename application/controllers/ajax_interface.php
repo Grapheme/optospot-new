@@ -53,7 +53,7 @@ class Ajax_interface extends MY_Controller {
 			if($this->accounts->search('email',$this->input->post('email')) === FALSE):
 				if($resultData = $this->sendResisterData($this->input->post())):
                     $resultData['auto_demo'] = NULL;
-                    if (isset($_COOKIE["pp_reg"])):
+                    if (isset($_COOKIE["pp_reg"]) && $this->input->post('account_type') == 2):
                         $partnerID = $_COOKIE["pp_reg"];
                         $partnerDemo = 0;
                         $partner = $this->accounts->getWhere(NULL,array('remote_id'=>$partnerID,'demo'=>$partnerDemo));
@@ -94,11 +94,22 @@ class Ajax_interface extends MY_Controller {
 			$registerData = $this->input->post();
 			$registerData['coach'] = 0;
 			if($resultData = $this->sendResisterData($registerData)):
+                if (isset($_COOKIE["pp_reg"])):
+                    $partnerID = $_COOKIE["pp_reg"];
+                    $partnerDemo = 0;
+                    $partner = $this->accounts->getWhere(NULL,array('remote_id'=>$partnerID,'demo'=>$partnerDemo));
+                    if (!empty($partnerID) && $partner):
+                        $this->load->model('partner_program');
+                        if (!$this->partner_program->getWhere(NULL,array('partner_id'=>$partner['id'],'invite_id'=>@$resultData['accountID']['id']))):
+                            $this->partner_program->insertRecord(array('partner_id'=>$partner['id'],'invite_id'=>@$resultData['accountID']['id'],'created_at'=>date('Y-m-d H:i:s')));
+                        endif;
+                    endif;
+                endif;
 				$mailtext = $this->load->view('mails/signup',array('account'=>$registerData,'reg_data'=>$resultData),TRUE);
 				$this->sendMail($registerData['email'],'support@optospot.net','Optospot trading platform','Welcome to Optospot.net',$mailtext);
 				$json_request['status'] = TRUE;
-				$this->setLoginSession($resultData['accountID']);
-				$this->profile = $this->accounts->getWhere($resultData['accountID']);
+				$this->setLoginSession($resultData['accountID']['id']);
+				$this->profile = $this->accounts->getWhere($resultData['accountID']['id']);
 				$this->session->set_userdata('profile',json_encode($this->profile));
 				$json_request['redirect'] = site_url($this->uri->segment(1).'/cabinet/balance');
 			else:
