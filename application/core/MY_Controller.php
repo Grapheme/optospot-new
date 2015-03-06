@@ -13,6 +13,8 @@ class MY_Controller extends CI_Controller {
 	function __construct(){
 		
 		parent::__construct();
+        error_reporting(1);
+        ini_set('error_reporting', E_ALL);
 		$this->baseURL = base_url();
 		
 		if($this->session->userdata('logon') !== FALSE):

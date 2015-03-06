@@ -132,6 +132,9 @@
             'partners_list_empty' => 'Список пуст',
             'invite_account_name' => 'Партнет',
             'invite_account_summa' => 'Сумма',
+        ),
+        'verification' =>array(
+            'annotation' => '',
         )
 	);
 	

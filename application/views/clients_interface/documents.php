@@ -52,7 +52,7 @@
                                 <?php elseif($documents[1]['approved'] == 1):?>
                                     <?=$this->localization->getLocalButton('user_documents','documents_approved');?>
                                 <?php elseif($documents[1]['approved'] == 2):?>
-                                    <a class="js-popover" data-content="<?=htmlspecialchars($documents[1]['comment']);?>" data-placement="bottom" data-toggle="popover" href="javascript:void(0);" data-trigger="hover" data-original-title="">
+                                    <a class="js-popover" data-content="<?=htmlspecialchars($documents[1]['comment']);?>" data-placement="bottom" data-toggle="popover" href="javascript:void(0);" data-trigger="hover" data-original-title="<?=$this->localization->getLocalButton('user_documents','reason_rejection');?>">
                                         <?=$this->localization->getLocalButton('user_documents','documents_reject');?>
                                     </a>
                                 <?php endif;?>
@@ -86,7 +86,7 @@
                                 <?php elseif($documents[2]['approved'] == 1):?>
                                     <?=$this->localization->getLocalButton('user_documents','documents_approved');?>
                                 <?php elseif($documents[2]['approved'] == 2):?>
-                                    <a class="js-popover" data-content="<?=htmlspecialchars($documents[2]['comment']);?>" data-placement="bottom" data-toggle="popover" href="javascript:void(0);" data-trigger="hover" data-original-title="">
+                                    <a class="js-popover" data-content="<?=htmlspecialchars($documents[2]['comment']);?>" data-placement="bottom" data-toggle="popover" href="javascript:void(0);" data-trigger="hover" data-original-title="<?=$this->localization->getLocalButton('user_documents','reason_rejection');?>">
                                         <?=$this->localization->getLocalButton('user_documents','documents_reject');?>
                                     </a>
                                 <?php endif;?>

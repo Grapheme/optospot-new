@@ -71,6 +71,7 @@
 			'deposit_submit_cancel' => 'Отменить оплату',
 			'my-accounts' => 'Мои счета',
             'partner-program' => 'Партнерская программа',
+            'verification' => 'Верификация',
 		),
 		'client_sidebar' => array(
 			'navigation' => 'Навигация',
@@ -136,6 +137,7 @@
 			'upload_submit' => 'Загрузить',
             'identity_card' => 'Удостоверение личности',
             'identity_address' => 'Удостоверение адреса',
+            'reason_rejection' => 'Причина отклонения'
 		)
 	);
 	

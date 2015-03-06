@@ -63,6 +63,7 @@
 			'deposit_submit_cancel' => 'Cancel payment',
 			'my-accounts' => 'My accounts',
 			'partner-program' => 'Partner program',
+            'verification' => 'Verification',
 		),
 		'withdraw' => array(
 			'submit_withdraw' => 'Send request',
@@ -136,6 +137,7 @@
 			'upload_submit' => 'Upload',
             'identity_card' => 'Identity card',
             'identity_address' => 'Identity address',
+            'reason_rejection' => 'Reason for rejection'
 		)
 	);
 	

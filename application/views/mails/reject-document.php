@@ -4,6 +4,7 @@
     <meta charset="utf-8">
 </head>
 <body>
+<?php if($lang == 3):?>
     <p>Уважаемый трейдер,</p>
     <p>Документ, загруженный Вами для подтверждения Вашей личности, был отклонён со следующим комментарием:</p>
     <p><?=$content;?></p>
@@ -18,11 +19,7 @@
     <br>
     <p>Служба поддержки<br>
     support@optospot.net</p>
-
-        <br>
-        <br>
-    <p>----------------------------------</p>
-        <br>
+<?php else:?>
     <p>Dear Trader,</p>
     <p>Documents that you uploaded for the cabinet verification were rejected, with the following commentary:</p>
     <p><?=$content;?></p>
@@ -33,9 +30,9 @@
     <p>Truly yours,</p>
     <p>James Harding,</p>
     <p>Customer support representative</p>
-    <p>support@optospot.net</p>
-        <br>
+    <br>
     <p>Optospot customer service<br>
     support@optospot.net</p>
+<?php endif; ?>
 </body>
 </html>

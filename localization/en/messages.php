@@ -133,6 +133,9 @@
             'partners_list_empty' => 'List is empty',
             'invite_account_name' => 'Partner',
             'invite_account_summa' => 'Sum',
+        ),
+        'verification' =>array(
+            'annotation' => '',
         )
 	);
 	

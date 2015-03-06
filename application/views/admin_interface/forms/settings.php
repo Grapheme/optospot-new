@@ -4,19 +4,19 @@
 	<div class="control-group">
 		<label for="registration" class="control-label">Registration: </label>
 		<div class="controls">
-			<input type="text" class="span14 valid-required" name="registration" value="<?=$settings['registration'];?>">
+			<input type="text" class="span14 valid-required" name="registration" value="<?=@$settings['registration'];?>">
 		</div>
 	</div>
 	<div class="control-group">
 		<label for="charts" class="control-label">Charts: </label>
 		<div class="controls">
-			<input type="text" class="span14 valid-required" name="charts" value="<?=$settings['charts'];?>">
+			<input type="text" class="span14 valid-required" name="charts" value="<?=@$settings['charts'];?>">
 		</div>
 	</div>
 	<div class="control-group">
 		<label for="deposit" class="control-label">Deposit: </label>
 		<div class="controls">
-			<input type="text" class="span14 valid-required" name="deposit" value="<?=$settings['deposit'];?>">
+			<input type="text" class="span14 valid-required" name="deposit" value="<?=@$settings['deposit'];?>">
 		</div>
 	</div>
 	<div class="form-actions">
@@ -31,6 +31,9 @@
     $files = get_dir_file_info($mails_path, $top_level_only = TRUE);
 if (isset($files['forgot.php'])):
     $files['forgot.php']['title'] = "Forgot password";
+endif;
+if (isset($files['reject-document.php'])):
+    $files['reject-document.php']['title'] = "Reject document";
 endif;
 if (isset($files['signup.php'])):
     $files['signup.php']['title'] = "SignUp";
@@ -66,7 +69,7 @@ endif;
         <?php foreach ($files as $file_name => $file): ?>
             <tr class="align-center">
                 <td class="span6">
-                    <a href="<?=base_url(uri_string().'?mail='.$file_name); ?>"><?=$file['title'];?> [size: <?=$file['size'];?> byte]</a>
+                    <a href="<?=base_url(uri_string().'?mail='.$file_name); ?>"><?=@$file['title'];?> [size: <?=@$file['size'];?> byte]</a>
                 </td>
             </tr>
         <?php endforeach; ?>

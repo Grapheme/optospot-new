@@ -18,6 +18,21 @@
 				<?php $this->load->view("alert_messages/alert-success");?>
 				<?php $this->load->view("admin_interface/forms/edituser");?>
 			</div>
+            <div id="rejectModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <form style="margin: 0;" id="form-delete-document" action="#" method="post">
+                    <div class="modal-header">
+                        <h3 id="myModalLabel">Reject document</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>Specify reason for rejection.</p>
+                        <textarea style="width: 500px; height: 100px;" name="content"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                        <button type="submit" class="btn btn-primary">Reject</button>
+                    </div>
+                </form>
+            </div>
 		<?php $this->load->view("admin_interface/includes/rightbar");?>
 		</div>
 	</div>

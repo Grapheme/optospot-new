@@ -28,10 +28,14 @@
                     break;
                 endif;
             endforeach;
+        else:
+            $ApprovedDocuments = FALSE;
         endif;
     ?>
     <?php if(!$ApprovedDocuments):?>
-        <li num="verification"><a href="javascript:void(0);"><?=$this->localization->getLocalButton('client_sidebar','verification_off')?></a></li>
+        <li num="verification">
+            <?=anchor('cabinet/verification',$this->localization->getLocalButton('client_sidebar','verification_off'));?>
+        </li>
     <?php endif;?>
 	</ul>
     <?php if($ApprovedDocuments):?>

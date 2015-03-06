@@ -31,27 +31,27 @@
 							</td>
 							<td>
 							<?php if(!empty($logs[$i]['method'])):?>
-								<?=$logs[$i]['method'];?>
+								<?=@$logs[$i]['method'];?>
 							<?php endif;?>
 							</td>
 							<td>
 						<?php if(!empty($logs[$i]['fields'])):?>
 							<?php foreach($logs[$i]['fields'] as $key => $value):?>
-								<?=$key.' - ' .$value.'<br/>';?>
+								<?=@$key.' - ' .@print_r($value).'<br/>';?>
 							<?php endforeach;?>
 						<?php endif;?>
 							</td>
 							<td>
 						<?php if(!empty($logs[$i]['Result'])):?>
 							<?php foreach($logs[$i]['Result'] as $key => $value):?>
-								<?=$key.' - ' .$value.'<br/>';?>
+								<?=@$key.' - ' .@print_r($value).'<br/>';?>
 							<?php endforeach;?>
 						<?php endif;?>
 							</td>
 							<td>
 						<?php if(!empty($logs[$i]['Error'])):?>
 							<?php foreach($logs[$i]['Error'] as $key => $value):?>
-								<?=$key.' - ' .$value.'<br/>';?>
+								<?=@$key.' - ' .@print_r($value).'<br/>';?>
 							<?php endforeach;?>
 						<?php endif;?>
 							</td>

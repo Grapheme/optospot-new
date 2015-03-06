@@ -670,17 +670,25 @@ class Admin_interface extends MY_Controller{
 
 	public function approveDocuments(){
 
-		$this->db->where('id',$this->uri->segment(4))->where('approved',0)->update('users_documents',array('approved'=>1));
-		redirect('admin-panel/documents');
+		$this->db->where('id',$this->uri->segment(4))->update('users_documents',array('approved'=>1));
+        if (!empty($_SERVER['HTTP_REFERER'])):
+            redirect($_SERVER['HTTP_REFERER']);
+        endif;
+        redirect('admin-panel/documents');
 	}
 
 	public function rejectDocuments(){
 
 		$record = $this->db->where('id',$this->uri->segment(4))->select('user_id,path')->get('users_documents')->result_array();
 		if ($this->input->post('content') != '' && isset($record[0]['user_id'])):
-			$account = $this->db->select('email')->where('id',$record[0]['user_id'])->get('users')->result_array();
+			$account = $this->db->select('email,language')->where('id',$record[0]['user_id'])->get('users')->result_array();
 			if (isset($account[0]['email'])):
-				$mailtext = $this->load->view('mails/reject-document',$this->input->post(),TRUE);
+                $data = $this->input->post();
+                $data['lang'] = @$account[0]['language'];
+                if (empty($data['lang'])):
+                    $data['lang'] = 3;
+                endif;
+				$mailtext = $this->load->view('mails/reject-document',$data,TRUE);
 				$result = $this->sendMail($account[0]['email'],'support@optospot.net','Optospot trading platform','Ваш документ для верификации был отлонён',$mailtext);
 			endif;
 		endif;

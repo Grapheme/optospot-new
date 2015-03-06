@@ -8,6 +8,19 @@
 			<li><a href="#documents" data-toggle="tab">Documents</a></li>
 		</ul>
 		<div id="ProductTabContent" class="tab-content">
+        <?php
+            $ApprovedDocuments = TRUE;
+            if($documentsList = $this->users_documents->getWhere(NULL,array('user_id'=>$this->account['id']),TRUE)):
+                foreach($documentsList as $document):
+                    if ($document['approved'] != 1):
+                        $ApprovedDocuments = FALSE;
+                        break;
+                    endif;
+                endforeach;
+            else:
+                $ApprovedDocuments = FALSE;
+            endif;
+            ?>
 			<div class="tab-pane fade in active" id="general">
 				<div class="control-group">
 					<label for="first_name" class="control-label">First name: </label>
@@ -44,7 +57,12 @@
 					<div class="controls">
 						<label class="checkbox" style="padding-left: 0">
 							<span class="label label-info"><?=strtoupper($account['signdate'])?></span>
-						</label>
+                        <?php if($ApprovedDocuments):?>
+                            <span class="label label-success" style="margin: 10px 0 0 15px;">Verified</span>
+                        <?php else:?>
+                            <span class="label label-warning" style="margin: 10px 0 0 15px;">Unverified</span>
+                        <?php endif;?>
+                        </label>
 					</div>
 				</div>
 			</div>
@@ -142,6 +160,7 @@
                         <th>Document</th>
                         <th>Date</th>
                         <th>Action</th>
+                        <th>Owerride</th>
 					</tr>
 					</thead>
 					<tbody>
@@ -159,14 +178,20 @@
 								<td><?=swap_dot_date_with_time($document['created_at']);?></td>
 								<td>
                                 <?php if($document['approved'] == 0):?>
-                                    <a class="js-confirm" href="<?=$this->baseURL.'admin-panel/documents/approve/'.$document['document_id']?>">Approve</a> /
-                                    <a href="#rejectModal" data-action="<?=$this->baseURL.'admin-panel/documents/reject/'.$document['document_id'];?>" role="button" class="js-confirm-modal" data-toggle="modal">Reject</a>
+                                    <a class="js-confirm" href="<?=$this->baseURL.'admin-panel/documents/approve/'.@$document['id']?>">Approve</a> /
+                                    <a href="#rejectModal" data-action="<?=$this->baseURL.'admin-panel/documents/reject/'.@$document['id'];?>" role="button" class="js-confirm-modal" data-toggle="modal">Reject</a>
                                 <?php elseif($document['approved'] == 1):?>
                                     <p class="text-success">Approved</p>
                                 <?php elseif($document['approved'] == 2):?>
-                                    <a class="js-popover" data-content="<?=htmlspecialchars($document['comment']);?>" data-placement="bottom" data-toggle="popover" href="javascript:void(0);" data-trigger="hover">Reject</a>
+                                    <a class="js-popover" data-content="<?=htmlspecialchars(@$document['comment']);?>" data-original-title="Reason for rejection" data-placement="bottom" data-toggle="popover" href="javascript:void(0);" data-trigger="hover">Reject</a>
                                 <?php endif;?>
 								</td>
+                                <td>
+                                <?php if($document['approved'] > 0):?>
+                                    <a class="js-confirm" href="<?=$this->baseURL.'admin-panel/documents/approve/'.@$document['id']?>">Approve</a> /
+                                    <a href="#rejectModal" data-action="<?=$this->baseURL.'admin-panel/documents/reject/'.@$document['id'];?>" role="button" class="js-confirm-modal" data-toggle="modal">Reject</a>
+                                <?php endif;?>
+                                </td>
 							</tr>
 						<?php endforeach; ?>
 					<?php else:?>

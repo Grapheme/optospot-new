@@ -57,7 +57,7 @@
                             <?php elseif($document['approved'] == 1):?>
                                 <p class="text-success">Approved</p>
                             <?php elseif($document['approved'] == 2):?>
-                                <a class="js-popover" data-content="<?=htmlspecialchars($document['comment']);?>" data-placement="bottom" data-toggle="popover" href="javascript:void(0);" data-trigger="hover">Reject</a>
+                                <a class="js-popover" data-content="<?=htmlspecialchars($document['comment']);?>" data-original-title="Reason for rejection" data-placement="bottom" data-toggle="popover" href="javascript:void(0);" data-trigger="hover">Reject</a>
                             <?php endif;?>
                             </td>
                             <?php $style = '';?>
