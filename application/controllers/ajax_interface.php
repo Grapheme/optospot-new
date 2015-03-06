@@ -184,10 +184,10 @@ class Ajax_interface extends MY_Controller {
 			if(!is_null($setModeStatus)):
 				$registerData['account_type'] = $setModeStatus;
 			endif;
+            $office = 'Main';
 			if($registerData['account_type'] == 1):
 				$registerData['mode'] = 'demo';
 				$schema = 'edforex184';
-                $office = 'Main';
 			else:
 				$registerData['mode'] = 'real';
 				$schema = 'eforex184';

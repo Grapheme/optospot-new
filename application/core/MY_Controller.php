@@ -172,7 +172,7 @@ class MY_Controller extends CI_Controller {
 		$contents = array();
 		$result = array('accounts'=>array(),'action_deposit'=>FALSE);
 		try{
-			$postdata = http_build_query(array('j_username' => $this->profile['trade_login'], 'j_password' => $this->encrypt->decode($this->profile['trade_password']),'country'=>'EN'));
+			$postdata = http_build_query(array('j_username' => $this->profile['trade_login'], 'j_password' => $this->encrypt->decode($this->profile['trade_password']),'country'=>'RU'));
 			$opts = array('http' => array('method'=>'POST','header'=>'Content-type: application/x-www-form-urlencoded','content'=>$postdata));
 			$context  = stream_context_create($opts);
 			$json_string = file_get_contents('http://optospot.sysfx.com/astropay.deal.184/service/serviceLogin.jsp',false, $context);

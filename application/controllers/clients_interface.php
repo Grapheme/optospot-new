@@ -74,7 +74,7 @@ class Clients_interface extends MY_Controller {
 			'rbkmoney'=>$rbkMoneyAccount['accounts'],
 			'dengionline'=>$dengiOnLineAccount['accounts'],
 			'okpay'=>$okPayAccount['accounts'],
-//			'astropay'=>$astroPay['accounts']
+			'astropay'=>$astroPay['accounts']
 		);
 		$pagevar['accounts']['dengionline']['deposit'] = $this->settings->value(3,'link').';'.$dengiOnLineAccount['action_deposit'];
 		$pagevar['accounts']['rbkmoney']['deposit'] = $this->settings->value(4,'link').';'.$rbkMoneyAccount['action_deposit'];

@@ -19,22 +19,18 @@ $(function(){
 	});
 
 	if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '1011350'){
-		$('.expiry-div').show();
-	}
-	
-	if($('select[name=payment]').val() == '9'){
-		$('.expiry-div').show();
-		$('.name-div').show();
+        $('.expiry-div').show();
+        $('.name-div').show();
 	}
 	
 	$('select[name=payment]').change(function(){
-		if($('select[name=payment]').val() == '1011350')
-		{
+		if($('select[name=payment]').val() == '1011350'){
 			$('.expiry-div').fadeIn();
-			$('.name-div').fadeOut();
-		} else if($('select[name=payment]').val() == '9') {
 			$('.name-div').fadeIn();
-			$('.expiry-div').fadeIn();
+            $('input[name=account]').attr('placeholder', '1234123412341234');
+		} else if($('select[name=payment]').val() == '9') {
+            $('.expiry-div').fadeIn();
+            $('.name-div').fadeIn();
 			$('input[name=account]').attr('placeholder', '1234123412341234');
 		} else if($('select[name=payment]').val() == '2') {
 			$('input[name=account]').attr('placeholder', '9045003243');

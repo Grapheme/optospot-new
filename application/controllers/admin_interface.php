@@ -658,8 +658,8 @@ class Admin_interface extends MY_Controller{
 				$documents[$document['user_id']][$index]['original_name'] = $document['original_name'];
 				$documents[$document['user_id']][$index]['filesize'] = $document['filesize'];
 				$documents[$document['user_id']][$index]['date'] = $document['created_at'];
-				$documents[$document['user_id']][$index]['name'] = $document['name'];
-				$documents[$document['user_id']][$index]['trade_login'] = $document['trade_login'];
+				$documents[$document['user_id']][$index]['name'] = @$document['name'];
+				$documents[$document['user_id']][$index]['trade_login'] = @$document['trade_login'];
 			endforeach;
 		endif;
 		$pagevar['documents'] = $documents;
