@@ -18,17 +18,19 @@ $(function(){
 		$("#form-delete-document").attr('action',$(this).data('action'));
 	});
 
-	if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '1011350'){
+	if($('select[name=payment]').val() == '9'){
         $('.expiry-div').show();
         $('.name-div').show();
-	}
+	}else if($('select[name=payment]').val() == '2'){
+        $('input[name=account]').attr('placeholder', '9045003243');
+        $('.expiry-div').hide();
+        $('.name-div').hide();
+	}else{
+        $('input[name=account]').attr('placeholder', '');
+    }
 	
 	$('select[name=payment]').change(function(){
-		if($('select[name=payment]').val() == '1011350'){
-			$('.expiry-div').fadeIn();
-			$('.name-div').fadeIn();
-            $('input[name=account]').attr('placeholder', '1234123412341234');
-		} else if($('select[name=payment]').val() == '9') {
+		if($('select[name=payment]').val() == '9') {
             $('.expiry-div').fadeIn();
             $('.name-div').fadeIn();
 			$('input[name=account]').attr('placeholder', '1234123412341234');
@@ -37,6 +39,7 @@ $(function(){
 			$('.expiry-div').fadeOut();
 			$('.name-div').fadeOut();
 		} else {
+            $('input[name=account]').attr('placeholder', '');
 			$('.expiry-div').fadeOut();
 			$('.name-div').fadeOut();
 		}
