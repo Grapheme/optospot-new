@@ -22,38 +22,6 @@ class Clients_interface extends MY_Controller {
 	
 	public function balance(){
 
-//        $f= fopen('https://perfectmoney.is/acct/balance.asp?AccountID=3408791&PassPhrase=z5JDh3qlYF4IB', 'rb');
-//
-//        if ($f === false) {
-//            echo 'error openning url';
-//        }
-//
-//// getting data
-//        $out = array();
-//        $out = "";
-//        while (!feof($f)) $out .= fgets($f);
-//
-//        fclose($f);
-//
-//// searching for hidden fields
-//        if (!preg_match_all("/<input name='(.*)' type='hidden' value='(.*)'>/", $out, $result, PREG_SET_ORDER)) {
-//            echo 'Ivalid output';
-//            exit;
-//        }
-//
-//// putting data to array
-//        $ar = "";
-//        foreach ($result as $item) {
-//            $key = $item[1];
-//            $ar[$key] = $item[2];
-//        }
-//
-//        echo '<pre>';
-//        print_r($ar);
-//        echo '</pre>';
-//
-//        exit;
-
 		if($this->isDemoRegisterRealAccount()):
 			return TRUE;
 		endif;
@@ -70,12 +38,22 @@ class Clients_interface extends MY_Controller {
 		$rbkMoneyAccount = $this->getTradeAccountInfoRBKMoney();
 		$okPayAccount = $this->getTradeAccountInfoOkPay();
 		$astroPay = $this->getTradeAccountAstroPay();
+//        $perfectmoney = $this->getPerfectMoney();
+
+//        print_r($perfectmoney);
+//        exit;
+
 		$pagevar['accounts'] = array(
 			'rbkmoney'=>$rbkMoneyAccount['accounts'],
 			'dengionline'=>$dengiOnLineAccount['accounts'],
 			'okpay'=>$okPayAccount['accounts'],
-			'astropay'=>$astroPay['accounts']
+			'astropay'=>$astroPay['accounts'],
+			#'perfectmoney'=>$perfectmoney['accounts']
 		);
+
+//        print_r($pagevar['accounts']['perfectmoney']);
+//        exit;
+
 		$pagevar['accounts']['dengionline']['deposit'] = $this->settings->value(3,'link').';'.$dengiOnLineAccount['action_deposit'];
 		$pagevar['accounts']['rbkmoney']['deposit'] = $this->settings->value(4,'link').';'.$rbkMoneyAccount['action_deposit'];
 		$pagevar['accounts']['okpay']['deposit'] = $this->settings->value(5,'link').';'.$okPayAccount['action_deposit'];
@@ -260,7 +238,6 @@ class Clients_interface extends MY_Controller {
 	public function uploadWithdrawDocument(){
 
         $this->load->model('users_documents');
-
         if ($document = $this->users_documents->getWhere(NULL,array('user_id'=>$this->account['id'],'type'=>$this->input->post('type')))):
             if (isset($document['path'])):
                 unlink(getcwd().'/'.$document['path']);

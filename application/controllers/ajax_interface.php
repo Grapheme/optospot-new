@@ -93,6 +93,11 @@ class Ajax_interface extends MY_Controller {
 		if($this->postDataValidation('signup') == TRUE):
 			$registerData = $this->input->post();
 			$registerData['coach'] = 0;
+            if($this->accounts->getWhere(NULL,array('email'=>$registerData['email'],'demo'=>0),TRUE)):
+                $json_request['responseText'] = $this->localization->getLocalMessage('signup','email_exit');
+                echo json_encode($json_request);
+                exit;
+            endif;
 			if($resultData = $this->sendResisterData($registerData)):
                 if (isset($_COOKIE["pp_reg"])):
                     $partnerID = $_COOKIE["pp_reg"];
@@ -105,7 +110,7 @@ class Ajax_interface extends MY_Controller {
                         endif;
                     endif;
                 endif;
-				$mailtext = $this->load->view('mails/signup',array('account'=>$registerData,'reg_data'=>$resultData),TRUE);
+				$mailtext = $this->load->view('mails/signup',array('account'=>$resultData['accountID'],'reg_data'=>$resultData),TRUE);
 				$this->sendMail($registerData['email'],'support@optospot.net','Optospot trading platform','Welcome to Optospot.net',$mailtext);
 				$json_request['status'] = TRUE;
 				$this->setLoginSession($resultData['accountID']['id']);

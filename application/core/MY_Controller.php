@@ -199,6 +199,30 @@ class MY_Controller extends CI_Controller {
 		$result['action_deposit'] = 'jsessionid='.$jsessionid;
 		return $result;
 	}
+
+    public function getPerfectMoney(){
+
+        $result_accounts = array('accounts'=>array(),'action_deposit'=>FALSE);
+        try{
+            if($file = fopen('https://perfectmoney.is/acct/balance.asp?AccountID=3408791&PassPhrase=z5JDh3qlYF4IB','rb')):
+                $out = "";
+                while (!feof($file))
+                    $out .= fgets($file);
+                fclose($file);
+                if (preg_match_all("/<input name='(.*)' type='hidden' value='(.*)'>/", $out, $result, PREG_SET_ORDER)):
+                    $ar = "";
+                    foreach ($result as $item):
+                        $key = $item[1];
+                        $ar[$key] = $item[2];
+                    endforeach;
+                    $result_accounts['accounts'] = $ar;
+                endif;
+            endif;
+        } catch (Exception $e){
+
+        }
+        return $result_accounts;
+    }
 	/*************************************************************************************************************/
 	public function pagination($url,$uri_segment,$total_rows,$per_page,$get_string = FALSE){
 		

@@ -37,8 +37,9 @@ $(function(){
 		var thisDefaultTextValue = $(this).html();
 		$(this).html(Localize[mt.currentLenguage]['wait']);
 		options.beforeSubmit = function(formData,jqForm,options){
+            $(_this).attr('disabled','disabled');
 			if(mt.validation(jqForm) === false){
-				$(_this).html(thisDefaultTextValue);
+				$(_this).html(thisDefaultTextValue).removeAttr('disabled');
 				return false;
 			}else{
 				return true;
@@ -49,7 +50,7 @@ $(function(){
 			if(response.status){
 				mt.redirect(response.redirect);
 			}else{
-				$(_this).html(thisDefaultTextValue);
+				$(_this).html(thisDefaultTextValue).removeAttr('disabled');
 				alert(response.responseText);
 			}
 		}
