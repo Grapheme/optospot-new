@@ -270,7 +270,7 @@ class Users_interface extends MY_Controller {
                 $this->input->post('PAYMENT_ID') . ':' . $this->input->post('PAYEE_ACCOUNT') . ':' .
                 $this->input->post('PAYMENT_AMOUNT') . ':' . $this->input->post('PAYMENT_UNITS') . ':' .
                 $this->input->post('PAYMENT_BATCH_NUM') . ':' .
-                $this->input->post('PAYER_ACCOUNT') . ':' . ALTERNATE_PHRASE_HASH . ':' .
+                $this->input->post('PAYER_ACCOUNT') . ':' . strtoupper(md5(ALTERNATE_PHRASE_HASH)) . ':' .
                 $this->input->post('TIMESTAMPGMT');
             $hash = strtoupper(md5($string));
             $this->load->model('perfectmoney');

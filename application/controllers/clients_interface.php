@@ -22,7 +22,7 @@ class Clients_interface extends MY_Controller {
 	
 	public function balance(){
 
-		if($this->isDemoRegisterRealAccount()):
+       	if($this->isDemoRegisterRealAccount()):
 			return TRUE;
 		endif;
 		
