@@ -49,6 +49,8 @@ endfor;
 	<?php endfor;?>
 		<div class="clear"></div>
 		<div class="footer-end">
+            <?=$this->localization->getLocalButton('copyright','annotation');?>
+            <br>
 			<p class="footer-end-left">&copy; <?=$this->localization->getLocalButton('copyright','copy');?></p>
 		</div>
 	</div>

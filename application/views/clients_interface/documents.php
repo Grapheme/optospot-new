@@ -10,7 +10,7 @@
 			<div class="span19">
 				<div class="navbar">
 					<div class="navbar-inner">
-						<a class="brand no-clickable" href=""><?=$this->localization->getLocalButton('client_cabinet','withdrawal')?></a>
+						<a class="brand no-clickable" href=""><?=$this->localization->getLocalButton('user_documents','doc_verification')?></a>
 					</div>
 				</div>
 				<?php $this->load->view("alert_messages/alert-error");?>

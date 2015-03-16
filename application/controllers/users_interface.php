@@ -258,4 +258,45 @@ class Users_interface extends MY_Controller {
 		$pagevar['footer']['pages'] = $this->pages->getWhere(NULL,array('language'=>$this->language),TRUE);
 		$this->load->view("users_interface/registering",$pagevar);
 	}
+
+    public function perfectMoneyChecked(){
+
+        $data = array('content'=>$this->input->post());
+        $mailtext = $this->load->view('mails/payment/perfect-money',$data,TRUE);
+        $this->sendMail('vkharseev@gmail.com','support@optospot.net','Optospot trading platform','Payment Perfect Money',$mailtext);
+        if ($this->input->post('PAYMENT_ID') !== FALSE):
+            define('ALTERNATE_PHRASE_HASH', '32423UMggmHhMOMGJaZgiTPmT');
+            $string =
+                $this->input->post('PAYMENT_ID') . ':' . $this->input->post('PAYEE_ACCOUNT') . ':' .
+                $this->input->post('PAYMENT_AMOUNT') . ':' . $this->input->post('PAYMENT_UNITS') . ':' .
+                $this->input->post('PAYMENT_BATCH_NUM') . ':' .
+                $this->input->post('PAYER_ACCOUNT') . ':' . ALTERNATE_PHRASE_HASH . ':' .
+                $this->input->post('TIMESTAMPGMT');
+            $hash = strtoupper(md5($string));
+            $this->load->model('perfectmoney');
+            $PerfectMoney = $Account = NULL;
+            if($PerfectMoney = $this->perfectmoney->getWhere(NULL,array('payment_id'=>$this->input->post('PAYMENT_ID')))):
+                $Account = $this->accounts->getWhere($PerfectMoney['user_id']);
+                $this->perfectmoney->updateField($PerfectMoney['id'],'amount',$this->input->post('PAYMENT_AMOUNT'));
+            endif;
+            if ($hash == $this->input->post('V2_HASH')):
+                if ($PerfectMoney && $Account):
+                    $data = array('content'=>$PerfectMoney['date'].' прошла оплата от '.$Account['first_name'].' '.$Account['last_name'].' ['.$Account['trade_login'].'] на сумму (руб.): '.$this->input->post('PAYMENT_AMOUNT'));
+                    $mailtext = $this->load->view('mails/payment/perfect-money',$data,TRUE);
+                    $this->sendMail('support@optospot.net','support@optospot.net','Optospot trading platform','Payment Perfect Money',$mailtext);
+                    $this->sendMail('vkharseev@gmail.com','support@optospot.net','Optospot trading platform','Payment Perfect Money',$mailtext);
+                endif;
+            else:
+                if ($PerfectMoney && $Account):
+                    $data = array('content'=>$PerfectMoney['date'].' оплата от '.$Account['first_name'].' '.$Account['last_name'].' ['.$Account['trade_login'].'] на сумму (руб.): '.$this->input->post('PAYMENT_AMOUNT').' прошла с ошибкой! НЕВЕРНЫЙ ХЕШ! НО оплата прошла.');
+                    $mailtext = $this->load->view('mails/payment/perfect-money',$data,TRUE);
+                    $this->sendMail('support@optospot.net','support@optospot.net','Optospot trading platform','Payment Perfect Money',$mailtext);
+                    $this->sendMail('vkharseev@gmail.com','support@optospot.net','Optospot trading platform','Payment Perfect Money',$mailtext);
+                endif;
+            endif;
+        else:
+            exit;
+        endif;
+        echo 'payment ok';
+    }
 }

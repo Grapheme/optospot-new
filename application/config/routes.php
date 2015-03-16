@@ -13,7 +13,6 @@ $route[':any/cabinet/my-accounts'] = "clients_interface/myAccounts";
 $route[':any/cabinet/partner-program'] = "clients_interface/partnerProgram";
 $route[':any/cabinet/profile'] = "clients_interface/profile";
 $route[':any/cabinet/withdraw'] = "clients_interface/withdraw";
-$route[':any/cabinet/verification'] = "clients_interface/verification";
 $route[':any/cabinet/documents/upload'] = "clients_interface/uploadWithdrawDocument";
 /*************************************************** ADMINS INTRERFACE ***********************************************/
 $route['admin-panel/actions/users-list(\/:any)*?'] = "admin_interface/accountsList";
@@ -58,12 +57,15 @@ $route[':any/create-account'] = "users_interface/createAccount";
 $route['(:any\/)*?logoff'] = "users_interface/logoff";
 
 $route[':any/trade'] = "users_interface/trade";
-$route[':any/award'] = "users_interface/award";
-$route[':any/chat'] = "users_interface/chat";
+$route['ru/award'] = "users_interface/award";
+//$route[':any/chat'] = "users_interface/chat";
 $route[':any/binarnaya-platforma/online-treiding'] = "users_interface/trade";
 $route[':any/ticker-curl'] = "ajax_interface/tickerCurl";
 
 $route[':any/registering'] = "users_interface/registering";
 $route[':any/change-site-language/:any'] = "global_interface/changeLanguage";
+
+$route[':any/perfectmoney/checked'] = "users_interface/perfectMoneyChecked";
+
 $route[':any/:any'] = "users_interface/pages";
 $route['ru|ind|en'] = "users_interface/index";

@@ -669,7 +669,7 @@ a {
 	margin: 0 20px 0 0;
 	color: #000;
 	text-decoration: none;
-	font-size: 15px;
+	font-size: 14px;
 	line-height: 35px;
 }
 
@@ -694,6 +694,8 @@ a {
 .trader-div {
 	margin-right: 25px;
 	position: relative;
+	font-size: 14px;
+  	width: 115px;
 }
 
 .trader-div-money {
@@ -776,6 +778,8 @@ h2.begin-title {
 	border-bottom: 1px solid;
 	cursor: pointer;
 	text-decoration: none;
+	display: inline-block;
+	line-height: 1em;
 	-webkit-transition: border .5s ease;
 	        transition: border .5s ease;
 }
@@ -788,6 +792,12 @@ h2.begin-title {
 
 .policy-checkbox input {
 	margin-right: 7px;
+}
+.policy-error + label {
+	color: #c20e0e;
+}
+.policy-error + label a {
+	color: inherit;
 }
 
 .form-link:hover {
@@ -872,7 +882,9 @@ select.begin-input {
 	text-align: left;
 }
 
-
+.center {
+	text-align: center;
+}
 
 .options {
 	max-height: 100px !important;
@@ -1217,6 +1229,15 @@ select.begin-input {
 
 .red-button:hover {
 	background: #a12222;
+}
+a.red-button {
+	line-height: 2.1em;
+	display: inline-block;
+	margin: 0.5em 0 0;
+}
+span.sep {
+	font-style: italic;
+	color: #999;
 }
 
 .loading {
@@ -1681,12 +1702,12 @@ footer {
 }
 
 .type-list li {
-	height: 45px;
-	line-height: 45px;
+	min-height: 45px;
+	/* line-height: 45px; */
 	border-top: 1px solid #cacaca;
 	font-size: 13px;
 	text-align: center;
-	padding: 0 25px;
+	padding: 10px 25px 2px;
 }
 
 .type-list li span {

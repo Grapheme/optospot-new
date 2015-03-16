@@ -12,7 +12,7 @@
 			'welcome_msg' => 'Only one step needed to start trading. <br/><strong>Please choose the type of your account</strong> to complete registration proccess.',
 			'finish_msg' => 'After completing registration you will be able to change your profile and make deposit.',
 			'register_success' => 'Registration was successful! On the specified e-mail we have sent your username and password.',
-			'up_balance' => 'Replenish your account',
+			'up_balance' => 'Enter the Cabinet',
 		),
 		'signin' => array(
 			'forgot' => 'Enter your email address',
@@ -26,9 +26,9 @@
 			'annotation' => '<p>This is the withdrawal form. All fields are mandatory. Please note that the Deposit and Withdrawal methods may be different. With the help of this form you can request a withdrawal using any of the available payment methods. The minimum withdrawal amount is $1.</p><p>All withdrawal requests are processed within 1-2 business days.</p>',
 		),
 		'documents' => array(
-			'annotation' => '<p>In order to confirm your personal information, please upload the following documents to your Cabinet:</p><p>1. Proof of ID - a government issued document displaying your full name, birth date, and photo. Acceptable documents include: passport, driver\'s license, government ID card.</p><p>2. Proof of Address - a document displaying your full name, full home address, and a date of issue within 6 months. Acceptable documents include: bank statement, telephone bill, utility bill, credit card statement, insurance bill, etc.</p>',
+            'annotation' => "<p>In order to gain access to the funds withdrawal - please verify your Personal Cabinet (confirm your personal information). Please provide scanned copies of the following documents for verification:</p><p>- Proof of ID - a government issued document displaying your full name, birth date, and photo. Acceptable documents include: passport, driver's license, government ID card.</p><p>- Proof of Address - a document displaying your full name, full home address, and a date of issue within 6 months. Acceptable documents include: bank statement, telephone bill, utility bill, credit card statement, insurance bill, etc.</p>",
 			'form_format_files' => 'You may upload documents in TIFF, JPG, PNG, GIF, PDF formats up to 5MB.',
-			'form_annotation' => '<br><p>If your documents are approved, your account manager will update your status to “Verified” within the next two business days, or will notify you in case if the documents do not meet the requirements.</p><p>Attention: Prior to requesting a withdrawal of funds from your trading account, your documents must be fully approved!</p>',
+			'form_annotation' => "<br><p>After the documents are uploaded, your account manager will update the Cabinet's status to “Verified” within the next two business days or will notify you if the documents do not meet the requirements.</p><p>If the document is rejected - an email will be sent to you, with the reason for rejection stated in it. Also you can hover with your mouse over “Rejected” status to see the comment in a pop-up notification.</p>",
 		),
 		'payment' => array(
 			'success' => 'Payment successfull.',
@@ -62,6 +62,8 @@
 			
 		),
 		'index' => array(
+			'screen_2_title' => '100% welcome bonus for the first deposit to every new client',
+			'screen_2_text' => 'Register, open a trading account, make a first deposit, and we will double it and increase your future profit.',
 			'screen_3_title' => 'Optospot is the best binary options broker',
 			'screen_3_text' => 'According to the Forex Expo Awards 2013',
 			'screen_3_desc' => 'Sign up today and see for yourself',
@@ -69,12 +71,12 @@
 			'banner-right' => 'Memo trader',
 			'user_block_reg' => 'Sign up',
 			'user_block_login' => 'Login',
-			'circle_step1_1' => 'Make your prediction',
-			'circle_step1_2' => 'In what direction will the price: UP or DOWN.',
-			'circle_step2_1' => 'Make a deal',
-			'circle_step2_2' => 'Your profit potential is known in advance.',
-			'circle_step3_1' => 'Get a profit',
-			'circle_step3_2' => '70% profit in just a few minutes.',
+			'circle_step1_1' => 'Register',
+			'circle_step1_2' => 'Open demo or real account',
+			'circle_step2_1' => 'Make a prediction',
+			'circle_step2_2' => 'Choose the direction of the option - above or below the current price - and invest',
+			'circle_step3_1' => 'Make your profit',
+			'circle_step3_2' => 'Get over 70% of profit for every in-the-money option',
 			'screen1_1' => 'A quick and easy way to get into the world of online trading',
 			'screen1_2' => 'All the tools for reliable binary options trading',
 			'screen1_3' => 'Probably the most advanced trading platform with the One Touch',
@@ -84,12 +86,13 @@
 			'screen3_1' => 'A quick and easy way to get into the world of online trading',
 			'screen3_2' => 'All the tools for reliable binary options trading',
 			'screen3_3' => 'Probably the most advanced trading platform with the One Touch',
-			'fish1_1' => 'A novice trader',
-			'fish1_2' => 'This is a good opportunity to try their hand at trading: the minimum rate of $ 1, and the minimum deposit is only 10.',
+			'fish1_0' => 'OptoSpot - best solution for every trader',
+			'fish1_1' => 'Novice trader',
+			'fish1_2' => 'Great opportunity to try your hand in trading - easy to use platform, low minimum bets, educational materials.',
 			'fish2_1' => 'Experienced trader',
-			'fish2_2' => 'You get the opportunity to reduce the risks and set a special strategy that does not depend on the sudden change of the market situation.',
+			'fish2_2' => 'You get an opportunity to reduce the risks and build a special strategy that does not depend on the changes of the market situation.',
 			'fish3_1' => 'Professional trader',
-			'fish3_2' => 'You can hedge your risks on open positions at the classical market. Work with minimal risk, even at a time of major economic news.',
+			'fish3_2' => 'You can hedge your risks on positions, opened on the classical market. Work with minimum risk, even at the time of major economic news releases.',
 			'money_right' => 'How to Trade',
 			'money_right1_1' => 'Get a profit',
 			'money_right1_2' => '70% profit in just a few minutes.',
@@ -127,6 +130,9 @@
 		'astropay' => array(
 			'deposit_info'=>''
 		),
+        'perfectmoney' => array(
+            'deposit_info'=>'Perfect Money'
+        ),
         'partner-program' =>array(
             'annotation' => 'Link to register:',
             'invite_annotation' => 'Partners List',

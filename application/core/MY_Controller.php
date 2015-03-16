@@ -799,7 +799,7 @@ class MY_Controller extends CI_Controller {
 	}
 	
 	public function getCurlLink($url){
-		
+
 		$ch = curl_init($url);
 		curl_setopt($ch,CURLOPT_RETURNTRANSFER,TRUE);
 		curl_setopt($ch,CURLOPT_HEADER,0);
@@ -811,6 +811,26 @@ class MY_Controller extends CI_Controller {
 			return $result;
 		endif;
 	}
+
+    public function curlPost($url,$attr = null){
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        if (!is_null($attr)):
+            curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($attr));
+        endif;
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch,CURLOPT_CONNECTTIMEOUT ,3);
+        curl_setopt($ch,CURLOPT_TIMEOUT, 20);
+        $server_output = curl_exec ($ch);
+        curl_close ($ch);
+        if($server_output == FALSE):
+            return file_get_contents($url);
+        else:
+            return $server_output;
+        endif;
+    }
 
 	public function getValuesInArray($array,$value){
 		

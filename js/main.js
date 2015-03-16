@@ -301,7 +301,7 @@ function screenTwo() {
 	$('#control-3').removeClass('active');
 	$('#control-1').removeClass('active');
 	$('#control-2').addClass('active');
-	$('.begin-container').css('background-image', 'url(../img/slide2.jpg)');
+	$('.begin-container').css('background-image', 'url(../img/slide_2.jpg)');
 }
 
 function screenOne() {

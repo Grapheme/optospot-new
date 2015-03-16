@@ -13,18 +13,18 @@
 			'next' => 'Next',
 			'fill' => 'Fill the form',
 			'choice_type_account' => 'Select type of account',
-			'demo_account_text' => 'Start trading without risks',
-			'real_account_text' => 'The minimum deposit is only $5',
+			'demo_account_text' => 'Trade without risk',
+			'real_account_text' => 'Minimum bet is only $5',
 			'by_register' => 'Start trading',
-			'by_register_text' => 'In your demo account credited with $ 1,000. You can start trading right now or open a pro-account and your earnings become real.',
-			'by_register_text_pro' => 'Your account successfully registered. In order to start trading you need to make a deposit. The minimum deposit on Optospot platform is only $5.<br><br>To make a deposit you can use VISA/Mastercard or any payment system you like. Start trading now.',
+			'by_register_text' => 'Your demo account has been funded with virtual $1000. You can start trading using the login information sent to your email address, or open a real account and start making real profit.',
+			'by_register_text_pro' => 'Your account has been successfully registered. Make your first deposit in your Trader’s Cabinet and start making profit with OptoSpot.',
 			'begin_trading' => 'Start trading',
 			'active_submit_real' => 'REGISTER REAL ACCOUNT',
 			'active_submit_demo' => 'REGISTER DEMO ACCOUNT',
 			'try_for_free' => 'Try for free',
 			'try_for_real' => 'Trade with real funds',
 			'or' => 'or',
-            'checkbox' => 'I accept the terms and <a href="'.site_url('our-policies/optospot-terms-of-use').'" class="form-link">conditions</a>'
+            'checkbox' => 'I have read and understood and accept the OptoSpot <a href="'.site_url('#').'" class="form-link">“Terms and Conditions”</a>, <a href="'.site_url('privacy-policy').'" class="form-link">“Privacy Policy”</a>, and <a href="'.site_url('#').'" class="form-link">“Risk Warning”</a>'
 		),
 		'signin' => array(
 			'login' => 'Log in',
@@ -42,6 +42,7 @@
 			'fill-acc' => 'Fill balance'
 		),
 		'copyright' => array(
+			'annotation' => '<p>Risk Warning: Please be aware that trading Binary options is highly speculative and carries a high level of risk. This line of business may not be suitable for all investors. You should not speculate with the capital you cannot afford to lose, as trading can lead to a total loss of your investments. Before deciding to trade you should be aware of all the risks associated with Binary Options trading.</p><p>ATTENTION: OptoSpot does not accept the residents of the USA. The citizens of the USA (regardless the residence) are not allowed to open accounts in our company.</p>',
 			'copy' => '2012-'.date('Y').' OptoSpot. All Rights Reserved',
 			'development' => 'Developed by <a href="http://grphm.com/" target="_blank">&laquo;Grapheme&raquo;</a>'
 		),
@@ -120,11 +121,12 @@
 			'invest' => 'Invest',
 		),
 		'user_documents' => array(
+            'doc_verification' => 'Personal Cabinet verification',
 			'doc_link' => 'Document',
             'doc_date_upload' => 'Upload date',
             'doc_actions' => 'Action',
             'doc_action_upload' => 'Upload new',
-            'documents_checked' => 'Checked',
+            'documents_checked' => 'Waiting',
             'documents_reject' => 'Rejected',
             'documents_approved' => 'Approved',
             'documents_rejected' => 'Click on the status "Rejected" to find out the reason why the document was not adopted',

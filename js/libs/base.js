@@ -133,18 +133,18 @@ mt.noValidEmails = function(elements) {
 mt.validation = function(jqForm) {
 	var errors = false;
 	$(jqForm).defaultValidationErrorStatus();
-	$(jqForm).find(".valid-required").each(function(i, element) {
+	$(jqForm).find(".valid-required:visible").each(function(i, element) {
 		if ($(this).emptyValue()) {
 			$(this).setValidationErrorStatus(Localize[mt.currentLenguage]['empty_field']);
 			errors = true;
 		}
 	});
-	if ($(jqForm).find(".valid-email").length > 0) {
+	if ($(jqForm).find(".valid-email:visible").length > 0) {
 		if (mt.noValidEmails($(jqForm).find("input.valid-email"))) {
 			errors = true;
 		}
 	}
-	if ($(jqForm).find(".valid-phone-number").length == 1) {
+	if ($(jqForm).find(".valid-phone-number:visible").length == 1) {
 		var phoneInput = $(jqForm).find("input.valid-phone-number")
 		if (!mt.isValidPhone($(phoneInput).val().trim())) {
 			if ($(phoneInput).emptyValue() == false) {

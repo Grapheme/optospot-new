@@ -38,45 +38,46 @@ class Clients_interface extends MY_Controller {
 		$rbkMoneyAccount = $this->getTradeAccountInfoRBKMoney();
 		$okPayAccount = $this->getTradeAccountInfoOkPay();
 		$astroPay = $this->getTradeAccountAstroPay();
-//        $perfectmoney = $this->getPerfectMoney();
-
-//        print_r($perfectmoney);
-//        exit;
-
+        $perfectmoney = $this->getPerfectMoney();
 		$pagevar['accounts'] = array(
 			'rbkmoney'=>$rbkMoneyAccount['accounts'],
 			'dengionline'=>$dengiOnLineAccount['accounts'],
 			'okpay'=>$okPayAccount['accounts'],
 			'astropay'=>$astroPay['accounts'],
-			#'perfectmoney'=>$perfectmoney['accounts']
+			'perfectmoney'=>$perfectmoney['accounts']
 		);
-
-//        print_r($pagevar['accounts']['perfectmoney']);
-//        exit;
-
 		$pagevar['accounts']['dengionline']['deposit'] = $this->settings->value(3,'link').';'.$dengiOnLineAccount['action_deposit'];
 		$pagevar['accounts']['rbkmoney']['deposit'] = $this->settings->value(4,'link').';'.$rbkMoneyAccount['action_deposit'];
 		$pagevar['accounts']['okpay']['deposit'] = $this->settings->value(5,'link').';'.$okPayAccount['action_deposit'];
 		$pagevar['accounts']['astropay']['deposit'] = $this->settings->value(6,'link').';'.$astroPay['action_deposit'];
+		$pagevar['accounts']['perfectmoney']['deposit'] = 'https://perfectmoney.is/api/step1.asp';
 
-		if($this->input->get('status') == 'success'):
-			$pagevar['msgs'] = $this->localization->getLocalMessage('payment','success');
-		endif;
+        if($this->input->get('status') == 'success'):
+            $pagevar['msgs'] = $this->localization->getLocalMessage('payment','success');
+        endif;
+
 		if($this->input->get('status') == 'failure'):
 			$pagevar['msgr'] = $this->localization->getLocalMessage('payment','failure');
 		endif;
+
 		$pagevar['accounts']['dengionline']['information'] = $this->localization->getLocalMessage('dengionline','deposit_info');
 		$pagevar['accounts']['rbkmoney']['information'] = $this->localization->getLocalMessage('rbkmoney','deposit_info');
 		$pagevar['accounts']['okpay']['information'] = $this->localization->getLocalMessage('okpay','deposit_info');
 		$pagevar['accounts']['astropay']['information'] = $this->localization->getLocalMessage('astropay','deposit_info');
+		$pagevar['accounts']['perfectmoney']['information'] = $this->localization->getLocalMessage('perfectmoney','deposit_info');
+
+        $payment_id = $this->account['id']+time();
+        $this->load->model('perfectmoney');
+        $this->perfectmoney->insertRecord(array('user_id'=>$this->account['id'],'payment_id'=>$payment_id,'amount'=>0));
+        $pagevar['payment_id'] = $payment_id;
 		$this->load->view("clients_interface/balance",$pagevar);
 	}
 	
 	public function withdraw(){
 		
-		/*if($this->isDemoRegisterRealAccount()):
+		if($this->isDemoRegisterRealAccount()):
 			return TRUE;
-		endif;*/
+		endif;
 		
 		$this->load->model(array('settings','users_documents'));
         $documents = array();
@@ -253,14 +254,4 @@ class Clients_interface extends MY_Controller {
 		endif;
 		redirect($this->language.'/cabinet/withdraw');
 	}
-
-    public function verification(){
-
-        $pagevar = array(
-            'title' => $this->localization->getLocalMessage('client_cabinet','profile_title'),
-            'description' => $this->localization->getLocalMessage('client_cabinet','profile_description'),
-            'langs' => $this->languages->getAll(),
-        );
-        $this->load->view("clients_interface/verification",$pagevar);
-    }
 }

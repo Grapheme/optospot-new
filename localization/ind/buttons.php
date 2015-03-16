@@ -42,6 +42,7 @@
 			'fill-acc' => 'Fill balance'
 		),
 		'copyright' => array(
+			'annotation' => '',
 			'copy' => '2012-'.date('Y').' OptoSpot. All Rights Reserved',
 			'development' => 'Developed by <a href="http://grphm.com/" target="_blank">&laquo;Grapheme&raquo;</a>'
 		),
@@ -120,11 +121,12 @@
 			'invest' => 'Invest',
 		),
 		'user_documents' => array(
+            'doc_verification' => 'Personal Cabinet verification',
             'doc_link' => 'Document',
             'doc_date_upload' => 'Upload date',
             'doc_actions' => 'Action',
             'doc_action_upload' => 'Upload new',
-            'documents_checked' => 'Checked',
+            'documents_checked' => 'Waiting',
             'documents_reject' => 'Rejected',
             'documents_approved' => 'Approved',
             'documents_rejected' => 'Click on the status "Rejected" to find out the reason why the document was not adopted',

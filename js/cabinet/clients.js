@@ -5,9 +5,6 @@
 $(function(){
 	var mainOptions = {target: null,beforeSubmit: mt.ajaxBeforeSubmit,success: mt.ajaxSuccessSubmit,dataType:'json',type:'post'};
     $("#ChangeLang").change(function(){mt.redirect(mt.getBaseURL(mt.getLanguageURL()+'/change-site-language/'+$(this).val()));});
-    if($('select[name=payment]').val() == '9' || $('select[name=payment]').val() == '1011350'){
-		$('.expiry-div').show();
-	}
 	if($('select[name=payment]').val() == '9'){
 		$('.expiry-div').show();
 		$('.name-div').show();
@@ -98,6 +95,7 @@ $(function(){
 			$("#deposit_value").val(summa).css({'background' : '#fff'});
 			$("#div_deposit_value").fadeOut('fast',function(){
 				$("form input[name='amount']").val(summa);
+				$("form input[name='PAYMENT_AMOUNT']").val(summa);
 				$("#deposit_system").fadeIn('fast');
 			});
 		}else{
@@ -110,9 +108,17 @@ $(function(){
 		});
 	});
 	$(".submit_deposit_form").click(function(){
-		var _form = document.getElementById($(this).attr('data-form-id'));
-		if($(_form).find('input[name="amount"]').val().trim() > 0){
-			$(_form).submit();
-		}
+        var form_id = $(this).attr('data-form-id');
+		var _form = document.getElementById(form_id);
+        if(form_id == 'form_perfectmoney'){
+            if($(_form).find('input[name="PAYMENT_AMOUNT"]').val().trim() > 0){
+                $(_form).submit();
+            }
+        }else{
+            if($(_form).find('input[name="amount"]').val().trim() > 0){
+                $(_form).submit();
+            }
+        }
+
 	});
 });

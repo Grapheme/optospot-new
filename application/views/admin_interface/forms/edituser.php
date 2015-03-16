@@ -10,7 +10,7 @@
 		<div id="ProductTabContent" class="tab-content">
         <?php
             $ApprovedDocuments = TRUE;
-            if($documentsList = $this->users_documents->getWhere(NULL,array('user_id'=>$this->account['id']),TRUE)):
+            if($documentsList = $this->users_documents->getWhere(NULL,array('user_id'=>$account['id']),TRUE)):
                 foreach($documentsList as $document):
                     if ($document['approved'] != 1):
                         $ApprovedDocuments = FALSE;

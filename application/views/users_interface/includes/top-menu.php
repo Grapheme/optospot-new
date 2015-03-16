@@ -10,7 +10,7 @@
 							<a href="<?=$main_menu[$i]['url'];?>?acc=demo"><?=$this->localization->getLocalButton('signup','demo_account')?></a>
 						</div>
 
-				<? } elseif($main_menu[$i]['url'] == 'faq') { ?>
+				<? } elseif(mb_strtolower($main_menu[$i]['url']) == 'faq') { ?>
 					
 				<? } else { ?>
 					<li><?=anchor($main_menu[$i]['url'],$main_menu[$i]['link'],'class="top-link"');?></li>

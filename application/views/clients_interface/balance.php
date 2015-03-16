@@ -54,10 +54,25 @@
 								<td width="150px">&nbsp;</td>
 								<td>
 									<form id="form_<?=$system;?>" method="post" action="<?=@$account['deposit'];?>">
-										<input type="hidden" name="amount" value="50" />
-										<input type="hidden" name="account" value="<?= @$account['accountId']; ?>" />
+                                    <?php if($system != 'perfectmoney'): ?>
+                                        <input type="hidden" name="amount" value="50" />
+                                        <input type="hidden" name="account" value="<?= @$account['accountId']; ?>" />
 										<input type="hidden" name="success" value="<?=site_url(USER_START_PAGE.'?status=success')?>" />
 										<input type="hidden" name="cancel" value="<?=site_url(USER_START_PAGE.'?status=failure')?>" />
+                                    <?php else: ?>
+                                        <input type="hidden" name="PAYEE_ACCOUNT" value="U7342695">
+                                        <input type="hidden" name="PAYEE_NAME" value="OptoSpot">
+                                        <input type='hidden' name='PAYMENT_ID' value='<?=$payment_id;?>'>
+                                        <input type="hidden" name="PAYMENT_AMOUNT" value="50">
+                                        <input type="hidden" name="PAYMENT_UNITS" value="USD">
+                                        <input type="hidden" name="STATUS_URL" value="<?=site_url('perfectmoney/checked');?>">
+                                        <input type="hidden" name="PAYMENT_URL" value="<?=site_url(USER_START_PAGE.'?status=success')?>">
+                                        <input type="hidden" name="PAYMENT_URL_METHOD" value="POST">
+                                        <input type="hidden" name="NOPAYMENT_URL" value="<?=site_url(USER_START_PAGE.'?status=failure')?>">
+                                        <input type="hidden" name="NOPAYMENT_URL_METHOD" value="POST">
+                                        <input type="hidden" name="SUGGESTED_MEMO" value="">
+                                        <input type="hidden" name="BAGGAGE_FIELDS" value="IDENT"><br>
+                                    <?php endif; ?>
 										<button id="submit_<?=$system;?>" type="submit">Submit</button>
 									</form>
 								</td>
