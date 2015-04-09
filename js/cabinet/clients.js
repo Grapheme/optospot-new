@@ -5,29 +5,50 @@
 $(function(){
 	var mainOptions = {target: null,beforeSubmit: mt.ajaxBeforeSubmit,success: mt.ajaxSuccessSubmit,dataType:'json',type:'post'};
     $("#ChangeLang").change(function(){mt.redirect(mt.getBaseURL(mt.getLanguageURL()+'/change-site-language/'+$(this).val()));});
-	if($('select[name=payment]').val() == '9'){
-		$('.expiry-div').show();
-		$('.name-div').show();
-	}
-	$('select[name=payment]').change(function(){
-		if($('select[name=payment]').val() == '1011350'){
-			$('.expiry-div').fadeIn();
-			$('.name-div').fadeOut();
-		} else if($('select[name=payment]').val() == 9) {
-            $("input[name='account']").removeClass('qiwi-account').addClass('card-account').val('').focus();
-            $("input[name='account']").attr('placeholder',$("input[name='account']").attr('data-card'));
-			$('.name-div').fadeIn();
-			$('.expiry-div').fadeIn();
-		} else if($('select[name=payment]').val() == 28) {
-            $("input[name='account']").removeClass('card-account').addClass('qiwi-account').val('').focus();
-            $("input[name='account']").attr('placeholder',$("input[name='account']").attr('data-qiwi'));
-			$('.expiry-div').fadeOut();
-			$('.name-div').fadeOut();
-		} else {
-            $('.expiry-div').fadeOut();
-            $('.name-div').fadeOut();
+
+    $("#select-pay-system").change(function(){
+        var paymentID = $(this).val();
+        $("form.form-withdraw").clearForm();
+        $(this).val(paymentID);
+        $(".withdraw-input").addClass('hidden').each(function(index){
+            if($(this).data('paysystem-id') == paymentID)
+                $(this).removeClass('hidden');
+        });
+    });
+
+    $("button.btn-withdrawal").click(function(){
+        var _this = this;
+        var options = mainOptions;
+        var thisDefaultTextValue = $(this).html();
+        $(this).html(Localize[mt.currentLenguage]['wait']).attr('disabled','disabled');
+        options.beforeSubmit = function(formData,jqForm,options){
+            $.each(formData,function(index,value){
+                if(value['value'] == '')
+                    delete formData[index];
+            });
+            if(mt.validation(jqForm) === false){
+                $(_this).html(thisDefaultTextValue).removeAttr('disabled');
+                return false;
+            }else{
+                return true;
+            }
+        },
+        options.success = function(response,status,xhr,jqForm){
+            mt.ajaxSuccessSubmit(response,status,xhr,jqForm);
+            if(response.status){
+                $(jqForm).find('input[type="text"]').val('');
+                $(_this).html(thisDefaultTextValue).removeAttr('disabled');
+                alert(response.responseText);
+            }else{
+                $(_this).html(thisDefaultTextValue).removeAttr('disabled');
+                alert(response.responseText);
+            }
         }
-	});
+        $("form.form-withdraw").ajaxSubmit(options);
+        return false;
+    });
+
+
 	$("button.btn-account-create").click(function(){
 		var _this = this;
 		var options = mainOptions;
@@ -59,33 +80,6 @@ $(function(){
 		if(mt.validation(_form) === false){
 			event.preventDefault();
 		}
-	});
-	$("button.btn-withdrawal").click(function(){
-		var _this = this;
-		var options = mainOptions;
-		var thisDefaultTextValue = $(this).html();
-		$(this).html(Localize[mt.currentLenguage]['wait']);
-		options.beforeSubmit = function(formData,jqForm,options){
-			if(mt.validation(jqForm) === false){
-				$(_this).html(thisDefaultTextValue);
-				return false;
-			}else{
-				return true;
-			}
-		},
-		options.success = function(response,status,xhr,jqForm){
-			mt.ajaxSuccessSubmit(response,status,xhr,jqForm);
-			if(response.status){
-				$(jqForm).resetForm();
-				$(_this).html(thisDefaultTextValue);
-				alert(response.responseText);
-			}else{
-				$(_this).html(thisDefaultTextValue);
-				alert(response.responseText);
-			}
-		}
-		$("form.form-withdraw").ajaxSubmit(options);
-		return false;
 	});
 	$("#msgeclose").click(function(){$("#msgdealert").fadeOut(1000,function(){$(this).remove();});});
 	$("#msgsclose").click(function(){$("#msgdsalert").fadeOut(1000,function(){$(this).remove();});});

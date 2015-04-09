@@ -35,6 +35,7 @@ $route['admin-panel/actions/settings'] = "admin_interface/settings";
 $route['admin-panel/actions/profile'] = "admin_interface/actions_profile";
 $route['redactor/upload'] = "admin_interface/redactorUploadImage";
 $route['admin-panel/withdraw'] = "admin_interface/withdraw";
+$route['admin-panel/withdraw-astropay-request'] = "admin_interface/withdrawAstropayRequest";
 
 $route['admin-panel/documents'] = "admin_interface/documents";
 $route['admin-panel/documents/approve/:num'] = "admin_interface/approveDocuments";

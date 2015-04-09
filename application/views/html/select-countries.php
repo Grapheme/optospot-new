@@ -214,7 +214,7 @@
 	<option title="+380" value="Ukraine">Ukraine</option>
 	<option title="+971" value="United Arab Emirates">United Arab Emirates</option>
 	<option title="+44" value="United Kingdom">United Kingdom</option>
-	<option <?=($this->uri->segment(1)==ENGLAN)?'selected="selected"':''?> title="+1" value="United States">United States</option>
+	<!--<option <?=($this->uri->segment(1)==ENGLAN)?'selected="selected"':''?> title="+1" value="United States">United States</option>-->
 	<option title="+598" value="Uruguay">Uruguay</option>
 	<option title="+1340" value="US Virgin Islands">US Virgin Islands</option>
 	<option title="+998" value="Uzbekistan">Uzbekistan</option>

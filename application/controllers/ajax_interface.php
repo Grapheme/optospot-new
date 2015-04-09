@@ -226,15 +226,15 @@ class Ajax_interface extends MY_Controller {
 	}
 	
 	public function withdrawRequest($registerData = FALSE){
-		
+
 		if(!$this->input->is_ajax_request()):
 			show_error('В доступе отказано');
 		endif;
 		$json_request = array('status'=>FALSE,'responseText'=>'','redirect'=>site_url());
 		if($this->postDataValidation('user_withdraw') == TRUE):
 			$mailtext = $this->load->view('mails/withdraw',array('post'=>$this->input->post()),TRUE);
-			$this->sendMail('support@optospot.net','support@optospot.net','Optospot trading platform','Withdrawal Optospot.net',$mailtext);
-			#$this->sendMail('vkharseev@gmail.com','support@optospot.net','Optospot trading platform','Withdrawal Optospot.net',$mailtext);
+			#$this->sendMail('support@optospot.net','support@optospot.net','Optospot trading platform','Withdrawal Optospot.net',$mailtext);
+			$this->sendMail('vkharseev@gmail.com','support@optospot.net','Optospot trading platform','Withdrawal Optospot.net',$mailtext);
 			$json_request['status'] = TRUE;
 			$json_request['redirect'] = FALSE;
 			$json_request['responseText'] = $this->localization->getLocalMessage('withdraw','success');

@@ -58,4 +58,189 @@ $config['withdraw_secret'] = 'ypKMQTM7dgHDu4bL';
 $config['withdraw_url'] = 'http://gsg.dengionline.com/api';
 $config['withdraw_page'] = '/api';
 $config['withdraw_phone'] = '9015115115';
-$config['withdraw_currency'] = '840';
+$config['withdraw_currency'] = '643';
+$config['withdraw_currency_title'] = 'Russian Ruble';
+$config['withdraw_paysystems'] = array(2,9,19,22,23,33);
+$config['withdraw_currencies'] = array('643' => 'Russian Ruble','978' => 'Euro','840' => 'US Dollar');
+
+$Localization = new Localization();
+$config['withdraw_clients'] = array(
+    '2' => array(
+        'title' => 'QIWI-кошелек',
+        'visible' => TRUE,
+        'account' => 'phone',
+        'inputs' => array(
+            'phone' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'account_number_qiwi'),
+                'class' => 'valid-required phone-account'
+            )
+        )
+    ),
+    '9' => array(
+        'title' => 'VISA/MasterCard',
+        'visible' => TRUE,
+        'account' => 'card-number',
+        'inputs' => array(
+            'card-number' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'card_number'),
+                'class' => 'valid-required card-account'
+            ),
+            'name' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'holder_name'),
+                'class' => 'valid-required card-name'
+            ),
+            'expiry' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'expiry_date'),
+                'class' => 'valid-required card-expiry-date'
+            )
+        ),
+    ),
+    '33' => array(
+        'title' => 'Яндекс.Деньги',
+        'visible' => TRUE,
+        'account' => 'yandex-number',
+        'inputs' => array(
+            'yandex-number' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'account_number'),
+                'class' => 'valid-required'
+            )
+        )
+    ),
+    '19' => array(
+        'title' => 'WebMoney',
+        'visible' => TRUE,
+        'account' => 'rebmoney-number',
+        'inputs' => array(
+            'rebmoney-number' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'account_number'),
+                'class' => 'valid-required'
+            )
+        )
+    ),
+    '101' => array(
+        'title' => 'BitCoin',
+        'visible' => FALSE,
+        'account' => 'bitcoin-number',
+        'inputs' => array(
+            'bitcoin-number' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'account_number'),
+                'class' => 'valid-required'
+            )
+        )
+    ),
+    '103' => array(
+        'title' => 'LiteCoin',
+        'visible' => FALSE,
+        'account' => 'litecoin-number',
+        'inputs' => array(
+            'litecoin-number' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'account_number'),
+                'class' => 'valid-required'
+            )
+        )
+    ),
+    '104' => array(
+        'title' => 'DogeCoin',
+        'visible' => FALSE,
+        'account' => 'dogecoin-number',
+        'inputs' => array(
+            'dogecoin-number' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'account_number'),
+                'class' => 'valid-required'
+            )
+        )
+    ),
+    '105' => array(
+        'title' => 'W1',
+        'visible' => TRUE,
+        'account' => 'w1-number',
+        'inputs' => array(
+            'w1-number' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'account_number'),
+                'class' => 'valid-required'
+            )
+        )
+    ),
+    '106' => array(
+        'title' => 'EgoPay',
+        'visible' => TRUE,
+        'account' => 'egopay-number',
+        'inputs' => array(
+            'egopay-number' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'account_number'),
+                'class' => 'valid-required'
+            )
+        )
+    ),
+    '107' => array(
+        'title' => 'Payza',
+        'visible' => FALSE,
+        'account' => 'payza-number',
+        'inputs' => array(
+            'payza-number' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'account_number'),
+                'class' => 'valid-required'
+            )
+        )
+    ),
+    '108' => array(
+        'title' => 'OOOPay',
+        'visible' => TRUE,
+        'account' => 'ooopay-number',
+        'inputs' => array(
+            'ooopay-number' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'account_number'),
+                'class' => 'valid-required'
+            )
+        )
+    ),
+    '109' => array(
+        'title' => 'RBK Money',
+        'visible' => TRUE,
+        'account' => 'rbk-number',
+        'inputs' => array(
+            'rbk-number' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'account_number'),
+                'class' => 'valid-required'
+            )
+        )
+    ),
+    '110' => array(
+        'title' => 'AstroPay',
+        'visible' => TRUE,
+        'account' => FALSE,
+        'inputs' => array(
+            'cpf' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'astropay_account_number'),
+                'class' => 'valid-required'
+            ),
+            'bank' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'astropay_bank_number'),
+                'class' => 'valid-required'
+            ),
+            'bank_branch' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'astropay_bank_branch'),
+                'class' => 'valid-required'
+            ),
+            'bank_account' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'astropay_bank_account'),
+                'class' => 'valid-required'
+            ),
+            'account_type' => array(
+                'placeholder' => $Localization->getLocalButton('withdraw', 'astropay_account_type'),
+                'class' => 'valid-required astropay-account-type'
+            )
+        )
+    )
+);
+
+
+/*/
+/* ASTROPAY
+/*/
+
+$config['astropay_base_url'] = 'https://astropaycard.com/api_curl/cashout_api/';
+
+$config['astropay_x_login'] = 'OptoSpot';
+$config['astropay_x_trans_key'] = '0p705p07';
+$config['astropay_secret_key'] = 'pf2o3gn4m4v4e89vfa';

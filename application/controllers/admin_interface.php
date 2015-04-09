@@ -17,7 +17,28 @@ class Admin_interface extends MY_Controller{
             redirect('admin-panel/actions/pages');
         endif;
 	}
-	
+
+    /******************************************* WITHDRAWAL ******************************************************/
+    public function withdraw(){
+
+        $this->load->helper('form');
+        $this->load->config('withdraw');
+
+        $this->session->set_userdata('backpath',current_url());
+        $this->load->view("admin_interface/withdraw");
+    }
+
+    public function withdrawAstropayRequest(){
+
+        $this->load->config('withdraw');
+        $post_data = $this->input->post();
+
+        $message = $this->input->post('external_id').'I'.$this->input->post('cpf').'L'.$this->input->post('country').'2'.$this->input->post('amount').'8'.$this->input->post('bank').'C'.$this->input->post('bank_branch').'O'.$this->input->post('bank_account');
+        $post_data['control'] = strtoupper(hash_hmac('sha256',pack('A*',$message),pack('A*',$this->config->item('astropay_secret_key'))));
+        $this->load->view("admin_interface/withdraw/astropay_request",compact('post_data'));
+    }
+    /**************************************************************************************************************/
+
 	public function settings(){
 
 		if($this->input->post('submit') !== FALSE):
@@ -53,29 +74,7 @@ class Admin_interface extends MY_Controller{
 		$this->session->set_userdata('backpath',base_url(uri_string()));
 		$this->load->view("admin_interface/settings",$pagevar);
 	}
-	
-	public function withdraw(){
-		
-		if($this->input->post('submit') !== FALSE):
-			unset($_POST['submit']);
-			if($this->postDataValidation('withdraw') === TRUE):
-				$this->session->set_userdata('msgr','Technical error on Dengi.Online service. Try later or send request to support team.');
-			else:
-				$this->session->set_userdata('msgr','Technical error on Dengi.Online service. Try later or send request to support team.');
-			endif;
-		endif;
-		$pagevar = array(
-			'form_legend' => 'Withdraw',
-			'msgs' => $this->session->userdata('msgs'),
-			'msgr' => $this->session->userdata('msgr')
-		);
-		$this->session->unset_userdata('msgs');
-		$this->session->unset_userdata('msgr');
-		$this->load->helper('form');
-		$this->session->set_userdata('backpath',base_url(uri_string()));
-		$this->load->view("admin_interface/withdraw",$pagevar);
-	}
-	
+
 	public function registered(){
 		
 		$pagevar = array(

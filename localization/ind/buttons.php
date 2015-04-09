@@ -70,9 +70,16 @@
 			'submit_withdraw' => 'Send request',
 			'payment' => 'Choose payment',
 			'holder_name' => 'Name',
-			'account_number' => 'Specify the card number to withdraw money',
+            'card_number' => 'Specify the card number to withdraw money',
+			'account_number' => 'Specify the account to withdraw money',
             'account_number_qiwi' => 'Specify the phone number to withdraw money',
 			'expiry_date' => 'Expiry date',
+
+            'astropay_account_number' => 'Personal identification number:',
+            'astropay_bank_number' => 'Bank Name',
+            'astropay_bank_branch' => 'The branch of the bank',
+            'astropay_bank_account' => 'Bank account',
+            'astropay_account_type' => 'The type of account (C:Current/S:Savings)'
 		),
 		'client_sidebar' => array(
 			'navigation' => 'Navigation',

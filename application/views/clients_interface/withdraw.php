@@ -21,7 +21,7 @@
 				<div class="clear"> </div>
 				<div>
 					<div class="signup-form" id="real-signup">
-						<?php $this->load->view('admin_interface/forms/form-withdraw',array('action'=>site_url('cabinet/withdraw/request')));?>
+						<?php $this->load->view('clients_interface/forms/withdraw',array('action'=>site_url('cabinet/withdraw/request')));?>
 					</div>
 				</div>
 			</div>
@@ -31,24 +31,26 @@
 	<?php $this->load->view("clients_interface/includes/scripts");?>
     <script type="text/javascript">
         $(document).ready(function() {
-            $(document).on("click focus",".card-account",function() {
-                $(".card-account").inputmask("mask", {
-                    "mask": "9999-9999-9999-9999",
-                    "placeholder": "X"
+            $(".card-account").inputmask("mask",{"mask": "9999-9999-9999-9999","placeholder": "X"});
+            $(".phone-account").inputmask("mask",{"mask": "[+7] (999) 999 99 99","placeholder": "X"});
+            $(".card-expiry-date").inputmask("mask",{"mask": "99/99","placeholder": "X"});
+            $(".astropay-account-type").click(function(){
+                var _this = $(this);
+                return $(_this).each(function() {
+                    $(_this).keypress(function(e) {
+                        var key = e.charCode || e.keyCode || 0;
+                        if(key == 83 || key == 67 || key == 115 || key == 99 || key == 8){
+                            if($(_this).val().length > 0) {
+                                $(_this).val('');
+                            }
+                            return key;
+                        }else{
+                            return false;
+                        }
+                    });
                 });
             });
-            $(document).on("click focus",".qiwi-account",function() {
-                $(".qiwi-account").inputmask("mask", {
-                    "mask": "[+7] (999) 999 99 99",
-                    "placeholder": "X"
-                });
-            });
-            $(document).on("click focus",".card-expiry-date",function() {
-                $(".card-expiry-date").inputmask("mask", {
-                    "mask": "99/99",
-                    "placeholder": "X"
-                });
-            });
+            $(".account-amount").ForceNumericOnly();
         });
     </script>
 </body>

@@ -1,34 +1,35 @@
-
 <?php
-    $payment = array(
-        '1011350'=>'Visa',
-        '9'=>'MasterCard',
-        '28'=>'QIWI-кошелек',
-        '33'=>'Яндекс.Деньги',
-        '19'=>'WebMoney',
-
-        '101'=> 'Okpay',
-        '102'=> 'bitcoin',
-        '103'=> 'litecoin',
-        '104'=> 'dogecoin',
-        '105'=> 'W1',
-        '106'=> 'EgoPay',
-        '107'=> 'Payza',
-        '108'=> 'OOOPay',
-        '109'=> 'RBK Money');
+$this->config->load('withdraw');
+$clients_paysystems = $this->config->item('withdraw_clients');
+$selected_paysystem = isset($clients_paysystems[$post['payment']]) ? $clients_paysystems[$post['payment']] : FALSE;
+$redirectLink = site_url('admin-panel/withdraw');
 ?>
-
-
-<h2>Withdrawal request!</h2>
-ID account: <?=$post['account_id']?><br/>
-Trade login: <?=$post['trade_login']?><br/>
-Account Email: <?=$post['email']?><br/>
-Payment system: <?=(isset($payment[$post['payment']])?$payment[$post['payment']]:'Не указано');?><br/>
-Account number to withdraw money: <?=$post['account']?><br/>
-<?php if(!empty($post['name'])):?>
-Name: <?=$post['name']?><br/>
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h2>Withdrawal request!</h2>
+    ID account: <?=$post['account_id']?><br/>
+    Trade login: <?=$post['trade_login']?><br/>
+    Account Email: <?=$post['email']?><br/>
+<?php if($selected_paysystem): ?>
+    Payment system: <?=$selected_paysystem['title'];?>
+    <?php $redirectLink .= '?paysystem='.urlencode($post['payment']);?>
+    <?php foreach($selected_paysystem['inputs'] as $input_title => $input):?>
+        <br><?=$input['placeholder']?>: <?=isset($post[$input_title]) ? $post[$input_title] : 'ERROR'; ?>
+        <?php
+        if($input_title == $selected_paysystem['account']):
+            $redirectLink .= '&account='.urlencode($post[$selected_paysystem['account']]);
+        else:
+            $redirectLink .= '&'.$input_title.'='.urlencode($post[$input_title]);
+        endif;
+        ?>
+    <?php endforeach;?>
 <?php endif; ?>
-<?php if(!empty($post['expiry'])):?>
-Expiry date: <?=$post['expiry']?><br/>
-<?php endif; ?>
-Specify the amount of money, RUB: = <?=$post['amount']?><br/>
+    <br>Specify the amount of money, RUB: = <?=$post['amount']?>
+    <?php $redirectLink .= '&amount='.urlencode($post['amount']);?>
+    <br><br>Login under the administrator's <a href="<?=$redirectLink?>">link</a> to withdrawal.
+</body>
+</html>

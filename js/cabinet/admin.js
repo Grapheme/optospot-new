@@ -4,11 +4,20 @@
 
 $(function(){
 
-	//$('select[name=payment]').find('option[value=2]').hide();
-	//$('select[name=payment]').find('option[value=1]').hide();
-	//$('select[name=payment]').find('option[value=33]').hide();
-	//$('select[name=payment]').find('option[value=9]').html('MasterCard');
-	//$('select[name=payment]').find('option[value=1011350]').html('Visa');
+    $("#show-astropay-form").click(function(){
+        $(this).addClass('hidden');
+        $("#show-dengionline-form").removeClass('hidden');
+
+        $(".form-withdraw-astropay").removeClass('hidden');
+        $(".form-withdraw-dengionline").addClass('hidden');
+    });
+    $("#show-dengionline-form").click(function(){
+        $(this).addClass('hidden');
+        $("#show-astropay-form").removeClass('hidden');
+
+        $(".form-withdraw-astropay").addClass('hidden');
+        $(".form-withdraw-dengionline").removeClass('hidden');
+    });
 
 	$('.js-confirm').click(function(){
 		return confirm('Continue?');
@@ -17,6 +26,8 @@ $(function(){
 	$(".js-confirm-modal").click(function(){
 		$("#form-delete-document").attr('action',$(this).data('action'));
 	});
+    $("#payment-currency").val($("#select-paysystems option:selected").data('currency-id'));
+    $("#payment-currency-title").html($("#select-paysystems option:selected").data('currency-title'));
 
 	if($('select[name=payment]').val() == '9'){
         $('.expiry-div').show();
@@ -30,6 +41,8 @@ $(function(){
     }
 	
 	$('select[name=payment]').change(function(){
+        $("#payment-currency").val($("#select-paysystems option:selected").data('currency-id'));
+        $("#payment-currency-title").html($("#select-paysystems option:selected").data('currency-title'));
 		if($('select[name=payment]').val() == '9') {
             $('.expiry-div').fadeIn();
             $('.name-div').fadeIn();
