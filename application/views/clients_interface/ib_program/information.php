@@ -17,7 +17,7 @@
                 <?=$this->localization->getLocalMessage('partner-program','annotation')?>
             </p>
             <p>
-                <a href="<?=site_url('').'?pp='.$this->profile['remote_id'];?>"><?=site_url('').'?pp='.$this->profile['remote_id'];?></a>
+                <a href="<?=site_url('').'?pp='.$this->profile['id'];?>"><?=site_url('').'?pp='.$this->profile['id'];?></a>
             </p>
             <p>
                 <?=$this->localization->getLocalMessage('partner-program','invite_annotation')?>
